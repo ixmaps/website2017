@@ -18,7 +18,7 @@
                         <li class="nav-item nav-item-faqs"><a href="/learn/faqs.php">FAQ</a></li>
                         <li class="nav-item nav-item-glossary"><a href="/learn/glossary.php">Glossary</a></li>
                         <li class="nav-item nav-item-resources"><a href="/learn/resources.php">Resources</a></li>
-                        <li class="nav-item nav-item-supportinglinks"><a href="/learn/supportinglinks.php">Supporting Link</a></li>
+                        <li class="nav-item nav-item-supportinglinks"><a href="/learn/supportinglinks.php">Supporting Links</a></li>
                     </ul>
                 </div>
             </li>
