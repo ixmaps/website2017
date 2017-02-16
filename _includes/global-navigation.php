@@ -1,5 +1,4 @@
 <header class="site-header">
-
     <a href="#main" class="skip-content button button--small u-outline u-outline--focusable">Go to the content</a>
 
     <div class="site-logo">
@@ -26,5 +25,4 @@
             <li class="nav-item nav-item-transparency"><a href="/transparency/2014-report.php">Transparency</a></li>
         </ul>
     </nav>
-
 </header>

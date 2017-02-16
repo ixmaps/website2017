@@ -39,7 +39,7 @@
         <div class="layers-toggle">
             <button class="ui toggle button">
                 <i class="ui image left floated">
-                    <img src="/_assets/img/icn-layers.svg" alt="delete">
+                    <img src="/_assets/img/icn-layers.svg" alt="delete" />
                 </i>
                 1 Layers
             </button>
