@@ -37,7 +37,7 @@
                     <li><a href="#metadata">Metadata</a></li>
                     <li><a href="#nsa">National Surviellance Agency</a></li>
                     <li><a href="#nsa_interception_facilities">NSA Interception Facilities</a></li>
-                    <li><a href="#network">Network Sovereignty</a></li>
+                    <li><a href="#network_sovereignty">Network Sovereignty</a></li>
                     <li><a href="#packet">Packet</a></li>
                     <li><a href="#prism">Prism Surveillance Program</a></li>
                     <li><a href="#router">Router</a></li>
@@ -94,7 +94,7 @@
                 <dt id="nsa_interception_facilities">NSA interception facilities </dt>
                 <dd>As part of its Upstream programs, the NSA has installed interception facilities in major internet exchanges across the U.S. as well as around the world. Technically, these consist of signal “splitters” spliced into fibre optic cables which replicate all traffic passing through the cable. This mirrored data is sent to deep packet inspection computers that examine the data and selectively route it back to NSA data centres for further analysis and storage. Where access to internet exchanges is not feasible, the NSA can intercept traffic along the cables connecting internet exchanges, even transoceanic submarine cables. Reference:  Klein, 2009, p.98; Bamford, 2008. See FAQs: What is NSA mass surveillance? How do we know where the NSA can intercept my data?</dd>
 
-                <dt id="network sovereignty">Network sovereignty</dt>
+                <dt id="network_sovereignty">Network sovereignty</dt>
                 <dd>Network sovereignty is the concept of national sovereignty applied to communications and other networks. It draws directly from the longstanding recognition that nation states have the right and duty to exercise superordinate control within their borders over all matters pertaining to the public good and to negotiate with other states on the basis of equality. In the internet context, it refers to the ability of a nation to exercise effective control over its own critical internet infrastructure. While it can serve a wide variety of national aims, when consistent with international human rights law and the integrity of the internet as a unified open global communication medium, network sovereignty can contribute to protecting privacy, promoting more efficient routing and producing economic benefits. Reference: Clement, 2017. For more, see network sovereignty</dd>
 
                 <dt id="packet">Packet (or Data Packet)</dt>
