@@ -117,14 +117,14 @@
                 <h2>Which ISPs can access your data and how privacy transparent are they?</h2>
             </header>
 
-            <p>The internet service providers (ISP) we pay to obtain internet access are not the only telecommunications carriers that transport our data to its destination. Operating largely behind the scenes, it is not uncommon for four or more carriers to be involved, each passing our data onto the next until it arrives at its destination. Each of these carriers has access to your personal information, not just who you contacted, when, where, etc. but also the content of your communications. This means they have legal responsibilities for protecting your privacy. The better ones will go beyond the minimum legal privacy requirements and want to tell you how. But who precisely are these carriers, and how transparent are they protecting personal privacy? </p>
-            <p>To answer this, we assessed the privacy  transparency of the leading 43 ISPs serving Canadians.based on 10 criteria. While a few scored well, with the highest receiving 6 stars out of 10 possible, most performed poorly. You can read our results in  the “Keeping Internet Users in the Know or in the Dark” report.</p>
+            <p>The <a href="/learn/glossary.php#isp">internet service providers (ISP)</a> we pay to obtain internet access are not the only telecommunications carriers that transport our data to its destination. Operating largely behind the scenes, it is not uncommon for four or more carriers to be involved, each passing our data onto the next until it arrives at its destination. Each of these carriers has access to your personal information, not just who you contacted, when, where, etc. but also the content of your communications. This means they have legal responsibilities for protecting your privacy. The better ones will go beyond the minimum legal privacy requirements and want to tell you how. But who precisely are these carriers, and how transparent are they protecting personal privacy? </p>
+            <p>To answer this, we assessed the privacy  transparency of the leading 43 ISPs serving Canadians.based on 10 criteria. While a few scored well, with the highest receiving 6 stars out of 10 possible, most performed poorly. You can read our results in the "<a href="transparency/2014-report.php">Keeping Internet Users in the Know or in the Dark</a>."</p>
 
             <div class="ui inverted segment">
                 <div class="ui inverted accordion">
                     <div class="title">
                         <i class="dropdown icon"></i>
-                        <strong>How to Use Ixmaps</strong>  to map data travel
+                        <strong>How to Use Ixmaps</strong> to map data travel
                     </div>
 
                     <div class="content">
