@@ -30,7 +30,7 @@
 <section class="faq">
     <div class="content">
         <section class="faq-block">
-            <h2>Where on earth does your personal data travel?</h2>
+            <h2 id="faq-issue-one">Where on earth does your personal data travel?</h2>
             <div class="ui styled fluid accordion">
                 <div class="title">
                     Where are the main internet exchanges in North America?
@@ -90,7 +90,7 @@
 <section class="faq">
     <div class="content">
         <section class="faq-block">
-            <h2>NSA Surveillance</h2>
+            <h2 id="faq-issue-two">NSA Surveillance</h2>
 
             <div class="ui styled fluid accordion">
                 <div class="title">
@@ -157,7 +157,7 @@
 <section class="faq">
     <div class="content">
         <section class="faq-block">
-            <h2>Boomerang Routing and Canadian Network Sovereignty</h2>
+            <h2  id="faq-issue-three">Boomerang Routing and Canadian Network Sovereignty</h2>
 
             <div class="ui styled fluid accordion">
                 <div class="title">
@@ -211,7 +211,7 @@
 <section class="faq">
     <div class="content">
         <section class="faq-block">
-            <h2>ISPs and their Privacy Transparency</h2>
+            <h2 id="faq-issue-four">ISPs and their Privacy Transparency</h2>
             <div class="ui styled fluid accordion">
                 <div class="title">
                     What personal information does my ISP have about me?
