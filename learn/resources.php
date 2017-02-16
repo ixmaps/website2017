@@ -53,15 +53,7 @@
     </article>
 </div>
 
-
-
 <?php include '../_includes/global-footer.php'; ?>
-
-<script>
-$('.ui.accordion')
-  .accordion()
-;
-</script>
 
 </body>
 </html>

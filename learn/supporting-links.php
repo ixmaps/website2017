@@ -6,7 +6,7 @@
     <?php include '../_includes/global-head.php'; ?>
 </head>
 
-<body id="supportinglinks-page">
+<body id="supporting-links-page">
 <?php include '../_includes/global-navigation.php'; ?>
 
 <header class="hero">
@@ -119,15 +119,7 @@
     </article>
 </div>
 
-
-
 <?php include '../_includes/global-footer.php'; ?>
-
-<script>
-    $('.ui.accordion')
-      .accordion()
-    ;
-</script>
 
 </body>
 </html>

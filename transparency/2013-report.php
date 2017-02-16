@@ -232,19 +232,6 @@
 
 <script src="/_assets/js/smooth-scroll.js"></script>
 
-<script>
-  $(document).ready(function(){
-    $(".st-thumbnail").on("click", function() {
-      var $this = $(this),
-          $target = $($this.attr("href"));
-
-      $(".st").not($target).removeClass("active");
-      $target.addClass("active");
-      return false;
-    });
-  });
-</script>
-
 <script type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-24555700-1']);
@@ -257,15 +244,6 @@
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
-</script>
-
-<script language="JavaScript" type="text/javascript">
-  //--------------- LOCALIZEABLE GLOBALS ---------------
-  var d=new Date();
-  var monthname=new Array("January","February","March","April","May","June","July","August","September","October","November","December");
-  //Ensure correct for language. English is "January 1, 2004"
-  var TODAY = monthname[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
-  //--------------- END LOCALIZEABLE ---------------
 </script>
 
 <script>

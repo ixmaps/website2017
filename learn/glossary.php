@@ -123,8 +123,7 @@
 $('.ui.sticky')
   .sticky({
     context: '#glossary-entries'
-  })
-;
+  });
 </script>
 
 </body>
