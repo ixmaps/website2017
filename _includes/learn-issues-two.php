@@ -20,6 +20,6 @@
     <li><a href="/learn/faq.php#faq-issue-two">What can the NSA do with my data?</a></li>
     <li><a href="/learn/faq.php#faq-issue-two">What are the problems with mass state surveillance?</a></li>
     <li><a href="/learn/faq.php#faq-issue-two">What can I do to keep my personal information from being captured by the NSA and other foreign state security and intelligence agencies?</a></li>
-    <li><a href="/learn/faq.php#faq-issue-two">What about Canadian state security and intelligence agencies, such as CSE and CSIS? Aren’t they just as much a </a></li>
+    <li><a href="/learn/faq.php#faq-issue-two">What about Canadian state security and intelligence agencies, such as CSE and CSIS? Aren’t they just as much a problem?</a></li>
     <li><a href="/learn/faq.php#faq-issue-two">What can I do to help make Canadian security agencies more democratically accountable?</a></li>
 </ol>
