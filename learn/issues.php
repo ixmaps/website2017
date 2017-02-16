@@ -28,7 +28,6 @@
     </article>
 </div>
 
-
 <section class="issue-section">
     <div class="content">
         <article id="issue-one">
@@ -37,7 +36,7 @@
                 <h2>Where on earth does <br />your personal data travel?</h2>
             </header>
 
-            <p>Whenever you visit a website, send an email, use a social media app, etc. ...your data moves across the internet in a series of "hops," starting from your device and then passed from one router to the next until it reaches its destination. The routers along the way belong to a variety of carriers and are housed in internet exchanges. This sequence of routers and hops is called a traceroute. We map these traceroutes as lines (hops) joining successive dots (routers), based on our estimate of the physical location of these routers. You may be surprised by how far your data travels before arriving at its destination, and who gets to access it along the way.</p>
+            <p>Whenever you visit a website, send an email, use a social media app, etc. ...your data moves across the internet in a series of "<a href="/learn/glossary.php#hop">hops</a>," starting from your device and then passed from one <a href="/learn/glossary.php#router">router</a> to the next until it reaches its destination. The routers along the way belong to a variety of <a href="/learn/glossary.php#isp">carriers</a> and are housed in <a href="/learn/glossary.php#internet_exchange">internet exchanges</a>. This sequence of routers and hops is called a <a href="/learn/glossary.php#traceroute">traceroute</a>. We map these traceroutes as lines (hops) joining successive dots (routers), based on our estimate of the physical location of these routers. You may be surprised by how far your data travels before arriving at its destination, and who gets to access it along the way.</p>
 
             <div class="ui inverted segment">
                 <div class="ui inverted accordion">
