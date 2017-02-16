@@ -90,13 +90,13 @@
                 <h2>What is boomerang routing, and what does it mean for Canadian network sovereignty?</h2>
             </header>
 
-            <p>A surprising amount of domestic communications between Canadians and internet sites within Canada travels via the U.S. We call this type of internet traffic "boomerang routing." Over 25% of the intra-Canadian routes in the IXmaps database follow a boomerang path, subjecting them to NSA surveillance. This can happen with internet traffic of other countries too. These communications lose legal and constitutional protection when they leave their home country. At the same time, they are exposed to foreign surveillance and jurisdiction. This common occurrence challenges privacy and threatens “network sovereignty,” understood as national sovereignty in the internet context. Sometimes termed cyber-sovereignty, this term refers to the ability of a nation-state, or other geographically defined political governance entity, to exercise effective control over critical internet infrastructure within its jurisdictional region. Pursued within a human rights framework, network sovereignty can help protect privacy, as well as achieve routing efficiencies and economic benefits. </p>
+            <p>A surprising amount of domestic communications between Canadians and internet sites within Canada travels via the U.S. We call this type of internet traffic "<a href="/learn/glossary.php#boomerang_routing">boomerang routing</a>." Over 25% of the intra-Canadian routes in the IXmaps database follow a boomerang path, subjecting them to NSA surveillance. This can happen with internet traffic of other countries too. These communications lose legal and constitutional protection when they leave their home country. At the same time, they are exposed to foreign surveillance and jurisdiction. This common occurrence challenges privacy and threatens "<a href="/learn/glossary.php#network_sovereignty">network sovereignty</a>," understood as national sovereignty in the internet context. Sometimes termed cyber-sovereignty, this term refers to the ability of a nation-state, or other geographically defined political governance entity, to exercise effective control over critical internet infrastructure within its jurisdictional region. Pursued within a human rights framework, network sovereignty can help protect privacy, as well as achieve routing efficiencies and economic benefits.</p>
 
             <div class="ui inverted segment">
                 <div class="ui inverted accordion">
                     <div class="title">
                         <i class="dropdown icon"></i>
-                        <strong>How to Use Ixmaps</strong>  to map data travel
+                        <strong>How to Use Ixmaps</strong> to map data travel
                     </div>
 
                     <div class="content">
