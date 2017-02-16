@@ -19,7 +19,8 @@
 <div class="content">
     <article>
         <div class="ui hidden divider"></div>
-        <p class="intro">See Research for IXmaps-related research papers and presentations.</p>
+        <p class="intro">Collection of videos, posters and other IXmaps documents.</p>
+        <p>See <a href="/research.php">Research</a> for IXmaps-related research papers and presentations.</p>
     </article>
 
     <article>
@@ -38,8 +39,7 @@
         <div class="ui divider"></div>
         <h2>Posters</h2>
         <ul>
-            <li>"Has the NSA split your packets..." IXmaps poster </li>
-            <li>Bookmark version</li>
+            <li><a href="/docs/2011-ixmaps-poster.pdf" target="_blank">Has the NSA split your packets... Poster</a></li>
         </ul>
     </article>
 
@@ -47,8 +47,8 @@
         <div class="ui divider"></div>
         <h2>Additional Documentation</h2>
         <ul>
-            <li>How IXmaps geolocates routers (pdf)</li>
-            <li>What US cities have NSA interception facilities? (spreadsheet)</li>
+            <li><a href="/docs/2011-06-09-ixmaps-geolocation.pdf" target="_blank">How IXmaps Geolocates Routers</a></li>
+            <li><a href="https://docs.google.com/spreadsheets/d/1x6aYnGmbQKzZGLUkWC4mX5eSRlDWpVKls_DjI_gV69A/edit?hl=en_US" target="_blank">Suspected NSA internet surveillance locations</a></li>
         </ul>
     </article>
 </div>
