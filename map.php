@@ -25,6 +25,9 @@
 <!-- SEARCH AREA -->
 <?php include '_includes/map-search.php'; ?>
 
+<!-- TEMP -->
+<div style="width: 890px; margin-left: 250px; margin-bottom: 50px; padding-left: 18px; background: #FEF8EB; border: 2px solid #F3D14F; border-radius: 5px;">This section is currently under development. Full functionality is available at <a href="https://www.ixmaps.ca/explore.php" target="_blank">our former mapping page</a></div>
+
 <!-- RESULTS AREA -->
 <div class="map-holder">
 
