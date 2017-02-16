@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="41px" height="50px" viewBox="0 0 41 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
-    <title>icn-NSA</title>
+    <title>icn-nsa</title>
     <desc>Created with Sketch.</desc>
     <defs>
         <path d="M39.5771429,0 L0.935267857,0 C0.531428571,0.129150278 0.257142857,0.528901139 0.257142857,0.981984146 L0.257142857,30.2850204 C0.257142857,39.35014 13.0990179,47.4107894 19.9752679,49.7149303 C20.0666964,49.7456803 20.1638393,49.7599983 20.2571429,49.7599983 C20.3504464,49.7599983 20.4495536,49.7456803 20.5390179,49.7149303 C27.4133036,47.4127112 40.2571429,39.3500439 40.2571429,30.2849244 L40.2571429,0.981984146 C40.2552679,0.528901139 39.9790179,0.129150278 39.5771429,0 Z" id="path-1"></path>
@@ -11,7 +11,7 @@
             <g transform="translate(123.000000, 639.000000)">
                 <g id="Group" transform="translate(0.000000, 172.000000)">
                     <g id="2" transform="translate(1.000000, 140.000000)">
-                        <g id="icn-NSA" transform="translate(22.000000, 34.000000)">
+                        <g id="icn-nsa" transform="translate(22.000000, 34.000000)">
                             <g id="Group-2" transform="translate(10.000000, 6.000000)">
                                 <mask id="mask-2" fill="white">
                                     <use xlink:href="#path-1"></use>
