@@ -36,15 +36,15 @@
 
     <!-- GOOGLE MAPS -->
     <div class="map-canvas pusher">
-      <div class="layers-toggle">
-        <button class="ui toggle button">
-          <i class="ui image left floated">
-            <img src="/_assets/img/icn-layers.svg" alt="delete">
-          </i>
-          1 Layers
-        </button>
-      </div>
-      <div id="map"></div>
+        <div class="layers-toggle">
+            <button class="ui toggle button">
+                <i class="ui image left floated">
+                    <img src="/_assets/img/icn-layers.svg" alt="delete">
+                </i>
+                1 Layers
+            </button>
+        </div>
+        <div id="map"></div>
     </div>
 
 </div>

@@ -38,7 +38,7 @@
         <div class="ui divider"></div>
         <h2>Posters</h2>
         <ul>
-            <li>“Has the NSA split your packets …” IXmaps poster </li>
+            <li>"Has the NSA split your packets..." IXmaps poster </li>
             <li>Bookmark version</li>
         </ul>
     </article>
@@ -58,9 +58,9 @@
 <?php include '../_includes/global-footer.php'; ?>
 
 <script>
-    $('.ui.accordion')
-      .accordion()
-    ;
+$('.ui.accordion')
+  .accordion()
+;
 </script>
 
 </body>

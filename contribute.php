@@ -42,12 +42,11 @@
         <li>Download the installer - IXmapsClient_v.1.0.4.dmg and follow the instructions in the ReadMe file. You will need administrator privileges to run and install the software. You may also need to adjust your privacy and security settings to allow installing applications downloaded from the internet.</li>
         <li>(Requires Mac OSX v10.6 or higher - tested on 10.6.8, 10.7.5, 10.8, 10.10)</li>
     </ul>
-    <h5>Linux</h4>
+    <h5>Linux</h5>
     <p>Download the installer - IXmapsClient_linux_v.1.0.1.zip and follow the instructions in the ReadMe file. You will need administrator privileges to run and install the software.</p>
 
     <h5>Windows</h5>
     <p>To install (an older) version of our traceroute generator (TrGen), download the Windows installer from here and follow the instructions in the ReadMe file. You will not need administrator privileges to run the software once installed, but you may need to be logged into an administrator account to install it. (We welcome help from those with Windows installation experience in creating a Windows package for the latest version of IXmaps Client software.)</p>
-
 </article>
 
 
@@ -55,6 +54,7 @@
 <article>
     <div class="ui divider"></div>
     <h2>Other welcome contributions</h2>
+
     <h3>Correcting the location of routers</h3>
     <p>Locating accurately the individual routers that switch data packets along the way to their destination is challenging. You may find when examining traceroutes displayed on the Explore page that some routers appear out of place, sometimes even wildly. We invite you to use the Flag option to point these out and suggest more accurate locations for the IP addresses of such routers so we can correct it later. This can be done by clicking on the routers (dots) or hops (lines), and then the appropriate Flag button. Any information you provide about why you think the router location is inaccurate, and where it is more likely to be, is helpful in making corrections. See our FAQ page for more on geolocation.</p>
 
