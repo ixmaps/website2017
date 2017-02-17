@@ -48,9 +48,9 @@
 
   <section id="download">
       <article>
-          <a href="https://www.ixmaps.ca/transparency/img/DataPrivacyTransparencyofCanadianCarriers-2014.pdf" target="_blank"><button>Download the Full 2014 Report</button></a>
+          <a href="../docs/DataPrivacyTransparencyofCanadianCarriers-2014.pdf" target="_blank"><button>Download the Full 2014 Report</button></a>
           <p>Download the complete <em>“Keeping Internet Users in the Know or in the Dark”</em> report (PDF)
-          <br>Or, read the <a href="https://www.ixmaps.ca/transparency-2013.php" target="blank">2013 Report</a> in our archives.</p>
+          <br>Or, read the <a href="../docs/transparency-2013.php" target="blank">2013 Report</a> in our archives.</p>
       </article>
   </section>
 

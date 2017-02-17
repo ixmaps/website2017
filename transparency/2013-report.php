@@ -22,7 +22,7 @@
 
     <section id="download">
         <article>
-            <a href="/_assets/img/transparency/DataPrivacyTransparencyofCanadianISPs-2013.pdf" target="_blank"><button>Download the Full 2013 Report</button></a>
+            <a href="../docs/DataPrivacyTransparencyofCanadianISPs-2013.pdf" target="_blank"><button>Download the Full 2013 Report</button></a>
             <p>Download the complete <em>"Keeping Internet Users in the Know or in the Dark"</em> report (PDF)
         </article>
     </section>
