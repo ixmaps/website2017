@@ -6,7 +6,7 @@
     <?php include '../_includes/global-head.php'; ?>
 </head>
 
-<body id="supportinglinks-page">
+<body id="supporting-links-page">
 <?php include '../_includes/global-navigation.php'; ?>
 
 <header class="hero">
@@ -58,8 +58,8 @@
     </article>
 
     <article>
-    <div class="ui divider"></div>
-    <h2>Similiar Articles</h2>
+        <div class="ui divider"></div>
+        <h2>Similiar Articles</h2>
         <ul>
             <li>Center for Applied Internet Data Analysis’ (CAIDA) <a href="http://www.caida.org/tools/visualization/gtrace/" target+"_blank">Gtrace</a></li>
             <li><a href="https://marmot.ripe.net/openipmap/" target="_blank">RIPE Network Coordination Centre (NCC) OpenIPmap</a></li>
@@ -67,8 +67,8 @@
     </article>
 
     <article>
-    <div class="ui divider"></div>
-    <h2>Maps, Photos, and Visualizations</h2>
+        <div class="ui divider"></div>
+        <h2>Maps, Photos, and Visualizations</h2>
         <ul>
             <li>Telegeography’s interactive global <a href="https://www.telegeography.com/telecom-resources/internet-exchange-map/" taget="_blank">Internet Exchange Map</a>, <a href="http://www.internetexchangemap.com/" target="_blank">Internet Exchange Map,</a> and <a href="https://www.telegeography.com/telecom-maps/submarine-cable-map.1.html" target="_blank">Submarine Cable Map</a></li>
             <li>Internet Geography site “a collection of ways to visually organize and explore the internet” - <a href="https://www.pinterest.com/stephgioia/internet-geography/" target="_blank">https://www.pinterest.com/stephgioia/internet-geography/</a></li>
@@ -79,8 +79,8 @@
     </article>
 
     <article>
-    <div class="ui divider"></div>
-    <h2>Internet Routing</h2>
+        <div class="ui divider"></div>
+        <h2>Internet Routing</h2>
         <ul>
             <li>AT&T's network monitoring site - <a href="http://ipnetwork.bgtmo.ip.att.net/pws/current_network_performance.shtml" target="_blank">http://ipnetwork.bgtmo.ip.att.net/pws/current_network_performance.shtml</a></li>
             <li>“Brief History of the Internet” (2016) primer on internet architecture and history - <a href="http://www.internetsociety.org/internet/what-internet/history-internet/brief-history-internet" target="_blank">http://www.internetsociety.org/internet/what-internet/history-internet/brief-history-internet</a></li>
@@ -93,8 +93,8 @@
     </article>
 
     <article>
-    <div class="ui divider"></div>
-    <h2>IP addresses and ASNs</h2>
+        <div class="ui divider"></div>
+        <h2>IP addresses and ASNs</h2>
         <ul>
             <li>ARIN whois lookup for ASNs - <a href="s://whois.arin.net/ui/" target="_blank">https://whois.arin.net/ui/</a></li>
             <li>IANA registry of ASNs - <a href="http://www.iana.org/assignments/as-numbers/as-numbers.xml" target="_blank">http://www.iana.org/assignments/as-numbers/as-numbers.xml</a></li>
@@ -106,29 +106,20 @@
     </article>
 
     <article>
-    <div class="ui divider"></div>
-    <h2>Internet Exchanges or Switching Sites</h2>
-    <ul>
-        <li>Community-generated list of IXPs - <a href="https://www.peeringdb.com/" target="_blank">https://www.peeringdb.com/</a></li>
-        <li>Frequently updated list of Internet Exchange Points (IXPs) - <a href="http://en.wikipedia." target="_blank">http://en.wikipedia.org/wiki/List_of_Internet_exchange_points</a></li>
-        <li>Recent news on Data Centres - <a href="http://www.datacenterknowledge.com" target="_blank">http://www.datacenterknowledge.com</a></li>
-        <li>Map of Data Centres worldwide - <a href="http://www.datacentermap.com/ixps.html" target="_blank">http://www.datacentermap.com/ixps.html</a></li>
-        <li>Packet Clearing House’s Internet Exchange Directory - <a href="https://prefix.pch.net/applications/ixpdir/ " target="_blank">https://prefix.pch.net/applications/ixpdir/ </a></li>
-    </ul>
-    <div class="ui hidden section divider"></div>
+        <div class="ui divider"></div>
+        <h2>Internet Exchanges or Switching Sites</h2>
+        <ul>
+            <li>Community-generated list of IXPs - <a href="https://www.peeringdb.com/" target="_blank">https://www.peeringdb.com/</a></li>
+            <li>Frequently updated list of Internet Exchange Points (IXPs) - <a href="http://en.wikipedia." target="_blank">http://en.wikipedia.org/wiki/List_of_Internet_exchange_points</a></li>
+            <li>Recent news on Data Centres - <a href="http://www.datacenterknowledge.com" target="_blank">http://www.datacenterknowledge.com</a></li>
+            <li>Map of Data Centres worldwide - <a href="http://www.datacentermap.com/ixps.html" target="_blank">http://www.datacentermap.com/ixps.html</a></li>
+            <li>Packet Clearing House’s Internet Exchange Directory - <a href="https://prefix.pch.net/applications/ixpdir/ " target="_blank">https://prefix.pch.net/applications/ixpdir/ </a></li>
+        </ul>
+        <div class="ui hidden section divider"></div>
     </article>
-
 </div>
 
-
-
 <?php include '../_includes/global-footer.php'; ?>
-
-<script>
-    $('.ui.accordion')
-      .accordion()
-    ;
-</script>
 
 </body>
 </html>

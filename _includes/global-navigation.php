@@ -1,5 +1,4 @@
 <header class="site-header">
-
     <a href="#main" class="skip-content button button--small u-outline u-outline--focusable">Go to the content</a>
 
     <div class="site-logo">
@@ -18,7 +17,7 @@
                         <li class="nav-item nav-item-faqs"><a href="/learn/faqs.php">FAQ</a></li>
                         <li class="nav-item nav-item-glossary"><a href="/learn/glossary.php">Glossary</a></li>
                         <li class="nav-item nav-item-resources"><a href="/learn/resources.php">Resources</a></li>
-                        <li class="nav-item nav-item-supportinglinks"><a href="/learn/supportinglinks.php">Supporting Links</a></li>
+                        <li class="nav-item nav-item-supporting-links"><a href="/learn/supporting-links.php">Supporting Links</a></li>
                     </ul>
                 </div>
             </li>
@@ -26,5 +25,4 @@
             <li class="nav-item nav-item-transparency"><a href="/transparency/2014-report.php">Transparency</a></li>
         </ul>
     </nav>
-
 </header>

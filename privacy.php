@@ -16,7 +16,6 @@
 </header>
 
 <div class="content">
-
     <article>
         <p>This privacy policy outlines how we may collect your personal data as a visitor to our website. Through the IXmaps website and IXmapsClient traceroute generation software, we record the following information:</p>
         <ul>

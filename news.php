@@ -16,7 +16,6 @@
 </header>
 
 <div class="content">
-
     <article>
         <h2>2016</h2>
         <ul>
@@ -28,7 +27,7 @@
             <li>September 22, 2016 &mdash; IXmaps presentation on the <a href="https://cira.ca/future-internet-canada" target="_blank">Expert Panel on the Future of the Internet in Canada</a> at <a href="https://cira.ca/canadians-connected-2016" target="_blank">Canadians Connected 2016</a>, the Canadian Internet Registration Authority's (CIRA) Symposium and AGM, Toronto</li>
             <li>August 19, 2016 &mdash; Meghan Sali from <a href="https://openmedia.ca" target="_blank">OpenMedia.ca</a> discusses the importance of the many issues</a> that the IXmaps project addresses</li>
             <li>June 9, 2016 &mdash; <strong>Press Release</strong><br />
-              IXmaps receives funding through CIRA’s <a href="https://cira.ca/24-projects-share-1m-funding-build-better-online-canada" target="_blank">Community Investment Program</a> for project on "Opening the IXmaps internet mapping platform for collaborative development and use"</li>
+            IXmaps receives funding through CIRA’s <a href="https://cira.ca/24-projects-share-1m-funding-build-better-online-canada" target="_blank">Community Investment Program</a> for project on "Opening the IXmaps internet mapping platform for collaborative development and use"</li>
             <li>April 21, 2016 &mdash; Announcement of Office of the Privacy Commissioner of Canada (OPC) funding for OpenMedia’s <a href="https://openmedia.org/en/ixmaps-know-where-your-data-travels" target="_blank"><em>Cloud Atlas: A Citizen’s Guide to Online Privacy and Surveillance Using IXmaps</em></a> project</li>
             <li>December 11, 2015 through January 30, 2016 &mdash; IXmaps is being showcased at the <a href="https://www.pratt.edu/events/exhibitions/pratt-manhattan-gallery/" target="_blank">Pratt Manhattan Gallery</a> exhibition <a href="https://www.pratt.edu/events/single/?id=38699" target="_blank">Little Sister (is watching you, too)</a></li>
         </ul>
