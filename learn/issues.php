@@ -63,7 +63,7 @@
                 <div class="ui inverted accordion">
                     <div class="title">
                         <i class="dropdown icon"></i>
-                        <strong>How to Use Ixmaps</strong>  to map data travel
+                        <strong>How to Use Ixmaps</strong> to map NSA interception
                     </div>
 
                     <div class="content">
@@ -89,7 +89,7 @@
                 <div class="ui inverted accordion">
                     <div class="title">
                         <i class="dropdown icon"></i>
-                        <strong>How to Use Ixmaps</strong> to map data travel
+                        <strong>How to Use Ixmaps</strong> to map boomerang routing
                     </div>
 
                     <div class="content">
@@ -117,7 +117,7 @@
                 <div class="ui inverted accordion">
                     <div class="title">
                         <i class="dropdown icon"></i>
-                        <strong>How to Use Ixmaps</strong> to map data travel
+                        <strong>How to Use Ixmaps</strong> to map ISP data access
                     </div>
 
                     <div class="content">
