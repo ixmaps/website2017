@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Contribute | IXmaps</title>
+    <title>Issues | IXmaps</title>
     <?php include '../_includes/global-head.php'; ?>
 </head>
 
