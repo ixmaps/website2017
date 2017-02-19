@@ -28,7 +28,7 @@
 
             <li>&mdash;&mdash; 2012.“The NSA Is Building the Country’s Biggest Spy Center (Watch What You Say)”. Wired. March 15, <a href="http://www.wired.com/threatlevel/2012/03/ff_nsadatacenter/all/1" target="_blank">http://www.wired.com/threatlevel/2012/03/ff_nsadatacenter/all/1</a></li>
 
-            <li>Andrew Clement, Jillian Harkness &amp; George Raine, 2016. Metadata – both shallow and deep: the fraught key to big data mass state surveillance. A report prepared for the Key issues in Big Data Surveillance: Research Workshop, May 12-14 2016, Queen’s University, Kingston, Ontario <a href="https://dl.dropboxusercontent.com/u/8140293/Public%20talks/2016%20Clement%20Harkness%20Raine%20-%20Metadata%20Shallow%20and%20Deep%20-%202016%20June%204%20DRAFT.pdf" target="_blank">https://dl.dropboxusercontent.com/u/8140293/Public%20talks/2016%20Clement%20Harkness%20Raine%20-%20Metadata%20Shallow%20and%20Deep%20-%202016%20June%204%20DRAFT.pdf</a></li>
+            <li>Andrew Clement, Jillian Harkness &amp; George Raine, 2016. Metadata – both shallow and deep: the fraught key to big data mass state surveillance. A report prepared for the Key issues in Big Data Surveillance: Research Workshop, May 12-14 2016, Queen’s University, Kingston, Ontario <a href="docs/paper-2016-clementHarknessRaine-metadata-Jun4.pdf" target="_blank">PDF</a></li>
 
             <li>Ryan Gallagher &amp; Glenn Greenwald, 2014. How the NSA Plans to Infect ‘Millions’ of Computers with Malware, The Intercept, March 12. <a href="https://theintercept.com/2014/03/12/nsa-plans-infect-millions-computers-malware/" target="_blank">https://theintercept.com/2014/03/12/nsa-plans-infect-millions-computers-malware/</a></li>
 
