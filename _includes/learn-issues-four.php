@@ -3,6 +3,7 @@
 <h6>See FAQs:</h6>
 <ul>
     <li><a href="/learn/faq.php#faq-issue-four">What personal information does my ISP have about me?</a></li>
-    <li><a href="/learn/faq.php#faq-issue-four">Does my ISP being transparent about its privacy policies mean that it is more protective of my privacy?</a></li>
+    <li><a href="/learn/faq.php#faq-issue-four">What legal responsibilities do ISPs have for protecting Canadians' personal information and communication?</a></li>
+    <li><a href="/learn/faq.php#faq-issue-four">Does my ISP being transparent about its privacy policies mean that it is protective of my privacy?</a></li>
     <li><a href="/learn/faq.php#faq-issue-four">What can I do to help make ISPs more privacy transparent and privacy protective?</a></li>
 </ul>
