@@ -20,7 +20,7 @@
     <article>
         <h2>References</h2>
         <ul>
-            <li>Julia Angwin, Charlie Savage, Jeff Larson, Henrik Moltke, Laura Poitras & James Risen, 2015, AT&T Helped U.S. Spy on Internet on a Vast Scale, New York Times, August 15. <a href="https://www.nytimes.com/2015/08/16/us/politics/att-helped-nsa-spy-on-an-array-of-internet-traffic.html?_r=1" target="_blank">https://www.nytimes.com/2015/08/16/us/politics/att-helped-nsa-spy-on-an-array-of-internet-traffic.html?_r=1</a> See <a href="https://snowdenarchive.cjfe.org/greenstone/cgi-bin/library.cgi?e=q-00100-00---off-0snowden1--00-2----0-10-0---0---0direct-10-and%2cand%2cand-TE%2cTT%2cDE%2cSU--4--fairview%2c%2c%2c-----0-1l--00-en-50---50-about-TE%3a%28fairview%29--01-3-1-00-00--4--0--0-0-01-10-0utfZz-8-00&a=d&c=snowden1&srp=0&srn=0&cl=search&d=HASH01a5f29cea54fba8d8a0fbda" target="_blank">NSA Special Source Operations - Various Documents</a>, in the Snowden Surveillance Archive.</li>
+            <li>Julia Angwin, Charlie Savage, Jeff Larson, Henrik Moltke, Laura Poitras &amp; James Risen, 2015, AT&amp;T Helped U.S. Spy on Internet on a Vast Scale, New York Times, August 15. <a href="https://www.nytimes.com/2015/08/16/us/politics/att-helped-nsa-spy-on-an-array-of-internet-traffic.html?_r=1" target="_blank">https://www.nytimes.com/2015/08/16/us/politics/att-helped-nsa-spy-on-an-array-of-internet-traffic.html?_r=1</a> See <a href="https://snowdenarchive.cjfe.org/greenstone/cgi-bin/library.cgi?e=q-00100-00---off-0snowden1--00-2----0-10-0---0---0direct-10-and%2cand%2cand-TE%2cTT%2cDE%2cSU--4--fairview%2c%2c%2c-----0-1l--00-en-50---50-about-TE%3a%28fairview%29--01-3-1-00-00--4--0--0-0-01-10-0utfZz-8-00&a=d&c=snowden1&srp=0&srn=0&cl=search&d=HASH01a5f29cea54fba8d8a0fbda" target="_blank">NSA Special Source Operations - Various Documents</a>, in the Snowden Surveillance Archive.</li>
 
             <li>Floor Boon, Steven Derix and Huib Modderkolk, 2013, NSA infected 50,000 computer networks with malicious software. NRC.nl, November 23. See: <a href="https://snowdenarchive.cjfe.org/greenstone/cgi-bin/library.cgi?e=q-00100-00---off-0snowden1--00-2----0-10-0---0---0direct-10-and%2cand%2cand-TE%2cTT%2cDE%2cSU--4--cryptologic%2c%2c%2c-----0-1l--00-en-50---50-about-TE%3a%28cryptologic%29--01-3-1-00-00--4--0--0-0-01-10-0utfZz-8-00&a=d&c=snowden1&srp=0&srn=0&cl=search&d=HASH01d2a9a5c2a36ab3a3a3c0ea" target="_blank">Driver 1: Worldwide SIGINT/Defense Cryptologic Platform</a> in the Snowden Surveillance Archive.</li>
 
@@ -28,11 +28,11 @@
 
             <li>&mdash;&mdash; 2012.“The NSA Is Building the Country’s Biggest Spy Center (Watch What You Say)”. Wired. March 15, <a href="http://www.wired.com/threatlevel/2012/03/ff_nsadatacenter/all/1" target="_blank">http://www.wired.com/threatlevel/2012/03/ff_nsadatacenter/all/1</a></li>
 
-            <li>Andrew Clement, Jillian Harkness & George Raine, 2016. Metadata – both shallow and deep: the fraught key to big data mass state surveillance. A report prepared for the Key issues in Big Data Surveillance: Research Workshop, May 12-14 2016, Queen’s University, Kingston, Ontario <a href="https://dl.dropboxusercontent.com/u/8140293/Public%20talks/2016%20Clement%20Harkness%20Raine%20-%20Metadata%20Shallow%20and%20Deep%20-%202016%20June%204%20DRAFT.pdf" target="_blank">https://dl.dropboxusercontent.com/u/8140293/Public%20talks/2016%20Clement%20Harkness%20Raine%20-%20Metadata%20Shallow%20and%20Deep%20-%202016%20June%204%20DRAFT.pdf</a></li>
+            <li>Andrew Clement, Jillian Harkness &amp; George Raine, 2016. Metadata – both shallow and deep: the fraught key to big data mass state surveillance. A report prepared for the Key issues in Big Data Surveillance: Research Workshop, May 12-14 2016, Queen’s University, Kingston, Ontario <a href="https://dl.dropboxusercontent.com/u/8140293/Public%20talks/2016%20Clement%20Harkness%20Raine%20-%20Metadata%20Shallow%20and%20Deep%20-%202016%20June%204%20DRAFT.pdf" target="_blank">https://dl.dropboxusercontent.com/u/8140293/Public%20talks/2016%20Clement%20Harkness%20Raine%20-%20Metadata%20Shallow%20and%20Deep%20-%202016%20June%204%20DRAFT.pdf</a></li>
 
-            <li>Ryan Gallagher & Glenn Greenwald, 2014. How the NSA Plans to Infect ‘Millions’ of Computers with Malware, The Intercept, March 12. <a href="https://theintercept.com/2014/03/12/nsa-plans-infect-millions-computers-malware/" target="_blank">https://theintercept.com/2014/03/12/nsa-plans-infect-millions-computers-malware/</a></li>
+            <li>Ryan Gallagher &amp; Glenn Greenwald, 2014. How the NSA Plans to Infect ‘Millions’ of Computers with Malware, The Intercept, March 12. <a href="https://theintercept.com/2014/03/12/nsa-plans-infect-millions-computers-malware/" target="_blank">https://theintercept.com/2014/03/12/nsa-plans-infect-millions-computers-malware/</a></li>
 
-            <li>Ryan Gallagher & Henrik Moltke, 2016. Titanpointe: The NSA’s Spy Hub in New York, Hidden in Plain Sight, The Intercept, November 16.
+            <li>Ryan Gallagher &amp; Henrik Moltke, 2016. Titanpointe: The NSA’s Spy Hub in New York, Hidden in Plain Sight, The Intercept, November 16.
             <a href="https://theintercept.com/2016/11/16/the-nsas-spy-hub-in-new-york-hidden-in-plain-sight/" target="_blank">https://theintercept.com/2016/11/16/the-nsas-spy-hub-in-new-york-hidden-in-plain-sight/</a></li>
 
             <li>Glenn Greenwald, 2013. <a href="https://www.theguardian.com/commentisfree/2013/jul/15/crux-nsa-collect-it-all">The crux of the NSA story in one phrase: 'collect it all'</a>, Guardian, July 15, 2013, drawing on <a href="https://www.washingtonpost.com/world/national-security/for-nsa-chief-terrorist-threat-drives-passion-to-collect-it-all/2013/07/14/3d26ef80-ea49-11e2-a301-ea5a8116d211_story.html" target="_blank">For NSA chief, terrorist threat drives passion to ‘collect it all’</a>, by Ellen Nakashima and Joby Warrick, Washington Post, July 14, 2013.</li>
@@ -51,7 +51,7 @@
 
             <li>Bill Robinson, 2016. “CSE: What do we know? What do we need to know?” Lux Ex Umbra blog post, October 09, 2016 <a href="http://luxexumbra.blogspot.ca/2016_10_01_archive.html" target="_blank">http://luxexumbra.blogspot.ca/2016_10_01_archive.html</a></li>
 
-            <li>Bill Woodcock & Benjamin Edelman, 2012. Toward Efficiencies in Canadian Internet Traffic Exchange, Canadian Internet Registration Authority <a href="http://www.cira.ca/assets/Uploads/Toward-Efficiencies-in-Canadian-Internet-Traffic-Exchange2.pdf" target="_blank">http://www.cira.ca/assets/Uploads/Toward-Efficiencies-in-Canadian-Internet-Traffic-Exchange2.pdf</a></li>
+            <li>Bill Woodcock &amp; Benjamin Edelman, 2012. Toward Efficiencies in Canadian Internet Traffic Exchange, Canadian Internet Registration Authority <a href="http://www.cira.ca/assets/Uploads/Toward-Efficiencies-in-Canadian-Internet-Traffic-Exchange2.pdf" target="_blank">http://www.cira.ca/assets/Uploads/Toward-Efficiencies-in-Canadian-Internet-Traffic-Exchange2.pdf</a></li>
 
             <li>Bill Woodcock, 2016. Results of the 2016 PCH / CIRA Study on Canadian Network Interconnection, presentation at Canadian ISP Summit, November 8, <a href="2016 https://cira.ca/sites/default/files/public/Canadian%20Peering%202016.pdf" target="_blank">2016 https://cira.ca/sites/default/files/public/Canadian%20Peering%202016.pdf</a></li>
         </ul>
@@ -59,7 +59,7 @@
 
     <article>
         <div class="ui divider"></div>
-        <h2>Similiar Articles</h2>
+        <h2>Similiar Internet Mapping Initiatives</h2>
         <ul>
             <li>Center for Applied Internet Data Analysis’ (CAIDA) <a href="http://www.caida.org/tools/visualization/gtrace/" target+"_blank">Gtrace</a></li>
             <li><a href="https://marmot.ripe.net/openipmap/" target="_blank">RIPE Network Coordination Centre (NCC) OpenIPmap</a></li>
