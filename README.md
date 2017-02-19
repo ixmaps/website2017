@@ -25,7 +25,7 @@ Home Page (index.php)
 └── Privacy Policy (privacy.php)
 ```
 
-CSS, JS, and images are in `_assets` along with SASS
+CSS, SASS styleguide, JS, and images are in `_assets`. `_includes` contains global header, nav, and footer as well as page-specific components.
 
 ## Development
 
