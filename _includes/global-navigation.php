@@ -14,7 +14,7 @@
                 <div class="nav-dropdown">
                     <ul class="nav-list">
                         <li class="nav-item nav-item-issues"><a href="/learn/issues.php">Issues</a></li>
-                        <li class="nav-item nav-item-faqs"><a href="/learn/faqs.php">FAQ</a></li>
+                        <li class="nav-item nav-item-faq"><a href="/learn/faq.php">FAQ</a></li>
                         <li class="nav-item nav-item-glossary"><a href="/learn/glossary.php">Glossary</a></li>
                         <li class="nav-item nav-item-resources"><a href="/learn/resources.php">Resources</a></li>
                         <li class="nav-item nav-item-supporting-links"><a href="/learn/supporting-links.php">Supporting Links</a></li>

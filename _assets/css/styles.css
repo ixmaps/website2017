@@ -25628,14 +25628,14 @@ footer {
 
 #map-page .nav-item-map a,
 #contribute-page .nav-item-contribute a,
-#issues-page .nav-item-learn a, #faqs-page .nav-item-learn a, #glossary-page .nav-item-learn a, #resources-page .nav-item-learn a, #supporting-links-page .nav-item-learn a,
+#issues-page .nav-item-learn a, #faq-page .nav-item-learn a, #glossary-page .nav-item-learn a, #resources-page .nav-item-learn a, #supporting-links-page .nav-item-learn a,
 #report-2013-page .nav-item-transparency a, #report-2014-page .nav-item-transparency a, #report-2016-page .nav-item-transparency a {
 	background-color: #1C6FB8;
 	color: #ffffff;
 }
 
 #issues-page .nav-item-issues a,
-#faqs-page .nav-item-faqs a,
+#faq-page .nav-item-faq a,
 #glossary-page .nav-item-glossary a,
 #resources-page .nav-item-resources a,
 #supporting-links-page .nav-item-supporting-links a {

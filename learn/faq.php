@@ -2,16 +2,16 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>FAQs | IXmaps</title>
+    <title>FAQ | IXmaps</title>
     <?php include '../_includes/global-head.php'; ?>
 </head>
 
-<body id="faqs-page">
+<body id="faq-page">
 <?php include '../_includes/global-navigation.php'; ?>
 
 <header class="hero">
     <div class="content">
-        <h1>FAQs</h1>
+        <h1>FAQ</h1>
     </div>
 </header>
 
@@ -19,7 +19,7 @@
     <div class="content">
         <article>
             <div class="ui section hidden divider"></div>
-            <p class="intro">These FAQs address key questions that arise from the four themes. </p>
+            <p class="intro">These FAQ address key questions that arise from the four themes. </p>
             <p>Let us know if you think we've missed any important questions, or the answers need to be revised in some way email: IXmaps@ischool.utoronto.ca.</p>
             <div class="ui hidden section divider"></div>
         </article>
