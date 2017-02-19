@@ -4,6 +4,8 @@ Code for [**dev.**ixmaps.ca](https://dev.ixmaps.ca/) website.
 
 ## Structure
 
+Website structures is as follows:
+
 ```
 Home Page (index.php)
 [Header]
@@ -25,7 +27,7 @@ Home Page (index.php)
 └── Privacy Policy (privacy.php)
 ```
 
-CSS, SASS styleguide, JS, and images are in `_assets`. `_includes` contains global header, nav, and footer as well as page-specific components.
+CSS, SASS styleguide, JS, and images are in `_assets`. Global header, nav, and footer as well as page-specific components are in `_includes`. Papers, presentations, and reports are located in `docs/`. 
 
 ## Development
 
