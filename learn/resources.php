@@ -39,7 +39,7 @@
         <div class="ui divider"></div>
         <h2>Posters</h2>
         <ul>
-            <li><a href="/docs/2011-ixmaps-poster.pdf" target="_blank">Has the NSA split your packets... Poster</a></li>
+            <li><a href="/docs/ixmaps2011poster.pdf" target="_blank">Has the NSA split your packets... Poster</a></li>
         </ul>
     </article>
 
@@ -47,7 +47,7 @@
         <div class="ui divider"></div>
         <h2>Additional Documentation</h2>
         <ul>
-            <li><a href="/docs/2011-06-09-ixmaps-geolocation.pdf" target="_blank">How IXmaps Geolocates Routers</a></li>
+            <li><a href="/docs/mccann2011ixmaps-geolocation.pdf" target="_blank">How IXmaps Geolocates Routers</a></li>
             <li><a href="https://docs.google.com/spreadsheets/d/1x6aYnGmbQKzZGLUkWC4mX5eSRlDWpVKls_DjI_gV69A/edit?hl=en_US" target="_blank">Suspected NSA internet surveillance locations</a></li>
         </ul>
     </article>

@@ -16,7 +16,9 @@
 
 <h6>See FAQs</h6>
 <ul>
+    <li><a href="/learn/faq.php#faq-issue-three">What's wrong with boomerang routing?</a></li>
+    <li><a href="/learn/faq.php#faq-issue-three">Why does your data boomerang through the US?</a></li>
     <li><a href="/learn/faq.php#faq-issue-three">How can I avoid boomerang routing?</a></li>
-    <li><a href="/learn/faq.php#faq-issue-three">Is Canadian network sovereignty a good idea?</a></li>
-    <li><a href="/learn/faq.php#faq-issue-three">What can I do to promote Canadian network sovereignty?</a></li>
+    <li><a href="/learn/faq.php#faq-issue-three">Why is network sovereignty important to Canadians?</a></li>
+    <li><a href="/learn/faq.php#faq-issue-three">What can Canadians do to keep their data at home and promote network sovereignty?</a></li>
 </ul>

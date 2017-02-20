@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Contribute | IXmaps</title>
+    <title>Issues | IXmaps</title>
     <?php include '../_includes/global-head.php'; ?>
 </head>
 
@@ -17,14 +17,7 @@
 
 <div class="content">
     <article>
-        <p class="introduction">Each issue offers:</p>
-            <ul>
-                <li>a concise description of the topic,</li>
-                <li>graphic image(s) that illustrate the topic (the ones included here are suggestive placeholders)</li>
-                <li>guidance and examples with screenshots on how the Map page can be used to understand the issue,</li>
-                <li>links to other resources related to the topic (eg videos, FAQ, ...),</li>
-            </ul>
-        <p>Highlighted phrases link to the corresponding item in the  Glossary, which opens in a separate scrollable window.</p>
+        <p class="introduction">Where data travels across the internet, as well as who routes it and has access along the way, raises important privacy and other issues. Below you can learn more about these concerns and how IXmaps can help you understand them better. Highlighted phrases link to the corresponding item in the FAQ, Glossary, and Resources pages.</p>
     </article>
 </div>
 
@@ -70,7 +63,7 @@
                 <div class="ui inverted accordion">
                     <div class="title">
                         <i class="dropdown icon"></i>
-                        <strong>How to Use Ixmaps</strong>  to map data travel
+                        <strong>How to Use Ixmaps</strong> to map NSA interception
                     </div>
 
                     <div class="content">
@@ -96,7 +89,7 @@
                 <div class="ui inverted accordion">
                     <div class="title">
                         <i class="dropdown icon"></i>
-                        <strong>How to Use Ixmaps</strong> to map data travel
+                        <strong>How to Use Ixmaps</strong> to map boomerang routing
                     </div>
 
                     <div class="content">
@@ -124,7 +117,7 @@
                 <div class="ui inverted accordion">
                     <div class="title">
                         <i class="dropdown icon"></i>
-                        <strong>How to Use Ixmaps</strong> to map data travel
+                        <strong>How to Use Ixmaps</strong> to map ISP data access
                     </div>
 
                     <div class="content">
