@@ -2,7 +2,7 @@
   "name": "ixmaps",
   "main": "index.php",
   "authors": [
-    "Jennette Weber"
+    "Antonio Gamba, Colin McCann, Dawn Walker, Jennette Weber"
   ],
   "private": true,
   "ignore": [

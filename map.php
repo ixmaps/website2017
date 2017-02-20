@@ -117,6 +117,8 @@
 
 <!-- Google Maps API  -->
 <script src="https://maps.googleapis.com/maps/api/js"></script>
+<!-- TODO: create new key, set up config files -->
+<!-- <script type="text/javascript" src="https://maps.google.com/maps/api/js?v=3&libraries=geometry&key=AIzaSyDooKbYZYOoTVcJvrV05uMOfQWAxMHtliQ"></script> -->
 
 <!-- Snazzy Maps  -->
 <script type="text/javascript">
