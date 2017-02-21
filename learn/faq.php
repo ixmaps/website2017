@@ -56,7 +56,7 @@
                     How do I read a traceroute?
                 </div>
                 <div class="content">
-                    <p>Clicking on any traceroute line (i.e. hop) on the Map page opens the traceroute details screen, where you can see detailed information about each step along the route. Here is an example of traceroute #6896, which is depicted in the IXmaps Canadian internet boomerang routing video:</p>
+                    <p>Clicking on any traceroute line (i.e. hop) on the Map page opens the traceroute details screen, where you can see detailed information about each step along the route. <!-- Here is an example of traceroute #6896, which is depicted in the IXmaps Canadian internet boomerang routing video: --></p>
                     <dl>
                         <dt>Hop</dt>
                         <dd>The sequence of routers that each pass data packets along the route from the contributor's device to the destination host</dd>
@@ -76,7 +76,7 @@
                     <p>You can learn more about a term by clicking on it, taking you to the corresponding Glossary term.</p>
                 </div>
                 <div class="title">
-                    How do we locate routers geographically and map them?
+                    How do IXmaps locate routers geographically and map them?
                 </div>
                 <div class="content">
                     <p>In order to map traceroutes, we must estimate the physical location of the routers associated with the IP addresses in the route. Once a contributor generates and submits a traceroute using the IXmaps Client, our software initially assigns locations to each IP addresses based on leading commercial service called Maxmind. <a href="https://www.maxmind.com/en/geoip2-city-database-accuracy?country=&resolution=25" target="_blank">Maxmind reports</a> that it accurately resolves an IP address to within 25km of its actual location 80% of the time, at least in Canada and the US. This is often sufficient to geo-locate the router to a nearby city. However, Maxmind tends to work best when locating edge routers, i.e. those close to the origin or termination; however, we have found that its success rate when attempting to geo-locate core routers drops to nearly zero.</p>

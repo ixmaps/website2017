@@ -1,4 +1,4 @@
-# ixmaps.ca Website
+# ixmaps.ca website
 
 Code for [**dev.**ixmaps.ca](https://dev.ixmaps.ca/) website.
 
@@ -27,7 +27,7 @@ Home Page (index.php)
 └── Privacy Policy (privacy.php)
 ```
 
-CSS, SASS styleguide, JS, and images are in `_assets`. Global header, nav, and footer as well as page-specific components are in `_includes`. Papers, presentations, and reports are located in `docs/`. 
+CSS, SASS styleguide, JS, and images are in `_assets`. Global header, nav, and footer as well as page-specific components are in `_includes`. Papers, presentations, and reports are located in `docs/`.
 
 ## Development
 
@@ -49,3 +49,7 @@ Run the following commands in a terminal from the `/_assets/__build/` folder.
 ### Usage
 
 For continued development, run `grunt phpwatch` from the `/_assets/__build/` directory.
+
+## Git commit processes
+
+Please commit to `master` only (prod should be locked). Master will act as the staging branch, to be merged to `prod` and pulled to server as required.

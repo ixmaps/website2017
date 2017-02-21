@@ -1,3 +1,5 @@
+<!-- READD ME -->
+<!--
 <p>To see examples of boomerang routing:</p>
 <ol>
     <li>In the <strong>From</strong> box, select your country</li>
@@ -6,7 +8,7 @@
     <li>Click <strong>Submit</strong></li>
 </ol>
 
-<p>Boomerang routing can even occur when the origin and destination are in the same city. To map these, adjust the <strong>From</strong> and <strong>To</strong> filters for the city of your choice and click <strong>Submit</strong>.</p>
+<p>Boomerang routing can even occur when the origin and destination are in the same city. To map these, adjust the <strong>From</strong> and <strong>To</strong> filters for the city of your choice and click <strong>Submit</strong>.</p> -->
 
 <h6>IXmaps: See where your data travels (Open Media)</h6>
 
