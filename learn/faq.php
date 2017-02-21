@@ -56,7 +56,7 @@
                     How do I read a traceroute?
                 </div>
                 <div class="content">
-                    <p>Clicking on any traceroute line (i.e. hop) on the Map page opens the traceroute details screen, where you can see detailed information about each step along the route. Here is an example of traceroute #6896, which is depicted in the IXmaps Canadian internet boomerang routing video:</p>
+                    <p>Clicking on any traceroute line (i.e. hop) on the Map page opens the traceroute details screen, where you can see detailed information about each step along the route. <!-- Here is an example of traceroute #6896, which is depicted in the IXmaps Canadian internet boomerang routing video: --></p>
                     <dl>
                         <dt>Hop</dt>
                         <dd>The sequence of routers that each pass data packets along the route from the contributor's device to the destination host</dd>
