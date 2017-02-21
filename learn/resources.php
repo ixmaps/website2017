@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>Resources | IXmaps</title>
     <?php include '../_includes/global-head.php'; ?>
+
+    <link href="../_assets/css/resources.css" rel="stylesheet">
 </head>
 
 <body id="resources-page">
@@ -27,11 +29,11 @@
         <div class="ui divider"></div>
         <h2>Videos</h2>
         <ul>
-            <li><a href="https://vimeo.com/67102223" target="_blank">What is IXmaps?</a></li>
-            <li><a href="https://www.youtube.com/watch?v=pvdIB5vr4cw" target="_blank">Do you know where your data goes?</a></li>
-            <li><a href="https://www.youtube.com/watch?v=F_v0VMvjcI8" target="_blank">Canadian Internet Boomerang Routing</a></li>
-            <li><a href="https://www.youtube.com/watch?v=_K_WIquGGbk" target="_blank">How to Search the IXmaps Database</a></li>
-            <li><a href="https://www.youtube.com/watch?v=tHvuLCPiVg4" target="_blank">IXmaps: See where your data travels (OpenMedia)</a></li>
+            <ol><img src="../_assets/img/what-is-ixmaps-thumb2.png" class="video-thumb" /><a href="https://vimeo.com/67102223" target="_blank">What is IXmaps?</a></ol>
+            <ol><img src="https://img.youtube.com/vi/pvdIB5vr4cw/hqdefault.jpg" class="video-thumb" /><a href="https://www.youtube.com/watch?v=pvdIB5vr4cw" target="_blank">Do you know where your data goes?</a></ol>
+            <ol><img src="https://img.youtube.com/vi/F_v0VMvjcI8/hqdefault.jpg" class="video-thumb" /><a href="https://www.youtube.com/watch?v=F_v0VMvjcI8" target="_blank">Canadian Internet Boomerang Routing</a></ol>
+            <ol><img src="https://img.youtube.com/vi/_K_WIquGGbk/hqdefault.jpg" class="video-thumb" /><a href="https://www.youtube.com/watch?v=_K_WIquGGbk" target="_blank">How to Search the IXmaps Database</a></ol>
+            <ol><img src="https://img.youtube.com/vi/tHvuLCPiVg4/hqdefault.jpg" class="video-thumb" /><a href="https://www.youtube.com/watch?v=tHvuLCPiVg4" target="_blank">IXmaps: See where your data travels (OpenMedia)</a></ol>
         </ul>
     </article>
 
@@ -39,7 +41,7 @@
         <div class="ui divider"></div>
         <h2>Posters</h2>
         <ul>
-            <li><a href="/docs/ixmaps2011poster.pdf" target="_blank">Has the NSA split your packets... Poster</a></li>
+            <ol><a href="/docs/ixmaps2011poster.pdf" target="_blank">Has the NSA split your packets... Poster</a></ol>
         </ul>
     </article>
 
@@ -47,8 +49,8 @@
         <div class="ui divider"></div>
         <h2>Additional Documentation</h2>
         <ul>
-            <li><a href="/docs/mccann2011ixmaps-geolocation.pdf" target="_blank">How IXmaps Geolocates Routers</a></li>
-            <li><a href="https://docs.google.com/spreadsheets/d/1x6aYnGmbQKzZGLUkWC4mX5eSRlDWpVKls_DjI_gV69A/edit?hl=en_US" target="_blank">Suspected NSA internet surveillance locations</a></li>
+            <ol><a href="/docs/mccann2011ixmaps-geolocation.pdf" target="_blank">How IXmaps Geolocates Routers</a></ol>
+            <ol><a href="https://docs.google.com/spreadsheets/d/1x6aYnGmbQKzZGLUkWC4mX5eSRlDWpVKls_DjI_gV69A/edit?hl=en_US" target="_blank">Suspected NSA internet surveillance locations</a></ol>
         </ul>
     </article>
 </div>
