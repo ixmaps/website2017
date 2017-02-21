@@ -29,7 +29,7 @@
         <div class="ui divider"></div>
         <h2>Videos</h2>
         <ul>
-            <ol><a href="https://vimeo.com/67102223" target="_blank"><img src="../_assets/img/what-is-ixmaps-thumb2.png" class="video-thumb" />What is IXmaps?</a></ol>
+            <ol><a href="https://vimeo.com/67102223" target="_blank"><img src="../_assets/img/what-is-ixmaps-thumb.png" class="video-thumb" />What is IXmaps?</a></ol>
             <ol><a href="https://www.youtube.com/watch?v=pvdIB5vr4cw" target="_blank"><img src="https://img.youtube.com/vi/pvdIB5vr4cw/hqdefault.jpg" class="video-thumb" />Do you know where your data goes?</a></ol>
             <ol><a href="https://www.youtube.com/watch?v=F_v0VMvjcI8" target="_blank"><img src="https://img.youtube.com/vi/F_v0VMvjcI8/hqdefault.jpg" class="video-thumb" />Canadian Internet Boomerang Routing</a></ol>
             <ol><a href="https://www.youtube.com/watch?v=_K_WIquGGbk" target="_blank"><img src="https://img.youtube.com/vi/_K_WIquGGbk/hqdefault.jpg" class="video-thumb" />How to Search the IXmaps Database</a></ol>
