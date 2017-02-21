@@ -1,6 +1,7 @@
-<p>Go to the <a href="/map.php">Map</a>, where you will see the traceroute from nearest your location.  marks the origin of the traceroute and the termination. You can click on the dots and lines to learn more about the route and who carries your data.</p>
+<p>Go to the <a href="/map.php">Map</a>, where you will see the traceroute from nearest your location. <!--  marks the origin of the traceroute and the termination.  -->You can click on the dots and lines to learn more about the route and who carries your data.</p>
 
-<p>To see other routes from near you:</p>
+<!-- READD ME -->
+<!-- <p>To see other routes from near you:</p>
 <ol>
     <li>Click in the <strong>From</strong> box, to show the menu choices</li>
     <li>Select your <strong>ISP</strong>, <strong>City</strong> or <strong>Country</strong>, or a combination of these, entering the relevant information.</li>
@@ -8,6 +9,7 @@
 </ol>
 
 <p>You will see mapped the most recent route that meets these conditions. On the right is the number of routes found and brief details about them. You can map these other routes by clicking on the traceroute row. As shown in this example, below this is another table with summary information about the various ISPs or carriers that handle the mapped route(s).</p>
+-->
 
 <p>You can refine your selection using <strong>From</strong>, <strong>Via</strong> and <strong>To</strong>.</p>
 

@@ -1,4 +1,6 @@
-<p>The <a href="/map.php">Map</a> shows 18 U.S. cities where reported and suspected <a href="/learn/glossary.php#nsa_interception_facilities">NSA interception facilities</a> are located. To see routes in our database that pass through at least one of the cities:</p>
+<p>The <a href="/map.php">Map</a> shows 18 U.S. cities where reported and suspected <a href="/learn/glossary.php#nsa_interception_facilities">NSA interception facilities</a> are located.
+<!-- READD ME -->
+<!-- To see routes in our database that pass through at least one of the cities:</p>
 <ol>
     <li>Click in the <strong>Via</strong> box</li>
     <li>Select <strong>Spy Agency: NSA</strong></li>
@@ -6,7 +8,7 @@
 </ol>
 
 <p>To narrow the search, add other filters, such as <strong>From</strong> you, your country or your ISP, <strong>To</strong> your favorite site, etc., before clicking <strong>Submit</strong>.</p>
-
+-->
 <p>To see the locations of other suspected NSA surveillance operations conducted worldwide with the cooperation of AT&amp;T (e.g. program code-named Fairview) and Verizon (e.g. Stormbrew) click on the <strong>Layers</strong> button in the upper right and select their respective entries:</p>
 
 <h6>Do you know where your data goes?</h6>
