@@ -76,7 +76,7 @@
                     <p>You can learn more about a term by clicking on it, taking you to the corresponding Glossary term.</p>
                 </div>
                 <div class="title">
-                    How do IXmaps locate routers geographically and map them?
+                    How does IXmaps locate routers geographically and map them?
                 </div>
                 <div class="content">
                     <p>In order to map traceroutes, we must estimate the physical location of the routers associated with the IP addresses in the route. Once a contributor generates and submits a traceroute using the IXmaps Client, our software initially assigns locations to each IP addresses based on leading commercial service called Maxmind. <a href="https://www.maxmind.com/en/geoip2-city-database-accuracy?country=&resolution=25" target="_blank">Maxmind reports</a> that it accurately resolves an IP address to within 25km of its actual location 80% of the time, at least in Canada and the US. This is often sufficient to geo-locate the router to a nearby city. However, Maxmind tends to work best when locating edge routers, i.e. those close to the origin or termination; however, we have found that its success rate when attempting to geo-locate core routers drops to nearly zero.</p>
