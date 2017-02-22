@@ -2,9 +2,9 @@
     <div class="content">
         <div class="footer-nav">
             <ul>
-                <li><h4><a href="about.php">About</a></h4></li>
-                <li><h4><a href="research.php">Research</a></h4></li>
-                <li><h4><a href="news.php">News</a></h4></li>
+                <li><h4><a href="/about.php">About</a></h4></li>
+                <li><h4><a href="/research.php">Research</a></h4></li>
+                <li><h4><a href="/news.php">News</a></h4></li>
             </ul>
         </div>
 
