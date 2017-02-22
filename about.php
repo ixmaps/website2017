@@ -62,6 +62,8 @@
         <p>Beginning in 2008, the project has received funding from <a href="http://www.sshrc-crsh.gc.ca/home-accueil-eng.aspx" target="_blank">Social Sciences and Humanities Research Council of Canada (SSHRC)</a>, <a href="https://www.priv.gc.ca/en/" target="_blank">Office of the Privacy Commissioner of Canada (OPC)</a> and <a href="https://cira.ca/" target="_blank">Canadian Internet Registration Authority (CIRA)</a>. The views expressed herein are those of the author(s) and do not necessarily reflect those of the funders.</p>
         <p>IXmaps is affiliated with the <a href="http://iprp.ischool.utoronto.ca/" target="_blank">Information Policy Research Program and based at the <a href="https://www.ischool.utoronto.ca/" target="_blank">Faculty of Information, University of Toronto</a>.</p>
 
+        <img src="/_assets/img/funding-logos.jpg" alt="University of Toronto, Faculty of Information, IPRP, and OCAD U logos">
+
         <div class="ui hidden section divider"></div>
     </article>
 </div>

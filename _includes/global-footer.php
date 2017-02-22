@@ -2,9 +2,9 @@
     <div class="content">
         <div class="footer-nav">
             <ul>
-                <li><h4><a href="about.php">About</a></h4></li>
-                <li><h4><a href="research.php">Research</a></h4></li>
-                <li><h4><a href="news.php">News</a></h4></li>
+                <li><h4><a href="/about.php">About</a></h4></li>
+                <li><h4><a href="/research.php">Research</a></h4></li>
+                <li><h4><a href="/news.php">News</a></h4></li>
             </ul>
         </div>
 
@@ -34,7 +34,7 @@
         <div class="footer-copyright">
             <p class="minor">The IXmaps website is licensed under a
                 <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank">Creative Commons Share-Alike License</a><br>
-                Last modified Tuesday 21 February, 2016
+                Last modified recently (site under active development)
             </p>
 
             <a id="privacy" class="ui transparent button labeled icon" href="privacy.php" target="_self"><i class="icon"><img src="/_assets/img/icn-privacypolicy.svg" alt=""></i>Privacy Policy</a>

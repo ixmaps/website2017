@@ -24,5 +24,5 @@
 <ul>
     <li><a href="/learn/faq.php#faq-issue-one">Where are the main internet exchanges in North America?</a></li>
     <li><a href="/learn/faq.php#faq-issue-one">How do I read a traceroute?</a></li>
-    <li><a href="/learn/faq.php#faq-issue-one">How do we locate routers geographically and map them?</a></li>
+    <li><a href="/learn/faq.php#faq-issue-one">How does IXmaps locate routers geographically and map them?</a></li>
 </ul>
