@@ -53,3 +53,5 @@ For continued development, run `grunt phpwatch` from the `/_assets/__build/` dir
 ## Git commit processes
 
 Please commit to `master` only (prod should be locked). Master will act as the staging branch, to be merged to `prod` and pulled to server as required.
+
+Issues lifecycle is fair hands off - start your own issues, close your own issues, complete and close others issues are all acceptable practices. If resolving another user's more complex issue, preferred practice is to alert the issuer to review and close instead.
