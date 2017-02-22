@@ -50,7 +50,7 @@ Run the following commands in a terminal from the `/_assets/__build/` folder.
 
 For continued development, run `grunt phpwatch` from the `/_assets/__build/` directory.
 
-## Git commit processes
+## Git practices
 
 Please commit to `master` only (prod should be locked). Master will act as the staging branch, to be merged to `prod` and pulled to server as required.
 
