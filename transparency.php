@@ -1,5 +1,5 @@
 <?php
-  $active_report = basename($_SERVER['SCRIPT_NAME'], '.php');
+  $active_report = '2014-report';
 
   $reports = array(
     '2014-report' => array(
@@ -13,6 +13,19 @@
   );
 ?>
 
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>IXmaps</title>
+    <?php include '_includes/global-head.php'; ?>
+</head>
+
+<body>
+
+
+<?php include '_includes/global-navigation.php'; ?>
+
 <header class="transparency-intro">
     <div class="content">
         <img class="ui centered image" src="/_assets/img/transparency/hero-banner.png" alt="Keeping Internet Users in the Know or in the Dark: Data Privacy Transparncy of Canadian Internet Service Providers" />
@@ -23,11 +36,11 @@
                 <?php echo $report_details['title']; ?>
               </a>
             <?php endforeach; ?>
-
-            <!--
-            <a class="ui inverted large yellow button <?php if($active_report == '2014-report'){ echo 'active'; } ?>" href="/transparency/2014-report.php">2014 Report</a>
-            <a class="ui inverted large yellow button <?php if($active_report == '2013-report'){ echo 'active'; } ?>" href="/transparency/2013-report.php">2013 Report</a>
-            -->
         </div>
     </div>
 </header>
+
+<?php include ('transparency/' . $active_report . '.php'); ?>
+
+</body>
+</html>

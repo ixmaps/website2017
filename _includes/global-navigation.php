@@ -22,7 +22,7 @@
                 </div>
             </li>
             <li class="nav-item nav-item-contribute"><a href="/contribute.php">Contribute</a></li>
-            <li class="nav-item nav-item-transparency"><a href="/transparency/2014-report.php">Transparency</a></li>
+            <li class="nav-item nav-item-transparency"><a href="/transparency.php">Transparency</a></li>
         </ul>
     </nav>
 </header>

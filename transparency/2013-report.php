@@ -9,13 +9,9 @@
 
 <body id="report-2013-page">
 
-<?php include '../_includes/global-navigation.php'; ?>
-
-<?php include '../_includes/transparency-header.php'; ?>
-
 <div class="content">
     <div class="ui orange message">
-        <p>This is an archived report. <a href="https://www.ixmaps.ca/transparency.php">Read the Current Report &#8594;</a></p>
+        <p>This is an archived report. <a href="/transparency.php">Read the Current Report &#8594;</a></p>
     </div>
 
     <img class="ui centered image" src="/_assets/img/transparency/star-table-2013.png">
