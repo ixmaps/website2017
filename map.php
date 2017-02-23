@@ -6,9 +6,6 @@
     <?php include '_includes/global-head.php'; ?>
 
     <script src="_assets/js/tablesorter.js" type="text/javascript"></script>
-    <!-- TODO: get this off the CDN - npm? how does grunt play here? -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js" type="text/javascript"></script>
-    <script src="_assets/js/ixmaps.js" type="text/javascript"></script>
     <script src="_assets/js/map.js" type="text/javascript"></script>
 </head>
 
@@ -63,9 +60,6 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
-    // TODO: move this to the index page or some kind of header - will likely eventually need to be site wide
-    loadConfig('/config.json');
-    verifyConfig(config, requiredConfig);
     init();
   });
 </script>
