@@ -72,3 +72,7 @@ bower_components/
 .bower-cache
 .bower-registry
 .bower-tmp
+
+
+### Project Files ###
+config.json
