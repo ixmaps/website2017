@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <title>IXmaps</title>
     <?php include '_includes/global-head.php'; ?>
 
     <script src="_assets/js/tablesorter.js" type="text/javascript"></script>
+    <!-- TODO: get this off the CDN - npm? how does grunt play here? -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js" type="text/javascript"></script>
+    <script src="_assets/js/ixmaps.js" type="text/javascript"></script>
     <script src="_assets/js/map.js" type="text/javascript"></script>
-
-    <!-- Google Maps API  -->
-    <script src="https://maps.googleapis.com/maps/api/js"></script>
-    <!-- TODO: create new key, set up config files -->
-    <!-- <script type="text/javascript" src="https://maps.google.com/maps/api/js?v=3&libraries=geometry&key=AIzaSyDooKbYZYOoTVcJvrV05uMOfQWAxMHtliQ"></script> -->
 </head>
 
 <body id="map-page">
@@ -63,9 +61,11 @@
 
 <?php include '_includes/global-footer.php'; ?>
 
-<!-- Snazzy Maps  -->
 <script type="text/javascript">
   $(document).ready(function() {
+    // TODO: move this to the index page or some kind of header - will likely eventually need to be site wide
+    loadConfig('/config.json');
+    verifyConfig(config, requiredConfig);
     init();
   });
 </script>
