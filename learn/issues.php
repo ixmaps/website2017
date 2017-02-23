@@ -39,7 +39,34 @@
                     </div>
 
                     <div class="content">
-                        <?php include '../_includes/learn-issues-one.php'; ?>
+                        <p>Go to the <a href="/map.php">Map</a>, where you will see the traceroute from nearest your location. <!--  marks the origin of the traceroute and the termination.  -->You can click on the dots and lines to learn more about the route and who carries your data.</p>
+
+                        <!-- READD ME -->
+                        <!-- <p>To see other routes from near you:</p>
+                        <ol>
+                            <li>Click in the <strong>From</strong> box, to show the menu choices</li>
+                            <li>Select your <strong>ISP</strong>, <strong>City</strong> or <strong>Country</strong>, or a combination of these, entering the relevant information.</li>
+                            <li>Click <strong>Submit</strong>. </li>
+                        </ol>
+
+                        <p>You will see mapped the most recent route that meets these conditions. On the right is the number of routes found and brief details about them. You can map these other routes by clicking on the traceroute row. As shown in this example, below this is another table with summary information about the various ISPs or carriers that handle the mapped route(s).</p>
+
+
+                        <p>You can refine your selection using <strong>From</strong>, <strong>Via</strong> and <strong>To</strong>.</p>
+                        -->
+                        <p>To see routes from your own personal device, you must first generate them yourself. Go to the <a href="/contribute.php">Contribute</a> page for instructions on how to do this.</p>
+
+                        <h6>How to Search IXmaps</h6>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/_K_WIquGGbk" frameborder="0" allowfullscreen></iframe>
+
+                        <p>This step by step video shows how you can selectively map routes in the IXmaps database.</p>
+
+                        <h6>See FAQs:</h6>
+                        <ul>
+                            <li><a href="/learn/faq.php#faq-issue-one">Where are the main internet exchanges in North America?</a></li>
+                            <li><a href="/learn/faq.php#faq-issue-one">How do I read a traceroute?</a></li>
+                            <li><a href="/learn/faq.php#faq-issue-one">How does IXmaps locate routers geographically and map them?</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -67,7 +94,35 @@
                     </div>
 
                     <div class="content">
-                        <?php include '../_includes/learn-issues-two.php'; ?>
+                        <p>The <a href="/map.php">Map</a> shows 18 U.S. cities where reported and suspected <a href="/learn/glossary.php#nsa_interception_facilities">NSA interception facilities</a> are located.
+                        <!-- READD ME -->
+                        <!-- To see routes in our database that pass through at least one of the cities:</p>
+                        <ol>
+                            <li>Click in the <strong>Via</strong> box</li>
+                            <li>Select <strong>Spy Agency: NSA</strong></li>
+                            <li>Click <strong>Submit</strong></li>
+                        </ol>
+
+                        <p>To narrow the search, add other filters, such as <strong>From</strong> you, your country or your ISP, <strong>To</strong> your favorite site, etc., before clicking <strong>Submit</strong>.</p>
+                        -->
+                        <p>To see the locations of other suspected NSA surveillance operations conducted worldwide with the cooperation of AT&amp;T (e.g. program code-named Fairview) and Verizon (e.g. Stormbrew) click on the <strong>Layers</strong> button in the upper right and select their respective entries:</p>
+
+                        <h6>Do you know where your data goes?</h6>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/pvdIB5vr4cw" frameborder="0" allowfullscreen></iframe>
+
+                        <p>This video shows a 3D Google Earth animation of data traveling from the Ontario Science Centre to the San Francisco Art Institute's website, passing through the NSA surveillance site inside AT&amp;T's San Francisco internet switching facility at 611 Folsom Street. All traffic passing through this site is intercepted by NSA computers for inspection and storage. </p>
+
+                        <h6>See FAQs:</h6>
+                        <ol>
+                            <li><a href="/learn/faq.php#faq-issue-two">What is NSA mass surveillance?</a></li>
+                            <li><a href="/learn/faq.php#faq-issue-two">How does IXmaps know where the NSA can intercept my data?</a></li>
+                            <li><a href="/learn/faq.php#faq-issue-two">What can the NSA do with my data?</a></li>
+                            <li><a href="/learn/faq.php#faq-issue-two">What's wrong with mass state surveillance?</a></li>
+                            <li><a href="/learn/faq.php#faq-issue-two">What can I do to keep my personal information from being captured by the NSA and other foreign state security and intelligence agencies?</a></li>
+                            <li><a href="/learn/faq.php#faq-issue-two">What about Canadian state security and intelligence agencies, such as CSE? Aren't they as much of a problem?</a></li>
+                            <li><a href="/learn/faq.php#faq-issue-two">What can I do to help make Canadian security agencies more democratically accountable?</a></li>
+                        </ol>
+
                     </div>
                 </div>
             </div>
@@ -93,7 +148,32 @@
                     </div>
 
                     <div class="content">
-                        <?php include '../_includes/learn-issues-three.php'; ?>
+                        <!-- READD ME -->
+                        <!--
+                        <p>To see examples of boomerang routing:</p>
+                        <ol>
+                            <li>In the <strong>From</strong> box, select your country</li>
+                            <li>In the <strong>To</strong> box, select your country again</li>
+                            <li>In the <strong>Via</strong> box, select U.S. or another third country</li>
+                            <li>Click <strong>Submit</strong></li>
+                        </ol>
+
+                        <p>Boomerang routing can even occur when the origin and destination are in the same city. To map these, adjust the <strong>From</strong> and <strong>To</strong> filters for the city of your choice and click <strong>Submit</strong>.</p> -->
+
+                        <h6>IXmaps: See where your data travels (Open Media)</h6>
+
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/tHvuLCPiVg4" frameborder="0" allowfullscreen></iframe>
+
+                        <p>This Open Media video explains the concept of boomerang routing and its significance for Canadians. See also this <a href="https://www.youtube.com/watch?v=F_v0VMvjcI8" target="_blank">Canadian Internet Boomerang Routing</a> video produced by the IXmaps team and this <a href="https://www.youtube.com/watch?v=swxLhgoG-fs" target="_blank">Monitoring Data</a> video produced by Montreal-based Options Consommateurs in their Moment of Privacy series.</p>
+
+                        <h6>See FAQs</h6>
+                        <ul>
+                            <li><a href="/learn/faq.php#faq-issue-three">What's wrong with boomerang routing?</a></li>
+                            <li><a href="/learn/faq.php#faq-issue-three">Why does your data boomerang through the US?</a></li>
+                            <li><a href="/learn/faq.php#faq-issue-three">How can I avoid boomerang routing?</a></li>
+                            <li><a href="/learn/faq.php#faq-issue-three">Why is network sovereignty important to Canadians?</a></li>
+                            <li><a href="/learn/faq.php#faq-issue-three">What can Canadians do to keep their data at home and promote network sovereignty?</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -121,7 +201,16 @@
                     </div>
 
                     <div class="content">
-                        <?php include '../_includes/learn-issues-four.php'; ?>
+                        <p>On the right of the <a href="/map.php">Map</a>, take a look at the Carrier Summary table. It lists the ISPs or carriers that handle the data in the currently mapped traceroutes. The Routers (Rtrs) column indicates the total number of routers for each carrier. The Transparency column, shows the total number of stars we awarded them on  our 10 criteria. Click on the carriers with star scores to learn more details or read our <a href="/transparency.php">Transparency</a> reports covering all the carriers we rated.</p>
+
+                        <h6>See FAQs:</h6>
+                        <ul>
+                            <li><a href="/learn/faq.php#faq-issue-four">What personal information does my ISP have about me?</a></li>
+                            <li><a href="/learn/faq.php#faq-issue-four">What legal responsibilities do ISPs have for protecting Canadians' personal information and communication?</a></li>
+                            <li><a href="/learn/faq.php#faq-issue-four">Does my ISP being transparent about its privacy policies mean that it is protective of my privacy?</a></li>
+                            <li><a href="/learn/faq.php#faq-issue-four">What can I do to help make ISPs more privacy transparent and privacy protective?</a></li>
+                        </ul>
+
                     </div>
                 </div>
             </div>
