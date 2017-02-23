@@ -21,37 +21,37 @@
 
             <div class="input-holder">
                 <div class="quick-input">
-                    <button class="ui large fluid button">
+                    <button class="ui large fluid button qs-last-contributed-btn">
                         <i><img src="/_assets/img/quicksearch-contributed.svg" alt="" /></i><br />
                         Last Contributed
                     </button>
                 </div>
                 <div class="quick-input">
-                    <button class="ui large fluid button">
+                    <button class="ui large fluid button qs-via-nsa-city-btn">
                         <i><img src="/_assets/img/quicksearch-city.svg" alt="" /></i><br />
                         Via NSA City
                     </button>
                 </div>
                 <div class="quick-input">
-                    <button class="ui large fluid button">
+                    <button class="ui large fluid button qs-via-boomerangs-btn">
                         <i><img src="/_assets/img/quicksearch-boomerang.svg" alt="" /></i><br />
                         Boomerangs
                     </button>
                 </div>
                 <div class="quick-input">
-                    <button class="ui large fluid button">
+                    <button class="ui large fluid button qs-from-my-isp-btn">
                         <i><img src="/_assets/img/quicksearch-isp.svg" alt="" /></i><br />
                         From My ISP
                     </button>
                 </div>
                 <div class="quick-input">
-                    <button class="ui large fluid button">
+                    <button class="ui large fluid button qs-from-my-cty-btn">
                             <i><img src="/_assets/img/quicksearch-city.svg" alt="" /></i><br />
                             From My City
                     </button>
                 </div>
                 <div class="quick-input">
-                    <button class="ui large fluid button">
+                    <button class="ui large fluid button qs-from-my-country-btn">
                         <i><img src="/_assets/img/quicksearch-country.svg" alt="" /></i><br />
                         From My Country
                     </button>
@@ -115,70 +115,70 @@
                 </a>
 
                 <div class="basic-srch-itm">
-                    <button class="ui huge fluid red button">Search</button>
+                    <button class="ui huge fluid red button submit-basic-search-btn">Search</button>
                 </div>
 
-                <div class="ui from flowing inverted popup hidden" data-variation="wide">
+                <div id="bs-originate-popup" class="ui from flowing inverted popup hidden" data-variation="wide">
                     <div class="ui inverted form">
                         <div class="inline field">
-                            <label>Contibutor</label>
-                            <input type="text" placeholder="Contibutor">
+                            <label>Contributor</label>
+                            <input data-constraint="contributor" type="text" placeholder="Contibutor">
                         </div>
                         <div class="inline field">
                             <label>ISP</label>
-                            <input type="text" placeholder="ISP">
+                            <input data-constraint="isp" type="text" placeholder="ISP">
                         </div>
                         <div class="inline field">
                             <label>City</label>
-                            <input type="text" placeholder="City">
+                            <input data-constraint="city" type="text" placeholder="City">
                         </div>
                         <div class="inline field">
                             <label>Country</label>
-                            <input type="text" placeholder="Country">
+                            <input data-constraint="country" type="text" placeholder="Country">
                         </div>
                         <button class="ui primary blue right floated button">Save</button>
                     </div>
                 </div>
 
-                <div class="ui via flowing inverted popup hidden" data-variation="wide">
+                <div id="bs-via-popup" class="ui via flowing inverted popup hidden" data-variation="wide">
                     <div class="ui inverted form">
                         <div class="inline field">
                             <label>NSA</label>
-                            <input type="text" placeholder="NSA">
+                            <input data-constraint="NSA" type="text" placeholder="NSA">
                         </div>
                         <div class="inline field">
                             <label>ISP</label>
-                            <input type="text" placeholder="ISP">
+                            <input data-constraint="ISP" type="text" placeholder="ISP">
                         </div>
                         <div class="inline field">
                             <label>City</label>
-                            <input type="text" placeholder="City">
+                            <input data-constraint="city" type="text" placeholder="City">
                         </div>
                         <div class="inline field">
                             <label>Country</label>
-                            <input type="text" placeholder="Country">
+                            <input data-constraint="country" type="text" placeholder="Country">
                         </div>
                         <button class="ui primary blue right floated button">Save</button>
                     </div>
                 </div>
 
-                <div class="ui to flowing inverted popup hidden" data-variation="wide">
+                <div id="bs-terminate-popup" class="ui to flowing inverted popup hidden" data-variation="wide">
                     <div class="ui inverted form">
                         <div class="inline field">
                             <label>Website</label>
-                            <input type="text" placeholder="Website">
+                            <input data-constraint="destHostName" type="text" placeholder="Website">
                         </div>
                         <div class="inline field">
                             <label>ISP</label>
-                            <input type="text" placeholder="ISP">
+                            <input data-constraint="ISP" type="text" placeholder="ISP">
                         </div>
                         <div class="inline field">
                             <label>City</label>
-                            <input type="text" placeholder="City">
+                            <input data-constraint="city" type="text" placeholder="City">
                         </div>
                         <div class="inline field">
                             <label>Country</label>
-                            <input type="text" placeholder="Country">
+                            <input data-constraint="country" type="text" placeholder="Country">
                         </div>
                         <button class="ui primary blue right floated button">Save</button>
                     </div>

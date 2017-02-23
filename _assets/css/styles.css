@@ -26127,14 +26127,14 @@ table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSo
 .quick-input {
 	float: left;
 	display: block;
-	margin-right: 2.3576515979%;
-	width: 14.7019570017%;
+	margin-left: 2%;
+	width: 14.35%;
 	padding: 0;
 }
 
-.quick-input:last-child {
+/*.quick-input:last-child {
 	margin-right: 0;
-}
+}*/
 
 .quick-input .button {
 	height: 80px;
