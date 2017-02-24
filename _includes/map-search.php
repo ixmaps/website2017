@@ -189,29 +189,29 @@
         <!-- Tab 3 Contents: Advanced Search -->
         <div class="ui bottom attached tab segment" data-tab="advanced">
             <h3 class="ui header">Construct a custom query to search the IXmaps database</h3>
-            <div class="advanced input-holder">
 
+            <div class="advanced input-holder">
                 <!-- BOOLEAN -->
-                <div class="advanced-input constraint-does">
-                    <select class="ui fluid dropdown">
+                <div class="advanced-input constraint-container constraint-boolean" data-constraint="boolean">
+                    <!-- <select class="ui fluid dropdown">
                         <option value="does">Does</option>
                         <option value="doesNot">Does not</option>
-                    </select>
+                    </select> -->
                 </div>
 
-                <!-- WHERE -->
-                <div class="advanced-input constraint-rule">
-                    <select class="ui fluid dropdown">
+                <!-- POSITION -->
+                <div class="advanced-input constraint-container constraint-position" data-constraint="position">
+                    <!-- <select class="ui fluid dropdown">
                         <option value="originate">Originate in</option>
                         <option value="terminate">Terminate in</option>
                         <option value="goVia">Go Via</option>
                         <option value="contain">Contain</option>
-                    </select>
+                    </select> -->
                 </div>
 
                 <!-- KIND -->
-                <div class="advanced-input constraint-property">
-                    <select class="ui fluid dropdown">
+                <div class="advanced-input constraint-container constraint-kind" data-constraint="kind">
+<!--                     <select class="ui fluid dropdown">
                         <option value="submitter">Submitter Name</option>
                         <option value="zipCodeSubmitter">Submitter Postcode</option>
                         <option value="trId">Traceroute Id</option>
@@ -224,22 +224,22 @@
                         <option value="zipCode">Postcode</option>
                         <option value="city">City</option>
                         <option value="destHostName">Destination Hostname</option>
-                    </select>
+                    </select> -->
                 </div>
 
                 <!-- INPUT -->
-                <div class="advanced-input constraint-value">
-                    <div class="ui fluid input">
+                <div class="advanced-input constraint-container constraint-input" data-constraint="input">
+<!--                     <div class="ui fluid input">
                         <input type="text" placeholder="Hostname">
-                    </div>
+                    </div> -->
                 </div>
 
                 <!-- JOIN -->
-                <div class="advanced-input constraint-boolean">
-                    <select class="ui fluid dropdown">
+                <div class="advanced-input constraint-container constraint-join" data-constraint="join">
+                    <!-- <select class="ui fluid dropdown">
                         <option value="AND">AND</option>
                         <option value="OR">OR</option>
-                    </select>
+                    </select> -->
                 </div>
 
                 <div class="advanced-input constraint-buttons">

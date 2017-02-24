@@ -1,8 +1,8 @@
 // GLOBALS
 
 // this should be moved somewhere eventually - either config or the backend
-// I really prefer being explicit here, giving them keys (boolean, where, kind, etc) instead of 'constraint1', 'constraint2', etc. I'm hoping we can adjust the backend to agree.
-// use _.keys(constraints) to get the array of keys (boolean, where, kind, etc)
+// I really prefer being explicit here, giving them keys (boolean, position, kind, etc) instead of 'constraint1', 'constraint2', etc. I'm hoping we can adjust the backend to agree.
+// use _.keys(constraints) to get the array of keys (boolean, position, kind, etc)
 // I'm open to adjusting this, basically to include the keys inside the objects (constraints becomes an array of objects)
 const constraints = {
   "boolean": [
@@ -15,7 +15,7 @@ const constraints = {
       "display": "Does not"
     }
   ],
-  "where": [
+  "position": [
     {
       "value": "originate",
       "display": "Originate"
@@ -101,6 +101,22 @@ const constraints = {
 var init = function() {
   setUpGMaps();
   setUpClickHandlers();
+
+  $('.input-holder .constraint-container').each(function(index, el) {
+    var constraintName = jQuery(el).data('constraint');
+    if (constraintName === "input") {
+      var divEl = '<div class="ui fluid input"><input type="text" placeholder="Hostname"></div>';
+      jQuery(el).append(divEl);
+    } else {
+      var selectEl = $('<select/>');
+      selectEl.addClass('ui fluid dropdown');
+      _.each(constraints[constraintName], function(con) {
+        console.log(con.value);
+        selectEl.append(new Option(con.display, con.value, true, true));
+      });
+      jQuery(el).append(selectEl);
+    }
+  });
 }
 
 
@@ -179,21 +195,21 @@ var setUpClickHandlers = function() {
   // basic search button
   $('#search-header .submit-basic-search-btn').click(function() {
     // iterate over all of the 'from' conditions
-    $('#bs-originate-popup input').each(function(index, value) {
-      if ($(this).val() != "") {
-        console.log('Originate ' + $(this).data('constraint') + ': ' + $(this).val());
+    $('#bs-originate-popup input').each(function(index, el) {
+      if ($(el).val() != "") {
+        console.log('Originate ' + $(el).data('constraint') + ': ' + $(el).val());
       }
     });
     // iterate over all of the 'via' conditions
-    $('#bs-via-popup input').each(function(index, value) {
-      if ($(this).val() != "") {
-        console.log('Via ' + $(this).data('constraint') + ': ' + $(this).val());
+    $('#bs-via-popup input').each(function(index, el) {
+      if ($(el).val() != "") {
+        console.log('Via ' + $(el).data('constraint') + ': ' + $(el).val());
       }
     });
     // iterate over all of the 'to' conditions
-    $('#bs-terminate-popup input').each(function(index, value) {
-      if ($(this).val() != "") {
-        console.log('Terminate ' + $(this).data('constraint') + ': ' + $(this).val());
+    $('#bs-terminate-popup input').each(function(index, el) {
+      if ($(el).val() != "") {
+        console.log('Terminate ' + $(el).data('constraint') + ': ' + $(el).val());
       }
     });
   });

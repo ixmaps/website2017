@@ -1,11 +1,9 @@
 html {
-	-moz-box-sizing: border-box;
-	     box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 *, *::after, *::before {
-	-moz-box-sizing: inherit;
-	     box-sizing: inherit;
+	box-sizing: inherit;
 }
 
 #search-header {
@@ -15,19 +13,16 @@ html {
 .map-holder {
 	min-height: 50vh;
 	display: -webkit-box;
-	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
 	-webkit-box-orient: horizontal;
 	-webkit-box-direction: reverse;
-	-webkit-flex-direction: row-reverse;
 	    -ms-flex-direction: row-reverse;
 	        flex-direction: row-reverse;
 }
 
 .map-canvas {
 	-webkit-box-flex: 1;
-	-webkit-flex: 1;
 	    -ms-flex: 1;
 	        flex: 1;
 	margin: 0;

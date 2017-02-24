@@ -357,19 +357,19 @@ a.basic-srch-itm:nth-of-type(4){
   }
 }
 
-.advanced-input.constraint-does {
+.advanced-input.constraint-boolean {
   flex: 0.75 1 auto;
 }
-.advanced-input.constraint-rule {
+.advanced-input.constraint-position {
   flex: 1 1 auto;
 }
-.advanced-input.constraint-property {
+.advanced-input.constraint-kind {
   flex: 2 1 auto;
 }
-.advanced-input.constraint-value {
+.advanced-input.constraint-input {
   flex: 4 1 auto;
 }
-.advanced-input.constraint-boolean {
+.advanced-input.constraint-join {
   flex: 1 1 auto;
 }
 .advanced-input.constraint-buttons {
