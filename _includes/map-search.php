@@ -191,7 +191,7 @@
             <h3 class="ui header">Construct a custom query to search the IXmaps database</h3>
             <div class="advanced input-holder">
 
-                <!-- Does Not -->
+                <!-- BOOLEAN -->
                 <div class="advanced-input constraint-does">
                     <select class="ui fluid dropdown">
                         <option value="does">Does</option>
@@ -199,7 +199,7 @@
                     </select>
                 </div>
 
-                <!-- Terminate -->
+                <!-- WHERE -->
                 <div class="advanced-input constraint-rule">
                     <select class="ui fluid dropdown">
                         <option value="originate">Originate in</option>
@@ -209,7 +209,7 @@
                     </select>
                 </div>
 
-                <!-- Destination -->
+                <!-- KIND -->
                 <div class="advanced-input constraint-property">
                     <select class="ui fluid dropdown">
                         <option value="submitter">Submitter Name</option>
@@ -227,14 +227,14 @@
                     </select>
                 </div>
 
-                <!-- Input -->
+                <!-- INPUT -->
                 <div class="advanced-input constraint-value">
                     <div class="ui fluid input">
                         <input type="text" placeholder="Hostname">
                     </div>
                 </div>
 
-                <!-- And -->
+                <!-- JOIN -->
                 <div class="advanced-input constraint-boolean">
                     <select class="ui fluid dropdown">
                         <option value="AND">AND</option>

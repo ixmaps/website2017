@@ -1,3 +1,102 @@
+// GLOBALS
+
+// this should be moved somewhere eventually - either config or the backend
+// I really prefer being explicit here, giving them keys (boolean, where, kind, etc) instead of 'constraint1', 'constraint2', etc. I'm hoping we can adjust the backend to agree.
+// use _.keys(constraints) to get the array of keys (boolean, where, kind, etc)
+// I'm open to adjusting this, basically to include the keys inside the objects (constraints becomes an array of objects)
+const constraints = {
+  "boolean": [
+    {
+      "value": "does",
+      "display": "Does"
+    },
+    {
+      "value": "doesNot",
+      "display": "Does not"
+    }
+  ],
+  "where": [
+    {
+      "value": "originate",
+      "display": "Originate"
+    },
+    {
+      "value": "terminate",
+      "display": "Terminate"
+    },
+    {
+      "value": "goVia",
+      "display": "Goes via"
+    },
+    {
+      "value": "contain",
+      "display": "Contain"
+    }
+  ],
+  "kind": [
+    {
+      "value": "submitter",
+      "display": "Submitter name"
+    },
+    {
+      "value": "zipCodeSubmitter",
+      "display": "Submitter postcode"
+    },
+    {
+      "value": "ISP",
+      "display": "ISP/Carrier"
+    },
+    {
+      "value": "city",
+      "display": "City"
+    },
+    {
+      "value": "region",
+      "display": "Province/State"
+    },
+    {
+      "value": "country",
+      "display": "Country"
+    },
+    {
+      "value": "zipCode",
+      "display": "Postcode"
+    },
+    {
+      "value": "hostName",
+      "display": "Hostname"
+    },
+    {
+      "value": "destHostName",
+      "display": "Destination hostname"
+    },
+    {
+      "value": "ipAddr",
+      "display": "IP address"
+    },
+    {
+      "value": "asnum",
+      "display": "AS number"
+    },
+    {
+      "value": "trId",
+      "display": "Traceroute id"
+    }
+  ],
+  "input": [],
+  "join": [
+    {
+      "value": "and",
+      "display": "And"
+    },
+    {
+      "value": "or",
+      "display": "Or"
+    }
+  ]
+}
+
+
 // MAIN FUNCTIONS
 var init = function() {
   setUpGMaps();
