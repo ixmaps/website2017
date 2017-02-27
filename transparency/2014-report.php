@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="/_assets/css/transparency.css" type="text/css">
 </head>
 
-<body id="report-2014-page">
+<body id="report-2014-page" data-name="2014-report">
+
+<?php include($_SERVER['DOCUMENT_ROOT'].'/_includes/global-navigation.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/_includes/transparency-header.php'); ?>
 
 <header>
     <div class="content">

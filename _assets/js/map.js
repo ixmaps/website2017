@@ -91,7 +91,7 @@ const constraints = {
     },
     {
       "value": "or",
-      "display": "OD"
+      "display": "OR"
     }
   ]
 }

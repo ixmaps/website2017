@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="/_assets/css/transparency.css" type="text/css">
 </head>
 
-<body id="report-2013-page">
+<body id="report-2013-page" data-name="2013-report">
+
+<?php include($_SERVER['DOCUMENT_ROOT'].'/_includes/global-navigation.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/_includes/transparency-header.php'); ?>
 
 <div class="content">
     <div class="ui orange message">
