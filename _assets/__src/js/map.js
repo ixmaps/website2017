@@ -4,121 +4,162 @@
 // I really prefer being explicit here, giving them keys (boolean, position, kind, etc) instead of 'constraint1', 'constraint2', etc. I'm hoping we can adjust the backend to agree.
 // use _.keys(constraints) to get the array of keys (boolean, position, kind, etc)
 // I'm open to adjusting this, basically to include the keys inside the objects (constraints becomes an array of objects)
-const constraints = {
-  "boolean": [
-    {
-      "value": "does",
-      "display": "Does"
-    },
-    {
-      "value": "doesNot",
-      "display": "Does not"
-    }
-  ],
-  "position": [
-    {
-      "value": "originate",
-      "display": "Originate"
-    },
-    {
-      "value": "terminate",
-      "display": "Terminate"
-    },
-    {
-      "value": "goVia",
-      "display": "Goes via"
-    },
-    {
-      "value": "contain",
-      "display": "Contain"
-    }
-  ],
-  "kind": [
-    {
-      "value": "submitter",
-      "display": "Submitter name"
-    },
-    {
-      "value": "zipCodeSubmitter",
-      "display": "Submitter postcode"
-    },
-    {
-      "value": "ISP",
-      "display": "ISP/Carrier"
-    },
-    {
-      "value": "city",
-      "display": "City"
-    },
-    {
-      "value": "region",
-      "display": "Province/State"
-    },
-    {
-      "value": "country",
-      "display": "Country"
-    },
-    {
-      "value": "zipCode",
-      "display": "Postcode"
-    },
-    {
-      "value": "hostName",
-      "display": "Hostname"
-    },
-    {
-      "value": "destHostName",
-      "display": "Destination hostname"
-    },
-    {
-      "value": "ipAddr",
-      "display": "IP address"
-    },
-    {
-      "value": "asnum",
-      "display": "AS number"
-    },
-    {
-      "value": "trId",
-      "display": "Traceroute id"
-    }
-  ],
-  "input": [],
-  "join": [
-    {
-      "value": "and",
-      "display": "AND"
-    },
-    {
-      "value": "or",
-      "display": "OR"
-    }
-  ]
-}
+const constraints = [
+  {
+    "name": "boolean",
+    "options": [
+      {
+        "value": "does",
+        "display": "Does"
+      },
+      {
+        "value": "doesNot",
+        "display": "Does not"
+      }
+    ]
+  },
+  {
+    "name": "position",
+    "options": [
+      {
+        "value": "originate",
+        "display": "Originate"
+      },
+      {
+        "value": "terminate",
+        "display": "Terminate"
+      },
+      {
+        "value": "goVia",
+        "display": "Goes via"
+      },
+      {
+        "value": "contain",
+        "display": "Contain"
+      }
+    ]
+  },
+  {
+    "name": "kind",
+    "options": [
+      {
+        "value": "submitter",
+        "display": "Submitter name"
+      },
+      {
+        "value": "zipCodeSubmitter",
+        "display": "Submitter postcode"
+      },
+      {
+        "value": "ISP",
+        "display": "ISP/Carrier"
+      },
+      {
+        "value": "city",
+        "display": "City"
+      },
+      {
+        "value": "region",
+        "display": "Province/State"
+      },
+      {
+        "value": "country",
+        "display": "Country"
+      },
+      {
+        "value": "zipCode",
+        "display": "Postcode"
+      },
+      {
+        "value": "hostName",
+        "display": "Hostname"
+      },
+      {
+        "value": "destHostName",
+        "display": "Destination hostname"
+      },
+      {
+        "value": "ipAddr",
+        "display": "IP address"
+      },
+      {
+        "value": "asnum",
+        "display": "AS number"
+      },
+      {
+        "value": "trId",
+        "display": "Traceroute id"
+      }
+    ]
+  },
+  {
+    "name": "input",
+    "options": []
+  },
+  {
+    "name": "join",
+    "options": [
+      {
+        "value": "and",
+        "display": "AND"
+      },
+      {
+        "value": "or",
+        "display": "OR"
+      }
+    ]
+  }
+]
 
 
 // MAIN FUNCTIONS
 var init = function() {
   setUpGMaps();
   setUpClickHandlers();
+  createAdvSearchRow("first");
+};
 
-  $('.input-holder .constraint-container').each(function(index, el) {
-    var constraintName = jQuery(el).data('constraint');
-    if (constraintName === "input") {
+
+var createAdvSearchRow = function(row) {
+  var inputHolderEl = $('<div/>');
+  inputHolderEl.addClass('advanced input-holder');
+
+  // go over each constraint
+  _.each(constraints, function(con) {
+    var constraintEl = $('<div/>');
+    constraintEl.addClass('advanced-input constraint-container constraint-boolean');
+    constraintEl.data('constraint', con.name);
+    $(inputHolderEl).append(constraintEl);
+
+    // go over the options in each constraint (input is special case)
+    if (con.name === "input") {
       var divEl = '<div class="ui fluid input"><input type="text" placeholder="Hostname"></div>';
-      jQuery(el).append(divEl);
+      $(constraintEl).append(divEl);
     } else {
       var selectEl = $('<select/>');
       selectEl.addClass('ui fluid dropdown');
-      _.each(constraints[constraintName], function(con) {
-        console.log(con.value);
-        selectEl.append(new Option(con.display, con.value, true, true));
+      _.each(con.options, function(opt) {
+        selectEl.append(new Option(opt.display, opt.value, true, true));
       });
-      jQuery(el).append(selectEl);
+      $(constraintEl).append(selectEl);
     }
   });
-}
 
+  // append either a + or a - button
+  var controlsEl = $('<div/>');
+  controlsEl.addClass('advanced-input constraint-buttons');
+  var buttonEl = $('<button/>');
+  buttonEl.addClass('circular ui icon button');
+  if (row === "first") {
+    $(buttonEl).append('<i class="icon settings"><img src="_assets/img/icn-add.svg" alt="add"></i>');
+  } else {
+    $(buttonEl).append('<i class="icon settings"><img src="_assets/img/icn-remove.svg" alt="remove"></i>');
+  }
+  $(controlsEl).append(buttonEl);
+  $(inputHolderEl).append(controlsEl);
+
+  $('#as-search-container').append(inputHolderEl);
+};
 
 
 var setUpGMaps = function() {
@@ -213,6 +254,13 @@ var setUpClickHandlers = function() {
       }
     });
   });
+
+  //advanced search buttons
+
+
+  $('#submit-adv-search-btn').click(function() {
+
+  })
 
 
   // UI click events
