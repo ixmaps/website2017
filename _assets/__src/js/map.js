@@ -151,9 +151,17 @@ var createAdvSearchRow = function(row) {
   var buttonEl = $('<button/>');
   buttonEl.addClass('circular ui icon button');
   if (row === "first") {
-    $(buttonEl).append('<i class="icon settings"><img src="_assets/img/icn-add.svg" alt="add"></i>');
+    // add button
+    $(buttonEl).append('<i class="create-search-row-btn icon settings"><img src="_assets/img/icn-add.svg" alt="add"></i>');
+    $(buttonEl).click(function() {
+      createAdvSearchRow();
+    });
   } else {
-    $(buttonEl).append('<i class="icon settings"><img src="_assets/img/icn-remove.svg" alt="remove"></i>');
+    // remove button
+    $(buttonEl).append('<i class="destroy-search-row-btn icon settings"><img src="_assets/img/icn-remove.svg" alt="remove"></i>');
+    $(buttonEl).click(function() {
+      $(inputHolderEl).remove();
+    });
   }
   $(controlsEl).append(buttonEl);
   $(inputHolderEl).append(controlsEl);
@@ -256,11 +264,9 @@ var setUpClickHandlers = function() {
   });
 
   //advanced search buttons
-
-
   $('#submit-adv-search-btn').click(function() {
 
-  })
+  });
 
 
   // UI click events
