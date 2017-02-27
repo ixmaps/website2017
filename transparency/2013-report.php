@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Transparency | 2013 Report</title>
-    <?php include '../_includes/global-head.php'; ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/_includes/global-head.php'); ?>
     <link rel="stylesheet" href="/_assets/css/transparency.css" type="text/css">
 </head>
 
@@ -18,7 +18,7 @@
 
     <section id="download">
         <article>
-            <a href="../docs/DataPrivacyTransparencyofCanadianISPs-2013.pdf" target="_blank"><button>Download the Full 2013 Report</button></a>
+            <a href="/docs/DataPrivacyTransparencyofCanadianISPs-2013.pdf" target="_blank"><button>Download the Full 2013 Report</button></a>
             <p>Download the complete <em>"Keeping Internet Users in the Know or in the Dark"</em> report (PDF)
         </article>
     </section>

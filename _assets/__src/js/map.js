@@ -87,11 +87,11 @@ const constraints = {
   "join": [
     {
       "value": "and",
-      "display": "And"
+      "display": "AND"
     },
     {
       "value": "or",
-      "display": "Or"
+      "display": "OR"
     }
   ]
 }

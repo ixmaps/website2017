@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8">
     <title>Transparency | 2014 Report</title>
-    <?php include '_includes/global-head.php'; ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/_includes/global-head.php'); ?>
+
     <link rel="stylesheet" href="/_assets/css/transparency.css" type="text/css">
 </head>
 
@@ -44,9 +45,9 @@
 
     <section id="download">
         <article>
-            <a href="docs/DataPrivacyTransparencyofCanadianCarriers-2014.pdf" target="_blank"><button>Download the Full 2014 Report</button></a>
+            <a href="/docs/DataPrivacyTransparencyofCanadianCarriers-2014.pdf" target="_blank"><button>Download the Full 2014 Report</button></a>
             <p>Download the complete <em>“Keeping Internet Users in the Know or in the Dark”</em> report (PDF)
-            <br>Or, read the <a href="docs/transparency-2013.php" target="blank">2013 Report</a> in our archives.</p>
+            <br>Or, read the <a href="/transparency/2013-report.php">2013 Report</a> in our archives.</p>
         </article>
     </section>
 
@@ -55,7 +56,7 @@
         <ul>
             <li><a href="#evaluating">Evaluating Internet Carrier Transparency</a></li>
             <li><a href="#changes">Main Changes from the 2013 Report</a></li>
-                                        <li><a href="#findings">Findings</a></li>
+            <li><a href="#findings">Findings</a></li>
             <li><a href="#recommendations">Policy Recommendations</a></li>
                 <ul>
                     <li><a href="#forcarriers">For Carriers that Handle Canadian Internet Traffic</a></li>
@@ -73,12 +74,12 @@
             <section id="evaluating">
                 <h3>Evaluating Internet Carrier Transparency</h3>
 
-                <p>In the wake of the Snowden revelations about NSA surveillance, recent calls for greater data privacy recommend that internet service providers (ISPs) be more forthcoming about their handling of our personal information. Responding to this concern as well as in keeping with the transparency, openness and accountability principles fundamental to Canadian privacy law, this repoIn the wake of the Snowden revelations about mass state surveillance, notably by the US National Security Agency and it Five Eyes partners, there is growing demand for internet carriers to be more forthcoming about how they handle our personal information. Calls for greater privacy transparency in Canada became more urgent after it was revealed that Canadian government agencies are asking telecoms companies to turn over Canadians’ user data at “jaw-dropping” rates. Nine carriers received nearly 1.2 million requests in 2011 alone, largely without warrants.<sup id="fn1-inline"> <a href="https://www.ixmaps.ca/transparency.php#fn1">1</a></sup></p>
+                <p>In the wake of the Snowden revelations about NSA surveillance, recent calls for greater data privacy recommend that internet service providers (ISPs) be more forthcoming about their handling of our personal information. Responding to this concern as well as in keeping with the transparency, openness and accountability principles fundamental to Canadian privacy law, this repoIn the wake of the Snowden revelations about mass state surveillance, notably by the US National Security Agency and it Five Eyes partners, there is growing demand for internet carriers to be more forthcoming about how they handle our personal information. Calls for greater privacy transparency in Canada became more urgent after it was revealed that Canadian government agencies are asking telecoms companies to turn over Canadians’ user data at “jaw-dropping” rates. Nine carriers received nearly 1.2 million requests in 2011 alone, largely without warrants.<sup id="fn1-inline"> <a href="#fn1">1</a></sup></p>
 
                 <p>Responding to these concerns, as well as in keeping with the transparency, openness and accountability principles fundamental to Canadian privacy law, this is the second annual report that evaluates the data privacy transparency of the most significant internet carriers serving the Canadian public. We award carriers up to ten ‘stars’ based on the ready public availability of the following information:</p>
 
                 <ol>
-                    <li>A public commitment to PIPEDA<sup id="fn2-inline"><a href="https://www.ixmaps.ca/transparency.php#fn2">2</a></sup>  compliance.</li>
+                    <li>A public commitment to PIPEDA<sup id="fn2-inline"><a href="#fn2">2</a></sup>  compliance.</li>
                     <li>A public commitment to inform users about all third party data requests.</li>
                     <li>Transparency about frequency of third party data requests and disclosures.</li>
                     <li>Transparency about conditions for third party data disclosures.</li>
@@ -90,20 +91,20 @@
                     <li>Open advocacy for user privacy rights.</li>
                 </ol>
 
-                <p>These criteria are designed to address on-going privacy and civil liberties concerns, especially in light of the controversial expansion of state surveillance of internet activities.<sup id="fn3-inline"><a href="https://www.ixmaps.ca/transparency.php#fn3">3</a></sup> They are also relevant and timely in relation to the landmark Spencer Supreme Court of Canada decision that recognized that anonymity on-line is a privacy interest protected by s.8 of the Charter and that law enforcement authorities need a warrant to obtain subscriber information from telecoms (R. v. Spencer 2014 SCC 43). This report may also contribute to the debate over several items of federal legislation related to surveillance, privacy and national security that are currently before Parliament.<sup id="fn4-inline"><a href="https://www.ixmaps.ca/transparency.php#fn4">4</a></sup></p>
+                <p>These criteria are designed to address on-going privacy and civil liberties concerns, especially in light of the controversial expansion of state surveillance of internet activities.<sup id="fn3-inline"><a href="#fn3">3</a></sup> They are also relevant and timely in relation to the landmark Spencer Supreme Court of Canada decision that recognized that anonymity on-line is a privacy interest protected by s.8 of the Charter and that law enforcement authorities need a warrant to obtain subscriber information from telecoms (R. v. Spencer 2014 SCC 43). This report may also contribute to the debate over several items of federal legislation related to surveillance, privacy and national security that are currently before Parliament.<sup id="fn4-inline"><a href="#fn4">4</a></sup></p>
 
-                <p>We awarded stars based on careful examination of each carrier’s corporate website. Assuming that carriers want to make it easy for their customers to find information about corporate practices relating to personal information, and that the on-line privacy policy page is the first (and likely only) place users might look, we focus our attention on these public statements.<sup id="fn5-inline"> <a href="https://www.ixmaps.ca/transparency.php#fn5">5</a></sup></p>
+                <p>We awarded stars based on careful examination of each carrier’s corporate website. Assuming that carriers want to make it easy for their customers to find information about corporate practices relating to personal information, and that the on-line privacy policy page is the first (and likely only) place users might look, we focus our attention on these public statements.<sup id="fn5-inline"> <a href="#fn5">5</a></sup></p>
 
-                <p>We expanded to 43 the carriers in our sample based on their prevalence among the approximately 9500 internet traceroutes in the IXmaps.ca database that correspond to intra-Canadian routes – i.e. with origin and destination in Canada. This added several major behind the scenes transit providers that handle internet traffic across the internet ‘backbone’, typically routing traffic via the US. We also included carriers that are the subject of parallel transparency initiatives. In particular, we were greatly assisted by the Volunteer Student Working Group at the Centre for Innovation Law and Policy (CILP) in the University of Toronto’s  Faculty of Law. Their companion analysis of six of the most prominent wireless carriers provides valuable detail on the scoring of carriers.<sup id="fn6-inline"> <a href="https://www.ixmaps.ca/transparency.php#fn6">6</a></sup></p>
+                <p>We expanded to 43 the carriers in our sample based on their prevalence among the approximately 9500 internet traceroutes in the IXmaps.ca database that correspond to intra-Canadian routes – i.e. with origin and destination in Canada. This added several major behind the scenes transit providers that handle internet traffic across the internet ‘backbone’, typically routing traffic via the US. We also included carriers that are the subject of parallel transparency initiatives. In particular, we were greatly assisted by the Volunteer Student Working Group at the Centre for Innovation Law and Policy (CILP) in the University of Toronto’s  Faculty of Law. Their companion analysis of six of the most prominent wireless carriers provides valuable detail on the scoring of carriers.<sup id="fn6-inline"> <a href="#fn6">6</a></sup></p>
 
-                <p>The resulting star ratings can be seen in the accompanying 3 Star Tables:<sup id="fn7-inline"> <a href="https://www.ixmaps.ca/transparency.php#fn7">7</a></sup></p>
+                <p>The resulting star ratings can be seen in the accompanying 3 Star Tables:<sup id="fn7-inline"> <a href="#fn7">7</a></sup></p>
                 <ol>
                     <li>Major Canadian retail internet carriers</li>
                     <li>Minor Canadian retail internet carriers
                     </li><li>Major international internet transit carriers</li>
                 </ol>
 
-                <p>The Appendix contains detailed assessments for each carrier. Transparency ratings for particular internet routings and carriers can also be reviewed on the Explore page of the IXmaps website.<sup id="fn8-inline"> <a href="https://www.ixmaps.ca/transparency.php#fn8">8</a></sup></p>
+                <p>The Appendix contains detailed assessments for each carrier. Transparency ratings for particular internet routings and carriers can also be reviewed on the Explore page of the IXmaps website.<sup id="fn8-inline"> <a href="#fn8">8</a></sup></p>
             </section>
 
             <section id="changes">
@@ -135,7 +136,7 @@
 
                 <p><strong>No transit provider indicates explicit compliance with Canadian privacy law.</strong> This is concerning because these behind the scenes internet carriers handle large quantities of intra-Canadian traffic.</p>
 
-                <p><strong>Transit carriers generally score much lower than the retail carriers and typically expose personal data to mass state surveillance by the NSA.</strong> This is concerning because when outside Canada, or handled by carriers subject to US or other jurisdictions, Canadians’ data enjoy no effective legal protection, and certainly much less than when within Canadian jurisdiction.<sup id="fn9-inline"> <a href="https://www.ixmaps.ca/transparency.php#fn9">9</a></sup></p>
+                <p><strong>Transit carriers generally score much lower than the retail carriers and typically expose personal data to mass state surveillance by the NSA.</strong> This is concerning because when outside Canada, or handled by carriers subject to US or other jurisdictions, Canadians’ data enjoy no effective legal protection, and certainly much less than when within Canadian jurisdiction.<sup id="fn9-inline"> <a href="#fn9">9</a></sup></p>
 
                 <p>Given the lack of equivalent privacy protection between Canada and the U.S., the reliance on U.S. transit providers or U.S. routing for Canadian domestic internet traffic, aka ‘boomerang’ routing, it appears that <strong>many Canadian internet carriers are in violation of their legal responsibilities under PIPEDA.</strong></p>
             </section>
@@ -218,17 +219,17 @@
                 <ol class="notes">
                     <li id="fn1">
                         Alex Boutilier, <a href="http://www.thestar.com/news/canada/2014/04/29/telecoms_refuse_say_how_often_they_hand_over_customers_data.html" target="_blank">Government agencies seek telecom user data at ‘jaw-dropping’ rates,</a> Toronto Star, Apr 29 2014.
-                        <a class="returntoarticle" href="https://www.ixmaps.ca/transparency.php#fn1-inline">↩</a>
+                        <a class="returntoarticle" href="#fn1-inline">↩</a>
                     </li>
 
                     <li id="fn2">
                         Personal Information Protection and Electronic Documents Act
-                        <a class="returntoarticle" href="https://www.ixmaps.ca/transparency.php#fn2-inline">↩</a>
+                        <a class="returntoarticle" href="#fn2-inline">↩</a>
                     </li>
 
                     <li id="fn3">
                         Note for instance that the latest incarnation of highly controversial ‘lawful access’ legislation, Bill C-13 - Protecting Canadians from Online Crime Act, passed into law October 20, 2014.
-                        <a class="returntoarticle" href="https://www.ixmaps.ca/transparency.php#fn3-inline">↩</a>
+                        <a class="returntoarticle" href="#fn3-inline">↩</a>
                     </li>
 
                     <li id="fn4">
@@ -236,27 +237,27 @@
                             <br> S-4 - Digital Privacy Act, 2014
                             <br> C-44 - Protection of Canada from Terrorists Act, 2014
                             <br> C-51 - Anti-terrorism Act, 2015
-                        <a class="returntoarticle" href="https://www.ixmaps.ca/transparency.php#fn4-inline">↩</a>
+                        <a class="returntoarticle" href="#fn4-inline">↩</a>
                     </li>
 
                     <li id="fn5">
                         In the case of criterion 9 – Publicly visible steps to avoid U.S. routing of Canadian data, we also examine the peering arrangements noted on the websites of the  main Canadian public internet exchanges, TorIX, OttIX and YYCIX (Toronto/Ottawa/Calgary Internet Exchanges) as these are also publicly visible.
-                        <a class="returntoarticle" href="https://www.ixmaps.ca/transparency.php#fn5-inline">↩</a>
+                        <a class="returntoarticle" href="#fn5-inline">↩</a>
                     </li>
 
                     <li id="fn6">
                         <a href="http://innovationlaw.org/3_plus_3" target="blank">The 3+3 Project: Evaluating Canada’s Wireless Carriers’ Data Privacy Transparency</a>, 2014-2015 Centre for Innovation Law and Policy Volunteer Student Working Group, Centre for Innovation Law and Policy (CILP), Faculty of Law, University of Toronto, March 12, 2015.
-                        <a class="returntoarticle" href="https://www.ixmaps.ca/transparency.php#fn6-inline">↩</a>
+                        <a class="returntoarticle" href="#fn6-inline">↩</a>
                     </li>
 
                     <li id="fn7">
                         Division into these three tables was based primarily on the difference in role, between Canadian retail ISP and backbone transit carrier, and then secondarily among retail carriers based on the prominence of their internet presence in Canada, rather than their telephone or other service offerings.
-                        <a class="returntoarticle" href="https://www.ixmaps.ca/transparency.php#fn7-inline">↩</a>
+                        <a class="returntoarticle" href="#fn7-inline">↩</a>
                     </li>
 
                     <li id="fn8">
                         <a href="https://ixmaps.ca/explore" target="blank">https//ixmaps.ca/explore</a>
-                        <a class="returntoarticle" href="https://www.ixmaps.ca/transparency.php#fn8-inline">↩</a>
+                        <a class="returntoarticle" href="#fn8-inline">↩</a>
                     </li>
 
                     <li id="fn9">
@@ -265,7 +266,7 @@
                         Lisa M. Austin, <a href="http://ssrn.com/abstract=2524512" target="blank">Enough About Me: Why Privacy is About Power, Not Consent (or Harm)</a>, Forthcoming in Austin Sarat, ed., A World Without Privacy?: What Can/Should Law Do (Cambridge 2014)
                         <br />
                         Lisa M Austin and Daniel Carens-Nedelsky, Jurisdiction still matters: The Legal Contexts of Extra-National Outsourcing, presented at the Assessing Privacy Risks of Extra-National Outsourcing of eCommunications public forum, Seeing Through the Cloud: Why Jurisdiction Still Matters in a Digitally Interconnected World, University of Toronto, March 6, 2015. <a href="http://mediacast.ic.utoronto.ca/20150306-eComm/index.htm" target="blank">See webcast.</a>
-                        <a class="returntoarticle" href="https://www.ixmaps.ca/transparency.php#fn9-inline">↩</a>
+                        <a class="returntoarticle" href="#fn9-inline">↩</a>
                     </li>
                 </ol>
             </section>
