@@ -118,6 +118,7 @@
                     <button class="ui huge fluid red button submit-basic-search-btn">Search</button>
                 </div>
 
+                <!-- TODO: think about creating these from the constraints array -->
                 <div id="bs-originate-popup" class="ui from flowing inverted popup hidden" data-variation="wide">
                     <div class="ui inverted form">
                         <div class="inline field">
@@ -199,11 +200,11 @@
                     Settings
                 </button>
 
-                <button id="submit-adv-search-btn" class="ui primary right floated button">
+                <button id="as-submit-btn" class="ui primary right floated button">
                     Search
                 </button>
 
-                <button class="ui secondary right floated button">
+                <button id="as-clear-btn" class="ui secondary right floated button">
                     Clear
                 </button>
             </div>

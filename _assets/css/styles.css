@@ -25906,6 +25906,13 @@ table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSo
 	margin-right: 0;
 }
 
+.blank-field-error {
+	border-style: solid;
+	border-width: 2px;
+	border-color: red;
+	border-radius: 0.28571429rem;
+}
+
 /*// 1. Quick Search*/
 .quick-input {
 	float: left;

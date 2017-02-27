@@ -116,28 +116,28 @@ const constraints = [
 var init = function() {
   setUpGMaps();
   setUpClickHandlers();
-  createAdvSearchRow("first");
+  createASRow("first");
 };
 
 
-var createAdvSearchRow = function(row) {
+var createASRow = function(row) {
   var inputHolderEl = $('<div/>');
   inputHolderEl.addClass('advanced input-holder');
 
   // go over each constraint
   _.each(constraints, function(con) {
     var constraintEl = $('<div/>');
-    constraintEl.addClass('advanced-input constraint-container constraint-boolean');
-    constraintEl.data('constraint', con.name);
+    constraintEl.addClass('advanced-input constraint-container constraint-'+con.name);
+    jQuery(constraintEl).data('constraint', con.name);
     $(inputHolderEl).append(constraintEl);
 
     // go over the options in each constraint (input is special case)
     if (con.name === "input") {
-      var divEl = '<div class="ui fluid input"><input type="text" placeholder="Hostname"></div>';
+      var divEl = '<div class="ui fluid input"><input class="constraint-value" type="text" placeholder="Hostname"></div>';
       $(constraintEl).append(divEl);
     } else {
       var selectEl = $('<select/>');
-      selectEl.addClass('ui fluid dropdown');
+      selectEl.addClass('constraint-value ui fluid dropdown');
       _.each(con.options, function(opt) {
         selectEl.append(new Option(opt.display, opt.value, true, true));
       });
@@ -154,7 +154,7 @@ var createAdvSearchRow = function(row) {
     // add button
     $(buttonEl).append('<i class="create-search-row-btn icon settings"><img src="_assets/img/icn-add.svg" alt="add"></i>');
     $(buttonEl).click(function() {
-      createAdvSearchRow();
+      createASRow();
     });
   } else {
     // remove button
@@ -169,6 +169,48 @@ var createAdvSearchRow = function(row) {
   $('#as-search-container').append(inputHolderEl);
 };
 
+var constructBS = function() {
+
+};
+
+var constructAS = function() {
+  var submission = {};
+  var rowNum = 0;
+  var errorCount = 0;
+
+  // clear the error fields
+  jQuery('.constraint').removeClass('blank-field-error');
+  jQuery('#as-search-container .input-holder').each(function(index, row) {
+    rowNum++;
+    var constNum = 0;
+    console.log(index, jQuery(row));
+    var constraint = {};
+    _.each(jQuery(row).children('.constraint-container'), function(c) {
+      constNum++;
+      var inputEl = jQuery(c).find('.constraint-value');
+      if (jQuery(inputEl).val()) {
+        constraint['constraint'+constNum] = inputEl.val();
+      } else {
+        // highlight unfilled fields
+        errorCount++;
+        jQuery(c).children().addClass('blank-field-error');
+      }
+    });
+    // one line of filters
+    submission["filter-constraint"+rowNum] = constraint;
+  });
+
+  // if there are no errors, submit
+  if (errorCount === 0) {
+    submitQuery(submission);
+  } else {
+    alert('One or more fields were not filled. Submission canceled');
+  }
+};
+
+var submitQuery = function(queryObj) {
+  console.log('Submitting query of ' + JSON.stringify(queryObj));
+}
 
 var setUpGMaps = function() {
   // we have to create this script element manually if we want to keep our key hidden
@@ -264,9 +306,13 @@ var setUpClickHandlers = function() {
   });
 
   //advanced search buttons
-  $('#submit-adv-search-btn').click(function() {
-
+  $('#as-submit-btn').click(function() {
+    constructAS();
   });
+  $('#as-clear-btn').click(function() {
+    $('.advanced.input-holder').remove();
+    createASRow("first");
+  })
 
 
   // UI click events
