@@ -7,6 +7,8 @@
 
     <script src="_assets/js/tablesorter.js" type="text/javascript"></script>
     <script src="_assets/js/map.js" type="text/javascript"></script>
+    <script src="_assets/js/search.js" type="text/javascript"></script>
+    <script src="_assets/js/gmaps.js" type="text/javascript"></script>
 </head>
 
 <body id="map-page">

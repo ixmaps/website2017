@@ -115,7 +115,7 @@
                 </a>
 
                 <div class="basic-srch-itm">
-                    <button class="ui huge fluid red button submit-basic-search-btn">Search</button>
+                    <button id="bs-submit-btn" class="ui huge fluid red button">Search</button>
                 </div>
 
                 <!-- TODO: think about creating these from the constraints array -->
@@ -123,19 +123,19 @@
                     <div class="ui inverted form">
                         <div class="inline field">
                             <label>Contributor</label>
-                            <input data-constraint="contributor" type="text" placeholder="Contibutor">
+                            <input class="bs-input" data-constraint="contributor" type="text" placeholder="Contibutor">
                         </div>
                         <div class="inline field">
                             <label>ISP</label>
-                            <input data-constraint="isp" type="text" placeholder="ISP">
+                            <input class="bs-input" data-constraint="isp" type="text" placeholder="ISP">
                         </div>
                         <div class="inline field">
                             <label>City</label>
-                            <input data-constraint="city" type="text" placeholder="City">
+                            <input class="bs-input" data-constraint="city" type="text" placeholder="City">
                         </div>
                         <div class="inline field">
                             <label>Country</label>
-                            <input data-constraint="country" type="text" placeholder="Country">
+                            <input class="bs-input" data-constraint="country" type="text" placeholder="Country">
                         </div>
                         <button class="ui primary blue right floated button">Save</button>
                     </div>
@@ -145,19 +145,19 @@
                     <div class="ui inverted form">
                         <div class="inline field">
                             <label>NSA</label>
-                            <input data-constraint="NSA" type="text" placeholder="NSA">
+                            <input class="bs-input" data-constraint="NSA" type="text" placeholder="NSA">
                         </div>
                         <div class="inline field">
                             <label>ISP</label>
-                            <input data-constraint="ISP" type="text" placeholder="ISP">
+                            <input class="bs-input" data-constraint="ISP" type="text" placeholder="ISP">
                         </div>
                         <div class="inline field">
                             <label>City</label>
-                            <input data-constraint="city" type="text" placeholder="City">
+                            <input class="bs-input" data-constraint="city" type="text" placeholder="City">
                         </div>
                         <div class="inline field">
                             <label>Country</label>
-                            <input data-constraint="country" type="text" placeholder="Country">
+                            <input class="bs-input" data-constraint="country" type="text" placeholder="Country">
                         </div>
                         <button class="ui primary blue right floated button">Save</button>
                     </div>
@@ -167,19 +167,19 @@
                     <div class="ui inverted form">
                         <div class="inline field">
                             <label>Website</label>
-                            <input data-constraint="destHostName" type="text" placeholder="Website">
+                            <input class="bs-input" data-constraint="destHostName" type="text" placeholder="Website">
                         </div>
                         <div class="inline field">
                             <label>ISP</label>
-                            <input data-constraint="ISP" type="text" placeholder="ISP">
+                            <input class="bs-input" data-constraint="ISP" type="text" placeholder="ISP">
                         </div>
                         <div class="inline field">
                             <label>City</label>
-                            <input data-constraint="city" type="text" placeholder="City">
+                            <input class="bs-input" data-constraint="city" type="text" placeholder="City">
                         </div>
                         <div class="inline field">
                             <label>Country</label>
-                            <input data-constraint="country" type="text" placeholder="Country">
+                            <input class="bs-input" data-constraint="country" type="text" placeholder="Country">
                         </div>
                         <button class="ui primary blue right floated button">Save</button>
                     </div>
