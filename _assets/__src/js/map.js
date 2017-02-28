@@ -5,9 +5,11 @@ var init = function() {
   setUpGMaps();
   setUpClickHandlers();
   createASRow("first");
+  populateLayersContainer();
 };
 
 var setUpClickHandlers = function() {
+  //**************** SEARCH ****************//
   // quick search buttons
   $('#search-header .qs-last-contributed-btn').click(function() {
     constructLastContributed();
@@ -27,12 +29,10 @@ var setUpClickHandlers = function() {
   $('#search-header .qs-from-my-country-btn').click(function() {
     constructFromMyCountry();
   });
-
   // basic search button
   $('#bs-submit-btn').click(function() {
     constructBS();
   });
-
   // advanced search buttons
   $('#as-submit-btn').click(function() {
     constructAS();
@@ -40,10 +40,14 @@ var setUpClickHandlers = function() {
   $('#as-clear-btn').click(function() {
     $('.advanced.input-holder').remove();
     createASRow("first");
-  })
+  });
 
-  // UI click events
-  // these docs are pretty confusing - surprised I need to handroll this...
+  //**************** LAYERS ****************//
+
+
+
+  //****************** UI ******************//
+  // the docs for semantic ui are pretty confusing - surprised I need to handroll this...
   $('.top.menu .item').on('click', function() {
     $('.active').removeClass('active');
     $(this).addClass('active');

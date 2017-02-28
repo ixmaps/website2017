@@ -9,6 +9,7 @@
     <script src="_assets/js/map.js" type="text/javascript"></script>
     <script src="_assets/js/search.js" type="text/javascript"></script>
     <script src="_assets/js/gmaps.js" type="text/javascript"></script>
+    <script src="_assets/js/layers.js" type="text/javascript"></script>
 </head>
 
 <body id="map-page">
@@ -21,7 +22,7 @@
     <div class="map-holder">
 
         <!-- LEGEND SIDEBAR -->
-        <?php include '_includes/map-legend.php'; ?>
+        <?php include '_includes/map-layers.php'; ?>
 
         <!-- RESULTS SIDEBAR -->
         <?php include '_includes/map-results.php'; ?>
