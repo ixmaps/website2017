@@ -10,22 +10,22 @@ var init = function() {
 var setUpClickHandlers = function() {
   // quick search buttons
   $('#search-header .qs-last-contributed-btn').click(function() {
-    console.log('Clicked on' + $(this).attr("class"));
+    constructLastContributed();
   });
   $('#search-header .qs-via-nsa-city-btn').click(function() {
-    console.log('Clicked on' + $(this).attr("class"));
+    constructViaNSA();
   });
   $('#search-header .qs-via-boomerangs-btn').click(function() {
-    console.log('Clicked on' + $(this).attr("class"));
+    constructBoomerangs();
   });
   $('#search-header .qs-from-my-isp-btn').click(function() {
-    console.log('Clicked on' + $(this).attr("class"));
+    constructFromMyISP();
   });
   $('#search-header .qs-from-my-cty-btn').click(function() {
-    console.log('Clicked on' + $(this).attr("class"));
+    constructFromMyCity();
   });
   $('#search-header .qs-from-my-country-btn').click(function() {
-    console.log('Clicked on' + $(this).attr("class"));
+    constructFromMyCountry();
   });
 
   // basic search button

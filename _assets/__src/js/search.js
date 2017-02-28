@@ -112,6 +112,164 @@ const constraints = [
 ]
 
 
+var constructLastContributed = function() {
+  var submission = {
+    "filter-constraint-1": {
+      constraint1: "quickLink",
+      constraint2: "lastSubmission"
+    }
+  };
+  submitQuery(submission);
+};
+
+var constructViaNSA = function() {
+  // TODO: get this from the server in the future
+  var nsaCities = ["San Francisco", "Los Angeles", "New York", "Dallas", "Washington", "Ashburn", "Seattle", "San Jose", "San Diego", "Miami", "Boston", "Phoenix", "Salt Lake City", "Nashville", "Denver", "Saint Louis", "Bridgeton", "Bluffdale", "Houston", "Chicago", "Atlanta", "Portland"];
+  var submission = {};
+  var i = 1;
+
+  _.each(nsaCities, function(city) {
+    var nsaObj = {
+      constraint1: "does",
+      constraint2: "contain",
+      constraint3: "city",
+      constraint4: city,
+      constraint5: "OR"
+    };
+    submission["filter-constraint-"+i] = nsaObj;
+    i++;
+  });
+  submitQuery(submission);
+};
+
+var constructBoomerangs = function() {
+  var submission = {
+    "filter-constraint-1": {
+      constraint1: "does",
+      constraint2: "originate",
+      constraint3: "country",
+      constraint4: "CA",
+      constraint5: "AND"
+    },
+    "filter-constraint-2": {
+      constraint1: "does",
+      constraint2: "goVia",
+      constraint3: "country",
+      constraint4: "US",
+      constraint5: "AND"
+    },
+    "filter-constraint-3": {
+      constraint1: "does",
+      constraint2: "terminate",
+      constraint3: "country",
+      constraint4: "CA",
+      constraint5: "AND"
+    },
+  }
+  submitQuery(submission);
+};
+
+var constructFromMyISP = function() {
+
+};
+
+var constructFromMyCity = function() {
+
+};
+
+var constructFromMyCountry = function() {
+
+};
+
+var constructBS = function() {
+  var submission = {};
+  var i = 1;
+
+  // iterate over all of the 'from' conditions
+  $('#bs-originate-popup .bs-input').each(function(index, el) {
+    if ($(el).val() != "") {
+      var origObj = {
+        constraint1: "does",
+        constraint2: "originate",
+        constraint3: $(el).data('constraint'),
+        constraint4: $(el).val(),
+        constraint5: "AND"
+      };
+      submission["filter-constraint-"+i] = origObj;
+      i++;
+    }
+  });
+  // iterate over all of the 'via' conditions
+  $('#bs-via-popup .bs-input').each(function(index, el) {
+    if ($(el).val() != "") {
+      var origObj = {
+        constraint1: "does",
+        constraint2: "goVia",
+        constraint3: $(el).data('constraint'),
+        constraint4: $(el).val(),
+        constraint5: "AND"
+      };
+      submission["filter-constraint-"+i] = origObj;
+      i++;
+    }
+  });
+  // iterate over all of the 'to' conditions
+  $('#bs-terminate-popup .bs-input').each(function(index, el) {
+    if ($(el).val() != "") {
+      var origObj = {
+        constraint1: "does",
+        constraint2: "terminate",
+        constraint3: $(el).data('constraint'),
+        constraint4: $(el).val(),
+        constraint5: "AND"
+      };
+      submission["filter-constraint-"+i] = origObj;
+      i++;
+    }
+  });
+
+  if (!_.isEmpty(submission)) {
+    submitQuery(submission);
+  } else {
+    $().toastmessage('showErrorToast', 'Please fill in at least one search term field to query the database.');
+  }
+};
+
+var constructAS = function() {
+  var submission = {};
+  var rowNum = 0;
+  var errorCount = 0;
+
+  // clear the error fields
+  jQuery('.constraint').removeClass('blank-field-error');
+  jQuery('#as-search-container .input-holder').each(function(index, row) {
+    rowNum++;
+    var constNum = 0;
+    console.log(index, jQuery(row));
+    var constraint = {};
+    _.each(jQuery(row).children('.constraint-container'), function(c) {
+      constNum++;
+      var inputEl = jQuery(c).find('.constraint-value');
+      if (jQuery(inputEl).val()) {
+        constraint['constraint'+constNum] = inputEl.val();
+      } else {
+        // highlight unfilled fields
+        errorCount++;
+        jQuery(c).children().addClass('blank-field-error');
+      }
+    });
+    // one line of filters
+    submission["filter-constraint"+rowNum] = constraint;
+  });
+
+  // if there are no errors, submit
+  if (errorCount === 0) {
+    submitQuery(submission);
+  } else {
+    $().toastmessage('showErrorToast', "One or more fields were not filled. Submission canceled.");
+  }
+};
+
 var createASRow = function(row) {
   var inputHolderEl = $('<div/>');
   inputHolderEl.addClass('advanced input-holder');
@@ -159,100 +317,6 @@ var createASRow = function(row) {
   $(inputHolderEl).append(controlsEl);
 
   $('#as-search-container').append(inputHolderEl);
-};
-
-var constructBS = function() {
-  var submission = {};
-  var i = 1;
-
-  // - modularize the entire submission object creation into a function (since hopefully the data struct  of the submission is going to change). Or, at least, restructure the object so it's addressable (to get values)
-
-  // iterate over all of the 'from' conditions
-  $('#bs-originate-popup .bs-input').each(function(index, el) {
-    if ($(el).val() != "") {
-      var origObj = {
-        constraint1: "does",
-        constraint2: "originate",
-        constraint3: $(el).data('constraint'),
-        constraint4: $(el).val(),
-        constraint5: "AND"
-      };
-      submission["filter-constraint-"+i] = origObj;
-      i++;
-      //console.log('Originate ' + $(el).data('constraint') + ': ' + $(el).val());
-    }
-  });
-  // iterate over all of the 'via' conditions
-  $('#bs-via-popup .bs-input').each(function(index, el) {
-    if ($(el).val() != "") {
-      var origObj = {
-        constraint1: "does",
-        constraint2: "goVia",
-        constraint3: $(el).data('constraint'),
-        constraint4: $(el).val(),
-        constraint5: "AND"
-      };
-      submission["filter-constraint-"+i] = origObj;
-      i++;
-      //console.log('Via ' + $(el).data('constraint') + ': ' + $(el).val());
-    }
-  });
-  // iterate over all of the 'to' conditions
-  $('#bs-terminate-popup .bs-input').each(function(index, el) {
-    if ($(el).val() != "") {
-      var origObj = {
-        constraint1: "does",
-        constraint2: "terminate",
-        constraint3: $(el).data('constraint'),
-        constraint4: $(el).val(),
-        constraint5: "AND"
-      };
-      submission["filter-constraint-"+i] = origObj;
-      i++;
-      //console.log('Terminate ' + $(el).data('constraint') + ': ' + $(el).val());
-    }
-  });
-
-  if (!_.isEmpty(submission)) {
-    submitQuery(submission);
-  } else {
-    $().toastmessage('showErrorToast', 'Please fill in at least one search term field to query the database.');
-  }
-};
-
-var constructAS = function() {
-  var submission = {};
-  var rowNum = 0;
-  var errorCount = 0;
-
-  // clear the error fields
-  jQuery('.constraint').removeClass('blank-field-error');
-  jQuery('#as-search-container .input-holder').each(function(index, row) {
-    rowNum++;
-    var constNum = 0;
-    console.log(index, jQuery(row));
-    var constraint = {};
-    _.each(jQuery(row).children('.constraint-container'), function(c) {
-      constNum++;
-      var inputEl = jQuery(c).find('.constraint-value');
-      if (jQuery(inputEl).val()) {
-        constraint['constraint'+constNum] = inputEl.val();
-      } else {
-        // highlight unfilled fields
-        errorCount++;
-        jQuery(c).children().addClass('blank-field-error');
-      }
-    });
-    // one line of filters
-    submission["filter-constraint"+rowNum] = constraint;
-  });
-
-  // if there are no errors, submit
-  if (errorCount === 0) {
-    submitQuery(submission);
-  } else {
-    $().toastmessage('showErrorToast', "One or more fields were not filled. Submission canceled.");
-  }
 };
 
 var submitQuery = function(queryObj) {
