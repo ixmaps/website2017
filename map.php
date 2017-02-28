@@ -31,10 +31,11 @@
         <div class="map-canvas pusher">
             <div class="layers-toggle">
                 <button class="ui toggle button">
-                    <i class="ui image left floated">
+                    <!-- TODO: I believe this style came from semantic-ui's css. What is best practice for these types of overwrites -->
+                    <i class="ui image left floated" style="margin-bottom: 0px">
                         <img src="/_assets/img/icn-layers.svg" alt="delete" />
                     </i>
-                    1 Layers
+                    <span id="num-active-layers">0 LAYERS</span>
                 </button>
             </div>
             <div id="map"></div>

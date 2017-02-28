@@ -25862,6 +25862,7 @@ footer {
 	border-radius: 0;
 	text-transform: uppercase;
 	letter-spacing: 1px;
+	width: 155px;
 }
 
 .ui.toggle.buttons .active.button,

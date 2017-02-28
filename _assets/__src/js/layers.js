@@ -59,6 +59,8 @@ var populateLayersContainer = function() {
       } else if (layers[$(this).data('name')].active === false) {
         layers[$(this).data('name')].active = true;
       }
+
+      $('#num-active-layers').text(_.filter(layers, {active: true}).length + ' LAYERS');
       console.log('TODO: render map');
     });
 
