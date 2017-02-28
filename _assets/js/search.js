@@ -2,8 +2,15 @@
 
 // this should be moved somewhere eventually - either config or the backend
 // I really prefer being explicit here, giving them keys (boolean, position, kind, etc) instead of 'constraint1', 'constraint2', etc. I'm hoping we can adjust the backend to agree.
-// use _.keys(constraints) to get the array of keys (boolean, position, kind, etc)
-// I'm open to adjusting this, basically to include the keys inside the objects (constraints becomes an array of objects)
+// I'm open to adjusting this, basically moving the keys back outside the objects (constraints becomes an object of objects) and using _.keys(constraints) to get the array of keys (boolean, position, kind, etc) - would help with always tying value and display together - really these should never be referenced in the map-search.php or search.js
+// this should likely be renamed to something a little more specific
+
+// GLOBALS
+// TODO: dummy data... when we get user geoloc added, set these instead
+var myASN = 714;
+var myCity = 'Toronto';
+var myCountry = 'Canada';
+
 const constraints = [
   {
     "name": "boolean",
@@ -170,15 +177,42 @@ var constructBoomerangs = function() {
 };
 
 var constructFromMyISP = function() {
-
+  var submission = {
+    "filter-constraint-1": {
+      constraint1: "does",
+      constraint2: "originate",
+      constraint3: "asnum",
+      constraint4: myASN,
+      constraint5: "AND"
+    }
+  }
+  submitQuery(submission);
 };
 
 var constructFromMyCity = function() {
-
+  var submission = {
+    "filter-constraint-1": {
+      constraint1: "does",
+      constraint2: "originate",
+      constraint3: "city",
+      constraint4: myCity,
+      constraint5: "AND"
+    }
+  }
+  submitQuery(submission);
 };
 
 var constructFromMyCountry = function() {
-
+  var submission = {
+    "filter-constraint-1": {
+      constraint1: "does",
+      constraint2: "originate",
+      constraint3: "country",
+      constraint4: myCountry,
+      constraint5: "AND"
+    }
+  }
+  submitQuery(submission);
 };
 
 var constructBS = function() {
