@@ -162,24 +162,62 @@ var createASRow = function(row) {
 };
 
 var constructBS = function() {
+  var submission = {};
+  var i = 1;
+
+  // - modularize the entire submission object creation into a function (since hopefully the data struct  of the submission is going to change). Or, at least, restructure the object so it's addressable (to get values)
+
   // iterate over all of the 'from' conditions
   $('#bs-originate-popup .bs-input').each(function(index, el) {
     if ($(el).val() != "") {
-      console.log('Originate ' + $(el).data('constraint') + ': ' + $(el).val());
+      var origObj = {
+        constraint1: "does",
+        constraint2: "originate",
+        constraint3: $(el).data('constraint'),
+        constraint4: $(el).val(),
+        constraint5: "AND"
+      };
+      submission["filter-constraint-"+i] = origObj;
+      i++;
+      //console.log('Originate ' + $(el).data('constraint') + ': ' + $(el).val());
     }
   });
   // iterate over all of the 'via' conditions
   $('#bs-via-popup .bs-input').each(function(index, el) {
     if ($(el).val() != "") {
-      console.log('Via ' + $(el).data('constraint') + ': ' + $(el).val());
+      var origObj = {
+        constraint1: "does",
+        constraint2: "goVia",
+        constraint3: $(el).data('constraint'),
+        constraint4: $(el).val(),
+        constraint5: "AND"
+      };
+      submission["filter-constraint-"+i] = origObj;
+      i++;
+      //console.log('Via ' + $(el).data('constraint') + ': ' + $(el).val());
     }
   });
   // iterate over all of the 'to' conditions
   $('#bs-terminate-popup .bs-input').each(function(index, el) {
     if ($(el).val() != "") {
-      console.log('Terminate ' + $(el).data('constraint') + ': ' + $(el).val());
+      var origObj = {
+        constraint1: "does",
+        constraint2: "terminate",
+        constraint3: $(el).data('constraint'),
+        constraint4: $(el).val(),
+        constraint5: "AND"
+      };
+      submission["filter-constraint-"+i] = origObj;
+      i++;
+      //console.log('Terminate ' + $(el).data('constraint') + ': ' + $(el).val());
     }
   });
+
+  if (!_.isEmpty(submission)) {
+    submitQuery(submission);
+  } else {
+    alert('Please fill in at least one search term field to query the database.');
+  }
 };
 
 var constructAS = function() {
