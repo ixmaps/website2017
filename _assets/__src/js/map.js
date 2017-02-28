@@ -43,23 +43,36 @@ var setUpClickHandlers = function() {
   })
 
   // UI click events
-  $('.top.menu .item').tab();
-  $("table").tablesorter({});
+  // these docs are pretty confusing - surprised I need to handroll this...
+  $('.top.menu .item').on('click', function() {
+    $('.active').removeClass('active');
+    $(this).addClass('active');
+    $('.tab').hide();
+    $('#'+$(this).attr('id')+'-container').show();
+  });
+  $('.as-link').on('click', function() {
+    $('.active').removeClass('active');
+    $('#as-tab').addClass('active');
+    $('.tab').hide();
+    $('#as-tab-container').show();
+  });
+
+  $('table').tablesorter({});
   $('.ui.rating').rating('disable');
 
-  $("#settings-modal").click(function(){
+  $('#settings-modal').click(function(){
     $('.settings.modal').modal('show');
   });
 
-  $("#traceroutes-modal").click(function(){
+  $('#traceroutes-modal').click(function(){
     $('.traceroutes.modal').modal('show');
   });
 
-  $("#router-modal").click(function(){
+  $('#router-modal').click(function(){
     $('.router.modal').modal('show');
   });
 
-  $("#carrier-modal").click(function(){
+  $('#carrier-modal').click(function(){
     $('.carrier.modal').modal('show');
   });
 

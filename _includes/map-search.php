@@ -4,9 +4,9 @@
 
         <!-- Search Tabs -->
         <div class="ui top attached tabular menu">
-            <a class="item" data-tab="quick">Quick</a>
-            <a class="item active" data-tab="basic">Basic</a>
-            <a class="item" data-tab="advanced">Advanced</a>
+            <a id="qs-tab" class="item" data-tab="quick">Quick</a>
+            <a id="bs-tab" class="item active" data-tab="basic">Basic</a>
+            <a id="as-tab" class="item" data-tab="advanced">Advanced</a>
 
             <div class="map-help">
                 <button class="ui transparent button">Help
@@ -16,7 +16,7 @@
         </div>
 
         <!-- Tab 1 Contents: Quick Search -->
-        <div class="ui bottom attached tab segment content" data-tab="quick">
+        <div id="qs-tab-container" class="ui bottom attached tab segment content" data-tab="quick">
             <h3 class="ui header text-center">Select a quick search to view traceroutes in the IXmaps database.</h3>
 
             <div class="input-holder">
@@ -60,8 +60,8 @@
                     <div class="item">
                         <p class="minor">
                             <strong>Search Query:</strong>
-                            <span>Does Originate in AS number 814</span><br />
-                            <a href="#">[ Refine in Advanced Search ]</a>
+                            <span id="qs-search-parameters-container"></span><br />
+                            <a class="as-link">[ Refine in Advanced Search ]</a>
                         </p>
 
                         <div class="top aligned content">
@@ -75,7 +75,7 @@
         </div>
 
         <!-- Tab 2 Contents: Basic Search -->
-        <div class="ui bottom attached tab segment active content" data-tab="basic">
+        <div id="bs-tab-container" class="ui bottom attached tab segment active content" data-tab="basic">
             <h3 class="ui header text-center">Enter Search Terms to Find Traceroutes in the IXmaps Database</h3>
             <div class="basic input-holder">
                 <a class="from basic-srch-itm" data-position="bottom left">
@@ -188,7 +188,7 @@
         </div>
 
         <!-- Tab 3 Contents: Advanced Search -->
-        <div class="ui bottom attached tab segment" data-tab="advanced">
+        <div id="as-tab-container" class="ui bottom attached tab segment" data-tab="advanced">
             <h3 class="ui header">Construct a custom query to search the IXmaps database</h3>
 
             <div id="as-search-container"></div>

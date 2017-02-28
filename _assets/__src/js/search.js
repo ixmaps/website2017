@@ -127,6 +127,7 @@ var constructLastContributed = function() {
     }
   };
   submitQuery(submission);
+  $('#qs-search-parameters-container').text('Last contributed traceroute');
 };
 
 var constructViaNSA = function() {
@@ -147,6 +148,7 @@ var constructViaNSA = function() {
     i++;
   });
   submitQuery(submission);
+  $('#qs-search-parameters-container').text('Does Contain City San Francisco AND Does Contain City Los Angeles AND...');
 };
 
 var constructBoomerangs = function() {
@@ -174,45 +176,61 @@ var constructBoomerangs = function() {
     },
   }
   submitQuery(submission);
+  $('#qs-search-parameters-container').text('Does Originate in Country CA AND Does Go via Country US AND Does Terminate in Country CA');
 };
 
 var constructFromMyISP = function() {
-  var submission = {
-    "filter-constraint-1": {
-      constraint1: "does",
-      constraint2: "originate",
-      constraint3: "asnum",
-      constraint4: myASN,
-      constraint5: "AND"
+  if (myASN) {
+    var submission = {
+      "filter-constraint-1": {
+        constraint1: "does",
+        constraint2: "originate",
+        constraint3: "asnum",
+        constraint4: myASN,
+        constraint5: "AND"
+      }
     }
+    submitQuery(submission);
+    $('#qs-search-parameters-container').text('Does Originate in AS number ' + myASN);
+  } else {
+    $().toastmessage('showErrorToast', 'We were unable to determine your ISP - please try a different query');
   }
-  submitQuery(submission);
 };
 
 var constructFromMyCity = function() {
-  var submission = {
-    "filter-constraint-1": {
-      constraint1: "does",
-      constraint2: "originate",
-      constraint3: "city",
-      constraint4: myCity,
-      constraint5: "AND"
+  if (myCity) {
+    var submission = {
+      "filter-constraint-1": {
+        constraint1: "does",
+        constraint2: "originate",
+        constraint3: "city",
+        constraint4: myCity,
+        constraint5: "AND"
+      }
     }
+    submitQuery(submission);
+    $('#qs-search-parameters-container').text('Does Originate in City ' + myCity);
+  } else {
+    $().toastmessage('showErrorToast', 'We were unable to determine your city - please try a different query');
   }
-  submitQuery(submission);
 };
 
 var constructFromMyCountry = function() {
-  var submission = {
-    "filter-constraint-1": {
-      constraint1: "does",
-      constraint2: "originate",
-      constraint3: "country",
-      constraint4: myCountry,
-      constraint5: "AND"
+  if (myCountry) {
+    var submission = {
+      "filter-constraint-1": {
+        constraint1: "does",
+        constraint2: "originate",
+        constraint3: "country",
+        constraint4: myCountry,
+        constraint5: "AND"
+      }
     }
+    submitQuery(submission);
+    $('#qs-search-parameters-container').text('Does Originate in Country ' + myCountry);
+  } else {
+    $().toastmessage('showErrorToast', 'We were unable to determine your country - please try a different query');
   }
-  submitQuery(submission);
 };
 
 var constructBS = function() {
