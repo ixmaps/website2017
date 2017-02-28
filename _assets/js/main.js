@@ -79,6 +79,12 @@ var verifyConfig = function(config, required, path) {
 			}
 			return false;
 		});
+
+    // configure toast msgs
+    $().toastmessage({
+      stayTime: 5000,
+      position: 'middle-center'
+    });
 	});
 
 })(jQuery, window, document);

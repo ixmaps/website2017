@@ -26412,3 +26412,7 @@ section.faq-block {
 	padding-bottom: 48px;
 	border-top: 2px solid #eee;
 }
+
+.toast-item p {
+	margin-right: 20px;
+}

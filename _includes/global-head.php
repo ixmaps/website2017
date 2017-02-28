@@ -4,6 +4,7 @@
 
 <!-- Styles -->
 <link href="/_assets/css/styles.css" rel="stylesheet">
+<link href="/_assets/__build/bower_components/jquery-toastmessage-plugin/src/main/resources/css/jquery.toastmessage.css" rel="stylesheet">
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i|Work+Sans:500,700,900" rel="stylesheet">
@@ -16,13 +17,12 @@
 <link rel="shortcut icon" href="/favicon.png">
 
 <!-- Scripts -->
-<!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script> -->
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<!-- <script>window.jQuery||document.write('<script src="js/jquery.min.js"><\/script>')</script> -->
+<script src="/_assets/js/jquery.min.js"></script>
 <!-- TODO: get this off the CDN - npm? how does grunt play here? -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js" type="text/javascript"></script>
 <script src="/_assets/js/modernizr-custom.min.js"></script>
 <script src="/_assets/js/semantic-ui.js"></script>
+<script src="/_assets/__build/bower_components/jquery-toastmessage-plugin/src/main/javascript/jquery.toastmessage.js"></script>
 <script src="/_assets/js/main.js"></script>
 
 <script type="text/javascript">

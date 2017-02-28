@@ -216,7 +216,7 @@ var constructBS = function() {
   if (!_.isEmpty(submission)) {
     submitQuery(submission);
   } else {
-    alert('Please fill in at least one search term field to query the database.');
+    $().toastmessage('showErrorToast', 'Please fill in at least one search term field to query the database.');
   }
 };
 
@@ -251,7 +251,7 @@ var constructAS = function() {
   if (errorCount === 0) {
     submitQuery(submission);
   } else {
-    alert('One or more fields were not filled. Submission canceled');
+    $().toastmessage('showErrorToast', "One or more fields were not filled. Submission canceled.");
   }
 };
 
