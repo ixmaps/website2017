@@ -4,117 +4,245 @@
 var init = function() {
   setUpGMaps();
   setUpClickHandlers();
-  createASRow("first");
-  populateLayersContainer();
+
+  getLayers(); // TODO: need to fix/agree on json structure
+  populateLayersContainer(); /* TODO: move this after loading layers data */
+
+  getPrivacyReport();
+
+  if (initMode==0) {
+    //jQuery('.settings.modal').modal('show'); // open user location modal
+
+  } else if (initMode==1) { // trId is passed to map page
+    //submitCustomQuery(trIdFilter);
+
+  } else if (initMode==2) { // search filters are passed to map page
+    //processPostedData(postedData);
+  }
+
+  createASRow("first"); // TODO: fix depending on initMode
+
+  /* Se user locaation and isp info*/
+  jQuery('.userloc-ip').text(myIp);
+  jQuery('.userloc-city').val(myCity);
+  jQuery('.userloc-country').val(myCountry);
+  jQuery('.userloc-isp').text(myISP);
+  jQuery('.userloc-asn').text(myASN);
+
+
 };
 
 var setUpClickHandlers = function() {
   //**************** SEARCH ****************//
   // quick search buttons
-  $('#search-header .qs-last-contributed-btn').click(function() {
+  jQuery('#search-header .qs-last-contributed-btn').click(function() {
     constructLastContributed();
   });
-  $('#search-header .qs-via-nsa-city-btn').click(function() {
+  jQuery('#search-header .qs-via-nsa-city-btn').click(function() {
     constructViaNSA();
   });
-  $('#search-header .qs-via-boomerangs-btn').click(function() {
+  jQuery('#search-header .qs-via-boomerangs-btn').click(function() {
     constructBoomerangs();
   });
-  $('#search-header .qs-from-my-isp-btn').click(function() {
+  jQuery('#search-header .qs-from-my-isp-btn').click(function() {
     constructFromMyISP();
   });
-  $('#search-header .qs-from-my-cty-btn').click(function() {
+  jQuery('#search-header .qs-from-my-cty-btn').click(function() {
     constructFromMyCity();
   });
-  $('#search-header .qs-from-my-country-btn').click(function() {
+  jQuery('#search-header .qs-from-my-country-btn').click(function() {
     constructFromMyCountry();
   });
   // basic search button
-  $('#bs-submit-btn').click(function() {
+  jQuery('#bs-submit-btn').click(function() {
     constructBS();
   });
   // advanced search buttons
-  $('#as-submit-btn').click(function() {
+  jQuery('#as-submit-btn').click(function() {
     constructAS();
   });
-  $('#as-clear-btn').click(function() {
-    $('.advanced.input-holder').remove();
+  jQuery('#as-clear-btn').click(function() {
+    jQuery('.advanced.input-holder').remove();
     createASRow("first");
   });
+  // my location submit button
+  jQuery('#myloc-submit-btn').click(function() {
+    submitUserLocObject();
+  });
+  //**************** SEARCH RESULTS ****************//
+  // onclick events
+  jQuery('#remove-all-trs-btn').click(function() {
+    removeAllTrs();
+  });
 
+  jQuery('#add-all-trs-btn').click(function() {
+    addAllTrs();
+  });
+
+  jQuery('#cancel-query').click(function() {
+    cancelQuery();
+    hideLoader();
+  });
+
+  jQuery('#tr-details-close-btn').click(function() {
+    jQuery('#tr-details').hide();
+    removeTr();
+  });
+  
   //**************** LAYERS ****************//
 
 
 
   //****************** UI ******************//
   // the docs for semantic ui are pretty confusing - surprised I need to handroll this...
-  $('.top.menu .item').on('click', function() {
-    $('.active').removeClass('active');
-    $(this).addClass('active');
-    $('.tab').hide();
-    $('#'+$(this).attr('id')+'-container').show();
+  jQuery('.top.menu .item').on('click', function() {
+    jQuery('.active').removeClass('active');
+    jQuery(this).addClass('active');
+    jQuery('.tab').hide();
+    jQuery('#'+jQuery(this).attr('id')+'-container').show();
   });
-  $('.as-link').on('click', function() {
-    $('.active').removeClass('active');
-    $('#as-tab').addClass('active');
-    $('.tab').hide();
-    $('#as-tab-container').show();
-  });
-
-  $('table').tablesorter({});
-  $('.ui.rating').rating('disable');
-
-  $('#settings-modal').click(function(){
-    $('.settings.modal').modal('show');
+  jQuery('.as-link').on('click', function() {
+    jQuery('.active').removeClass('active');
+    jQuery('#as-tab').addClass('active');
+    jQuery('.tab').hide();
+    jQuery('#as-tab-container').show();
   });
 
-  $('#traceroutes-modal').click(function(){
-    $('.traceroutes.modal').modal('show');
+  jQuery('table').tablesorter({});
+  jQuery('.ui.rating').rating('disable');
+
+  jQuery('#settings-modal').click(function(){
+    jQuery('.settings.modal').modal('show');
   });
 
-  $('#router-modal').click(function(){
-    $('.router.modal').modal('show');
+  jQuery('#traceroutes-modal').click(function(){
+    jQuery('.traceroutes.modal').modal('show');
   });
 
-  $('#carrier-modal').click(function(){
-    $('.carrier.modal').modal('show');
+  jQuery('#router-modal').click(function(){
+    jQuery('.router.modal').modal('show');
   });
 
-  $('a.from.basic-srch-itm')
+  jQuery('#carrier-modal').click(function(){
+    jQuery('.carrier.modal').modal('show');
+  });
+
+  jQuery('a.from.basic-srch-itm')
     .popup({
       popup: '.from.popup',
       inline: true,
       on: 'click',
     })
   ;
-  $('.basic-srch-itm.via')
+  jQuery('.basic-srch-itm.via')
     .popup({
       popup: '.via.popup',
       inline: true,
       on: 'click',
     })
   ;
-  $('.basic-srch-itm.to')
+  jQuery('.basic-srch-itm.to')
     .popup({
       popup: '.to.popup',
       inline: true,
       on: 'click',
     })
   ;
-  $('.ui.sidebar')
+  jQuery('.ui.sidebar')
     .sidebar({
-      context : $('.map-holder'),
+      context : jQuery('.map-holder'),
       dimPage : false,
       closable : false // If this is set to true (the default value) clicking anywhere else on the page will close the overlay. Remove this line if that behaviour is desired.
     })
     .sidebar('setting', 'transition', 'overlay', 'toggle')
     .sidebar('attach events', '.map-holder .layers-toggle .toggle.button')
   ;
-  $('.ui.accordion')
+  jQuery('.ui.accordion')
     .accordion()
   ;
-  $('.toggle.button')
+  jQuery('.toggle.button')
     .state({
     })
   ;
+};
+
+/*TODO: Render tr results table and add event listeners*/
+var renderTrResultTable = function(data) {
+
+};
+
+
+var bindAutocompletes = function(tagType, rowId) {
+  el = rowId + " .constraint-text-entry";
+  if (tagType == 'country') {
+    jQuery(el).autocomplete({
+      source: countryTags
+    });
+  } else if (tagType == 'region') {
+    jQuery(el).autocomplete({
+      source: regionTags
+    });
+  } else if (tagType == 'city') {
+    jQuery(el).autocomplete({
+      source: cityTags
+    });
+  } else if (tagType == 'zipCode') {
+    jQuery(el).autocomplete({
+      source: zipCodeTags
+    });
+  } else if (tagType == 'ISP') {
+    jQuery(el).autocomplete({
+      source: ISPTags
+    });
+  } else if (tagType == 'asnum') {
+    jQuery(el).autocomplete({
+      source: ASnumTags
+    });
+  } else if (tagType == 'submitter') {
+    jQuery(el).autocomplete({
+      source: submitterTags
+    });
+  } else if (tagType == 'zipCodeSubmitter') {
+    jQuery(el).autocomplete({
+      source: zipCodeSubmitterTags
+    });
+  } else if (tagType == 'destHostName') {
+    jQuery(el).autocomplete({
+      source: destHostNameTags
+    });
+  } else if (tagType == 'ipAddr') {
+    jQuery(el).autocomplete({
+      source: ipAddressTags
+    });
+  } else if (tagType == 'hostName') {
+    jQuery(el).autocomplete({
+      source: hostNameTags
+    });
+  } else if (tagType == 'trId') {
+    jQuery(el).autocomplete({
+      source: trIdTags
+    });
+  } else {
+    console.log('tagType is not currently implemented for autocomplete');
+  }
+};
+
+var showLoader = function() {
+  jQuery('#loader').show();
+};
+
+var hideLoader = function() {
+  jQuery('#loader').hide();
+};
+
+var cancelQuery = function() {
+  if(ajaxObj && ajaxObj.readystate != 4){
+      ajaxObj.abort();
+      console.log("Query submission has been canceled.");
+  }
+};
+
+var setTableSorters = function(){
+  console.log('Sorting TR Tables');
+  jQuery('#traceroutes-table').tablesorter( {sortList: [[0,2]]} );
 };

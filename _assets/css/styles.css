@@ -26120,6 +26120,73 @@ i.flag:not(.icon):before {
 	margin-top: 1em;
 }
 
+/* added from old ix-explore.css*/
+#loader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: -2px 4px 4px -2px;
+	width: 100.5%;
+	height: 100.5%;
+	text-align: center;
+}
+
+.loader-image {
+	position: relative;
+	text-align: center;
+	z-index: 1000;
+	top: 25%;
+}
+
+#loader-mask {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	opacity: 0.3;
+	z-index: 50;
+}
+
+#tr-details, #ip-flags {
+	position: fixed;
+	z-index: 1000;
+	background: #fff;
+	border: 1px solid black;
+	border-radius: 12px;
+}
+
+#tr-details {
+	top: 3%;
+	left: 5%;
+}
+
+#ip-flags {
+	width: 400px;
+	top: 10%;
+	right: 5%;
+}
+
+#tr-details-close-btn, #ip-flags-close, #privacy-details-close {
+	margin: 10px;
+	float: right;
+}
+
+#tr-details-iframe {
+	width: 1000px;
+	height: 500px;
+	margin: 20px 0px 10px 15px;
+	border: 0;
+}
+
+.map-icon-close-btn {
+	position: absolute;
+	right: 14px;
+	top: 13px;
+	width: 15px;
+}
+
 .issue-section .ui.styled.accordion {
 	border-bottom: 1px solid #191C1F;
 }

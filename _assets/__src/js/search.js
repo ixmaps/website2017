@@ -6,10 +6,9 @@
 // this should likely be renamed to something a little more specific
 
 // GLOBALS
-// TODO: dummy data... when we get user geoloc added, set these instead
-var myASN = 714;
-var myCity = 'Toronto';
-var myCountry = 'Canada';
+
+// define ajax object for query submit
+var ajaxObj;
 
 const constraints = [
   {
@@ -127,7 +126,7 @@ var constructLastContributed = function() {
     }
   };
   submitQuery(submission);
-  $('#qs-search-parameters-container').text('Last contributed traceroute');
+  jQuery('#qs-search-parameters-container').text('Last contributed traceroute');
 };
 
 var constructViaNSA = function() {
@@ -148,7 +147,7 @@ var constructViaNSA = function() {
     i++;
   });
   submitQuery(submission);
-  $('#qs-search-parameters-container').text('Does Contain City San Francisco AND Does Contain City Los Angeles AND...');
+  jQuery('#qs-search-parameters-container').text('Does Contain City San Francisco AND Does Contain City Los Angeles AND...');
 };
 
 var constructBoomerangs = function() {
@@ -176,7 +175,7 @@ var constructBoomerangs = function() {
     },
   }
   submitQuery(submission);
-  $('#qs-search-parameters-container').text('Does Originate in Country CA AND Does Go via Country US AND Does Terminate in Country CA');
+  jQuery('#qs-search-parameters-container').text('Does Originate in Country CA AND Does Go via Country US AND Does Terminate in Country CA');
 };
 
 var constructFromMyISP = function() {
@@ -191,9 +190,9 @@ var constructFromMyISP = function() {
       }
     }
     submitQuery(submission);
-    $('#qs-search-parameters-container').text('Does Originate in AS number ' + myASN);
+    jQuery('#qs-search-parameters-container').text('Does Originate in AS number ' + myASN);
   } else {
-    $().toastmessage('showErrorToast', 'We were unable to determine your ISP - please try a different query');
+    jQuery().toastmessage('showErrorToast', 'We were unable to determine your ISP - please try a different query');
   }
 };
 
@@ -209,9 +208,9 @@ var constructFromMyCity = function() {
       }
     }
     submitQuery(submission);
-    $('#qs-search-parameters-container').text('Does Originate in City ' + myCity);
+    jQuery('#qs-search-parameters-container').text('Does Originate in City ' + myCity);
   } else {
-    $().toastmessage('showErrorToast', 'We were unable to determine your city - please try a different query');
+    jQuery().toastmessage('showErrorToast', 'We were unable to determine your city - please try a different query');
   }
 };
 
@@ -227,9 +226,9 @@ var constructFromMyCountry = function() {
       }
     }
     submitQuery(submission);
-    $('#qs-search-parameters-container').text('Does Originate in Country ' + myCountry);
+    jQuery('#qs-search-parameters-container').text('Does Originate in Country ' + myCountry);
   } else {
-    $().toastmessage('showErrorToast', 'We were unable to determine your country - please try a different query');
+    jQuery().toastmessage('showErrorToast', 'We were unable to determine your country - please try a different query');
   }
 };
 
@@ -238,13 +237,13 @@ var constructBS = function() {
   var i = 1;
 
   // iterate over all of the 'from' conditions
-  $('#bs-originate-popup .bs-input').each(function(index, el) {
-    if ($(el).val() != "") {
+  jQuery('#bs-originate-popup .bs-input').each(function(index, el) {
+    if (jQuery(el).val() != "") {
       var origObj = {
         constraint1: "does",
         constraint2: "originate",
-        constraint3: $(el).data('constraint'),
-        constraint4: $(el).val(),
+        constraint3: jQuery(el).data('constraint'),
+        constraint4: jQuery(el).val(),
         constraint5: "AND"
       };
       submission["filter-constraint-"+i] = origObj;
@@ -252,13 +251,13 @@ var constructBS = function() {
     }
   });
   // iterate over all of the 'via' conditions
-  $('#bs-via-popup .bs-input').each(function(index, el) {
-    if ($(el).val() != "") {
+  jQuery('#bs-via-popup .bs-input').each(function(index, el) {
+    if (jQuery(el).val() != "") {
       var origObj = {
         constraint1: "does",
         constraint2: "goVia",
-        constraint3: $(el).data('constraint'),
-        constraint4: $(el).val(),
+        constraint3: jQuery(el).data('constraint'),
+        constraint4: jQuery(el).val(),
         constraint5: "AND"
       };
       submission["filter-constraint-"+i] = origObj;
@@ -266,13 +265,13 @@ var constructBS = function() {
     }
   });
   // iterate over all of the 'to' conditions
-  $('#bs-terminate-popup .bs-input').each(function(index, el) {
-    if ($(el).val() != "") {
+  jQuery('#bs-terminate-popup .bs-input').each(function(index, el) {
+    if (jQuery(el).val() != "") {
       var origObj = {
         constraint1: "does",
         constraint2: "terminate",
-        constraint3: $(el).data('constraint'),
-        constraint4: $(el).val(),
+        constraint3: jQuery(el).data('constraint'),
+        constraint4: jQuery(el).val(),
         constraint5: "AND"
       };
       submission["filter-constraint-"+i] = origObj;
@@ -283,7 +282,7 @@ var constructBS = function() {
   if (!_.isEmpty(submission)) {
     submitQuery(submission);
   } else {
-    $().toastmessage('showErrorToast', 'Please fill in at least one search term field to query the database.');
+    jQuery().toastmessage('showErrorToast', 'Please fill in at least one search term field to query the database.');
   }
 };
 
@@ -318,59 +317,274 @@ var constructAS = function() {
   if (errorCount === 0) {
     submitQuery(submission);
   } else {
-    $().toastmessage('showErrorToast', "One or more fields were not filled. Submission canceled.");
+    jQuery().toastmessage('showErrorToast', "One or more fields were not filled. Submission canceled.");
   }
 };
 
 var createASRow = function(row) {
-  var inputHolderEl = $('<div/>');
+  var inputHolderEl = jQuery('<div/>');
   inputHolderEl.addClass('advanced input-holder');
 
   // go over each constraint
   _.each(constraints, function(con) {
-    var constraintEl = $('<div/>');
+    var constraintEl = jQuery('<div/>');
     constraintEl.addClass('advanced-input constraint-container constraint-'+con.name);
     jQuery(constraintEl).data('constraint', con.name);
-    $(inputHolderEl).append(constraintEl);
+    jQuery(inputHolderEl).append(constraintEl);
 
     // go over the options in each constraint (input is special case)
     if (con.name === "input") {
       var divEl = '<div class="ui fluid input"><input class="constraint-value" type="text" placeholder="Hostname"></div>';
-      $(constraintEl).append(divEl);
+      jQuery(constraintEl).append(divEl);
     } else {
-      var selectEl = $('<select/>');
+      var selectEl = jQuery('<select/>');
       selectEl.addClass('constraint-value ui fluid dropdown');
       _.each(con.options, function(opt) {
         selectEl.append(new Option(opt.display, opt.value, true, true));
       });
-      $(constraintEl).append(selectEl);
+      jQuery(constraintEl).append(selectEl);
     }
   });
 
   // append either a + or a - button
-  var controlsEl = $('<div/>');
+  var controlsEl = jQuery('<div/>');
   controlsEl.addClass('advanced-input constraint-buttons');
-  var buttonEl = $('<button/>');
+  var buttonEl = jQuery('<button/>');
   buttonEl.addClass('circular ui icon button');
   if (row === "first") {
     // add button
-    $(buttonEl).append('<i class="create-search-row-btn icon settings"><img src="_assets/img/icn-add.svg" alt="add"></i>');
-    $(buttonEl).click(function() {
+    jQuery(buttonEl).append('<i class="create-search-row-btn icon settings"><img src="_assets/img/icn-add.svg" alt="add"></i>');
+    jQuery(buttonEl).click(function() {
       createASRow();
     });
   } else {
     // remove button
-    $(buttonEl).append('<i class="destroy-search-row-btn icon settings"><img src="_assets/img/icn-remove.svg" alt="remove"></i>');
-    $(buttonEl).click(function() {
-      $(inputHolderEl).remove();
+    jQuery(buttonEl).append('<i class="destroy-search-row-btn icon settings"><img src="_assets/img/icn-remove.svg" alt="remove"></i>');
+    jQuery(buttonEl).click(function() {
+      jQuery(inputHolderEl).remove();
     });
   }
-  $(controlsEl).append(buttonEl);
-  $(inputHolderEl).append(controlsEl);
+  jQuery(controlsEl).append(buttonEl);
+  jQuery(inputHolderEl).append(controlsEl);
 
-  $('#as-search-container').append(inputHolderEl);
+  jQuery('#as-search-container').append(inputHolderEl);
 };
 
-var submitQuery = function(queryObj) {
+/*var submitQuery = function(queryObj) {
   console.log('Submitting query of ' + JSON.stringify(queryObj));
+}*/
+
+
+var submitCustomQuery = function(trId, multipleTRs) {
+  jQuery('#userloc').hide();
+  var singleTrJSON = {
+    "parameters":
+    {
+      "submitOnLoad":true,
+      "submissionType":"customFilter",
+      "otherFunction":""
+    },
+    "constraints":
+    {
+      "filter-constraint-1":
+      {
+        constraint1: "does",
+        constraint2: "contain",
+        constraint3: "trId",
+        constraint4: trId,
+        constraint5: "AND"
+      }
+    }
+  };
+  var jsonToString = JSON.stringify(singleTrJSON);
+  //processPostedData(jsonToString);
+  submitQuery(singleTrJSON);
 }
+
+/* submission for new map website */
+var submitQuery = function(obj) {
+  console.log('Submitting...', obj);
+  showLoader();
+
+  // jQuery('#map-canvas-container').hide();
+  // jQuery('#map-container').hide();
+  // jQuery('#filter-results').hide();
+  //jQuery('#filter-results-log').html('');
+  /*jQuery('#map-core-controls').hide();*/
+  //showLoader();
+  ajaxObj = jQuery.ajax(url_base + '/application/controller/map.php', {
+    type: 'post',
+    data: obj,
+    success: function (e) {
+      console.log("Query submitted", e);
+      if(e!=0){
+        var data = jQuery.parseJSON(e);
+        //console.log(data.trsTable);
+        if (data.totTrs!=0 && data.result!=undefined ){
+          console.log("Result: ", data.result);
+          ixMapsDataJson = jQuery.parseJSON(data.result);
+
+          jQuery('#tot-results').html(data.trsTable);
+          //console.log(ixMapsDataJson);
+          //jQuery('#filter-results').html(data.trsTable);
+          jQuery('#traceroutes-table tbody').html(data.trsTable);
+          jQuery('#tot-results').html(data.totTrs);
+          jQuery('#my-ip').html(myIp);
+          jQuery('#my-ip').html(myIp);
+          jQuery('#my-ip').html(myIp);
+          console.log(" Total TRs: "+data.totTrs);
+          console.log(" Total Hops: "+data.totHops);
+          console.log(" Execution Time: "+data.execTime+' Sec.');
+          jQuery('#filter-results-summary').html(data.querySummary);
+          
+          loadMapData();
+          hideLoader();
+
+        } else {
+
+        // we may need more error messages, but for now this will handle the majority...
+          hideLoader();
+          jQuery.toast({
+            heading: 'No routes found',
+            text: 'No routes were found with specified criteria, returning last submitted route instead. Adjust the query options to be more inclusive, then click Submit to re-query.',
+            hideAfter: 10000,
+            allowToastClose: true,
+            position: 'mid-center',
+            icon: 'error',
+          });
+        }
+      }
+/*
+      /////////
+      if (data.totTrs!=undefined){
+        console.log(" Total TRs: "+data.totTrs);
+        console.log(" Total Hops: "+data.totHops);
+        console.log(" File Name: "+data.ixdata);
+        console.log(" File Size: "+data.ixsize+' KB');
+        console.log(" Execution Time: "+data.execTime+' Sec.');
+        writeIxMapsJs(data.ixdata);
+        jQuery('#map-canvas-container').show();
+        jQuery('#map-container').show();
+        jQuery('#filter-results').show();
+        jQuery('#filter-results-log').show();
+        //jQuery('#map-core-controls').show();
+        jQuery('#filter-results').html(data.trsTable);
+        jQuery('#filter-results-log').html(data.queryLogs);
+        jQuery('#filter-results-summary').html(data.querySummary);
+      } else {
+        // we may need more error messages, but for now this will handle the majority...
+        jQuery.toast({
+          heading: 'No routes found',
+          text: 'No routes were found with specified criteria, returning last submitted route instead. Adjust the query options to be more inclusive, then click Submit to re-query.',
+          hideAfter: 10000,
+          allowToastClose: true,
+          position: 'mid-center',
+          icon: 'error',
+        });
+        // DANGER! This could result in an endless loop if there is no last submitted
+        submitLastSubmissionObject();
+        jQuery('#filter-results-log').show();
+        jQuery('#filter-results-log').html(data.queryLogs);
+        jQuery('#filter-results-summary').html(data.querySummary);
+      }
+      hideLoader();
+      ///////////
+*/
+    },
+    error: function (e) {
+      console.log("Error! Submission unsuccessful");
+      //hideLoader();
+    }
+  });
+};
+    
+
+var submitUserLocObject = function() {
+  myCity = jQuery('.userloc-city').val();
+  myCountry = jQuery('.userloc-country').val();
+  //myISP = jQuery('.userloc-isp').val();
+
+  var userLocJSON = {
+    "parameters":
+    {
+      "submitOnLoad": true,
+      "submissionType": "customFilter",
+      "otherFunction": ""
+    },
+    "constraints":
+    {
+      "filter-constraint-1":
+      {
+        constraint1: "does",
+        constraint2: "originate",
+        constraint3: "",
+        constraint4: "",
+        constraint5: "AND"
+      }
+    }
+  };
+
+  if (myCity!="" && myCountry!="" && myASN) {
+    console.log('Searching based on ASN, Country, and City');
+    userLocJSON = {
+      "parameters":
+      {
+        "submitOnLoad": true,
+        "submissionType": "customFilter",
+        "otherFunction": ""
+      },
+      "constraints":
+      {
+        "filter-constraint-1":
+        {
+          constraint1: "does",
+          constraint2: "originate",
+          constraint3: "asnum",
+          constraint4: myASN,
+          constraint5: "AND"
+        },
+        "filter-constraint-2":
+        {
+          constraint1: "does",
+          constraint2: "originate",
+          constraint3: "country",
+          constraint4: myCountry,
+          constraint5: "AND"
+        },
+        "filter-constraint-3":
+        {
+          constraint1: "does",
+          constraint2: "originate",
+          constraint3: "city",
+          constraint4: myCity,
+          constraint5: "AND"
+        }
+      }
+    };
+    //var jsonToString = JSON.stringify(userLocJSON);
+    submitQuery(userLocJSON.constraints);
+
+  } else if (myCity) {
+    console.log('Searching based on city');
+    userLocJSON.constraints["filter-constraint-1"].constraint3 = "city";
+    userLocJSON.constraints["filter-constraint-1"].constraint4 = myCity;
+    //var jsonToString = JSON.stringify(userLocJSON);
+    submitQuery(userLocJSON);
+  } else if (myASN) {
+    console.log('Searching based on ASN');
+    userLocJSON.constraints["filter-constraint-1"].constraint3 = "asnum";
+    userLocJSON.constraints["filter-constraint-1"].constraint4 = myASN;
+    //var jsonToString = JSON.stringify(userLocJSON);
+    submitQuery(userLocJSON);
+  } else if (myCountry) {
+    console.log('Searching based on country');
+    userLocJSON.constraints["filter-constraint-1"].constraint3 = "country";
+    userLocJSON.constraints["filter-constraint-1"].constraint4 = myCountry;
+    //var jsonToString = JSON.stringify(userLocJSON);
+    submitQuery(userLocJSON);
+  } else {
+    console.log('Giving up, last submission instead of user geoloc');
+    submitLastSubmissionObject();
+  }
+}
+

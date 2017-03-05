@@ -3,17 +3,17 @@
     <div class="content">
         <div class="ui large form">
             <div class="inline fields">
-                <span class="setting-title">Your current IP address is <strong>xxx.xxx.xxxx</strong></span><br>
+                <span class="userloc-ipsetting-title">Your current IP address is <strong><span class="userloc-ip"></span></strong></span><br>
             </div>
         </div>
         <div class="ui large form">
             <div class="inline fields">
                 <span class="setting-title">You appear to be near &emsp;</span>
                 <div class="field">
-                    <input type="text" placeholder="Toronto">
+                    <input class="userloc-text-input userloc-city ui-autocomplete-input" autocomplete="off"/>
                 </div>
                 <div class="field">
-                    <input type="text" placeholder="Canada">
+                    <input class="userloc-text-input userloc-country ui-autocomplete-input" autocomplete="off">
                 </div>
             </div>
         </div>
@@ -22,11 +22,11 @@
             <div class="inline fields">
                 <span class="setting-title">Your internet service provider (ISP) is &emsp;</span>
                 <div class="field">
-                    <input type="text" placeholder="(xxx)">
+                    <span class="userloc-isp"></span> (ASN: <span class="userloc-asn"></span>)
                 </div>
-                <div class="field">
+                <!-- <div class="field">
                     <input type="text" placeholder="xxx">
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -45,6 +45,6 @@
             </div>
         </div>
         <div class="ui hidden compact divider"></div>
-        <div class="ui massive centered blue button">GO TO MAP</div>
+        <div id="myloc-submit-btn" class="ui massive centered blue button">GO TO MAP</div>
     </div>
 </div>

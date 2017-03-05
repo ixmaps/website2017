@@ -1,14 +1,15 @@
 <div class="results">
     <header class="header-results">
-        <p><strong>Z</strong> Traceroutes Found <br />
-            <em>Displaying X of Y most recent search results</em>
+        <p><strong><span id="tot-results"></span></strong> Traceroutes Found <br />
+            <!-- <em>Displaying X of Y most recent search results</em> -->
         </p>
+        <div id="filter-results-summary"></div>
     </header><!-- /header -->
 
     <div class="traceroutes-results">
         <h6>Traceroutes</h6>
-        <button class="ui compact transparent basic right floated yellow button">Map All</button>
-        <button class="ui compact transparent basic right floated yellow button">Hide All</button>
+        <button id="add-all-trs-btn" class="ui compact transparent basic right floated yellow button">Map All</button>
+        <button id="remove-all-trs-btn" class="ui compact transparent basic right floated yellow button">Hide All</button>
         <div class="ui compact hidden divider"></div>
     </div>
 
@@ -20,21 +21,7 @@
         </tr></thead>
 
         <tbody>
-            <tr>
-                <td><i class="canada flag"></i>Toronto</td>
-                <td>www.website.com</td>
-                <td>4263</td>
-            </tr>
-            <tr>
-                <td><i class="canada flag"></i>Toronto</td>
-                <td>www.website.com</td>
-                <td>4263</td>
-            </tr>
-            <tr>
-                <td><i class="america flag"></i>New York</td>
-                <td>www.website.com</td>
-                <td>4263</td>
-            </tr>
+
         </tbody>
     </table>
 

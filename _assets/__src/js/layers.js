@@ -45,6 +45,25 @@ var layers = {
   }
 }
 
+var getLayers = function() {
+  console.log("Loading Chotel data");
+
+  var obj = {
+    action: 'getLayers'
+  };
+
+  jQuery.ajax(url_base + '/application/controller/layers.php', {
+    type: 'post',
+    data: obj,
+    success: function (e) {
+      console.log("Ok! getLayers");
+      cHotelData = jQuery.parseJSON(e);
+    },
+    error: function (e) {
+      console.log("Error! getLayers", e);
+    }
+  });
+};
 
 var populateLayersContainer = function() {
   _.each(layers, function(layer, key) {
@@ -52,15 +71,15 @@ var populateLayersContainer = function() {
     buttonEl.addClass('layer-btn ui basic yellow fluid toggle button');
     buttonEl.data('name', key);
     jQuery(buttonEl).append('<div class="legend-item"><img src="_assets/img/icn-map-'+key+'.png" /><p>'+layer.name+'<br /><span class="minor">'+layer.location+'</span></p></div>');
-    $(buttonEl).click(function() {
-      $(this).toggleClass('active');
-      if (layers[$(this).data('name')].active === true) {
-        layers[$(this).data('name')].active = false;
-      } else if (layers[$(this).data('name')].active === false) {
-        layers[$(this).data('name')].active = true;
+    jQuery(buttonEl).click(function() {
+      jQuery(this).toggleClass('active');
+      if (layers[jQuery(this).data('name')].active === true) {
+        layers[jQuery(this).data('name')].active = false;
+      } else if (layers[jQuery(this).data('name')].active === false) {
+        layers[jQuery(this).data('name')].active = true;
       }
 
-      $('#num-active-layers').text(_.filter(layers, {active: true}).length + ' LAYERS');
+      jQuery('#num-active-layers').text(_.filter(layers, {active: true}).length + ' LAYERS');
       console.log('TODO: render map');
     });
 
