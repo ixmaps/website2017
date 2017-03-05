@@ -416,12 +416,12 @@ var submitQuery = function(obj) {
     type: 'post',
     data: obj,
     success: function (e) {
-      console.log("Query submitted", e);
+      console.log("Query submitted");
       if(e!=0){
         var data = jQuery.parseJSON(e);
         //console.log(data.trsTable);
         if (data.totTrs!=0 && data.result!=undefined ){
-          console.log("Result: ", data.result);
+          //xconsole.log("Result: ", data.result);
           ixMapsDataJson = jQuery.parseJSON(data.result);
 
           jQuery('#tot-results').html(data.trsTable);
