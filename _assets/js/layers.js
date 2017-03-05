@@ -46,7 +46,7 @@ var layers = {
 }
 
 var getLayers = function() {
-  console.log("Loading Chotel data");
+  console.log("Loading Layers");
 
   var obj = {
     action: 'getLayers'

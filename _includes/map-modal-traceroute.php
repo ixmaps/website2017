@@ -1,6 +1,6 @@
 <div class="ui traceroutes modal">
     <div class="header">
-        Traceroute Details
+        <h5>Traceroute Details</h5>
         <i><img class="ui image right floated" src="/_assets/img/icn-close.svg" alt="" /></i>
     </div>
 

@@ -88,7 +88,7 @@ var setUpClickHandlers = function() {
     jQuery('#tr-details').hide();
     removeTr();
   });
-  
+
   //**************** LAYERS ****************//
 
 
@@ -125,6 +125,9 @@ var setUpClickHandlers = function() {
 
   jQuery('#carrier-modal').click(function(){
     jQuery('.carrier.modal').modal('show');
+  });
+  jQuery('#opening-modal').click(function(){
+    jQuery('#opening-modal-div').modal('show');
   });
 
   jQuery('a.from.basic-srch-itm')

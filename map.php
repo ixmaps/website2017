@@ -26,6 +26,9 @@ $myLong = $geoIp['geoip']['longitude'];
 
     <script src="_assets/js/tablesorter.min.js" type="text/javascript"></script>
     <script src="_assets/js/prototype.js" type="text/javascript"></script>    
+
+    <!-- Testing call to gm script -->
+    <!-- <script src="https://maps.google.com/maps/api/js?v=3&libraries=geometry&key=AIzaSyBVsE02fgOf4vE7qqOzE8EyaDGtrXViZOs&callback=initializeMap" type="text/javascript"></script> -->
     
     <!-- Production  -->
     <!-- 
@@ -115,6 +118,7 @@ $myLong = $geoIp['geoip']['longitude'];
         <!-- GOOGLE MAPS -->
         <div class="map-canvas pusher">
             <div class="layers-toggle">
+
                 <button class="ui toggle button">
                     <!-- TODO: I believe this style came from semantic-ui's css. What is best practice for these types of overwrites -->
                     <i class="ui image left floated" style="margin-bottom: 0px">
@@ -123,25 +127,28 @@ $myLong = $geoIp['geoip']['longitude'];
                     <span id="num-active-layers">0 LAYERS</span>
                 </button>
             </div>
+
             <div id="map"></div>
         </div>
     </div>
-
 
     <!-- ********************************************************** -->
     <!-- ************************** MODALS ************************ -->
     <!-- ********************************************************** -->
 
+    <?php include '_includes/map-modal-opening.php'; ?>
     <?php include '_includes/map-modal-carrier.php'; ?>
-    <?php include '_includes/map-modal-router.php'; ?>
-    <?php include '_includes/map-modal-settings.php'; ?>
+    <?php //include '_includes/map-modal-router.php'; ?>
     <?php include '_includes/map-modal-traceroute.php'; ?>
+    <?php include '_includes/map-modal-settings.php'; ?>
 
 
-    <button id="settings-modal">OPENING MODAL</button>
-    <button id="router-modal">ROUTER POP UP</button>
+    
+    <button id="opening-modal">OPENING MODAL</button>
     <button id="carrier-modal">CARRIER POP UP</button>
+    <!-- <button id="router-modal">ROUTER POP UP</button> -->
     <button id="traceroutes-modal">TR DETAILS</button>
+    <button id="settings-modal">MAP SETTINGS</button>
 
 <!-- TR DETAILS - OLD APPROACH -->
 <!--  -->

@@ -417,6 +417,29 @@ i.flag:not(.icon):before {
   background: $grey_light;
 }
 
+.opening.modal {
+  padding: 24px;
+}
+.opening.modal .setting-title{
+  font-size: 20px;
+  color: $grey;
+}
+
+.opening.modal .actions > .button{
+  margin-left: 0;
+}
+
+.opening.modal .description{
+  text-align: center;
+}
+
+.opening.modal .accordion .content{
+  text-align: left;
+  padding-bottom: 24px;
+  margin-bottom: 8px;
+  background: $grey_light;
+}
+
 .modal h5{
   display: inline-block;
   color: $ixblue
@@ -495,4 +518,56 @@ i.flag:not(.icon):before {
   right: 14px;
   top: 13px;
   width: 15px;
+}
+
+
+.map-tool-on, .map-tool-off {
+  font-size: 0.8em;
+  border-radius: 5px;
+}
+
+.map-tool-on {
+  color: #000000;
+  background-color: #8dbdd8;
+}
+
+.map-tool-off {
+  color: #000000;
+  background-color: #FFFFFF;
+}
+
+#options-btn, #layers-btn, #help-btn {
+  position: absolute;
+  cursor: pointer;
+  /* filters icons on greyscale - likely to be adopted on a more consistent crossbrowser scale soon, but for now... */
+  filter: invert(50%);
+  -webkit-filter: invert(50%);
+}
+
+#options-btn {
+  bottom: 158px;
+  left: 28px;
+}
+
+.map-icon-popup-container {
+  bottom: 50px;
+  left: 70px;
+  background-color: white;
+  padding: 14px;
+  border: solid black 1px;
+  border-radius: 12px;
+  width: 30%;
+}
+
+.map-icon-close-btn {
+  position: absolute;
+  right: 14px;
+  top: 13px;
+  width: 25px;
+}
+
+
+.map-actions-controls {
+  float: left;
+  margin-left: 2em;
 }
