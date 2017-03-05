@@ -2,8 +2,8 @@
 include('application/config.php');
 include('application/model/IXmapsMaxMind.php');
 
-//$myIp = $_SERVER['REMOTE_ADDR'];
-$myIp = "186.108.108.134"; // Buenos Aires
+$myIp = $_SERVER['REMOTE_ADDR'];
+//$myIp = "186.108.108.134"; // Buenos Aires
 //$myIp = "128.100.72.189"; // Toronto
 
 $mm = new IXmapsMaxMind();
