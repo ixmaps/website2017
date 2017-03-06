@@ -267,3 +267,28 @@ var setTableSorters = function(){
   console.log('Sorting TR Tables');
   jQuery('#traceroutes-table').tablesorter( {sortList: [[0,2]]} );
 };
+
+
+var loadAutoCompleteData = function(type, value) {
+  //console.log(type + ":" + value);
+  var obj = {
+    action: 'loadAutoCompleteData',
+    field: type,
+    keyword: value
+  };
+
+  jQuery.ajax(url_base + '/application/controller/autocomplete.php', {
+    type: 'post',
+    data: obj,
+    success: function (e) {
+      console.log("Autocomplete data loaded: "+type);
+      // populate js auto-complete array(s)
+      var data = jQuery.parseJSON(e);
+      populateAutoCompleteArrays(type,data);
+    },
+    error: function (e) {
+      console.log("Error! autocomplete data can't be loaded", e);
+    }
+  });
+
+};
