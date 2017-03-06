@@ -43,6 +43,8 @@ var init = function() {
   loadAutoCompleteData('ISP', ' ');
   loadAutoCompleteData('submitter', ' ');
 
+  firstLoad = false;
+
 };
 
 var setUpClickHandlers = function() {
@@ -292,3 +294,66 @@ var loadAutoCompleteData = function(type, value) {
   });
 
 };
+
+var populateAutoCompleteArrays = function(type, data){
+  if(type=='country') {
+    countryTags.length = 0;
+    jQuery.each(data, function(key, value) {
+      if(value != null){
+        countryTags.push(value);
+      }
+    });
+
+  } else if(type=='region') {
+    regionTags.length = 0;
+    jQuery.each(data, function(key, value) {
+      if(value != null){
+       regionTags.push(value);
+      }
+    });
+
+  } else if(type=='city') {
+    cityTags.length = 0;
+    jQuery.each(data, function(key, value) {
+      if(value != null){
+       cityTags.push(value);
+      }
+    });
+
+  } else if(type=='asnum') {
+    ASnumTags.length = 0;
+    jQuery.each(data, function(key, value) {
+      if(value != null){
+       ASnumTags.push(value);
+      }
+    });
+
+  } else if(type=='zipCode') {
+    zipCodeTags.length = 0;
+    jQuery.each(data, function(key, value) {
+      if(value != null){
+       zipCodeTags.push(value);
+      }
+    });
+
+  } else if(type=='ISP') {
+    ISPTags.length = 0;
+    jQuery.each(data, function(key, value) {
+      if(value != null){
+       ISPTags.push(value);
+      }
+  });
+
+  } else if(type=='submitter') {
+    submitterTags.length = 0;
+    jQuery.each(data, function(key, value) {
+      if(value != null){
+       submitterTags.push(value);
+      }
+  });
+  }
+
+  if(firstLoad==true){
+    firstLoadFunc();
+  }
+}
