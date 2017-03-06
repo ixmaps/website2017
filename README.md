@@ -68,10 +68,10 @@ The site is built with PHP and a grunt task has been included to combine the gru
 
 Note: running `grunt --help` will give a list of these tasks, but will also include the subtasks that make them up, the use of which may have unexpected results and is not recommended unless you really know what you're doing.
 
-An example of the workflow:
-1. run 'grunt build' on the '__build' dictory
-2. open up the '__src' folder in sublime to style things
-3. run 'phpwatch' so I can see a live preview
+An example of the workflow:  
+1. run 'grunt build' on the '__build' directory  
+2. open up the '__src' folder in a text editor to adjust things  
+3. run 'phpwatch' to can see a live preview  
 
 ### Dependencies
 
