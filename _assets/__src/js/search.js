@@ -427,7 +427,7 @@ var submitQuery = function(obj) {
           jQuery('#tot-results').html(data.trsTable);
           //console.log(ixMapsDataJson);
           //jQuery('#filter-results').html(data.trsTable);
-          jQuery('#traceroutes-table tbody').html(data.trsTable);
+          jQuery('#traceroutes-results-table').html(data.trsTable);
           jQuery('#tot-results').html(data.totTrs);
           jQuery('#my-ip').html(myIp);
           jQuery('#my-ip').html(myIp);

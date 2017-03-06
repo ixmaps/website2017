@@ -4,10 +4,17 @@ var setUpGMaps = function() {
   // we have to create this script element manually if we want to keep our key hidden
   var scriptEl = document.createElement('script');
   scriptEl.type = 'text/javascript';
+
+  /*Anto's suggested minimal options for gm */
+  
+  scriptEl.src = 'https://maps.google.com/maps/api/js?v=3&libraries=geometry&key='+config.gmaps.key+'&callback=initializeMap';
+
+  
+  /* gm parameters suggested in mockup */
   
   //scriptEl.src = 'https://maps.google.com/maps/api/js?v=3&libraries=geometry&key='+config.gmaps.key+'&callback=initGMaps';
   
-  scriptEl.src = 'https://maps.google.com/maps/api/js?v=3&libraries=geometry&key='+config.gmaps.key+'&callback=initializeMap';
+
   document.body.appendChild(scriptEl);
 };
 
@@ -472,7 +479,8 @@ var loadMapData = function() {
 
 var setTableSorters = function(){
   console.log('Sorting TR Tables');
-  jQuery('#tr-list-table').tablesorter( {sortList: [[0,2]]} );
+  //jQuery('#tr-list-table').tablesorter( {sortList: [[0,2]]} );
+  jQuery('#traceroutes-table').tablesorter( {sortList: [[2,1]]} );
 };
 
 var showTotalTrInfo = function(){
@@ -480,14 +488,14 @@ var showTotalTrInfo = function(){
 
   if(showDynamicLegend) {
     var carriers = '';
-    carriers += '<table id="dynamic-legend" style="width: 100%;" class="tablesorter tr-list-result">';
+    carriers += '<table id="carrier-table" style="width: 100%;" class="tablesorter tr-list-result ui tablesorter selectable celled compact table">';
     carriers += '<thead><tr>';
     // carriers += '<th>ASN</th>';
     carriers += '<th title="Telecommunications service provider, i.e. a local internet service provider, or longhaul ‘backbone carrier.’ Click on highlighted carriers to see more about them.">Carrier</th>';
-    // add routers
-    carriers += '<th class="routers-header" title="Number of routers mapped belonging to the carrier.">Rtrs.</th>';
     // add nat
     carriers+='<th class="nat-header">Nat.</th>';
+    // add routers
+    carriers += '<th class="routers-header" title="Number of routers mapped belonging to the carrier.">Routers</th>';
     // add star score
     carriers+='<th class="score-header" title="Number of stars for data privacy transparency awarded to the carrier in the latest privacy transparency report. See Transparency page.">Transparency</th>';
     // close headers
@@ -531,12 +539,12 @@ var showTotalTrInfo = function(){
 
       // start tr
       //carriers+='<tr style="border: solid 0.19em '+getAsnColour(asNum)+'">';
-      carriers+='<tr>'
+      carriers+='<tr class="carrier">'
 
       if(cScore>=0){
-        cLink='<a style="color: white; font-weight: bold; border-bottom: 2px dashed #10578b" href="javascript:viewPrivacy('+asNum+')">'+d[1]+'</a>';
+        cLink='<a class="link" href="javascript:viewPrivacy('+asNum+')">'+d[1]+'</a>';
       } else {
-        cLink='<span style="color: white">'+d[1]+'</span>';
+        cLink='<span>'+d[1]+'</span>';
       }
 
       // Asn and bg colour
@@ -544,23 +552,30 @@ var showTotalTrInfo = function(){
 
       var color = getAsnColour(asNum).replace(/rgb/i, "rgba").replace(/\)/i,',0.7)');
       // carrier name
-      carriers+='<td style="background-color: '+color+'">'+cLink+'</td>';
+      carriers+='<td><div class="carrier-colour" style="background-color: '+color+'"></div>'+cLink+'</td>';
 
-      // # of routers
+      // add nat / flag
+      var country = d[2].toLowerCase();      
+      carriers+='<td class="centered-table-cell"><i class="'+country+' flag"></i>'+d[2]+'</td>';
+      //carriers+='<td class="centered-table-cell"><i class="'+country+' flag"></i></td>';
+
+      // add # of routers      
       carriers+='<td class="centered-table-cell">'+d[0]+'</td>';
-      // add nat
-      carriers+='<td class="centered-table-cell">'+d[2]+'</td>';
+
       // add stars
-      carriers+='<td class="star-col">'+starsHtml+' '+cScore+'</td>';
+      //carriers+='<td class="star-col">'+starsHtml+' '+cScore+'</td>';
+      carriers+='<td class="star-col">'+starsHtml+'</td>';
       // end tr
       carriers+='</tr>';
     });
 
     carriers+='</tbody></table>';
-    jQuery('#map-legend').html(carriers);
+    jQuery('#carriers-results-table').html(carriers);
+      //jQuery('#carrier-table tbody').html(carriers);
+
     if(t2!=0) {
       // sort the second column of the carrier summary table by desc
-      jQuery("#dynamic-legend").tablesorter( {sortList: [[1,1]]} );
+      jQuery("#carrier-table").tablesorter( {sortList: [[2,1]]} );
     }
   }
 
@@ -1409,7 +1424,7 @@ var viewPrivacy = function (asNum) {
   var privacyHtml = '';
   var criteriaDes = '';
   var totScore = 0;
-  jQuery('#carrier-title').html('<h2>Transparency and Privacy Report:<span class="h2-bigger"> '+privacyData.scores[asNum][0].carrier_name+'</span></h2>ASN: '+privacyData.scores[asNum][0].asn);
+  jQuery('#carrier-title').html('<h5>Transparency and Privacy Report:<span class="h2-bigger"> '+privacyData.scores[asNum][0].carrier_name+'</span></h5>ASN: '+privacyData.scores[asNum][0].asn);
 
   //privacyHtml += 'ASN: '+privacyData.scores[asNum][0].asn+'<br/>';
   privacyHtml += '<table>';
@@ -1492,7 +1507,7 @@ var toggleMap = function(){
 var initializeMap = function() {
   var myLatLng = new google.maps.LatLng(myLat, myLong);
   var mapOptions = {
-      scrollwheel: true,
+      scrollwheel: false,
       navigationControl: true,
       mapTypeControl: true,
       scaleControl: true,
@@ -1504,11 +1519,12 @@ var initializeMap = function() {
   //map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
   map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-  myMarker = new google.maps.Marker({
+  /*add marker on user location */
+  /*myMarker = new google.maps.Marker({
     position: new google.maps.LatLng(myLat, myLong),
     map: map,
     title: 'My Location!'
-  });
+  });*/
 
 
 

@@ -26261,6 +26261,93 @@ i.flag:not(.icon):before {
 	margin-left: 2em;
 }
 
+#carrier-summary-container {
+	max-height: 230px;
+	margin-top: 5px;
+	/*overflow: auto*/
+}
+
+.privacy-star-img {
+	vertical-align: middle;
+	width: 15px;
+}
+
+/* TODO: fix this. old styles added for transition */
+#privacy-details {
+	position: fixed;
+	left: 15%;
+	z-index: 1000;
+	top: 5%;
+	background: #fff;
+	height: 70%;
+	width: 56%;
+	border: 1px solid black;
+	border-radius: 12px;
+}
+
+.hidden {
+	display: none;
+}
+
+#tr-details-close-btn, #ip-flags-close, #privacy-details-close {
+	margin: 10px;
+	float: right;
+}
+
+#privacy-details-close img {
+	width: 25px;
+}
+
+.privacy-score-col-non-zero {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#privacy-total-label {
+	float: right;
+	margin-top: 16px;
+	margin-right: 10px;
+	font-size: 18px;
+	margin-left: 14px;
+}
+
+#privacy-feedback-info {
+	float: left;
+	border: 1px solid #000;
+	border-radius: 10px;
+	padding: 5px;
+}
+
+.privacy-score-col-total {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.privacy-score-col {
+	background-color: #ccc;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#privacy-details-data table td {
+	padding: 2px;
+	font-size: 13px;
+	border-bottom: 1px dotted;
+}
+
+.privacy-score-tot {
+	text-align: right;
+}
+
+#privacy-details {
+	padding: 15px;
+	overflow: auto;
+}
+
+#carrier-title {
+	float: left;
+}
+
 .issue-section .ui.styled.accordion {
 	border-bottom: 1px solid #191C1F;
 }

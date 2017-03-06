@@ -22,13 +22,26 @@ var init = function() {
 
   createASRow("first"); // TODO: fix depending on initMode
 
-  /* Se user locaation and isp info*/
+  /*
+    TODO: move this to an independent function 
+    Set user location and isp info
+  */
   jQuery('.userloc-ip').text(myIp);
   jQuery('.userloc-city').val(myCity);
   jQuery('.userloc-country').val(myCountry);
   jQuery('.userloc-isp').text(myISP);
   jQuery('.userloc-asn').text(myASN);
 
+  /*
+    TODO: move this to an independent function 
+    Load autocomplete data from db and populate js arrays
+  */
+  loadAutoCompleteData('country', ' ');
+  loadAutoCompleteData('region', ' ');
+  loadAutoCompleteData('city', ' ');
+  loadAutoCompleteData('zipCode', ' ');
+  loadAutoCompleteData('ISP', ' ');
+  loadAutoCompleteData('submitter', ' ');
 
 };
 
@@ -69,7 +82,7 @@ var setUpClickHandlers = function() {
   jQuery('#myloc-submit-btn').click(function() {
     submitUserLocObject();
   });
-  //**************** SEARCH RESULTS ****************//
+  //**************** TRACEROUTE RESULTS ****************//
   // onclick events
   jQuery('#remove-all-trs-btn').click(function() {
     removeAllTrs();
@@ -87,6 +100,10 @@ var setUpClickHandlers = function() {
   jQuery('#tr-details-close-btn').click(function() {
     jQuery('#tr-details').hide();
     removeTr();
+  });
+
+  jQuery('.map-icon-close-btn').click(function() {
+    jQuery('.map-icon-popup-container').hide();
   });
 
   //**************** LAYERS ****************//
@@ -128,6 +145,7 @@ var setUpClickHandlers = function() {
   });
   jQuery('#opening-modal').click(function(){
     jQuery('#opening-modal-div').modal('show');
+    jQuery('.opening.modal').modal('show');
   });
 
   jQuery('a.from.basic-srch-itm')

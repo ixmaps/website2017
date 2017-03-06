@@ -12,25 +12,23 @@
         <button id="remove-all-trs-btn" class="ui compact transparent basic right floated yellow button">Hide All</button>
         <div class="ui compact hidden divider"></div>
     </div>
+    <div id="traceroutes-results-table" class=""></div>
 
-    <table id="traceroutes-table" class="ui tablesorter selectable celled compact table"">
+    <!-- <table id="traceroutes-table" class="ui tablesorter selectable celled compact table">
         <thead><tr>
             <th>Origin</th>
             <th>Destination</th>
             <th>TR ID</th>
-        </tr></thead>
-
-        <tbody>
-
-        </tbody>
-    </table>
+        </tr></thead><tbody>
+    </tbody></table> -->
 
     <div class="carriers-results">
         <div class="ui divider"></div>
         <h6>Carriers</h6>
     </div>
+    <div id="carriers-results-table" class=""></div>
 
-    <table id="carrier-table" class="ui tablesorter selectable celled compact table">
+<!--     <table id="carrier-table" class="ui tablesorter selectable celled compact table">
         <thead><tr>
             <th>Carrier</th>
             <th>Nat.</th>
@@ -63,5 +61,6 @@
             </tr>
 
         </tbody>
-    </table>
+    </table> -->
+    
 </div>

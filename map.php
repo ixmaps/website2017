@@ -3,8 +3,8 @@ include('application/config.php');
 include('application/model/IXmapsMaxMind.php');
 
 $myIp = $_SERVER['REMOTE_ADDR'];
-//$myIp = "186.108.108.134"; // Buenos Aires
-//$myIp = "128.100.72.189"; // Toronto
+//$myIp = "186.108.108.134"; // Buenos Aires: TEST
+//$myIp = "128.100.72.189"; // Toronto: TEST
 
 $mm = new IXmapsMaxMind();
 $geoIp = $mm->getGeoIp($myIp);
@@ -132,6 +132,25 @@ $myLong = $geoIp['geoip']['longitude'];
         </div>
     </div>
 
+    <!-- PRIVACY SCORES - OLD APPROACH -->
+    <div id="privacy-details" class="hidden map-icon-popup-container">
+        <img class="map-icon-close-btn" src="_assets/img/icn-close.svg">
+        <div id="carrier-title"></div>
+        <div style="clear: both;"></div>
+        <div id="privacy-details-data"></div>
+    </div>
+
+    <!-- TR DETAILS - OLD APPROACH -->
+    <div id="tr-details" style="display: none">
+        <img id="tr-details-close-btn" class="map-icon-close-btn" src="/_assets/img/icn-close.svg">
+
+        <div id="tr-details-data">
+            <iframe id="tr-details-iframe" src=""></iframe>
+        </div>
+    </div>
+
+
+
     <!-- ********************************************************** -->
     <!-- ************************** MODALS ************************ -->
     <!-- ********************************************************** -->
@@ -141,8 +160,6 @@ $myLong = $geoIp['geoip']['longitude'];
     <?php //include '_includes/map-modal-router.php'; ?>
     <?php include '_includes/map-modal-traceroute.php'; ?>
     <?php include '_includes/map-modal-settings.php'; ?>
-
-
     
     <button id="opening-modal">OPENING MODAL</button>
     <button id="carrier-modal">CARRIER POP UP</button>
@@ -150,16 +167,6 @@ $myLong = $geoIp['geoip']['longitude'];
     <button id="traceroutes-modal">TR DETAILS</button>
     <button id="settings-modal">MAP SETTINGS</button>
 
-<!-- TR DETAILS - OLD APPROACH -->
-<!--  -->
-
-  <div id="tr-details" style="display: none">
-    <img id="tr-details-close-btn" class="map-icon-close-btn" src="/_assets/img/icn-close.svg">
-
-    <div id="tr-details-data">
-      <iframe id="tr-details-iframe" src=""></iframe>
-    </div>
-  </div>
 
 </body>
 
