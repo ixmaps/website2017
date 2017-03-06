@@ -4,7 +4,7 @@ include('application/model/IXmapsMaxMind.php');
 
 $myIp = $_SERVER['REMOTE_ADDR'];
 //$myIp = "186.108.108.134"; // Buenos Aires: TEST
-$myIp = "128.100.72.189"; // Toronto: TEST
+//$myIp = "128.100.72.189"; // Toronto: TEST
 
 $mm = new IXmapsMaxMind();
 $geoIp = $mm->getGeoIp($myIp);
