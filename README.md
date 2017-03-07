@@ -99,6 +99,7 @@ You'll need to use the example config to avoid errors:
 ```
 $ mv config.example.json config.json
 ```
+(note that you'll need to modify the config.json to include eg the Google Maps API key
 
 The **first time** you chould install all the packages used:
 
