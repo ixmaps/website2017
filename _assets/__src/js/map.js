@@ -11,7 +11,7 @@ var init = function() {
   getPrivacyReport();
 
   if (initMode==0) {
-    //jQuery('.settings.modal').modal('show'); // open user location modal
+    jQuery('.opening.modal').modal('show'); // open user location modal
 
   } else if (initMode==1) { // trId is passed to map page
     //submitCustomQuery(trIdFilter);
@@ -83,6 +83,7 @@ var setUpClickHandlers = function() {
   // my location submit button
   jQuery('#myloc-submit-btn').click(function() {
     submitUserLocObject();
+    jQuery('.opening.modal').modal('hide');
   });
   //**************** TRACEROUTE RESULTS ****************//
   // onclick events

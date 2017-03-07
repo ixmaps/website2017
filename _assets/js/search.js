@@ -7,7 +7,10 @@
 
 // GLOBALS
 
-// define ajax object for query submit
+/* 
+  Define ajax object for query submit 
+  !! important 
+*/
 var ajaxObj;
 
 const constraints = [
@@ -116,7 +119,6 @@ const constraints = [
     ]
   }
 ]
-
 
 var constructLastContributed = function() {
   var submission = {
@@ -412,6 +414,7 @@ var submitQuery = function(obj) {
   //jQuery('#filter-results-log').html('');
   /*jQuery('#map-core-controls').hide();*/
   //showLoader();
+
   ajaxObj = jQuery.ajax(url_base + '/application/controller/map.php', {
     type: 'post',
     data: obj,
@@ -425,13 +428,11 @@ var submitQuery = function(obj) {
           ixMapsDataJson = jQuery.parseJSON(data.result);
 
           jQuery('#tot-results').html(data.trsTable);
-          //console.log(ixMapsDataJson);
-          //jQuery('#filter-results').html(data.trsTable);
+
           jQuery('#traceroutes-results-table').html(data.trsTable);
           jQuery('#tot-results').html(data.totTrs);
           jQuery('#my-ip').html(myIp);
-          jQuery('#my-ip').html(myIp);
-          jQuery('#my-ip').html(myIp);
+
           console.log(" Total TRs: "+data.totTrs);
           console.log(" Total Hops: "+data.totHops);
           console.log(" Execution Time: "+data.execTime+' Sec.');
@@ -500,11 +501,15 @@ var submitQuery = function(obj) {
     
 
 var submitUserLocObject = function() {
+
+  /* Check values if user has changed City and Country*/
   myCity = jQuery('.userloc-city').val();
   myCountry = jQuery('.userloc-country').val();
-  //myISP = jQuery('.userloc-isp').val();
 
-  var userLocJSON = {
+/*  Colin: not sure where are you going with this approach
+  Commenting it for now */
+
+/*  var userLocJSON = {
     "parameters":
     {
       "submitOnLoad": true,
@@ -522,28 +527,18 @@ var submitUserLocObject = function() {
         constraint5: "AND"
       }
     }
-  };
+  };*/
 
-  if (myCity!="" && myCountry!="" && myASN) {
-    console.log('Searching based on ASN, Country, and City');
+  /* Criteria 1: the most inclusive contain my city and my country  */
+  if (myCity!="" && myCountry!="") {
+
+  /*if (myCity!="" && myCountry!="" && myASN) {
+    console.log('Searching based on ASN, Country, and City');*/
+
+    console.log('Searching based on Country and City')
+    
     userLocJSON = {
-      "parameters":
-      {
-        "submitOnLoad": true,
-        "submissionType": "customFilter",
-        "otherFunction": ""
-      },
-      "constraints":
-      {
         "filter-constraint-1":
-        {
-          constraint1: "does",
-          constraint2: "originate",
-          constraint3: "asnum",
-          constraint4: myASN,
-          constraint5: "AND"
-        },
-        "filter-constraint-2":
         {
           constraint1: "does",
           constraint2: "originate",
@@ -551,7 +546,7 @@ var submitUserLocObject = function() {
           constraint4: myCountry,
           constraint5: "AND"
         },
-        "filter-constraint-3":
+        "filter-constraint-2":
         {
           constraint1: "does",
           constraint2: "originate",
@@ -559,29 +554,38 @@ var submitUserLocObject = function() {
           constraint4: myCity,
           constraint5: "AND"
         }
-      }
     };
-    //var jsonToString = JSON.stringify(userLocJSON);
-    submitQuery(userLocJSON.constraints);
+    submitQuery(userLocJSON);
 
-  } else if (myCity) {
+  } else if (myCountry!="") {
+    console.log('Searching based on Country');
+    userLocJSON = {
+        "filter-constraint-1":
+        {
+          constraint1: "does",
+          constraint2: "contain",
+          constraint3: "country",
+          constraint4: myCountry,
+          constraint5: "AND"
+        }
+    };
+    submitQuery(userLocJSON);
+
+  /*Alert: This can produce many irrelevant queries */
+  } else if (myCity!="") {
     console.log('Searching based on city');
-    userLocJSON.constraints["filter-constraint-1"].constraint3 = "city";
-    userLocJSON.constraints["filter-constraint-1"].constraint4 = myCity;
-    //var jsonToString = JSON.stringify(userLocJSON);
+    userLocJSON = {
+        "filter-constraint-1":
+        {
+          constraint1: "does",
+          constraint2: "contain",
+          constraint3: "city",
+          constraint4: myCity,
+          constraint5: "AND"
+        }
+    };
     submitQuery(userLocJSON);
-  } else if (myASN) {
-    console.log('Searching based on ASN');
-    userLocJSON.constraints["filter-constraint-1"].constraint3 = "asnum";
-    userLocJSON.constraints["filter-constraint-1"].constraint4 = myASN;
-    //var jsonToString = JSON.stringify(userLocJSON);
-    submitQuery(userLocJSON);
-  } else if (myCountry) {
-    console.log('Searching based on country');
-    userLocJSON.constraints["filter-constraint-1"].constraint3 = "country";
-    userLocJSON.constraints["filter-constraint-1"].constraint4 = myCountry;
-    //var jsonToString = JSON.stringify(userLocJSON);
-    submitQuery(userLocJSON);
+
   } else {
     console.log('Giving up, last submission instead of user geoloc');
     submitLastSubmissionObject();

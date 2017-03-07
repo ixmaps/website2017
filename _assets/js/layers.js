@@ -1,5 +1,6 @@
 // stuff related to layers goes here
 
+/*Note: added "type" the old numeric id to render layes */
 var layers = {
   "nsa": {
     "type":1,
@@ -74,10 +75,13 @@ var getLayers = function() {
       cHotelData = jQuery.parseJSON(e);
       
       setTimeout(function(){
+
         /* Set default active layers*/
         jQuery('#nsa').toggleClass('active');
         layers[jQuery('#nsa').data('name')].active = true;
         renderGeoMarkers(1);
+
+        /* Example */
         
         /*jQuery('#ixp').toggleClass('active');
         layers[jQuery('#ixp').data('name')].active = true;
@@ -104,7 +108,6 @@ var populateLayersContainer = function() {
     jQuery(buttonEl).click(function() {
       jQuery(this).toggleClass('active');      
       var layerId = jQuery(this).attr("id");
-      //console.log(layers[layerId].type);
 
       if (layers[jQuery(this).data('name')].active === true) {
         layers[jQuery(this).data('name')].active = false;
