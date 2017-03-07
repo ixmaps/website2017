@@ -1526,12 +1526,6 @@ var initializeMap = function() {
     title: 'My Location!'
   });*/
 
-
-
-  // New approach for default layers shown after a new query is submitted. Testing...
-  renderGeoMarkers(1); // 1=NSA, 2=Hotel, etc...
-
-
 /*  google.maps.event.addListener(map, 'click', function(event){
     //if(!mouse_in_polyline) {
       m_lat = event.latLng.lat();
