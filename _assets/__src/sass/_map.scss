@@ -659,9 +659,12 @@ i.flag:not(.icon):before {
   float: left;
 }
 
-
 #filter-results-summary {
   font-size: 0.6em;
   margin-bottom: 10px;
   border-bottom: #c4c4c4 1px solid;
+}
+
+.pushable > .pusher {
+  overflow: visible;
 }

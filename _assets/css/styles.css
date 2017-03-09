@@ -26354,6 +26354,10 @@ i.flag:not(.icon):before {
 	border-bottom: #c4c4c4 1px solid;
 }
 
+.pushable > .pusher {
+	overflow: visible;
+}
+
 .issue-section .ui.styled.accordion {
 	border-bottom: 1px solid #191C1F;
 }
