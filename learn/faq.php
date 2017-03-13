@@ -50,7 +50,9 @@
                     <!-- <img> -->
                     <p>33 Thomas Street, New York City.  Known locally as AT&T's “Long Lines Building,” the Intercept reports it is an NSA spying hub, code-named Titanpointe. Reference: Gallagher & Moltke, 2016</p>
 
-                    <p>This video shows a 3D Google Earth animation of data traveling from the Ontario Science Centre to the San Francisco Art Institute's website, passing through three of these internet exchanges.</p>
+                    <p>This <a href="https://www.youtube.com/embed/pvdIB5vr4cw" target="_blank">video</a> shows a 3D Google Earth animation of data traveling from the Ontario Science Centre to the San Francisco Art Institute's website, passing through three of these internet exchanges.</p>
+
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/pvdIB5vr4cw" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <div class="title">
                     How do I read a traceroute?
@@ -80,7 +82,7 @@
                 </div>
                 <div class="content">
                     <p>In order to map traceroutes, we must estimate the physical location of the routers associated with the IP addresses in the route. Once a contributor generates and submits a traceroute using the IXmaps Client, our software initially assigns locations to each IP addresses based on leading commercial service called Maxmind. <a href="https://www.maxmind.com/en/geoip2-city-database-accuracy?country=&resolution=25" target="_blank">Maxmind reports</a> that it accurately resolves an IP address to within 25km of its actual location 80% of the time, at least in Canada and the US. This is often sufficient to geo-locate the router to a nearby city. However, Maxmind tends to work best when locating edge routers, i.e. those close to the origin or termination; however, we have found that its success rate when attempting to geo-locate core routers drops to nearly zero.</p>
-                    <p>Therefore, we have adopted a layered strategy to assign physical locations to core routers. Mainly this involves parsing the router hostname to extract location information. For example, looking into the Technical details of traceroute 6896 shown above, we can see the router at hop 8 is owned by Cogent, has IPaddress <code>154.54.42.69</code> and hostname <code>te0-1-0-2.mpd22.jfk02.atlas.cogentco.com</code>. Cogent uses airport codes in many of their router hostnames, so with JFK being the airport code for the best known New York City airport, we infer the router is in NYC. We also use latency calculations to help locate routers, or at least spot where Maxmind gives impossible results.</p>
+                    <p>Therefore, we have adopted a layered strategy to assign physical locations to core routers. Mainly this involves parsing the router hostname to extract location information. For example, looking into the Technical details of traceroute 6896, we can see the router at hop 8 is owned by Cogent, has IPaddress <code>154.54.42.69</code> and hostname <code>te0-1-0-2.mpd22.jfk02.atlas.cogentco.com</code>. Cogent uses airport codes in many of their router hostnames, so with JFK being the airport code for the best known New York City airport, we infer the router is in NYC. We also use latency calculations to help locate routers, or at least spot where Maxmind gives impossible results.</p>
                     <p>Finally, we invite you to flag routers you suspect are inaccurately located. While this geo-location process usually provides more accurate longitude and latitude data than Maxmind offers, it generally remains reliable only at a city level; so many of our corrections place routers at a generic city location instead of in a particular building. For more detail, see <a href="/docs/2011-06-09-ixmaps-geolocation.pdf" target="_blank">How IXmaps Geolocates Routers</a>.</p>
                 </div>
             </div>
