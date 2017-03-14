@@ -73,23 +73,8 @@ var getLayers = function() {
     success: function (e) {
       console.log("Ok! getLayers");
       cHotelData = jQuery.parseJSON(e);
+      renderDefaultLaters();
       
-      setTimeout(function(){
-
-        /* Set default active layers*/
-        jQuery('#nsa').toggleClass('active');
-        layers[jQuery('#nsa').data('name')].active = true;
-        renderGeoMarkers(1);
-
-        /* Example */
-        
-        /*jQuery('#ixp').toggleClass('active');
-        layers[jQuery('#ixp').data('name')].active = true;
-        renderGeoMarkers(5);*/
-        
-        jQuery('#num-active-layers').text(_.filter(layers, {active: true}).length + ' LAYERS');
-      }, 1000);
-
 
     },
     error: function (e) {
@@ -97,6 +82,25 @@ var getLayers = function() {
     }
   });
 };
+
+var renderDefaultLaters = function() {
+  setTimeout(function(){
+
+    /* Set default active layers*/
+    jQuery('#nsa').toggleClass('active');
+    layers[jQuery('#nsa').data('name')].active = true;
+    renderGeoMarkers(1);
+
+    /* Example */
+    
+    /*jQuery('#ixp').toggleClass('active');
+    layers[jQuery('#ixp').data('name')].active = true;
+    renderGeoMarkers(5);*/
+    
+    jQuery('#num-active-layers').text(_.filter(layers, {active: true}).length + ' LAYERS');
+  }, 500);
+}
+
 
 var populateLayersContainer = function() {
   _.each(layers, function(layer, key) {
