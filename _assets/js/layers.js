@@ -88,7 +88,7 @@ var getLayers = function() {
         renderGeoMarkers(5);*/
         
         jQuery('#num-active-layers').text(_.filter(layers, {active: true}).length + ' LAYERS');
-      }, 500);
+      }, 1000);
 
 
     },
