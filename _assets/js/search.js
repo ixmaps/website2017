@@ -181,18 +181,18 @@ var constructBoomerangs = function() {
 };
 
 var constructFromMyISP = function() {
-  if (myASN) {
+  if (myAsn) {
     var submission = {
       "filter-constraint-1": {
         constraint1: "does",
         constraint2: "originate",
         constraint3: "asnum",
-        constraint4: myASN,
+        constraint4: myAsn,
         constraint5: "AND"
       }
     }
     submitQuery(submission);
-    jQuery('#qs-search-parameters-container').text('Does Originate in AS number ' + myASN);
+    jQuery('#qs-search-parameters-container').text('Does Originate in AS number ' + myAsn);
   } else {
     jQuery().toastmessage('showErrorToast', 'We were unable to determine your ISP - please try a different query');
   }
@@ -380,14 +380,6 @@ var createASRow = function(row) {
 var submitCustomQuery = function(trId, multipleTRs) {
   jQuery('#userloc').hide();
   var singleTrJSON = {
-    "parameters":
-    {
-      "submitOnLoad":true,
-      "submissionType":"customFilter",
-      "otherFunction":""
-    },
-    "constraints":
-    {
       "filter-constraint-1":
       {
         constraint1: "does",
@@ -396,7 +388,6 @@ var submitCustomQuery = function(trId, multipleTRs) {
         constraint4: trId,
         constraint5: "AND"
       }
-    }
   };
   var jsonToString = JSON.stringify(singleTrJSON);
   //processPostedData(jsonToString);
@@ -427,10 +418,11 @@ var submitQuery = function(obj) {
           //xconsole.log("Result: ", data.result);
           ixMapsDataJson = jQuery.parseJSON(data.result);
 
-          jQuery('#tot-results').html(data.trsTable);
+          //jQuery('#tot-results').html(data.trsTable);
 
           jQuery('#traceroutes-results-table').html(data.trsTable);
           jQuery('#tot-results').html(data.totTrs);
+          jQuery('#tot-results-found').html(data.totTrsFound);
           jQuery('#my-ip').html(myIp);
 
           console.log(" Total TRs: "+data.totTrs);
@@ -453,6 +445,12 @@ var submitQuery = function(obj) {
             position: 'mid-center',
             icon: 'error',
           });
+
+          // wait before loading 
+          setTimeout(function(){
+            constructLastContributed();
+          }, 10000);
+
         }
       }
 /*
@@ -530,12 +528,11 @@ var submitUserLocObject = function() {
   };*/
 
   /* Criteria 1: the most inclusive contain my city and my country  */
-  if (myCity!="" && myCountry!="") {
+  /*if (myCity!="" && myCountry!="") {
+    console.log('Searching based on Country and City')*/
 
-  /*if (myCity!="" && myCountry!="" && myASN) {
-    console.log('Searching based on ASN, Country, and City');*/
-
-    console.log('Searching based on Country and City')
+  if (myCity!="" && myCountry!="" && myAsn) {
+    console.log('Searching based on ASN, Country, and City');
     
     userLocJSON = {
         "filter-constraint-1":
@@ -552,6 +549,14 @@ var submitUserLocObject = function() {
           constraint2: "originate",
           constraint3: "city",
           constraint4: myCity,
+          constraint5: "AND"
+        },
+        "filter-constraint-3":
+        {
+          constraint1: "does",
+          constraint2: "originate",
+          constraint3: "asnum",
+          constraint4: myAsn,
           constraint5: "AND"
         }
     };

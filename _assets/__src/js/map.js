@@ -1,7 +1,17 @@
 // generic js related to map.php goes here
 
+/* Gloal Vars for my location: now populated via ajax call */
+var myIp = '';
+var myCity = '';
+var myCountry = '';
+var myIsp = '';
+var myAsn = '';
+var myLat = '';
+var myLong = '';
+
 // MAIN FUNCTIONS
 var init = function() {
+  getMyLocation();
   setUpGMaps();
   setUpClickHandlers();
 
@@ -14,23 +24,13 @@ var init = function() {
     jQuery('.opening.modal').modal('show'); // open user location modal
 
   } else if (initMode==1) { // trId is passed to map page
-    //submitCustomQuery(trIdFilter);
+    submitCustomQuery(trIdFilter);
 
   } else if (initMode==2) { // search filters are passed to map page
-    //processPostedData(postedData);
+    processPostedData(postedData);
   }
 
   createASRow("first"); // TODO: fix depending on initMode
-
-  /*
-    TODO: move this to an independent function 
-    Set user location and isp info
-  */
-  jQuery('.userloc-ip').text(myIp);
-  jQuery('.userloc-city').val(myCity);
-  jQuery('.userloc-country').val(myCountry);
-  jQuery('.userloc-isp').text(myISP);
-  jQuery('.userloc-asn').text(myASN);
 
   /*
     TODO: move this to an independent function 
@@ -47,6 +47,48 @@ var init = function() {
 
 };
 
+var getMyLocation = function() {
+  jQuery('#my-location-status').html("Loading location...");
+  var obj = {
+    action: 'getMyLocation'
+  };
+
+  jQuery.ajax(url_base + '/application/controller/mygeoip.php', {
+    type: 'post',
+    data: obj,
+    success: function (e) {
+      console.log("getMyLocation data loaded ");
+      // populate js auto-complete array(s)
+      var data = jQuery.parseJSON(e);
+      console.log(data);
+      setMyLocationData(data);
+    },
+    error: function (e) {
+      console.log("Error! getMyLocation data can't be loaded", e);
+    }
+  });
+
+}
+
+/* Set user location and isp info*/
+var setMyLocationData = function(data) {
+  jQuery('#my-location-status').html("");
+
+  myIp = data.myIp;
+  myCity = data.myCity;
+  myCountry = data.myCountry;
+  myIsp = data.myIsp;
+  myAsn = data.myAsn;
+  myLat = data.myLat;
+  myLong = data.myLong;
+
+  jQuery('.userloc-ip').text(myIp);
+  jQuery('.userloc-city').val(myCity);
+  jQuery('.userloc-country').val(myCountry);
+  jQuery('.userloc-isp').text(myIsp);
+  jQuery('.userloc-asn').text(myAsn);
+}
+
 var setUpClickHandlers = function() {
   //**************** SEARCH ****************//
   // quick search buttons
@@ -60,7 +102,7 @@ var setUpClickHandlers = function() {
     constructBoomerangs();
   });
   jQuery('#search-header .qs-from-my-isp-btn').click(function() {
-    constructFromMyISP();
+    constructFrommyIsp();
   });
   jQuery('#search-header .qs-from-my-cty-btn').click(function() {
     constructFromMyCity();
@@ -85,6 +127,13 @@ var setUpClickHandlers = function() {
     submitUserLocObject();
     jQuery('.opening.modal').modal('hide');
   });
+
+  /* Map Settings button */
+  jQuery('.map-settings-button').click(function() {
+    jQuery('.settings.modal').modal('show');
+  });
+
+
   //**************** TRACEROUTE RESULTS ****************//
   // onclick events
   jQuery('#remove-all-trs-btn').click(function() {
@@ -100,10 +149,45 @@ var setUpClickHandlers = function() {
     hideLoader();
   });
 
-  jQuery('#tr-details-close-btn').click(function() {
-    jQuery('#tr-details').hide();
-    removeTr();
+  jQuery('#filter-results-summary-container').click(function() {
+    jQuery('#filter-results-summary').toggle();
   });
+  
+  /* 
+    Close  buttons : modal windows
+  */
+  jQuery('#tr-details-close-btn').click(function() {
+    removeTr();
+    jQuery('.traceroutes.modal').modal('hide'); 
+
+  });
+
+  jQuery('#settings-details-close-btn').click(function() {
+    removeTr();
+    jQuery('.settings.modal').modal('hide'); 
+
+  });
+
+  jQuery('#flagging-close-btn').click(function() {
+    removeTr();
+    jQuery('.flagging.modal').modal('hide'); 
+
+  });
+  
+  jQuery('#carrier-close-btn').click(function() {
+    removeTr();
+    jQuery('.carrier.modal').modal('hide'); 
+
+  });
+
+  jQuery('#opening-close-btn').click(function() {
+    removeTr();
+    jQuery('.opening.modal').modal('hide'); 
+
+  });
+
+
+  /////
 
   jQuery('.map-icon-close-btn').click(function() {
     jQuery('.map-icon-popup-container').hide();
@@ -149,6 +233,10 @@ var setUpClickHandlers = function() {
   jQuery('#opening-modal').click(function(){
     jQuery('#opening-modal-div').modal('show');
     jQuery('.opening.modal').modal('show');
+  });
+  jQuery('#flagging-modal').click(function(){
+    jQuery('#flagging-modal-div').modal('show');
+    jQuery('.flagging.modal').modal('show');
   });
 
   jQuery('a.from.basic-srch-itm')

@@ -1,22 +1,3 @@
-<?php
-include('application/config.php');
-include('application/model/IXmapsMaxMind.php');
-
-$myIp = $_SERVER['REMOTE_ADDR'];
-//$myIp = "186.108.108.134"; // Buenos Aires: TEST
-//$myIp = "128.100.72.189"; // Toronto: TEST
-
-$mm = new IXmapsMaxMind();
-$geoIp = $mm->getGeoIp($myIp);
-$mm->closeDatFiles();
-
-$myCountry = ''.$geoIp['geoip']['country_code'];
-$myCity = ''.$geoIp['geoip']['city'];
-$myAsn = $geoIp['asn'];
-$myIsp = $geoIp['isp'];
-$myLat = $geoIp['geoip']['latitude'];
-$myLong = $geoIp['geoip']['longitude'];
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,9 +7,6 @@ $myLong = $geoIp['geoip']['longitude'];
 
     <script src="_assets/js/tablesorter.min.js" type="text/javascript"></script>
     <script src="_assets/js/prototype.js" type="text/javascript"></script>    
-
-    <!-- Testing call to gm script -->
-    <!-- <script src="https://maps.google.com/maps/api/js?v=3&libraries=geometry&key=AIzaSyBVsE02fgOf4vE7qqOzE8EyaDGtrXViZOs&callback=initializeMap" type="text/javascript"></script> -->
     
     <!-- Production  -->
     <!-- 
@@ -43,19 +21,12 @@ $myLong = $geoIp['geoip']['longitude'];
     <script src="_assets/js/search.js" type="text/javascript"></script>
     <script src="_assets/js/layers.js" type="text/javascript"></script>
     <script>
-        var myIp = '<?php if(isset($myIp)) { echo $myIp;} ?>';
-        var myCity = '<?php if(isset($myCity)) { echo $myCity;} ?>';
-        var myCountry = '<?php if(isset($myCountry)) { echo $myCountry;} ?>';
-        var myISP = '<?php if(isset($myIsp)) { echo $myIsp;} ?>';
-        var myASN = '<?php if(isset($myAsn)) { echo $myAsn;} ?>';
-        var myLat = '<?php if(isset($myLat)) { echo $myLat;} ?>';
-        var myLong = '<?php if(isset($myLong)) { echo $myLong;} ?>';
 
         var initMode = 0;
         var trIdFilter = 0;
 
         jQuery(document).ready(function() {
-            init();
+
             <?php
             if(isset($_GET['trid'])){
             ?>
@@ -75,6 +46,9 @@ $myLong = $geoIp['geoip']['longitude'];
             <?php
             }
             ?>
+
+            // !!
+            init();
         });
     </script>
   <!-- Toast library -->
@@ -100,7 +74,7 @@ $myLong = $geoIp['geoip']['longitude'];
             <img width="100px" src="_assets/img/icn-loading.gif"/>
             <br/><br/>
             <div id="cancel-query-div">
-                <button id="cancel-query">Cancel</button>
+                <button id="cancel-query" class="ui massive centered blue button">Cancel</button>
             </div>
         </div>
     </div>
@@ -140,15 +114,6 @@ $myLong = $geoIp['geoip']['longitude'];
         <div id="privacy-details-data"></div>
     </div>
 
-    <!-- TR DETAILS - OLD APPROACH -->
-    <div id="tr-details" style="display: none">
-        <img id="tr-details-close-btn" class="map-icon-close-btn" src="/_assets/img/icn-close.svg">
-
-        <div id="tr-details-data">
-            <iframe id="tr-details-iframe" src=""></iframe>
-        </div>
-    </div>
-
 
 
     <!-- ********************************************************** -->
@@ -160,14 +125,15 @@ $myLong = $geoIp['geoip']['longitude'];
     <?php //include '_includes/map-modal-router.php'; ?>
     <?php include '_includes/map-modal-traceroute.php'; ?>
     <?php include '_includes/map-modal-settings.php'; ?>
+    <?php include '_includes/map-modal-flagging.php'; ?>
     
     <button id="opening-modal">OPENING MODAL</button>
     <button id="carrier-modal">CARRIER POP UP</button>
     <!-- <button id="router-modal">ROUTER POP UP</button> -->
-    <button id="traceroutes-modal">TR DETAILS</button>
-    <button id="settings-modal">MAP SETTINGS</button>
-
-
+    <!-- <button id="traceroutes-modal">TR DETAILS</button> -->
+    <!-- <button id="settings-modal">MAP SETTINGS</button> -->
+    <!-- <button id="flagging-modal">FLAGGING</button> -->
+    
 </body>
 
 <?php include '_includes/global-footer.php'; ?>

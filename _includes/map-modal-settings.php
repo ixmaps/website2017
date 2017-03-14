@@ -1,7 +1,7 @@
 <div class="ui settings modal">
     <div class="header">
         <h5>Map Settings</h5>
-        <i><img class="ui image right floated" src="/_assets/img/icn-close.svg" alt=""></i>
+        <i><img id="settings-details-close-btn" class="ui image right floated" src="/_assets/img/icn-close.svg" alt=""></i>
     </div>
     
     <div class="content">

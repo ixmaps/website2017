@@ -1,10 +1,10 @@
-<div class="ui traceroutes modal">
+<div id="traceroutes-model-div" class="ui traceroutes modal">
     <div class="header">
         <h5>Traceroute Details</h5>
-        <i><img class="ui image right floated" src="/_assets/img/icn-close.svg" alt="" /></i>
+        <i><img id="tr-details-close-btn" class="ui image right floated" src="/_assets/img/icn-close.svg" alt="" /></i>
     </div>
 
-    <div class="content">
+<!--     <div class="content">
         <p>Traceroute <strong>#280750</strong> from <strong>Toronto, CA M4M 3B4</strong> to <strong>www.isuc.on.ca</strong><br />
         Contributed by <strong>michaelholloway11</strong> on <strong>2016-01-20 @ 15.06.20</strong></p>
 
@@ -80,5 +80,12 @@
                 </tr>
             </tbody>
         </table>
-    </div>
+    </div> -->
+
+    <!-- TR DETAILS -->
+    <div id="tr-details">
+        <div id="tr-details-data">
+            <iframe id="tr-details-iframe" src=""></iframe>
+        </div>
+    </div>    
 </div>

@@ -1,7 +1,7 @@
 <div class="ui flagging modal">
     <div class="header">
         <h5>Flag Router as Incorrect</h5>
-        <i><img class="ui image right floated" src="/_assets/img/icn-close.svg" alt=""></i>
+        <i><img id="flagging-close-btn" class="ui image right floated" src="/_assets/img/icn-close.svg" alt=""></i>
     </div>
 
     <div id="ip-flags-" class="ui-draggable- hidden- content">

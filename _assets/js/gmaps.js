@@ -72,7 +72,9 @@ var trIdTags = [];
 /*
   IXmaps google maps global vars and init scripts
 */
-var url_base = location.origin;
+//var url_base = location.origin; // Get URI dymanically
+var url_base = config.php_backend; // Use URI from config file
+
 var privacyRepUrl = url_base + '/transparency.php';
 var ixMapsDataJson = {}; // !!
 var ixMapsData = {};
@@ -1074,6 +1076,7 @@ var openPreviousRouterMarker = function(trId, index) {
 };
 
 var flagActiveRouter = function() {
+  jQuery('.flagging.modal').modal('show');
   // this is a pretty sloppy, look into fixing it (eg passing params instead of using the DOM)
   var data = jQuery('#flag-it-btn').data();
   showFlags(data.asn, data.hop, data.ip, true);
@@ -1168,6 +1171,7 @@ var saveIpFlag = function() {
     data: obj,
     success: function (e) {
       console.log("Ok! saveIpFlag");
+      jQuery('.flagging.modal').modal('hide');
       jQuery.toast({
         heading: 'Thank you for flagging this router',
         text: 'We will review your suggestion and update our database accordingly. In the meantime, you can view traceroutes with flagged routers removed (these and other options are available through the Gear icon on the map)',
@@ -1465,10 +1469,17 @@ var viewPrivacy = function (asNum) {
 
 var viewTrDetails = function (trId) {
   renderTr2(trId);
-  jQuery('#tr-details').fadeIn('slow');
+  //jQuery('#tr-details').fadeIn('slow');
+  jQuery('#tr-details-iframe').attr('src', url_base + '/loading.html');
+  jQuery('.traceroutes.modal').modal('show'); 
   var url = 'https://www.ixmaps.ca/cgi-bin/tr-query.cgi?query_type=traceroute_id&arg='+trId;
   //var url = url_base+'/cgi-bin/tr-query.cgi?query_type=traceroute_id&arg='+trId;
-  jQuery('#tr-details-iframe').attr('src', url);
+  
+  // wait before loading 
+  setTimeout(function(){
+    jQuery('#tr-details-iframe').attr('src', url);
+  }, 600);
+
 };
 
 var getCityRegionCountry = function(city, region, country) {

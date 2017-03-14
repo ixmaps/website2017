@@ -1,9 +1,10 @@
 <div class="results">
     <header class="header-results">
-        <p><strong><span id="tot-results"></span></strong> Traceroutes Found <br />
-            <!-- <em>Displaying X of Y most recent search results</em> -->
+        <p><strong><span id="tot-results-found"></span></strong> Traceroutes Found <br />
+            <em>Displaying <span id="tr-count"></span> of <span id="tot-results"></span> most recent search results</em>
         </p>
-        <div id="filter-results-summary"></div>
+        <div id="filter-results-summary-container" style="float: left;">Search results details...</div>
+        <div id="filter-results-summary" class="hidden"></div>
     </header><!-- /header -->
 
     <div class="traceroutes-results">

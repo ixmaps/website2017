@@ -17,6 +17,14 @@
 
         <!-- Tab 1 Contents: Quick Search -->
         <div id="qs-tab-container" class="ui bottom attached tab segment content" data-tab="quick">
+
+            <div class="top aligned content" style="float: right; padding-right: 0px;">
+                <div class="ui right floated">
+                    <a class="ui primary basic blue button map-settings-button">Settings</a>
+                </div>
+            </div>
+
+
             <h3 class="ui header text-center">Select a quick search to view traceroutes in the IXmaps database.</h3>
 
             <div class="input-holder">
@@ -28,7 +36,7 @@
                 </div>
                 <div class="quick-input">
                     <button class="ui large fluid button qs-via-nsa-city-btn">
-                        <i><img src="/_assets/img/quicksearch-city.svg" alt="" /></i><br />
+                        <i><img src="/_assets/img/quicksearch-nsa.svg" alt="" /></i><br />
                         Via NSA City
                     </button>
                 </div>
@@ -63,12 +71,6 @@
                             <span id="qs-search-parameters-container"></span><br />
                             <a class="as-link">[ Refine in Advanced Search ]</a>
                         </p>
-
-                        <div class="top aligned content">
-                            <div class="ui right floated">
-                                <a class="ui primary basic blue button">Settings</a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -76,6 +78,11 @@
 
         <!-- Tab 2 Contents: Basic Search -->
         <div id="bs-tab-container" class="ui bottom attached tab segment active content" data-tab="basic">
+            <div class="top aligned content" style="float: right; padding-right: 0px;">
+                <div class="ui right floated">
+                    <a class="ui primary basic blue button map-settings-button">Settings</a>
+                </div>
+            </div>
             <h3 class="ui header text-center">Enter Search Terms to Find Traceroutes in the IXmaps Database</h3>
             <div class="basic input-holder">
                 <a class="from basic-srch-itm" data-position="bottom left">
@@ -185,20 +192,22 @@
                     </div>
                 </div>
             </div>
+
         </div>
 
         <!-- Tab 3 Contents: Advanced Search -->
         <div id="as-tab-container" class="ui bottom attached tab segment" data-tab="advanced">
+            <div class="top aligned content" style="float: right; padding-right: 0px;">
+                <div class="ui right floated">
+                    <a class="ui primary basic blue button map-settings-button">Settings</a>
+                </div>
+            </div>
             <h3 class="ui header">Construct a custom query to search the IXmaps database</h3>
 
             <div id="as-search-container"></div>
 
             <div class="search-line">
                 <hr />
-
-                <button class="ui primary basic button ">
-                    Settings
-                </button>
 
                 <button id="as-submit-btn" class="ui primary right floated button">
                     Search
