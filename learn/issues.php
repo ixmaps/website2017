@@ -29,7 +29,7 @@
                 <h2>Where on earth does <br />your personal data travel?</h2>
             </header>
 
-            <p>Whenever you visit a website, send an email, use a social media app, etc. ...your data moves across the internet in a series of "<a href="/learn/glossary.php#hop">hops</a>," starting from your device and then passed from one <a href="/learn/glossary.php#router">router</a> to the next until it reaches its destination. The routers along the way belong to a variety of <a href="/learn/glossary.php#isp">carriers</a> and are housed in <a href="/learn/glossary.php#internet_exchange">internet exchanges</a>. This sequence of routers and hops is called a <a href="/learn/glossary.php#traceroute">traceroute</a>. We map these traceroutes as lines (hops) joining successive dots (routers), based on our estimate of the physical location of these routers. You may be surprised by how far your data travels before arriving at its destination, and who gets to access it along the way.</p>
+            <p>Whenever you visit a website, send an email, use a social media app, etc., your data moves across the internet in a series of "<a href="/learn/glossary.php#hop">hops</a>," starting from your device and then passed from one <a href="/learn/glossary.php#router">router</a> to the next until it reaches its destination. The routers along the way belong to a variety of <a href="/learn/glossary.php#isp">carriers</a> and are housed in <a href="/learn/glossary.php#internet_exchange">internet exchanges</a>. This sequence of routers and hops is called a <a href="/learn/glossary.php#traceroute">traceroute</a>. We map these traceroutes as lines (hops) joining successive dots (routers), based on our estimate of the physical location of these routers. You may be surprised by how far your data travels before arriving at its destination, and who gets to access it along the way.</p>
 
             <div class="ui inverted segment">
                 <div class="ui inverted accordion">
@@ -39,25 +39,23 @@
                     </div>
 
                     <div class="content">
-                        <p>Go to the <a href="/map.php">Map</a>, where you will see the traceroute from nearest your location. <!--  marks the origin of the traceroute and the termination.  -->You can click on the dots and lines to learn more about the route and who carries your data.</p>
+                        <p>Go to the <a href="/map.php">Map</a>, where you will see recent traceroutes from nearest your location. You can click on the dots and lines to learn more about the route and who carries your data.</p>
 
-                        <!-- READD ME -->
-                        <!-- <p>To see other routes from near you:</p>
+
+                        <p>To see other routes from near you:</p>
                         <ol>
                             <li>Click in the <strong>From</strong> box, to show the menu choices</li>
                             <li>Select your <strong>ISP</strong>, <strong>City</strong> or <strong>Country</strong>, or a combination of these, entering the relevant information.</li>
-                            <li>Click <strong>Submit</strong>. </li>
+                            <li>Click <strong>Search</strong>. </li>
                         </ol>
 
-                        <p>You will see mapped the most recent route that meets these conditions. On the right is the number of routes found and brief details about them. You can map these other routes by clicking on the traceroute row. As shown in this example, below this is another table with summary information about the various ISPs or carriers that handle the mapped route(s).</p>
+                        <p>You will see mapped the most recent route that meets these conditions. On the right is the number of routes found and brief details about them. You can map these other routes by clicking on their TR ID number. Below the traceroute information, is the Carriers table with summary information about the various ISPs or carriers that handle the mapped route(s).</p>
 
+                        <img src="/_assets/img/learn-travel.png" width="100%" />
 
                         <p>You can refine your selection using <strong>From</strong>, <strong>Via</strong> and <strong>To</strong>.</p>
-                        -->
-                        <p>To see routes from your own personal device, you must first generate them yourself. Go to the <a href="/contribute.php">Contribute</a> page for instructions on how to do this.</p>
 
-                        <h6>How to Search IXmaps</h6>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/_K_WIquGGbk" frameborder="0" allowfullscreen></iframe>
+                        <p>To see routes from your own personal device, you must first generate them yourself. Go to the <a href="/contribute.php">Contribute</a> page for instructions on how to do this.</p>
 
                         <p>This step by step video shows how you can selectively map routes in the IXmaps database.</p>
 
@@ -105,7 +103,9 @@
 
                         <p>To narrow the search, add other filters, such as <strong>From</strong> you, your country or your ISP, <strong>To</strong> your favorite site, etc., before clicking <strong>Submit</strong>.</p>
                         -->
-                        <p>To see the locations of other suspected NSA surveillance operations conducted worldwide with the cooperation of AT&amp;T (e.g. program code-named Fairview) and Verizon (e.g. Stormbrew) click on the <strong>Layers</strong> button in the upper right and select their respective entries:</p>
+                        <p>To see the locations of other suspected NSA surveillance operations conducted worldwide with the cooperation of AT&amp;T (program code-named Fairview) and Verizon (Stormbrew), click on the <strong>Layers</strong> button in the upper right and select their respective entries.</p>
+
+                        <img src="/_assets/img/learn-nsa.png" width="100%" />
 
                         <h6>Do you know where your data goes?</h6>
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/pvdIB5vr4cw" frameborder="0" allowfullscreen></iframe>
@@ -148,16 +148,17 @@
                     </div>
 
                     <div class="content">
-                        <!-- READD ME -->
-                        <!--
+
                         <p>To see examples of boomerang routing:</p>
                         <ol>
                             <li>In the <strong>From</strong> box, select your country</li>
                             <li>In the <strong>To</strong> box, select your country again</li>
                             <li>In the <strong>Via</strong> box, select U.S. or another third country</li>
-                            <li>Click <strong>Submit</strong></li>
+                            <li>Click <strong>Search</strong></li>
                         </ol>
 
+                        <!-- READD ME -->
+                        <!--
                         <p>Boomerang routing can even occur when the origin and destination are in the same city. To map these, adjust the <strong>From</strong> and <strong>To</strong> filters for the city of your choice and click <strong>Submit</strong>.</p> -->
 
                         <h6>IXmaps: See where your data travels (Open Media)</h6>
@@ -201,7 +202,9 @@
                     </div>
 
                     <div class="content">
-                        <p>On the right of the <a href="/map.php">Map</a>, take a look at the Carrier Summary table. It lists the ISPs or carriers that handle the data in the currently mapped traceroutes. The Routers (Rtrs) column indicates the total number of routers for each carrier. The Transparency column, shows the total number of stars we awarded them on  our 10 criteria. Click on the carriers with star scores to learn more details or read our <a href="/transparency.php">Transparency</a> reports covering all the carriers we rated.</p>
+                        <p>On the right of the <a href="/map.php">Map</a>, take a look at the <strong>Carrier</strong> table. It lists the ISPs or carriers that handle the data in the currently mapped traceroutes. The <strong>Routers</strong> column indicates the total number of routers for each carrier. The <strong>Transparency</strong> column shows the total number of stars we awarded them on  our 10 criteria. Click on the carriers with star scores to learn more details or read our <a href="/transparency.php">Transparency</a> reports covering all the carriers we rated.</p>
+
+                        <div style="text-align: center"><img src="/_assets/img/learn-carriers.png" width="50%" /></div>
 
                         <h6>See FAQs:</h6>
                         <ul>
