@@ -14,6 +14,7 @@ var init = function() {
   getMyLocation();
   setUpGMaps();
   setUpClickHandlers();
+  setDefaultMapSettings();
 
   getLayers(); // TODO: need to fix/agree on json structure
   populateLayersContainer(); /* TODO: move this after loading layers data */

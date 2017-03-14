@@ -144,7 +144,7 @@
                             <label>Country</label>
                             <input class="bs-input" data-constraint="country" type="text" placeholder="Country">
                         </div>
-                        <button class="ui primary blue right floated button">Save</button>
+                        <!-- <button class="ui primary blue right floated button">Save</button> -->
                     </div>
                 </div>
 
@@ -166,7 +166,7 @@
                             <label>Country</label>
                             <input class="bs-input" data-constraint="country" type="text" placeholder="Country">
                         </div>
-                        <button class="ui primary blue right floated button">Save</button>
+                        <!-- <button class="ui primary blue right floated button">Save</button> -->
                     </div>
                 </div>
 
@@ -188,7 +188,7 @@
                             <label>Country</label>
                             <input class="bs-input" data-constraint="country" type="text" placeholder="Country">
                         </div>
-                        <button class="ui primary blue right floated button">Save</button>
+                        <!-- <button class="ui primary blue right floated button">Save</button> -->
                     </div>
                 </div>
             </div>

@@ -356,6 +356,17 @@ var setShowGoogleTo = function(){
 };
 
 /////
+var setDefaultMapSettings = function(){
+  allowMultipleTrs=false;
+  jQuery("#map-allow-multiple").removeClass("map-tool-on").addClass("map-tool-off");
+
+  addMarkerInOrigin=true;
+  jQuery("#map-show-marker-origin").removeClass("map-tool-off").addClass("map-tool-on");
+
+  excludeReservedAS=false;
+  jQuery("#map-exclude-d").removeClass("map-tool-on").addClass("map-tool-off");
+}
+
 var setAddMarkerInOrigin = function(){
   if(addMarkerInOrigin){
     addMarkerInOrigin=false;

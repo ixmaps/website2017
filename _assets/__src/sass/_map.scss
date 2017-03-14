@@ -114,7 +114,7 @@
 
 #traceroutes-results-table{
   overflow: auto;
-  height: 300px;  
+  max-height: 300px;  
 }
 
 .carrier-results{
@@ -220,10 +220,6 @@
   width: auto;
   height: auto;
 }
-
-
-
-
 
 .map-canvas{
   position: relative;

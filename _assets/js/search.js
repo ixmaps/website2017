@@ -398,6 +398,7 @@ var submitCustomQuery = function(trId, multipleTRs) {
 var submitQuery = function(obj) {
   console.log('Submitting...', obj);
   showLoader();
+  //jQuery('.results').fadeOut('fast');
 
   // jQuery('#map-canvas-container').hide();
   // jQuery('#map-container').hide();
@@ -432,6 +433,7 @@ var submitQuery = function(obj) {
           
           loadMapData();
           hideLoader();
+          //jQuery('.results').fadeIn('fast');
 
         } else {
 

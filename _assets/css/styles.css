@@ -11700,6 +11700,7 @@ ol.ui.horizontal.list li:before,
 .ui.form .inline.field > select {
 	display: inline-block;
 	width: auto;
+	height: auto;
 	margin-top: 0em;
 	margin-bottom: 0em;
 	vertical-align: middle;
@@ -25740,7 +25741,7 @@ footer {
 
 #traceroutes-results-table {
 	overflow: auto;
-	height: 300px;
+	max-height: 300px;
 }
 
 .carrier-results {
