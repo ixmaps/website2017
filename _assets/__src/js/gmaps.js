@@ -508,7 +508,7 @@ var showTotalTrInfo = function(){
     // add nat
     carriers+='<th class="nat-header">Nat.</th>';
     // add routers
-    carriers += '<th class="routers-header" title="Number of routers mapped belonging to the carrier.">Routers</th>';
+    carriers += '<th class="routers-header" title="Number of routers mapped belonging to the carrier.">Rts.</th>';
     // add star score
     carriers+='<th class="score-header" title="Number of stars for data privacy transparency awarded to the carrier in the latest privacy transparency report. See Transparency page.">Transparency</th>';
     // close headers
@@ -569,7 +569,7 @@ var showTotalTrInfo = function(){
 
       // add nat / flag
       var country = d[2].toLowerCase();      
-      carriers+='<td class="centered-table-cell"><i class="'+country+' flag"></i>'+d[2]+'</td>';
+      carriers+='<td class=""><i class="'+country+' flag"></i>'+d[2]+'</td>';
       //carriers+='<td class="centered-table-cell"><i class="'+country+' flag"></i></td>';
 
       // add # of routers      
@@ -1462,9 +1462,7 @@ var viewPrivacy = function (asNum) {
 
   privacyHtml += '<tr><td></td>';
   privacyHtml += '<td>';
-  privacyHtml += '<div id="privacy-feedback-info">To view the full interim report, including a comparison of all carriers rated, <a target="_new" href="'+privacyRepUrl+'">click here</a>.';
-  privacyHtml += '<br/>';
-  privacyHtml += 'To comment on this carrier rating, <a href="mailto: ixmaps@utoronto.ca?subject=IXmaps transparency feedback ['+privacyData.scores[asNum][0].carrier_name+']">click here</a>.</div>';
+  privacyHtml += '<div id="privacy-feedback-info">To review the full interim report <a target="_new" href="'+privacyRepUrl+'">click here</a>.</div>';
   privacyHtml += '<div id="privacy-total-label"><b>Total Score </b></div>';
 
   privacyHtml += '</td>';

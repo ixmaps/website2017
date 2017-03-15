@@ -26398,6 +26398,10 @@ i.flag:not(.icon):before {
 	width: 1000px;
 }
 
+.centered-table-cell {
+	text-align: center;
+}
+
 .issue-section .ui.styled.accordion {
 	border-bottom: 1px solid #191C1F;
 }
