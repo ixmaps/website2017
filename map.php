@@ -6,15 +6,15 @@
     <?php include '_includes/global-head.php'; ?>
 
     <script src="_assets/js/tablesorter.min.js" type="text/javascript"></script>
-    <script src="_assets/js/prototype.js" type="text/javascript"></script>    
-    
+    <script src="_assets/js/prototype.js" type="text/javascript"></script>
+
     <!-- Production  -->
-    <!-- 
+    <!--
     <script src="_assets/js/map.min.js" type="text/javascript"></script>
     <script src="_assets/js/gmaps.min.js" type="text/javascript"></script>
     <script src="_assets/js/search.min.js" type="text/javascript"></script>
     <script src="_assets/js/layers.min.js" type="text/javascript"></script> -->
-    
+
     <!-- Development  -->
     <script src="_assets/js/map.js" type="text/javascript"></script>
     <script src="_assets/js/gmaps.js" type="text/javascript"></script>
@@ -42,7 +42,7 @@
             <?php
             } else {
             ?>
-            
+
             <?php
             }
             ?>
@@ -58,6 +58,7 @@
 </head>
 
 <body id="map-page">
+
     <?php include '_includes/global-navigation.php'; ?>
 
     <!-- SEARCH AREA -->
@@ -65,22 +66,22 @@
 
     <div id="filter-container">
       <!-- these will filled in by addFilterConstraint -->
-    </div>
-
-    <!-- LOADER MASK -->
-    <div id="loader" style="display: none">
-        <div id="loader-mask"></div>
-        <div class="loader-image">
-            <img width="100px" src="_assets/img/icn-loading.gif"/>
-            <br/><br/>
-            <div id="cancel-query-div">
-                <button id="cancel-query" class="ui massive centered blue button">Cancel</button>
-            </div>
-        </div>
+      <!-- Colin: does this do anything? I think we've implemented this differently -->
     </div>
 
     <!-- RESULTS AREA -->
     <div class="map-holder">
+        <!-- LOADER MASK -->
+        <div id="loader" style="display: none">
+            <div id="loader-mask"></div>
+            <div class="loader-image">
+                <img width="100px" src="_assets/img/icn-loading.gif"/>
+                <br/><br/>
+                <div id="cancel-query-div">
+                    <button id="cancel-query" class="ui massive centered blue button">Cancel</button>
+                </div>
+            </div>
+        </div>
 
         <!-- LEGEND SIDEBAR -->
         <?php include '_includes/map-layers.php'; ?>
@@ -126,14 +127,14 @@
     <?php include '_includes/map-modal-traceroute.php'; ?>
     <?php include '_includes/map-modal-settings.php'; ?>
     <?php include '_includes/map-modal-flagging.php'; ?>
-    
+
     <!-- <button id="opening-modal">OPENING MODAL</button> -->
     <!-- <button id="carrier-modal">CARRIER POP UP</button> -->
     <!-- <button id="router-modal">ROUTER POP UP</button> -->
     <!-- <button id="traceroutes-modal">TR DETAILS</button> -->
     <!-- <button id="settings-modal">MAP SETTINGS</button> -->
     <!-- <button id="flagging-modal">FLAGGING</button> -->
-    
+
 </body>
 
 <?php include '_includes/global-footer.php'; ?>
