@@ -165,7 +165,7 @@
   background: #eee;
 }
 
-.bell{ background: maroon;}
+.bell { background: maroon;}
 .shaw { background: olive; }
 .rogers { background: teal; }
 
@@ -287,7 +287,7 @@ background-color: #eaeaea;
 .quick-input{
   @include span-columns(2 of 12);
   padding: 0;
-  width: 13%;
+  width: 14.3%;
 }
 .quick-input .button{
   height: 90px;
@@ -398,10 +398,12 @@ a.basic-srch-itm:nth-of-type(4){
   flex: 0 1 auto;
 }
 
-
+#as-tab-container {
+  padding-bottom: 50px;
+}
 
 .ui.form .inline.field > label {
-    width: 100px;
+  width: 100px;
 }
 
 i.flag:not(.icon):before {
@@ -411,20 +413,20 @@ i.flag:not(.icon):before {
 .settings.modal {
   padding: 24px;
 }
-.settings.modal .setting-title{
+.settings.modal .setting-title {
   font-size: 20px;
   color: $grey;
 }
 
-.settings.modal .actions > .button{
+.settings.modal .actions > .button {
   margin-left: 0;
 }
 
-.settings.modal .description{
+.settings.modal .description {
   text-align: center;
 }
 
-.settings.modal .accordion .content{
+.settings.modal .accordion .content {
   text-align: left;
   padding-bottom: 24px;
   margin-bottom: 8px;
@@ -434,36 +436,36 @@ i.flag:not(.icon):before {
 .opening.modal {
   padding: 24px;
 }
-.opening.modal .setting-title{
+.opening.modal .setting-title {
   font-size: 20px;
   color: $grey;
 }
 
-.opening.modal .actions > .button{
+.opening.modal .actions > .button {
   margin-left: 0;
 }
 
-.opening.modal .description{
+.opening.modal .description {
   text-align: center;
 }
 
-.opening.modal .accordion .content{
+.opening.modal .accordion .content {
   text-align: left;
   padding-bottom: 24px;
   margin-bottom: 8px;
   background: $grey_light;
 }
 
-.modal h5{
+.modal h5 {
   display: inline-block;
   color: $ixblue
 }
 
-.modal h4{
+.modal h4 {
   margin: 8px 0 32px 0;
 }
 
-.modal .header img{
+.modal .header img {
   margin-top: 1em;
 }
 
@@ -503,6 +505,7 @@ i.flag:not(.icon):before {
   border-radius: 12px;
 }
 
+/* this can't be right. Anto, do you know what this relates to? */
 #tr-details- {
   top: 3%;
   left: 5%;
@@ -578,7 +581,6 @@ i.flag:not(.icon):before {
   top: 13px;
   width: 25px;
 }
-
 
 .map-actions-controls {
   float: left;
@@ -701,15 +703,15 @@ i.flag:not(.icon):before {
   font-weight: bold;
 }
 
-#traceroutes-model-div{
+#traceroutes-model-div {
   width: 1000px;
 }
 
-.centered-table-cell{
+.centered-table-cell {
   text-align: center;
 }
 
-#carriers-results-table{
+#carriers-results-table {
   overflow: auto;
   max-height: 300px;
 }

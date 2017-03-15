@@ -25938,7 +25938,7 @@ table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSo
 	margin-right: 2.3576515979%;
 	width: 14.7019570017%;
 	padding: 0;
-	width: 13%;
+	width: 14.3%;
 }
 
 .quick-input:last-child {
@@ -26093,6 +26093,10 @@ a.basic-srch-itm:nth-of-type(4) {
 	        flex: 0 1 auto;
 }
 
+#as-tab-container {
+	padding-bottom: 50px;
+}
+
 .ui.form .inline.field > label {
 	width: 100px;
 }
@@ -26198,6 +26202,7 @@ i.flag:not(.icon):before {
 	border-radius: 12px;
 }
 
+/* this can't be right. Anto, do you know what this relates to? */
 #tr-details- {
 	top: 3%;
 	left: 5%;
