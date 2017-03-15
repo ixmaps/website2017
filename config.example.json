@@ -3,5 +3,6 @@
     "key": "fill_me_in"
   },
   "server_name": "TBD",
-  "project_name": "IXmaps website"
+  "project_name": "IXmaps website",
+  "php_backend": "https://dev.ixmaps.ca"    // if you don't want to set up the backend locally
 }
