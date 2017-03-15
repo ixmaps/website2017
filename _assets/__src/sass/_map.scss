@@ -638,10 +638,12 @@ i.flag:not(.icon):before {
   margin-left: 14px;
 }
 
+#privacy-details-table{
+  width: 100%;  
+}
+
 #privacy-feedback-info {
   float: left;
-  border: 1px solid #000;
-  border-radius: 10px;
   padding: 5px;
 }
 
@@ -708,3 +710,7 @@ i.flag:not(.icon):before {
   text-align: center;
 }
 
+#carriers-results-table{
+  overflow: auto;
+  max-height: 300px;
+}

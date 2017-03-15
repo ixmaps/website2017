@@ -17858,7 +17858,6 @@ a.ui.card:hover,
 	height: 100%;
 	text-align: center;
 	vertical-align: middle;
-	background-color: rgba(0, 0, 0, 0.85);
 	opacity: 0;
 	line-height: 1;
 	-webkit-animation-fill-mode: both;
@@ -26330,10 +26329,12 @@ i.flag:not(.icon):before {
 	margin-left: 14px;
 }
 
+#privacy-details-table {
+	width: 100%;
+}
+
 #privacy-feedback-info {
 	float: left;
-	border: 1px solid #000;
-	border-radius: 10px;
 	padding: 5px;
 }
 
@@ -26400,6 +26401,11 @@ i.flag:not(.icon):before {
 
 .centered-table-cell {
 	text-align: center;
+}
+
+#carriers-results-table {
+	overflow: auto;
+	max-height: 300px;
 }
 
 .issue-section .ui.styled.accordion {

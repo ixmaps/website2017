@@ -64,7 +64,7 @@
                         From My Country
                     </button>
                 </div>
-                <div class="ui searchsettings items">
+                <div class="ui searchsettings items" style="margin: 0em;">
                     <div class="item">
                         <p class="minor">
                             <strong>Search Query:</strong>

@@ -1442,7 +1442,7 @@ var viewPrivacy = function (asNum) {
   jQuery('#carrier-title').html('<h5>Transparency and Privacy Report:<span class="h2-bigger"> '+privacyData.scores[asNum][0].carrier_name+'</span></h5>ASN: '+privacyData.scores[asNum][0].asn);
 
   //privacyHtml += 'ASN: '+privacyData.scores[asNum][0].asn+'<br/>';
-  privacyHtml += '<table>';
+  privacyHtml += '<table id="privacy-details-table">';
   privacyHtml += '<tr><td> </td><td><b>Criteria</b></td><td><b>Score</b></td></tr>';
   jQuery('#privacy-details').fadeIn('slow');
   jQuery.each(privacyData.scores[asNum], function(key,value) {
@@ -1462,7 +1462,7 @@ var viewPrivacy = function (asNum) {
 
   privacyHtml += '<tr><td></td>';
   privacyHtml += '<td>';
-  privacyHtml += '<div id="privacy-feedback-info">To review the full interim report <a target="_new" href="'+privacyRepUrl+'">click here</a>.</div>';
+  privacyHtml += '<div id="privacy-feedback-info"><a class="link" target="_new" href="'+privacyRepUrl+'">View the full transpacency report</a></div>';
   privacyHtml += '<div id="privacy-total-label"><b>Total Score </b></div>';
 
   privacyHtml += '</td>';
