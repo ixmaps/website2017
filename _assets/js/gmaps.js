@@ -133,6 +133,7 @@ var showGooglePublicPeer = false; // 3) gPubDcPeer
 var showGoogleTO = false; // 3) // gDcTO
 
 var addMarkerInOrigin = false;
+var markersInOrigin = []; // Added to fix maker in origin interpreted as a hop, issue with info window displaying wrong location data
 var showDynamicLegend = true; // !!
 var showMapInfoGlobal = false;
 
@@ -703,6 +704,13 @@ var removeAllTrs = function() {
   jQuery('#map-loading-status').html('');
   jQuery('#map-tr-active').html('');
 
+
+  // remove markers in origin
+  while(markersInOrigin[0])
+  {
+    markersInOrigin.pop().setMap(null);
+  }
+
   // remove hops
 /*  if(trCollection.length!=0){
     for (i in trCollection)
@@ -716,15 +724,6 @@ var removeAllTrs = function() {
   {
     trCollection.pop().setMap(null);
   }
-
-  // remove origin markers, if any
-  /*if(trOcollection.length!=0){
-    for (m in trOcollection)
-    {
-      trOcollection[m].setMap(null);
-    }
-    trOcollection.length = 0;
-  }*/
 
   while(trOcollection[0])
   {
@@ -905,7 +904,8 @@ var renderTr = function (trId) {
           var iconUrl = url_base + '/_assets/img/grn-blank.png';
           O_m.setIcon(iconUrl);
           O_m.setMap(map);
-          trOcollection.push(O_m);
+          //trOcollection.push(O_m);
+          markersInOrigin.push(O_m); // add markers in origin to a different array
       }
 
       if(showRouters){

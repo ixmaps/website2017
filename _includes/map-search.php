@@ -8,7 +8,7 @@
             <a id="bs-tab" class="item active" data-tab="basic">Basic</a>
             <a id="as-tab" class="item" data-tab="advanced">Advanced</a>
 
-            <div class="map-help">
+            <div id="map-help-btn" class="map-help">
                 <button class="ui transparent button">Help
                     <i class="ui image"><img src="/_assets/img/icn-help.svg" alt="help"></i>
                 </button>
