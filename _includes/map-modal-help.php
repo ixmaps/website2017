@@ -1,0 +1,18 @@
+<div class="ui map-help modal">
+    <div class="header">
+        <h5>Map Help</h5>
+        <i><img id="map-help-close-btn" class="ui image right floated" src="/_assets/img/icn-close.svg" alt=""></i>
+    </div>
+
+    <div class="content">
+        <p>If you're getting started, it's easiest to begin with some of our canned queries in the <strong>Quick</strong> search section - see tab on far left. If you've just generated a route, you'll be able to find it easily by clicking on the '<strong>Last Contributed</strong>' button. The 4 rightmost <strong>Quick</strong> buttons use the location and ISP information provided on your first visit this session to the Map page.</p>
+        <p>On the right, you'll see a report on the number of routes in the database that meet the criteria you specified, i.e. <strong>Routes Found</strong>. While the search is performed on the entire IXmaps database, due to computational and bandwidth limitations the server only returns a sample of at most 20 results to display. These are listed in the <strong><em>Traceroute</em></strong> table. Run your cursor over the traceroute IDs (<strong>TR ID</strong>) in the righthand column to view each route. Select any route number to make it 'stick' on the map. The <strong>dots</strong> represent routers and <strong>lines</strong> the hops between them. The colours correspond to the ISP/carriers owning the routers, with a list of all that handle the currently displayed routers appearing in the <strong><em>Carrier</em></strong> table in the lower right corner. Selecting (clicking on) a dot reveals who owns the router and where it likely is.  Selecting a line reveals more details about the route and each router along the way. You may find the apparent location of a router suspicious. The <strong>Flag router</strong> link in both the router and traceroute details pop-ups provide an opportunity register your suspicion and indicate a more accurate alternate position.</p>
+        <p>To see how many search results each individual query line produced, click on '<strong>Search results details</strong>' immediately above the Carrier table. This can be helpful in deciding on a next search, especially if no results are found or there are too many.</p>
+        <p>If you do not find the route(s) you were looking for, to go to either the <strong>Basic</strong> or <strong>Advanced</strong> tab where you can add filter constraints (e.g. add a <strong>Goes via </strong> or <strong></strong> criterion).</p>
+        <p>To help in refining your search and formulating your own queries in the Basic and Advanced search sections, you'll find immediately below the Quick buttons the corresponding <strong>Search Query</strong> equivalent. This gives an indication of the syntax to use.</p>
+        <p><strong>Basic</strong> search provides an easy way to formulate the most common custom queries. Click on the FROM, VIA or TO boxes, entering the criteria for routes you are interested in, and then click Search</p>
+        <p><strong>Advanced</strong> search is intended for those with more experience in querying databases and interested in in-depth exploration of the IXmaps traceroute data.  There are a much wider range of search criteria available.  For example, to view routes that originate in your city and are carried by Bell, you could select:</p>
+        <p>If this wasn't helpful, let us know what you were seeking help and by dropping us line at <a href="mailto:IXmaps@utoronto.ca" target="_blank">IXmaps@utoronto.ca</a> and we'll try to answer. This will also assist us in revising the Help page so it will actually be more helpful in the future.</p>
+        
+    </div>
+</div>

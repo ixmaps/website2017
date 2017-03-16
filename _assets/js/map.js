@@ -134,6 +134,11 @@ var setUpClickHandlers = function() {
     jQuery('.settings.modal').modal('show');
   });
 
+  /* Map help button */
+  jQuery('#map-help-btn').click(function() {
+    jQuery('.map-help.modal').modal('show');
+  });
+
 
   //**************** TRACEROUTE RESULTS ****************//
   // onclick events
@@ -158,41 +163,35 @@ var setUpClickHandlers = function() {
     Close  buttons : modal windows
   */
   jQuery('#tr-details-close-btn').click(function() {
-    removeTr();
     jQuery('.traceroutes.modal').modal('hide'); 
-
   });
 
-  jQuery('#settings-details-close-btn').click(function() {
-    removeTr();
+  jQuery('#settings-close-btn').click(function() {
     jQuery('.settings.modal').modal('hide'); 
-
   });
 
   jQuery('#flagging-close-btn').click(function() {
-    removeTr();
     jQuery('.flagging.modal').modal('hide'); 
-
   });
   
   jQuery('#carrier-close-btn').click(function() {
-    removeTr();
     jQuery('.carrier.modal').modal('hide'); 
-
   });
 
   jQuery('#opening-close-btn').click(function() {
-    removeTr();
     jQuery('.opening.modal').modal('hide'); 
+  });
 
+  jQuery('#map-help-close-btn').click(function() {
+    jQuery('.map-help.modal').modal('hide'); 
   });
 
 
   /////
 
-  jQuery('.map-icon-close-btn').click(function() {
+  /*jQuery('.map-icon-close-btn').click(function() {
     jQuery('.map-icon-popup-container').hide();
-  });
+  });*/
 
   //**************** LAYERS ****************//
 
