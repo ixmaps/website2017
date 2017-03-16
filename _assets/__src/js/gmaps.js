@@ -108,8 +108,6 @@ var trIdTags = [];
 /*
   IXmaps google maps global vars and init scripts
 */
-//var url_base = location.origin; // Get URI dymanically
-var url_base = config.php_backend; // Use URI from config file
 
 var privacyRepUrl = url_base + '/transparency.php';
 var ixMapsDataJson = {}; // !!
