@@ -149,7 +149,7 @@ var constructViaNSA = function() {
     i++;
   });
   submitQuery(submission);
-  jQuery('#qs-search-parameters-container').text('Does Contain City San Francisco AND Does Contain City Los Angeles AND...');
+  jQuery('#qs-search-parameters-container').text('Does Contain City San Francisco AND Does Contain City Los Angeles OR...');
 };
 
 var constructBoomerangs = function() {
@@ -445,7 +445,7 @@ var submitQuery = function(obj) {
           hideLoader();
           jQuery('#filter-results-empty').hide();
           jQuery('#filter-results-content').fadeIn('fast');
-          
+
         } else {
 
         // we may need more error messages, but for now this will handle the majority...
