@@ -50,7 +50,7 @@ var initializeMap = function() {
         addCollectedCoord(m_lat,m_lng);
       //}
   });*/
-  renderDefaultLaters();
+  renderDefaultLayers();
 
 }; // end initializeMap()
 

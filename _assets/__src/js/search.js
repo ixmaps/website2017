@@ -12,6 +12,7 @@
   !! important 
 */
 var ajaxObj;
+var loadedDefaultResult = false;
 
 const constraints = [
   {
@@ -461,7 +462,16 @@ var submitQuery = function(obj) {
 
           // wait before loading 
           setTimeout(function(){
-            constructLastContributed();
+            if(loadedDefaultResult){
+              initializeMap();
+              jQuery('#filter-results-content').fadeOut('fast');
+              jQuery('#filter-results-empty').show();
+
+            } else {
+              constructLastContributed();
+              loadedDefaultResult = true;
+            }
+            
           }, 10000);
 
         }

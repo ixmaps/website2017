@@ -73,8 +73,7 @@ var getLayers = function() {
     success: function (e) {
       console.log("Ok! getLayers");
       cHotelData = jQuery.parseJSON(e);
-      renderDefaultLaters();
-      
+      renderDefaultLayers();
 
     },
     error: function (e) {
@@ -83,7 +82,7 @@ var getLayers = function() {
   });
 };
 
-var renderDefaultLaters = function() {
+var renderDefaultLayers = function() {
   setTimeout(function(){
 
     /* Set default active layers*/
