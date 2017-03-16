@@ -39,28 +39,28 @@
 
                     <div class="ui grid">
                       <div class="two column row">
-                        <div class="four wide column"><img src="/_assets/img/ix-611-folsom.jpg" width="30%" /><br />Credit: <a hred="http://www.mccullagh.org/photo/1ds-8/611-folsom-street-nsa" target="_blank">Declan McCullagh</a></div>
+                        <div class="four wide column"><img src="/_assets/img/ix-611-folsom.jpg" width="30%" /><br /><small>Credit: <a hred="http://www.mccullagh.org/photo/1ds-8/611-folsom-street-nsa" target="_blank">Declan McCullagh</a></small></div>
                         <div class="six wide column">611 Folsom Street, San Francisco, where Mark Klein reports the NSA has installed one of its Upstream interception facilities. Reference:  Klein, 2008.</div>
                       </div>
                     </div>
 
                     <div class="ui grid">
                       <div class="two column row">
-                        <div class="four wide column"><img src="/_assets/img/ix-350-cermak.jpg" width="30%" /><br />Credit: <a hred="https://www.colocationamerica.com/data-center-locations/chicago.htm" target="_blank">Colocation America</a></div>
+                        <div class="four wide column"><img src="/_assets/img/ix-350-cermak.jpg" width="30%" /><br /><small>Credit: <a hred="https://www.colocationamerica.com/data-center-locations/chicago.htm" target="_blank">Colocation America</a></small></div>
                         <div class="six wide column">350 Cermak Street, Chicago, the world's largest data centre.</div>
                       </div>
                     </div>
 
                     <div class="ui grid">
                       <div class="two column row">
-                        <div class="four wide column"><img src="/_assets/img/ix-150-front.jpg" width="40%" /><br />Credit: <a hred="http://www.151frontstreet.com/" target="_blank">Allied Properties REIT</a></div>
+                        <div class="four wide column"><img src="/_assets/img/ix-150-front.jpg" width="40%" /><br /><small>Credit: <a hred="http://www.151frontstreet.com/" target="_blank">Allied Properties REIT</a></small></div>
                         <div class="six wide column">151 Front Street, Toronto, the largest internet exchange in Canada.</div>
                       </div>
                     </div>
 
                     <div class="ui grid">
                       <div class="two column row">
-                        <div class="four wide column"><img src="/_assets/img/ix-33-thomas.jpg" width="30%" /><br />Credit: <a hred="https://en.wikipedia.org/wiki/File:33_Thomas_Sidewalk_View.JPG" target="_blank">CC 2.5 by Dhaluza</a></div>
+                        <div class="four wide column"><img src="/_assets/img/ix-33-thomas.jpg" width="30%" /><br /><small>Credit: <a hred="https://en.wikipedia.org/wiki/File:33_Thomas_Sidewalk_View.JPG" target="_blank">CC 2.5 by Dhaluza</a></small></div>
                         <div class="six wide column">33 Thomas Street, New York City.  Known locally as AT&amp;T's "Long Lines Building,"" the Intercept reports it is an NSA spying hub, code-named Titanpointe. Reference: Gallagher &amp; Moltke, 2016.</div>
                       </div>
                     </div>
@@ -126,13 +126,16 @@
                 <div class="content">
                     <p>Former AT&amp;T technician Mark Klein provided the first direct evidence of an NSA bulk internet interception facility, in AT&amp;T's main San Francisco switching centre at 611 Folsom Street. He reported troubleshooting a malfunctioning fibre-optic splitter and being shown the now infamous <a href="https://en.wikipedia.org/wiki/Room_641A" target="_blank">Room 641A</a>, or “secret spy room" where Narus deep packet inspection computers examine captured communication data and selectively forward it to the NSA for further analysis and storage. </p>
 
-                    <!-- <img> -->
+                    <img src="/_assets/img/faq-ixmaps-video.jpg" width="66%" />
+                    <img src="/_assets/img/faq-room-641A.jpg" width="30%" /> <br />
+
+                    <small>Credit: <a hred="https://en.wikipedia.org/wiki/File:Room_641A_exterior.jpg" target="_blank">Mark Klien</a></small>
 
                     <p>Klein heard of similar interception operations in several other cities, including Seattle, San Jose, Los Angeles, and San Diego. From this, Internet experts project the NSA operated 15-20 similar interception sites in the US. NSA documents released by Snowden in 2013 confirmed these suspicions, identifying their Upstream interception program with AT&amp;T as '<a href="https://en.wikipedia.org/wiki/Fairview_%28surveillance_program%29" target="_blank">Fairview</a>' and that with Verizon as '<a href="https://en.wikipedia.org/wiki/STORMBREW" target="_blank">Stormbrew</a>.' View our spreadsheet estimating which 18 US cities are most likely to have NSA interception facilities</p>
 
                     <p>This NSA slide released by Snowden summarizes the various Five Eyes surveillance operations worldwide. The blue dots refer to the 20 large scale, high speed optical cable interceptions at major global gateways, green dots to 30 national interceptions and the reddish dots to 80 regional interceptions in major cities.</p>
 
-                    <!-- <img> -->
+                    <img src="/_assets/img/faq-nsa1024-slide.jpg" width="100%" />
 
                     <p>View cities where we suspect NSA conducts bulk interception operations on the <a href="/map.php">Map</a>, by turning on the NSA, Fairview and Verizon layers.</p>
 
@@ -198,7 +201,10 @@
                 <div class="content">
                     <p>Numerous factors influence the route that data takes across the internet. While there is a popular understanding that data takes the most efficient path to its destination, much more important are the agreements that the various carriers  make between themselves to inter-connect their individual networks that together constitute the internet. Cost saving is an obvious consideration. The cheapest path may not be the shortest because investments in capacity tend to be along existing routes (e.g. along rail lines) or those with higher value traffic.  But anti-competitive business strategy can be an over-riding factor. Large incumbent carriers take advantage of their dominance to force their smaller competitors to incur relatively greater costs with more circuitous and international routing.  This is especially evident with same-city boomerang routing, as seen with TR ????, in which a data path originating and terminating in Toronto passes through the same internet exchange, at 151 Front Street, on its way to and from the US. As shown in this table, two of Canada's largest carriers, Bell and Telus, do not peer with any other carriers inside Canada. This means that any subscribers of these ISPs will incur boomerang routing to reach any other domestic ISP. Source: Woodcock, 2016. See IXmaps Boomerang video.</p>
 
-                    <!-- <img> -->
+                    <img src="/_assets/img/faq-cira-2016-canadian-peering.png" width="100%" /><br />
+
+                    <small>Credit: <a hred="https://cira.ca/sites/default/files/public/Canadian%20Peering%202016.pdf" target="_blank">CIRA Study on Canadian Network Interconnection (PDF)</a></small>
+
                 </div>
                 <div class="title">
                     How can I avoid boomerang routing?
@@ -213,7 +219,10 @@
                     <p>Countries have long pursued the ideal of network sovereignty, or the ability to maintain effective control over the network infrastructures that are critical to economic and social well-being. Canada is no exception, most famously was its first government's backing the trans-continental railway, often referred to as Canada's “National Dream.” As new technologies emerged in the 20th century, major public investments contributed to trans-Canadian broadcasting, telecommunications and transportation networks. In each case these expensive ventures made little sense from a narrow economic perspective, but they were enacted with the explicit intention to better connect Canada's disparate regions in the face of strong US pulls. In the 21st century, while the pressures for north-south integration are as strong as ever, relatively fewer resources have been devoted to ensuring the integrity of Canadian internet infrastructure, which arguably has become as vital to contemporary life as any of the earlier networks. This has resulted in Canadian internet communications relying heavily on US infrastructure, both in terms of the physical location of cables and routers, but as well as on US internet service providers.</p>
                     <p>Sovereignty doesn't imply isolation, but rather also means the ability to forge relationships with other sovereign entities on the basis of equality. Here again, Canada relies heavily on US based internet infrastructure to reach third countries. With only two trans-oceanic fibre-optic cables landing on Canada's Atlantic coast, compared to 13 in the US, the great majority of Canada's internet communication with Europe passes through the US. Canada has no fibre optic cable landing on its Pacific coast, so all internet traffic with Asia involves US routing.</p>
 
-                    <!-- <img> -->
+                    <img src="/_assets/img/faq-submarine-map.png" width="100%" /><br />
+
+                    <small>Credit: <a hred="http://www.submarinecablemap.com/" target="_blank">Telegraphy Submarine Cable Map</a></small>
+
                 </div>
                 <div class="title">
                     What can Canadians do to keep their data at home and promote network sovereignty?
