@@ -18,6 +18,42 @@ var setUpGMaps = function() {
   document.body.appendChild(scriptEl);
 };
 
+var initializeMap = function() {
+  //var myLatLng = new google.maps.LatLng(myLat, myLong);
+  var myLatLng = new google.maps.LatLng(43.30, -101.79);
+ 
+  var mapOptions = {
+      scrollwheel: false,
+      navigationControl: true,
+      mapTypeControl: true,
+      scaleControl: true,
+      draggable: true,
+      zoom: 3,
+      center: myLatLng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  //map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+  map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+  /*add marker on user location */
+  /*myMarker = new google.maps.Marker({
+    position: new google.maps.LatLng(myLat, myLong),
+    map: map,
+    title: 'My Location!'
+  });*/
+
+/*  google.maps.event.addListener(map, 'click', function(event){
+    //if(!mouse_in_polyline) {
+      m_lat = event.latLng.lat();
+      m_lng = event.latLng.lng()
+        console.log('Lat: ' + m_lat + ' Lng: ' + m_lng);
+        addCollectedCoord(m_lat,m_lng);
+      //}
+  });*/
+  renderDefaultLaters();
+
+}; // end initializeMap()
+
 var initGMaps = function() {
   // Basic options for a simple Google Map
   // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
@@ -1523,41 +1559,6 @@ var toggleMap = function(){
   jQuery('#map-canvas-container').toggle();
   jQuery('#tr-list-ids').toggle();
 };
-
-var initializeMap = function() {
-  var myLatLng = new google.maps.LatLng(myLat, myLong);
-  var mapOptions = {
-      scrollwheel: false,
-      navigationControl: true,
-      mapTypeControl: true,
-      scaleControl: true,
-      draggable: true,
-      zoom: 9,
-      center: myLatLng,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-  };
-  //map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
-  map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-  /*add marker on user location */
-  /*myMarker = new google.maps.Marker({
-    position: new google.maps.LatLng(myLat, myLong),
-    map: map,
-    title: 'My Location!'
-  });*/
-
-/*  google.maps.event.addListener(map, 'click', function(event){
-    //if(!mouse_in_polyline) {
-      m_lat = event.latLng.lat();
-      m_lng = event.latLng.lng()
-        console.log('Lat: ' + m_lat + ' Lng: ' + m_lng);
-        addCollectedCoord(m_lat,m_lng);
-      //}
-  });*/
-  renderDefaultLaters();
-
-}; // end initializeMap()
-
 
 var renderGeoMarkers = function(type){
   jQuery.each(cHotelData, function(key,geoItem) {

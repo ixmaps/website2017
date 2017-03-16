@@ -89,11 +89,10 @@ var renderDefaultLaters = function() {
     /* Set default active layers*/
     layers[jQuery('#nsa').data('name')].active = true;
     renderGeoMarkers(1);
-    jQuery('#nsa').toggleClass('active');
+    jQuery('#nsa').addClass('active');
 
     /* Example */
-    
-    /*jQuery('#ixp').toggleClass('active');
+    /*jQuery('#ixp').addClass('active');
     layers[jQuery('#ixp').data('name')].active = true;
     renderGeoMarkers(5);*/
     
