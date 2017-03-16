@@ -26,7 +26,6 @@
     </div>
 </section>
 
-
 <section class="faq">
     <div class="content">
         <section class="faq-block">
@@ -36,19 +35,37 @@
                     Where are the main internet exchanges in North America?
                 </div>
                 <div class="content">
-                    <p>Internet exchanges are generally located in large, often windowless buildings in the heart of cities. Since internet infrastructure is typically built on pre-existing telecommunications infrastructure, these buildings are often former telephone exchanges, especially those close to (former) railway lines that had telegraph rights of way. Here are photos of major internet exchanges in North America:</p>
+                    <p>Internet exchanges are generally located in large, often windowless buildings in the heart of cities. Since internet infrastructure is typically built on pre-existing telecommunications infrastructure, these buildings are often former telephone exchanges, especially those close to (former) railway lines that had telegraph rights of way. Here are major internet exchanges in North America:</p>
 
-                    <!-- <img> -->
-                    <p>611 Folsom Street, San Francisco, where Mark Klein reports the NSA has installed one of its Upstream interception facilities. Reference:  Klein, 2008.</p>
+                    <div class="ui grid">
+                      <div class="two column row">
+                        <div class="four wide column"><img src="/_assets/img/ix-611-folsom.jpg" width="30%" /><br />Credit: <a hred="http://www.mccullagh.org/photo/1ds-8/611-folsom-street-nsa" target="_blank">Declan McCullagh</a></div>
+                        <div class="six wide column">611 Folsom Street, San Francisco, where Mark Klein reports the NSA has installed one of its Upstream interception facilities. Reference:  Klein, 2008.</div>
+                      </div>
+                    </div>
 
-                    <!-- <img> -->
-                    <p>350 Cermak Street, Chicago, the world's largest data centre.</p>
+                    <div class="ui grid">
+                      <div class="two column row">
+                        <div class="four wide column"><img src="/_assets/img/ix-350-cermak.jpg" width="30%" /><br />Credit: <a hred="https://www.colocationamerica.com/data-center-locations/chicago.htm" target="_blank">Colocation America</a></div>
+                        <div class="six wide column">350 Cermak Street, Chicago, the world's largest data centre.</div>
+                      </div>
+                    </div>
 
-                    <!-- <img> -->
-                    <p>151 Front Street, Toronto, the largest internet exchange in Canada</p>
+                    <div class="ui grid">
+                      <div class="two column row">
+                        <div class="four wide column"><img src="/_assets/img/ix-150-front.jpg" width="40%" /><br />Credit: <a hred="http://www.151frontstreet.com/" target="_blank">Allied Properties REIT</a></div>
+                        <div class="six wide column">151 Front Street, Toronto, the largest internet exchange in Canada.</div>
+                      </div>
+                    </div>
 
-                    <!-- <img> -->
-                    <p>33 Thomas Street, New York City.  Known locally as AT&T's “Long Lines Building,” the Intercept reports it is an NSA spying hub, code-named Titanpointe. Reference: Gallagher & Moltke, 2016</p>
+                    <div class="ui grid">
+                      <div class="two column row">
+                        <div class="four wide column"><img src="/_assets/img/ix-33-thomas.jpg" width="30%" /><br />Credit: <a hred="https://en.wikipedia.org/wiki/File:33_Thomas_Sidewalk_View.JPG" target="_blank">CC 2.5 by Dhaluza</a></div>
+                        <div class="six wide column">33 Thomas Street, New York City.  Known locally as AT&amp;T's "Long Lines Building,"" the Intercept reports it is an NSA spying hub, code-named Titanpointe. Reference: Gallagher &amp; Moltke, 2016.</div>
+                      </div>
+                    </div>
+
+                    <p>&nsbp;</p>
 
                     <p>This <a href="https://www.youtube.com/embed/pvdIB5vr4cw" target="_blank">video</a> shows a 3D Google Earth animation of data traveling from the Ontario Science Centre to the San Francisco Art Institute's website, passing through three of these internet exchanges.</p>
 
