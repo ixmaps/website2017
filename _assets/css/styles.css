@@ -26412,6 +26412,12 @@ i.flag:not(.icon):before {
 	max-height: 300px;
 }
 
+#filter-results-empty {
+	width: 500px;
+	background: #fff;
+	padding: 1px;
+}
+
 .issue-section .ui.styled.accordion {
 	border-bottom: 1px solid #191C1F;
 }

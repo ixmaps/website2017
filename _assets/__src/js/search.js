@@ -180,7 +180,7 @@ var constructBoomerangs = function() {
   jQuery('#qs-search-parameters-container').text('Does Originate in Country CA AND Does Go via Country US AND Does Terminate in Country CA');
 };
 
-var constructFromMyISP = function() {
+var constructFromMyIsp = function() {
   if (myAsn) {
     var submission = {
       "filter-constraint-1": {
@@ -241,9 +241,17 @@ var constructBS = function() {
   // iterate over all of the 'from' conditions
   jQuery('#bs-originate-popup .bs-input').each(function(index, el) {
     if (jQuery(el).val() != "") {
+      // adjust constraint2 for special cases e.g. submitter
+      var constraint2_val = "";
+      if(jQuery(el).data('constraint') == "submitter" ){
+        constraint2_val = "contain";
+      } else {
+        constraint2_val = "originate";
+      }
+
       var origObj = {
         constraint1: "does",
-        constraint2: "originate",
+        constraint2: constraint2_val,
         constraint3: jQuery(el).data('constraint'),
         constraint4: jQuery(el).val(),
         constraint5: "AND"
@@ -269,9 +277,17 @@ var constructBS = function() {
   // iterate over all of the 'to' conditions
   jQuery('#bs-terminate-popup .bs-input').each(function(index, el) {
     if (jQuery(el).val() != "") {
+
+      var constraint2_val = "";
+      if(jQuery(el).data('constraint') == "destHostName" ){
+        constraint2_val = "contain";
+      } else {
+        constraint2_val = "terminate";
+      }
+
       var origObj = {
         constraint1: "does",
-        constraint2: "terminate",
+        constraint2: constraint2_val,
         constraint3: jQuery(el).data('constraint'),
         constraint4: jQuery(el).val(),
         constraint5: "AND"
@@ -398,15 +414,9 @@ var submitCustomQuery = function(trId, multipleTRs) {
 var submitQuery = function(obj) {
   console.log('Submitting...', obj);
   showLoader();
-  //jQuery('.results').fadeOut('fast');
-
-  // jQuery('#map-canvas-container').hide();
-  // jQuery('#map-container').hide();
-  // jQuery('#filter-results').hide();
-  //jQuery('#filter-results-log').html('');
-  /*jQuery('#map-core-controls').hide();*/
-  //showLoader();
-
+  jQuery('#filter-results-content').fadeOut('fast');
+  jQuery('#filter-results-empty').show();
+  
   ajaxObj = jQuery.ajax(url_base + '/application/controller/map.php', {
     type: 'post',
     data: obj,
@@ -433,8 +443,9 @@ var submitQuery = function(obj) {
           
           loadMapData();
           hideLoader();
-          //jQuery('.results').fadeIn('fast');
-
+          jQuery('#filter-results-empty').hide();
+          jQuery('#filter-results-content').fadeIn('fast');
+          
         } else {
 
         // we may need more error messages, but for now this will handle the majority...

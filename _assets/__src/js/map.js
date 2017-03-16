@@ -103,7 +103,7 @@ var setUpClickHandlers = function() {
     constructBoomerangs();
   });
   jQuery('#search-header .qs-from-my-isp-btn').click(function() {
-    constructFrommyIsp();
+    constructFromMyIsp();
   });
   jQuery('#search-header .qs-from-my-cty-btn').click(function() {
     constructFromMyCity();

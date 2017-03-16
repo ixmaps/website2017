@@ -130,11 +130,11 @@
                     <div class="ui inverted form">
                         <div class="inline field">
                             <label>Contributor</label>
-                            <input class="bs-input" data-constraint="contributor" type="text" placeholder="Contibutor">
+                            <input class="bs-input" data-constraint="submitter" type="text" placeholder="Contibutor">
                         </div>
                         <div class="inline field">
                             <label>ISP</label>
-                            <input class="bs-input" data-constraint="isp" type="text" placeholder="ISP">
+                            <input class="bs-input" data-constraint="ISP" type="text" placeholder="ISP">
                         </div>
                         <div class="inline field">
                             <label>City</label>
@@ -150,11 +150,11 @@
 
                 <div id="bs-via-popup" class="ui via flowing inverted popup hidden" data-variation="wide">
                     <div class="ui inverted form">
-                        <div class="inline field">
+<!--                         <div class="inline field">
                             <label>NSA</label>
                             <input class="bs-input" data-constraint="NSA" type="text" placeholder="NSA">
                         </div>
-                        <div class="inline field">
+ -->                        <div class="inline field">
                             <label>ISP</label>
                             <input class="bs-input" data-constraint="ISP" type="text" placeholder="ISP">
                         </div>
