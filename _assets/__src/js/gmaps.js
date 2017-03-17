@@ -1470,7 +1470,6 @@ var removeAllButThis = function(trId) {
 // }
 
 var viewPrivacy = function (asNum) {
-  jQuery('.carrier.modal').modal('show');
   var privacyHtml = '';
   var criteriaDes = '';
   var totScore = 0;
@@ -1509,6 +1508,12 @@ var viewPrivacy = function (asNum) {
   privacyHtml += '</table>';
   //privacyHtml += '<p></p>';
   jQuery('#privacy-details-data').html(privacyHtml);
+
+  // wait util data is populated
+  setTimeout(function(){
+    jQuery('.carrier.modal').modal('show');
+  }, 200);
+  
 };
 
 var viewTrDetails = function (trId) {

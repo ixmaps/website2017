@@ -128,7 +128,7 @@
     <?php include '_includes/map-modal-help.php'; ?>
 
     <!-- <button id="opening-modal">OPENING MODAL</button> -->
-    <button id="carrier-modal">CARRIER POP UP</button>
+    <!-- <button id="carrier-modal">CARRIER POP UP</button> -->
     <!-- <button id="router-modal">ROUTER POP UP</button> -->
     <!-- <button id="traceroutes-modal">TR DETAILS</button> -->
     <!-- <button id="settings-modal">MAP SETTINGS</button> -->
