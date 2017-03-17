@@ -17,6 +17,15 @@
 
 <div class="content">
     <article>
+        <h2>2017</h2>
+        <ul>
+            <li>March 1, 2017 &mdash; IXmaps mentioned in "<a href="http://www.rabble.ca/columnists/2017-03-01t000000/your-internet-data-ending-nsas-hands" target="_blank">Is your Internet data ending up in the NSA's hands?</a>", David Christopher's Digital Freedom update on <a href="http://www.rabble.ca/" target="_blank">rabble.ca</a> and mentioned in <a href="http://commonground.ca/internet-surveillance/" target="_blank">Common Ground</a></li>
+            <li>February 22, 2017 &mdash; IXmaps research on boomerang routing and network sovereign presented at OpenMedia's <a href="https://openmedia.org/en/event-join-us-feb-22-learn-more-about-your-digital-footprint" target="_blank">Mapping your Digital Footprint</a> interactive documentary screening in Vancouver</li>
+            <li>January 30, 2017 &mdash; Ahmad Hathout's The Wire Report article "<a href="http://www.thewirereport.ca/news/2017/01/30/trump-raising-concerns-about-internet-traffic-passing-us-advocates/31718" target="_blank">Trump raising concerns about Internet traffic passing U.S.: advocates</a>" mentions IXmaps</li>
+        </ul>
+    </article>
+
+    <article>
         <h2>2016</h2>
         <ul>
             <li>December 16, 2016 &mdash; iPolitics covers OpenMedia’s IXmaps launch, stating "<a href="http://ipolitics.ca/2016/12/16/one-quarter-of-canadian-online-traffic-vulnerable-to-nsa-sweeps-researchers/" target="_blank">One quarter of Canadian online traffic vulnerable to NSA sweeps</a>"</li>
