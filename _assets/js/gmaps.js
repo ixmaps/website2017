@@ -6,17 +6,53 @@ var setUpGMaps = function() {
   scriptEl.type = 'text/javascript';
 
   /*Anto's suggested minimal options for gm */
-  
+
   scriptEl.src = 'https://maps.google.com/maps/api/js?v=3&libraries=geometry&key='+config.gmaps.key+'&callback=initializeMap';
 
-  
+
   /* gm parameters suggested in mockup */
-  
+
   //scriptEl.src = 'https://maps.google.com/maps/api/js?v=3&libraries=geometry&key='+config.gmaps.key+'&callback=initGMaps';
-  
+
 
   document.body.appendChild(scriptEl);
 };
+
+var initializeMap = function() {
+  //var myLatLng = new google.maps.LatLng(myLat, myLong);
+  var myLatLng = new google.maps.LatLng(43.30, -101.79);
+
+  var mapOptions = {
+      scrollwheel: false,
+      navigationControl: true,
+      mapTypeControl: true,
+      scaleControl: true,
+      draggable: true,
+      zoom: 3,
+      center: myLatLng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  //map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+  map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+  /*add marker on user location */
+  /*myMarker = new google.maps.Marker({
+    position: new google.maps.LatLng(myLat, myLong),
+    map: map,
+    title: 'My Location!'
+  });*/
+
+/*  google.maps.event.addListener(map, 'click', function(event){
+    //if(!mouse_in_polyline) {
+      m_lat = event.latLng.lat();
+      m_lng = event.latLng.lng()
+        console.log('Lat: ' + m_lat + ' Lng: ' + m_lng);
+        addCollectedCoord(m_lat,m_lng);
+      //}
+  });*/
+  renderDefaultLayers();
+
+}; // end initializeMap()
 
 var initGMaps = function() {
   // Basic options for a simple Google Map
@@ -72,8 +108,6 @@ var trIdTags = [];
 /*
   IXmaps google maps global vars and init scripts
 */
-//var url_base = location.origin; // Get URI dymanically
-var url_base = config.php_backend; // Use URI from config file
 
 var privacyRepUrl = url_base + '/transparency.php';
 var ixMapsDataJson = {}; // !!
@@ -85,7 +119,7 @@ var showHopsNum = false;
 var showRouters = true;
 
 var showNsa = false;
-var showHotel = false; 
+var showHotel = false;
 var showGoogle = false;
 var showUc = false;
 
@@ -99,6 +133,7 @@ var showGooglePublicPeer = false; // 3) gPubDcPeer
 var showGoogleTO = false; // 3) // gDcTO
 
 var addMarkerInOrigin = false;
+var markersInOrigin = []; // Added to fix maker in origin interpreted as a hop, issue with info window displaying wrong location data
 var showDynamicLegend = true; // !!
 var showMapInfoGlobal = false;
 
@@ -568,11 +603,11 @@ var showTotalTrInfo = function(){
       carriers+='<td><div class="carrier-colour" style="background-color: '+color+'"></div>'+cLink+'</td>';
 
       // add nat / flag
-      var country = d[2].toLowerCase();      
+      var country = d[2].toLowerCase();
       carriers+='<td class=""><i class="'+country+' flag"></i>'+d[2]+'</td>';
       //carriers+='<td class="centered-table-cell"><i class="'+country+' flag"></i></td>';
 
-      // add # of routers      
+      // add # of routers
       carriers+='<td class="centered-table-cell">'+d[0]+'</td>';
 
       // add stars
@@ -669,6 +704,13 @@ var removeAllTrs = function() {
   jQuery('#map-loading-status').html('');
   jQuery('#map-tr-active').html('');
 
+
+  // remove markers in origin
+  while(markersInOrigin[0])
+  {
+    markersInOrigin.pop().setMap(null);
+  }
+
   // remove hops
 /*  if(trCollection.length!=0){
     for (i in trCollection)
@@ -682,15 +724,6 @@ var removeAllTrs = function() {
   {
     trCollection.pop().setMap(null);
   }
-
-  // remove origin markers, if any
-  /*if(trOcollection.length!=0){
-    for (m in trOcollection)
-    {
-      trOcollection[m].setMap(null);
-    }
-    trOcollection.length = 0;
-  }*/
 
   while(trOcollection[0])
   {
@@ -871,7 +904,8 @@ var renderTr = function (trId) {
           var iconUrl = url_base + '/_assets/img/grn-blank.png';
           O_m.setIcon(iconUrl);
           O_m.setMap(map);
-          trOcollection.push(O_m);
+          //trOcollection.push(O_m);
+          markersInOrigin.push(O_m); // add markers in origin to a different array
       }
 
       if(showRouters){
@@ -1480,11 +1514,11 @@ var viewTrDetails = function (trId) {
   renderTr2(trId);
   //jQuery('#tr-details').fadeIn('slow');
   jQuery('#tr-details-iframe').attr('src', url_base + '/loading.html');
-  jQuery('.traceroutes.modal').modal('show'); 
+  jQuery('.traceroutes.modal').modal('show');
   var url = 'https://www.ixmaps.ca/cgi-bin/tr-query.cgi?query_type=traceroute_id&arg='+trId;
   //var url = url_base+'/cgi-bin/tr-query.cgi?query_type=traceroute_id&arg='+trId;
-  
-  // wait before loading 
+
+  // wait before loading
   setTimeout(function(){
     jQuery('#tr-details-iframe').attr('src', url);
   }, 600);
@@ -1523,41 +1557,6 @@ var toggleMap = function(){
   jQuery('#map-canvas-container').toggle();
   jQuery('#tr-list-ids').toggle();
 };
-
-var initializeMap = function() {
-  var myLatLng = new google.maps.LatLng(myLat, myLong);
-  var mapOptions = {
-      scrollwheel: false,
-      navigationControl: true,
-      mapTypeControl: true,
-      scaleControl: true,
-      draggable: true,
-      zoom: 9,
-      center: myLatLng,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-  };
-  //map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
-  map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-  /*add marker on user location */
-  /*myMarker = new google.maps.Marker({
-    position: new google.maps.LatLng(myLat, myLong),
-    map: map,
-    title: 'My Location!'
-  });*/
-
-/*  google.maps.event.addListener(map, 'click', function(event){
-    //if(!mouse_in_polyline) {
-      m_lat = event.latLng.lat();
-      m_lng = event.latLng.lng()
-        console.log('Lat: ' + m_lat + ' Lng: ' + m_lng);
-        addCollectedCoord(m_lat,m_lng);
-      //}
-  });*/
-  renderDefaultLaters();
-
-}; // end initializeMap()
-
 
 var renderGeoMarkers = function(type){
   jQuery.each(cHotelData, function(key,geoItem) {
@@ -1710,7 +1709,7 @@ var createGmMarker = function(geoItem){
   gmObj.setIcon(iconUrl);
 
   /* Setting some display options based on the data available*/
-  
+
   var cHtml = '<span class="geoitem-layer-name">'+geoItem.layer_name+'</span>';
 
   cHtml += '<br/><b>'+geoItem.address+'</b>';

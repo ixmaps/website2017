@@ -103,7 +103,7 @@ var setUpClickHandlers = function() {
     constructBoomerangs();
   });
   jQuery('#search-header .qs-from-my-isp-btn').click(function() {
-    constructFrommyIsp();
+    constructFromMyIsp();
   });
   jQuery('#search-header .qs-from-my-cty-btn').click(function() {
     constructFromMyCity();
@@ -134,6 +134,11 @@ var setUpClickHandlers = function() {
     jQuery('.settings.modal').modal('show');
   });
 
+  /* Map help button */
+  jQuery('#map-help-btn').click(function() {
+    jQuery('.map-help.modal').modal('show');
+  });
+
 
   //**************** TRACEROUTE RESULTS ****************//
   // onclick events
@@ -160,7 +165,6 @@ var setUpClickHandlers = function() {
   jQuery('#tr-details-close-btn').click(function() {
     removeTr();
     jQuery('.traceroutes.modal').modal('hide');
-
   });
 
   jQuery('#settings-details-close-btn').click(function() {
@@ -172,27 +176,28 @@ var setUpClickHandlers = function() {
   jQuery('#flagging-close-btn').click(function() {
     removeTr();
     jQuery('.flagging.modal').modal('hide');
-
   });
 
   jQuery('#carrier-close-btn').click(function() {
     removeTr();
     jQuery('.carrier.modal').modal('hide');
-
   });
 
   jQuery('#opening-close-btn').click(function() {
     removeTr();
     jQuery('.opening.modal').modal('hide');
+  });
 
+  jQuery('#map-help-close-btn').click(function() {
+    jQuery('.map-help.modal').modal('hide');
   });
 
 
   /////
 
-  jQuery('.map-icon-close-btn').click(function() {
+  /*jQuery('.map-icon-close-btn').click(function() {
     jQuery('.map-icon-popup-container').hide();
-  });
+  });*/
 
   //**************** LAYERS ****************//
 

@@ -715,3 +715,9 @@ i.flag:not(.icon):before {
   overflow: auto;
   max-height: 300px;
 }
+
+#filter-results-empty{
+  width: 500px;
+  background: #fff; 
+  padding: 1px;  
+}

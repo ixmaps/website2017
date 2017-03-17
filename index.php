@@ -4,6 +4,12 @@
     <meta charset="utf-8">
     <title>IXmaps | Map Your Internet</title>
     <?php include '_includes/global-head.php'; ?>
+    <script src="_assets/js/db-stats.js" type="text/javascript"></script>
+    <script>
+        jQuery(document).ready(function() {
+            getDbStats();
+        });
+    </script>
 </head>
 
 <body id="home-page">
@@ -66,19 +72,19 @@
     <div class="content">
         <div class="stat">
             <h6>Contributors</h6>
-            644
+            <span id="contributors-stat"><img width="20px" src="/_assets/img/icn-loading.gif"/></span>
         </div>
         <div class="stat">
             <h6>Destination URLs</h6>
-            3,660
+            <span id="destinations-stat"><img width="20px" src="/_assets/img/icn-loading.gif"/></span>
         </div>
         <div class="stat">
             <h6>Traceroutes</h6>
-            111,312
+            <span id="traceroutes-stat"><img width="20px" src="/_assets/img/icn-loading.gif"/></span>
         </div>
         <div class="stat">
             <h6>Latest Contribution</h6>
-            30 Nov 2016
+            <span id="latest-tr-stat"><img width="20px" src="/_assets/img/icn-loading.gif"/></span>
         </div>
     </div>
 </section>

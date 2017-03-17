@@ -127,6 +127,7 @@
     <?php include '_includes/map-modal-traceroute.php'; ?>
     <?php include '_includes/map-modal-settings.php'; ?>
     <?php include '_includes/map-modal-flagging.php'; ?>
+    <?php include '_includes/map-modal-help.php'; ?>
 
     <!-- <button id="opening-modal">OPENING MODAL</button> -->
     <!-- <button id="carrier-modal">CARRIER POP UP</button> -->
