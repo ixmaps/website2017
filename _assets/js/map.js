@@ -383,7 +383,7 @@ var loadAutocompleteData = function(type, value) {
       populateAutocompleteArrays(type, data);
     },
     error: function (e) {
-      console.log("Error! autocomplete data can't be loaded", e);
+      console.log("Error! Autocomplete data can't be loaded", e);
     }
   });
 };

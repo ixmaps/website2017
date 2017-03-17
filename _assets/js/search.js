@@ -417,7 +417,7 @@ var submitQuery = function(obj) {
   showLoader();
   jQuery('#filter-results-content').fadeOut('fast');
   jQuery('#filter-results-empty').show();
-  
+
   ajaxObj = jQuery.ajax(url_base + '/application/controller/map.php', {
     type: 'post',
     data: obj,
@@ -471,7 +471,7 @@ var submitQuery = function(obj) {
               constructLastContributed();
               loadedDefaultResult = true;
             }
-            
+
           }, 10000);
 
         }
@@ -554,32 +554,48 @@ var submitUserLocObject = function() {
   /*if (myCity!="" && myCountry!="") {
     console.log('Searching based on Country and City')*/
 
-  if (myCity!="" && myCountry!="" && myAsn) {
-    console.log('Searching based on ASN, Country, and City');
+  // if (myCity!="" && myCountry!="" && myAsn) {
+  //   console.log('Searching based on ASN, Country, and City');
 
+  //   userLocJSON = {
+  //       "filter-constraint-1":
+  //       {
+  //         constraint1: "does",
+  //         constraint2: "originate",
+  //         constraint3: "country",
+  //         constraint4: myCountry,
+  //         constraint5: "AND"
+  //       },
+  //       "filter-constraint-2":
+  //       {
+  //         constraint1: "does",
+  //         constraint2: "originate",
+  //         constraint3: "city",
+  //         constraint4: myCity,
+  //         constraint5: "AND"
+  //       },
+  //       "filter-constraint-3":
+  //       {
+  //         constraint1: "does",
+  //         constraint2: "originate",
+  //         constraint3: "asnum",
+  //         constraint4: myAsn,
+  //         constraint5: "AND"
+  //       }
+  //   };
+  //   submitQuery(userLocJSON);
+
+  // }
+
+  if (myCity!="") {
+    console.log('Searching based on city');
     userLocJSON = {
         "filter-constraint-1":
         {
           constraint1: "does",
-          constraint2: "originate",
-          constraint3: "country",
-          constraint4: myCountry,
-          constraint5: "AND"
-        },
-        "filter-constraint-2":
-        {
-          constraint1: "does",
-          constraint2: "originate",
+          constraint2: "contain",
           constraint3: "city",
           constraint4: myCity,
-          constraint5: "AND"
-        },
-        "filter-constraint-3":
-        {
-          constraint1: "does",
-          constraint2: "originate",
-          constraint3: "asnum",
-          constraint4: myAsn,
           constraint5: "AND"
         }
     };
@@ -600,20 +616,6 @@ var submitUserLocObject = function() {
     submitQuery(userLocJSON);
 
   /*Alert: This can produce many irrelevant queries */
-  } else if (myCity!="") {
-    console.log('Searching based on city');
-    userLocJSON = {
-        "filter-constraint-1":
-        {
-          constraint1: "does",
-          constraint2: "contain",
-          constraint3: "city",
-          constraint4: myCity,
-          constraint5: "AND"
-        }
-    };
-    submitQuery(userLocJSON);
-
   } else {
     console.log('Giving up, last submission instead of user geoloc');
     submitLastSubmissionObject();
