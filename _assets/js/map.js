@@ -9,6 +9,15 @@ var myAsn = '';
 var myLat = '';
 var myLong = '';
 
+var autocompletes = {
+  "country": [],
+  "region": [],
+  "city": [],
+  "zipCode": [],
+  "ISP": [],
+  "submitter": []
+}
+
 // MAIN FUNCTIONS
 var init = function() {
   getMyLocation();
@@ -33,19 +42,9 @@ var init = function() {
 
   createASRow("first"); // TODO: fix depending on initMode
 
-  /*
-    TODO: move this to an independent function
-    Load autocomplete data from db and populate js arrays
-  */
-  loadAutocompleteData('country', ' ');
-  loadAutocompleteData('region', ' ');
-  loadAutocompleteData('city', ' ');
-  loadAutocompleteData('zipCode', ' ');
-  loadAutocompleteData('ISP', ' ');
-  loadAutocompleteData('submitter', ' ');
-
-  firstLoad = false;
-
+  _.each(autocompletes, function(key, value) {
+    loadAutocompleteData(value);
+  });
 };
 
 var getMyLocation = function() {
@@ -289,62 +288,6 @@ var renderTrResultTable = function(data) {
 
 };
 
-
-var bindAutocompletes = function(tagType, rowId) {
-  el = rowId + " .constraint-text-entry";
-  if (tagType == 'country') {
-    jQuery(el).autocomplete({
-      source: countryTags
-    });
-  } else if (tagType == 'region') {
-    jQuery(el).autocomplete({
-      source: regionTags
-    });
-  } else if (tagType == 'city') {
-    jQuery(el).autocomplete({
-      source: cityTags
-    });
-  } else if (tagType == 'zipCode') {
-    jQuery(el).autocomplete({
-      source: zipCodeTags
-    });
-  } else if (tagType == 'ISP') {
-    jQuery(el).autocomplete({
-      source: ISPTags
-    });
-  } else if (tagType == 'asnum') {
-    jQuery(el).autocomplete({
-      source: ASnumTags
-    });
-  } else if (tagType == 'submitter') {
-    jQuery(el).autocomplete({
-      source: submitterTags
-    });
-  } else if (tagType == 'zipCodeSubmitter') {
-    jQuery(el).autocomplete({
-      source: zipCodeSubmitterTags
-    });
-  } else if (tagType == 'destHostName') {
-    jQuery(el).autocomplete({
-      source: destHostNameTags
-    });
-  } else if (tagType == 'ipAddr') {
-    jQuery(el).autocomplete({
-      source: ipAddressTags
-    });
-  } else if (tagType == 'hostName') {
-    jQuery(el).autocomplete({
-      source: hostNameTags
-    });
-  } else if (tagType == 'trId') {
-    jQuery(el).autocomplete({
-      source: trIdTags
-    });
-  } else {
-    console.log('tagType is not currently implemented for autocomplete');
-  }
-};
-
 var showLoader = function() {
   jQuery('#loader').show();
 };
@@ -365,12 +308,11 @@ var setTableSorters = function(){
   jQuery('#traceroutes-table').tablesorter( {sortList: [[0,2]]} );
 };
 
-
-var loadAutocompleteData = function(type, value) {
+var loadAutocompleteData = function(type) {
   var obj = {
     action: 'loadAutoCompleteData',
     field: type,
-    keyword: value
+    keyword: ' '    // not sure why we need this, but leaving in for now
   };
 
   jQuery.ajax(url_base + '/application/controller/autocomplete.php', {
@@ -378,9 +320,10 @@ var loadAutocompleteData = function(type, value) {
     data: obj,
     success: function (e) {
       console.log("Autocomplete data loaded: "+type);
-      // populate js auto-complete array(s)
       var data = jQuery.parseJSON(e);
-      populateAutocompleteArrays(type, data);
+      // remove falsey values like null (jqueryui autocomplete chokes on them)
+      autocompletes[type] = _.reject(data, _.isNull);
+      bindAutocomplete(type);
     },
     error: function (e) {
       console.log("Error! Autocomplete data can't be loaded", e);
@@ -388,68 +331,10 @@ var loadAutocompleteData = function(type, value) {
   });
 };
 
-// START HERE:
-// do the autocomplete data as an object
-
-var populateAutocompleteArrays = function(type, data){
-  if (type=='country') {
-    countryTags.length = 0;
-    jQuery.each(data, function(key, value) {
-      if (value != null) {
-        countryTags.push(value);
-      }
-    });
-
-  } else if( type=='region') {
-    regionTags.length = 0;
-    jQuery.each(data, function(key, value) {
-      if (value != null) {
-       regionTags.push(value);
-      }
-    });
-
-  } else if (type=='city') {
-    cityTags.length = 0;
-    jQuery.each(data, function(key, value) {
-      if (value != null) {
-       cityTags.push(value);
-      }
-    });
-
-  } else if (type=='asnum') {
-    ASnumTags.length = 0;
-    jQuery.each(data, function(key, value) {
-      if (value != null) {
-       ASnumTags.push(value);
-      }
-    });
-
-  } else if (type=='zipCode') {
-    zipCodeTags.length = 0;
-    jQuery.each(data, function(key, value) {
-      if (value != null) {
-       zipCodeTags.push(value);
-      }
-    });
-
-  } else if (type=='ISP') {
-    ISPTags.length = 0;
-    jQuery.each(data, function(key, value) {
-      if (value != null) {
-       ISPTags.push(value);
-      }
+var bindAutocomplete = function(type) {
+  //var el = jQuery('.bs-input').find("[data-constraint='"+type+"']");
+  var el = jQuery('.bs-input[data-constraint="'+type+'"]')
+  jQuery(el).autocomplete({
+    source: autocompletes[type]
   });
-
-  } else if (type=='submitter') {
-    submitterTags.length = 0;
-    jQuery.each(data, function(key, value) {
-      if (value != null) {
-       submitterTags.push(value);
-      }
-  });
-  }
-
-  if(firstLoad==true){
-    firstLoadFunc();
-  }
-}
+};

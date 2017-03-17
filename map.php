@@ -7,6 +7,11 @@
 
     <script src="_assets/js/tablesorter.min.js" type="text/javascript"></script>
     <script src="_assets/js/prototype.js" type="text/javascript"></script>
+    <script
+      src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+      integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+      crossorigin="anonymous"></script>
+      <!-- TODO - get this into the repo, just the pieces we need -->
 
     <!-- Production  -->
     <!--
