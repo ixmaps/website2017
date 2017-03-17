@@ -7,9 +7,9 @@
 
 // GLOBALS
 
-/* 
-  Define ajax object for query submit 
-  !! important 
+/*
+  Define ajax object for query submit
+  !! important
 */
 var ajaxObj;
 
@@ -430,7 +430,7 @@ var submitQuery = function(obj) {
           console.log(" Total Hops: "+data.totHops);
           console.log(" Execution Time: "+data.execTime+' Sec.');
           jQuery('#filter-results-summary').html(data.querySummary);
-          
+
           loadMapData();
           hideLoader();
           //jQuery('.results').fadeIn('fast');
@@ -448,7 +448,7 @@ var submitQuery = function(obj) {
             icon: 'error',
           });
 
-          // wait before loading 
+          // wait before loading
           setTimeout(function(){
             constructLastContributed();
           }, 10000);
@@ -498,7 +498,7 @@ var submitQuery = function(obj) {
     }
   });
 };
-    
+
 
 var submitUserLocObject = function() {
 
@@ -535,7 +535,7 @@ var submitUserLocObject = function() {
 
   if (myCity!="" && myCountry!="" && myAsn) {
     console.log('Searching based on ASN, Country, and City');
-    
+
     userLocJSON = {
         "filter-constraint-1":
         {

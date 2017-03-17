@@ -34,15 +34,15 @@ var init = function() {
   createASRow("first"); // TODO: fix depending on initMode
 
   /*
-    TODO: move this to an independent function 
+    TODO: move this to an independent function
     Load autocomplete data from db and populate js arrays
   */
-  loadAutoCompleteData('country', ' ');
-  loadAutoCompleteData('region', ' ');
-  loadAutoCompleteData('city', ' ');
-  loadAutoCompleteData('zipCode', ' ');
-  loadAutoCompleteData('ISP', ' ');
-  loadAutoCompleteData('submitter', ' ');
+  loadAutocompleteData('country', ' ');
+  loadAutocompleteData('region', ' ');
+  loadAutocompleteData('city', ' ');
+  loadAutocompleteData('zipCode', ' ');
+  loadAutocompleteData('ISP', ' ');
+  loadAutocompleteData('submitter', ' ');
 
   firstLoad = false;
 
@@ -153,37 +153,37 @@ var setUpClickHandlers = function() {
   jQuery('#filter-results-summary-container').click(function() {
     jQuery('#filter-results-summary').toggle();
   });
-  
-  /* 
+
+  /*
     Close  buttons : modal windows
   */
   jQuery('#tr-details-close-btn').click(function() {
     removeTr();
-    jQuery('.traceroutes.modal').modal('hide'); 
+    jQuery('.traceroutes.modal').modal('hide');
 
   });
 
   jQuery('#settings-details-close-btn').click(function() {
     removeTr();
-    jQuery('.settings.modal').modal('hide'); 
+    jQuery('.settings.modal').modal('hide');
 
   });
 
   jQuery('#flagging-close-btn').click(function() {
     removeTr();
-    jQuery('.flagging.modal').modal('hide'); 
+    jQuery('.flagging.modal').modal('hide');
 
   });
-  
+
   jQuery('#carrier-close-btn').click(function() {
     removeTr();
-    jQuery('.carrier.modal').modal('hide'); 
+    jQuery('.carrier.modal').modal('hide');
 
   });
 
   jQuery('#opening-close-btn').click(function() {
     removeTr();
-    jQuery('.opening.modal').modal('hide'); 
+    jQuery('.opening.modal').modal('hide');
 
   });
 
@@ -361,8 +361,7 @@ var setTableSorters = function(){
 };
 
 
-var loadAutoCompleteData = function(type, value) {
-  //console.log(type + ":" + value);
+var loadAutocompleteData = function(type, value) {
   var obj = {
     action: 'loadAutoCompleteData',
     field: type,
@@ -376,68 +375,70 @@ var loadAutoCompleteData = function(type, value) {
       console.log("Autocomplete data loaded: "+type);
       // populate js auto-complete array(s)
       var data = jQuery.parseJSON(e);
-      populateAutoCompleteArrays(type,data);
+      populateAutocompleteArrays(type, data);
     },
     error: function (e) {
       console.log("Error! autocomplete data can't be loaded", e);
     }
   });
-
 };
 
-var populateAutoCompleteArrays = function(type, data){
-  if(type=='country') {
+// START HERE:
+// do the autocomplete data as an object
+
+var populateAutocompleteArrays = function(type, data){
+  if (type=='country') {
     countryTags.length = 0;
     jQuery.each(data, function(key, value) {
-      if(value != null){
+      if (value != null) {
         countryTags.push(value);
       }
     });
 
-  } else if(type=='region') {
+  } else if( type=='region') {
     regionTags.length = 0;
     jQuery.each(data, function(key, value) {
-      if(value != null){
+      if (value != null) {
        regionTags.push(value);
       }
     });
 
-  } else if(type=='city') {
+  } else if (type=='city') {
     cityTags.length = 0;
     jQuery.each(data, function(key, value) {
-      if(value != null){
+      if (value != null) {
        cityTags.push(value);
       }
     });
 
-  } else if(type=='asnum') {
+  } else if (type=='asnum') {
     ASnumTags.length = 0;
     jQuery.each(data, function(key, value) {
-      if(value != null){
+      if (value != null) {
        ASnumTags.push(value);
       }
     });
 
-  } else if(type=='zipCode') {
+  } else if (type=='zipCode') {
     zipCodeTags.length = 0;
     jQuery.each(data, function(key, value) {
-      if(value != null){
+      if (value != null) {
        zipCodeTags.push(value);
       }
     });
 
-  } else if(type=='ISP') {
+  } else if (type=='ISP') {
     ISPTags.length = 0;
     jQuery.each(data, function(key, value) {
-      if(value != null){
+      if (value != null) {
        ISPTags.push(value);
       }
   });
 
-  } else if(type=='submitter') {
+  } else if (type=='submitter') {
     submitterTags.length = 0;
     jQuery.each(data, function(key, value) {
-      if(value != null){
+      if (value != null) {
        submitterTags.push(value);
       }
   });
