@@ -519,17 +519,10 @@ i.flag:not(.icon):before {
   border: 1px solid black;
   border-radius: 12px;
 }
-
-/* this can't be right. Anto, do you know what this relates to? */
-#tr-details- {
-  top: 3%;
-  left: 5%;
-}
-
+  
 #ip-flags {
-  width: 400px;
-  top: 10%;
-  right: 5%;
+  height: 520px;
+  overflow-y: auto;
 }
 
 #tr-details-iframe {
