@@ -21,9 +21,9 @@ var loadConfig = function(configUrl) {
       success: function(data) {
         _this.config = data;
         console.log('Config loaded');
-        
+
         //var url_base = location.origin; // Get URI dymanically
-        var url_base = config.php_backend; // Use URI from config file
+        url_base = config.php_backend; // Use URI from config file
       },
       error: function(xhr, code, error) {
         console.error("Couldn't load `"+configUrl+"`: ", code, error, xhr);

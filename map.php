@@ -7,6 +7,12 @@
 
     <script src="_assets/js/tablesorter.min.js" type="text/javascript"></script>
     <script src="_assets/js/prototype.js" type="text/javascript"></script>
+      <!-- we really need to decide on a process for where to put these -->
+    <script type="text/javascript" src="_assets/__build/bower_components/jquery-ui/ui/jquery.ui.core.js"></script>
+    <script type="text/javascript" src="_assets/__build/bower_components/jquery-ui/ui/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="_assets/__build/bower_components/jquery-ui/ui/jquery.ui.position.js"></script>
+    <script type="text/javascript" src="_assets/__build/bower_components/jquery-ui/ui/jquery.ui.menu.js"></script>
+    <script type="text/javascript" src="_assets/__build/bower_components/jquery-ui/ui/jquery.ui.autocomplete.js"></script>
 
     <!-- Production  -->
     <!--
@@ -20,6 +26,7 @@
     <script src="_assets/js/gmaps.js" type="text/javascript"></script>
     <script src="_assets/js/search.js" type="text/javascript"></script>
     <script src="_assets/js/layers.js" type="text/javascript"></script>
+    <script src="_assets/js/jquery.toast.min.js"></script>
     <script>
 
         var initMode = 0;
@@ -51,9 +58,9 @@
             init();
         });
     </script>
-  <!-- Toast library -->
-  <script src="_assets/js/jquery.toast.min.js"></script>
-  <link rel="stylesheet" href="_assets/css/jquery.toast.min.css" />
+
+  <link href="_assets/css/jquery.toast.min.css" rel="stylesheet" />
+  <link href="_assets/css/jquery.ui.autocomplete.css" rel="stylesheet" />
 
 </head>
 

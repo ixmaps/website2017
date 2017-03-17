@@ -3,9 +3,9 @@
         <h5>Map Settings</h5>
         <i><img id="settings-close-btn" class="ui image right floated" src="/_assets/img/icn-close.svg" alt=""></i>
     </div>
-    
+
     <div class="content">
-    
+
       <div id="map-op-0" class="map-actions-controls" >
         <h4>Router Mapping</h4>
         <input id="map-allow-multiple" class="map-tool-off" type="button" onMouseDown="setAllowMultipleTrs()" value="Multiple TRs"/>

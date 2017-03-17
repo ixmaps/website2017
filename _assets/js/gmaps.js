@@ -6,14 +6,14 @@ var setUpGMaps = function() {
   scriptEl.type = 'text/javascript';
 
   /*Anto's suggested minimal options for gm */
-  
+
   scriptEl.src = 'https://maps.google.com/maps/api/js?v=3&libraries=geometry&key='+config.gmaps.key+'&callback=initializeMap';
 
-  
+
   /* gm parameters suggested in mockup */
-  
+
   //scriptEl.src = 'https://maps.google.com/maps/api/js?v=3&libraries=geometry&key='+config.gmaps.key+'&callback=initGMaps';
-  
+
 
   document.body.appendChild(scriptEl);
 };
@@ -21,7 +21,7 @@ var setUpGMaps = function() {
 var initializeMap = function() {
   //var myLatLng = new google.maps.LatLng(myLat, myLong);
   var myLatLng = new google.maps.LatLng(43.30, -101.79);
- 
+
   var mapOptions = {
       scrollwheel: false,
       navigationControl: true,
@@ -119,7 +119,7 @@ var showHopsNum = false;
 var showRouters = true;
 
 var showNsa = false;
-var showHotel = false; 
+var showHotel = false;
 var showGoogle = false;
 var showUc = false;
 
@@ -603,11 +603,11 @@ var showTotalTrInfo = function(){
       carriers+='<td><div class="carrier-colour" style="background-color: '+color+'"></div>'+cLink+'</td>';
 
       // add nat / flag
-      var country = d[2].toLowerCase();      
+      var country = d[2].toLowerCase();
       carriers+='<td class=""><i class="'+country+' flag"></i>'+d[2]+'</td>';
       //carriers+='<td class="centered-table-cell"><i class="'+country+' flag"></i></td>';
 
-      // add # of routers      
+      // add # of routers
       carriers+='<td class="centered-table-cell">'+d[0]+'</td>';
 
       // add stars
@@ -1514,11 +1514,11 @@ var viewTrDetails = function (trId) {
   renderTr2(trId);
   //jQuery('#tr-details').fadeIn('slow');
   jQuery('#tr-details-iframe').attr('src', url_base + '/loading.html');
-  jQuery('.traceroutes.modal').modal('show'); 
+  jQuery('.traceroutes.modal').modal('show');
   var url = 'https://www.ixmaps.ca/cgi-bin/tr-query.cgi?query_type=traceroute_id&arg='+trId;
   //var url = url_base+'/cgi-bin/tr-query.cgi?query_type=traceroute_id&arg='+trId;
-  
-  // wait before loading 
+
+  // wait before loading
   setTimeout(function(){
     jQuery('#tr-details-iframe').attr('src', url);
   }, 600);
@@ -1709,7 +1709,7 @@ var createGmMarker = function(geoItem){
   gmObj.setIcon(iconUrl);
 
   /* Setting some display options based on the data available*/
-  
+
   var cHtml = '<span class="geoitem-layer-name">'+geoItem.layer_name+'</span>';
 
   cHtml += '<br/><b>'+geoItem.address+'</b>';

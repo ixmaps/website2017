@@ -9,11 +9,19 @@ var myAsn = '';
 var myLat = '';
 var myLong = '';
 
+var autocompletes = {
+  "country": [],
+  "region": [],
+  "city": [],
+  "zipCode": [],
+  "ISP": [],
+  "submitter": []
+}
+
 // MAIN FUNCTIONS
 var init = function() {
   getMyLocation();
   setUpGMaps();
-  setUpClickHandlers();
   setDefaultMapSettings();
 
   getLayers(); // TODO: need to fix/agree on json structure
@@ -33,19 +41,10 @@ var init = function() {
 
   createASRow("first"); // TODO: fix depending on initMode
 
-  /*
-    TODO: move this to an independent function 
-    Load autocomplete data from db and populate js arrays
-  */
-  loadAutoCompleteData('country', ' ');
-  loadAutoCompleteData('region', ' ');
-  loadAutoCompleteData('city', ' ');
-  loadAutoCompleteData('zipCode', ' ');
-  loadAutoCompleteData('ISP', ' ');
-  loadAutoCompleteData('submitter', ' ');
-
-  firstLoad = false;
-
+  setUpClickHandlers();
+  _.each(autocompletes, function(key, value) {
+    loadAutocompleteData(value);
+  });
 };
 
 var getMyLocation = function() {
@@ -141,7 +140,6 @@ var setUpClickHandlers = function() {
 
 
   //**************** TRACEROUTE RESULTS ****************//
-  // onclick events
   jQuery('#remove-all-trs-btn').click(function() {
     removeAllTrs();
   });
@@ -158,32 +156,37 @@ var setUpClickHandlers = function() {
   jQuery('#filter-results-summary-container').click(function() {
     jQuery('#filter-results-summary').toggle();
   });
-  
-  /* 
+
+  /*
     Close  buttons : modal windows
   */
   jQuery('#tr-details-close-btn').click(function() {
-    jQuery('.traceroutes.modal').modal('hide'); 
+    removeTr();
+    jQuery('.traceroutes.modal').modal('hide');
   });
 
-  jQuery('#settings-close-btn').click(function() {
-    jQuery('.settings.modal').modal('hide'); 
+  jQuery('#settings-details-close-btn').click(function() {
+    removeTr();
+    jQuery('.settings.modal').modal('hide');
   });
 
   jQuery('#flagging-close-btn').click(function() {
-    jQuery('.flagging.modal').modal('hide'); 
+    removeTr();
+    jQuery('.flagging.modal').modal('hide');
   });
-  
+
   jQuery('#carrier-close-btn').click(function() {
-    jQuery('.carrier.modal').modal('hide'); 
+    removeTr();
+    jQuery('.carrier.modal').modal('hide');
   });
 
   jQuery('#opening-close-btn').click(function() {
-    jQuery('.opening.modal').modal('hide'); 
+    removeTr();
+    jQuery('.opening.modal').modal('hide');
   });
 
   jQuery('#map-help-close-btn').click(function() {
-    jQuery('.map-help.modal').modal('hide'); 
+    jQuery('.map-help.modal').modal('hide');
   });
 
 
@@ -218,15 +221,12 @@ var setUpClickHandlers = function() {
   jQuery('#settings-modal').click(function(){
     jQuery('.settings.modal').modal('show');
   });
-
   jQuery('#traceroutes-modal').click(function(){
     jQuery('.traceroutes.modal').modal('show');
   });
-
   jQuery('#router-modal').click(function(){
     jQuery('.router.modal').modal('show');
   });
-
   jQuery('#carrier-modal').click(function(){
     jQuery('.carrier.modal').modal('show');
   });
@@ -267,76 +267,17 @@ var setUpClickHandlers = function() {
       closable : false // If this is set to true (the default value) clicking anywhere else on the page will close the overlay. Remove this line if that behaviour is desired.
     })
     .sidebar('setting', 'transition', 'overlay', 'toggle')
-    .sidebar('attach events', '.map-holder .layers-toggle .toggle.button')
-  ;
+    .sidebar('attach events', '.map-holder .layers-toggle .toggle.button');
   jQuery('.ui.accordion')
-    .accordion()
-  ;
+    .accordion();
   jQuery('.toggle.button')
     .state({
-    })
-  ;
+    });
 };
 
 /*TODO: Render tr results table and add event listeners*/
 var renderTrResultTable = function(data) {
 
-};
-
-
-var bindAutocompletes = function(tagType, rowId) {
-  el = rowId + " .constraint-text-entry";
-  if (tagType == 'country') {
-    jQuery(el).autocomplete({
-      source: countryTags
-    });
-  } else if (tagType == 'region') {
-    jQuery(el).autocomplete({
-      source: regionTags
-    });
-  } else if (tagType == 'city') {
-    jQuery(el).autocomplete({
-      source: cityTags
-    });
-  } else if (tagType == 'zipCode') {
-    jQuery(el).autocomplete({
-      source: zipCodeTags
-    });
-  } else if (tagType == 'ISP') {
-    jQuery(el).autocomplete({
-      source: ISPTags
-    });
-  } else if (tagType == 'asnum') {
-    jQuery(el).autocomplete({
-      source: ASnumTags
-    });
-  } else if (tagType == 'submitter') {
-    jQuery(el).autocomplete({
-      source: submitterTags
-    });
-  } else if (tagType == 'zipCodeSubmitter') {
-    jQuery(el).autocomplete({
-      source: zipCodeSubmitterTags
-    });
-  } else if (tagType == 'destHostName') {
-    jQuery(el).autocomplete({
-      source: destHostNameTags
-    });
-  } else if (tagType == 'ipAddr') {
-    jQuery(el).autocomplete({
-      source: ipAddressTags
-    });
-  } else if (tagType == 'hostName') {
-    jQuery(el).autocomplete({
-      source: hostNameTags
-    });
-  } else if (tagType == 'trId') {
-    jQuery(el).autocomplete({
-      source: trIdTags
-    });
-  } else {
-    console.log('tagType is not currently implemented for autocomplete');
-  }
 };
 
 var showLoader = function() {
@@ -359,13 +300,11 @@ var setTableSorters = function(){
   jQuery('#traceroutes-table').tablesorter( {sortList: [[0,2]]} );
 };
 
-
-var loadAutoCompleteData = function(type, value) {
-  //console.log(type + ":" + value);
+var loadAutocompleteData = function(type) {
   var obj = {
     action: 'loadAutoCompleteData',
     field: type,
-    keyword: value
+    keyword: ' '    // not sure why we need this, but leaving in for now
   };
 
   jQuery.ajax(url_base + '/application/controller/autocomplete.php', {
@@ -373,76 +312,32 @@ var loadAutoCompleteData = function(type, value) {
     data: obj,
     success: function (e) {
       console.log("Autocomplete data loaded: "+type);
-      // populate js auto-complete array(s)
       var data = jQuery.parseJSON(e);
-      populateAutoCompleteArrays(type,data);
+      // remove falsey values like null (jqueryui autocomplete chokes on them)
+      autocompletes[type] = _.reject(data, _.isNull);
+      // bind the basic search
+      bindAutocomplete(jQuery('.bs-input[data-constraint="'+type+'"]'), type);
+      // bind the creepy modal
+      if (type === "country") {
+        bindAutocomplete(jQuery('.userloc-country'), type);
+      }
+      if (type === "city") {
+        bindAutocomplete(jQuery('.userloc-city'), type);
+      }
     },
     error: function (e) {
-      console.log("Error! autocomplete data can't be loaded", e);
+      console.error("Autocomplete data can't be loaded", e);
     }
   });
-
 };
 
-var populateAutoCompleteArrays = function(type, data){
-  if(type=='country') {
-    countryTags.length = 0;
-    jQuery.each(data, function(key, value) {
-      if(value != null){
-        countryTags.push(value);
-      }
+var bindAutocomplete = function(el, type) {
+  if (autocompletes[type]) {
+    jQuery(el).autocomplete({
+      source: autocompletes[type]
     });
-
-  } else if(type=='region') {
-    regionTags.length = 0;
-    jQuery.each(data, function(key, value) {
-      if(value != null){
-       regionTags.push(value);
-      }
-    });
-
-  } else if(type=='city') {
-    cityTags.length = 0;
-    jQuery.each(data, function(key, value) {
-      if(value != null){
-       cityTags.push(value);
-      }
-    });
-
-  } else if(type=='asnum') {
-    ASnumTags.length = 0;
-    jQuery.each(data, function(key, value) {
-      if(value != null){
-       ASnumTags.push(value);
-      }
-    });
-
-  } else if(type=='zipCode') {
-    zipCodeTags.length = 0;
-    jQuery.each(data, function(key, value) {
-      if(value != null){
-       zipCodeTags.push(value);
-      }
-    });
-
-  } else if(type=='ISP') {
-    ISPTags.length = 0;
-    jQuery.each(data, function(key, value) {
-      if(value != null){
-       ISPTags.push(value);
-      }
-  });
-
-  } else if(type=='submitter') {
-    submitterTags.length = 0;
-    jQuery.each(data, function(key, value) {
-      if(value != null){
-       submitterTags.push(value);
-      }
-  });
+  } else {
+    console.log("Cannot bind autocomplete data")
   }
+};
 
-  if(firstLoad==true){
-    firstLoadFunc();
-  }
-}

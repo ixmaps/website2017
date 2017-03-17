@@ -7,9 +7,9 @@
 
 // GLOBALS
 
-/* 
-  Define ajax object for query submit 
-  !! important 
+/*
+  Define ajax object for query submit
+  !! important
 */
 var ajaxObj;
 var loadedDefaultResult = false;
@@ -264,15 +264,46 @@ var constructBS = function() {
   // iterate over all of the 'via' conditions
   jQuery('#bs-via-popup .bs-input').each(function(index, el) {
     if (jQuery(el).val() != "") {
-      var origObj = {
-        constraint1: "does",
-        constraint2: "goVia",
-        constraint3: jQuery(el).data('constraint'),
-        constraint4: jQuery(el).val(),
-        constraint5: "AND"
-      };
-      submission["filter-constraint-"+i] = origObj;
-      i++;
+      var yesOrNo = jQuery(el).val();
+      var i = 1;
+      if (jQuery(el).data('constraint') === "NSA") {
+        // TODO: this is a terrible bandaid because we didn't think through the design
+        if (yesOrNo === "yes" || yesOrNo === "no") {
+          var nsaCities = ["San Francisco", "Los Angeles", "New York", "Dallas", "Washington", "Ashburn", "Seattle", "San Jose", "San Diego", "Miami", "Boston", "Phoenix", "Salt Lake City", "Nashville", "Denver", "Saint Louis", "Bridgeton", "Bluffdale", "Houston", "Chicago", "Atlanta", "Portland"];
+
+          _.each(nsaCities, function(city) {
+            var nsaObj = {
+              constraint1: "",
+              constraint2: "contain",
+              constraint3: "city",
+              constraint4: city,
+              constraint5: "OR"
+            };
+
+            if (yesOrNo === "yes") {
+              nsaObj.constraint1 = "does"
+            } else if (yesOrNo === "no") {
+              nsaObj.constraint1 = "doesNot"
+            } else {
+              console.error('We shouldnt be able to get here')
+            }
+            submission["filter-constraint-"+i] = nsaObj;
+            i++;
+          });
+        } else {
+          jQuery().toastmessage('showErrorToast', 'When filling in the NSA field, please include either "yes" or "no"');
+        }
+      } else {
+        var origObj = {
+          constraint1: "does",
+          constraint2: "goVia",
+          constraint3: jQuery(el).data('constraint'),
+          constraint4: jQuery(el).val(),
+          constraint5: "AND"
+        };
+        submission["filter-constraint-"+i] = origObj;
+        i++;
+      }
     }
   });
   // iterate over all of the 'to' conditions
@@ -353,7 +384,7 @@ var createASRow = function(row) {
 
     // go over the options in each constraint (input is special case)
     if (con.name === "input") {
-      var divEl = '<div class="ui fluid input"><input class="constraint-value" type="text" placeholder="Hostname"></div>';
+      var divEl = '<div class="ui fluid input"><input class="constraint-value" type="text" placeholder="Traceroute id"></div>';
       jQuery(constraintEl).append(divEl);
     } else {
       var selectEl = jQuery('<select/>');
@@ -361,6 +392,21 @@ var createASRow = function(row) {
       _.each(con.options, function(opt) {
         selectEl.append(new Option(opt.display, opt.value, true, true));
       });
+      // set up the change listener
+      if (con.name === "kind") {
+        selectEl.change(function(ev) {
+          var el = jQuery(this).parent().next().find('input');
+          var value = jQuery(ev.target).val();
+          // adjust the placeholder in the input field
+          _.each(constraints[2].options, function(obj) {
+            if (obj.value === value) {
+              jQuery(el).attr('placeholder', obj.display);
+            }
+          });
+          bindAutocomplete(el, value);
+        });
+      }
+
       jQuery(constraintEl).append(selectEl);
     }
   });
@@ -417,7 +463,7 @@ var submitQuery = function(obj) {
   showLoader();
   jQuery('#filter-results-content').fadeOut('fast');
   jQuery('#filter-results-empty').show();
-  
+
   ajaxObj = jQuery.ajax(url_base + '/application/controller/map.php', {
     type: 'post',
     data: obj,
@@ -426,7 +472,7 @@ var submitQuery = function(obj) {
       if(e!=0){
         var data = jQuery.parseJSON(e);
         //console.log(data.trsTable);
-        if (data.totTrs!=0 && data.result!=undefined ){
+        if (data.totTrs!=0 && data.result!=undefined){
           //xconsole.log("Result: ", data.result);
           ixMapsDataJson = jQuery.parseJSON(data.result);
 
@@ -441,7 +487,7 @@ var submitQuery = function(obj) {
           console.log(" Total Hops: "+data.totHops);
           console.log(" Execution Time: "+data.execTime+' Sec.');
           jQuery('#filter-results-summary').html(data.querySummary);
-          
+
           loadMapData();
           hideLoader();
           jQuery('#filter-results-empty').hide();
@@ -452,15 +498,14 @@ var submitQuery = function(obj) {
         // we may need more error messages, but for now this will handle the majority...
           hideLoader();
           jQuery.toast({
-            heading: 'No routes found',
-            text: 'No routes were found with specified criteria, returning last submitted route instead. Adjust the query options to be more inclusive, then click Submit to re-query.',
+            text: '<span style="font-size: 20px;">No routes were found with the criteria you provided. Adjust the query options to be more inclusive, then click <b>Search</span>',
             hideAfter: 10000,
             allowToastClose: true,
             position: 'mid-center',
             icon: 'error',
           });
 
-          // wait before loading 
+          // wait before loading
           setTimeout(function(){
             if(loadedDefaultResult){
               initializeMap();
@@ -471,7 +516,7 @@ var submitQuery = function(obj) {
               constructLastContributed();
               loadedDefaultResult = true;
             }
-            
+
           }, 10000);
 
         }
@@ -519,7 +564,7 @@ var submitQuery = function(obj) {
     }
   });
 };
-    
+
 
 var submitUserLocObject = function() {
 
@@ -554,32 +599,48 @@ var submitUserLocObject = function() {
   /*if (myCity!="" && myCountry!="") {
     console.log('Searching based on Country and City')*/
 
-  if (myCity!="" && myCountry!="" && myAsn) {
-    console.log('Searching based on ASN, Country, and City');
-    
+  // if (myCity!="" && myCountry!="" && myAsn) {
+  //   console.log('Searching based on ASN, Country, and City');
+
+  //   userLocJSON = {
+  //       "filter-constraint-1":
+  //       {
+  //         constraint1: "does",
+  //         constraint2: "originate",
+  //         constraint3: "country",
+  //         constraint4: myCountry,
+  //         constraint5: "AND"
+  //       },
+  //       "filter-constraint-2":
+  //       {
+  //         constraint1: "does",
+  //         constraint2: "originate",
+  //         constraint3: "city",
+  //         constraint4: myCity,
+  //         constraint5: "AND"
+  //       },
+  //       "filter-constraint-3":
+  //       {
+  //         constraint1: "does",
+  //         constraint2: "originate",
+  //         constraint3: "asnum",
+  //         constraint4: myAsn,
+  //         constraint5: "AND"
+  //       }
+  //   };
+  //   submitQuery(userLocJSON);
+
+  // }
+
+  if (myCity!="") {
+    console.log('Searching based on city');
     userLocJSON = {
         "filter-constraint-1":
         {
           constraint1: "does",
-          constraint2: "originate",
-          constraint3: "country",
-          constraint4: myCountry,
-          constraint5: "AND"
-        },
-        "filter-constraint-2":
-        {
-          constraint1: "does",
-          constraint2: "originate",
+          constraint2: "contain",
           constraint3: "city",
           constraint4: myCity,
-          constraint5: "AND"
-        },
-        "filter-constraint-3":
-        {
-          constraint1: "does",
-          constraint2: "originate",
-          constraint3: "asnum",
-          constraint4: myAsn,
           constraint5: "AND"
         }
     };
@@ -600,20 +661,6 @@ var submitUserLocObject = function() {
     submitQuery(userLocJSON);
 
   /*Alert: This can produce many irrelevant queries */
-  } else if (myCity!="") {
-    console.log('Searching based on city');
-    userLocJSON = {
-        "filter-constraint-1":
-        {
-          constraint1: "does",
-          constraint2: "contain",
-          constraint3: "city",
-          constraint4: myCity,
-          constraint5: "AND"
-        }
-    };
-    submitQuery(userLocJSON);
-
   } else {
     console.log('Giving up, last submission instead of user geoloc');
     submitLastSubmissionObject();

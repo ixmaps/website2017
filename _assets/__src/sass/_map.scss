@@ -1,6 +1,6 @@
 
 
-// Let's not make this page responsive, for now
+/* Let's not make this page responsive, for now */
 #map-page {
   min-width: 769px !important;
 }
@@ -414,7 +414,6 @@ i.flag:not(.icon):before {
   padding: 24px;
 }
 .settings.modal .setting-title {
-  font-size: 20px;
   color: $grey;
 }
 
@@ -437,7 +436,6 @@ i.flag:not(.icon):before {
   padding: 24px;
 }
 .opening.modal .setting-title {
-  font-size: 20px;
   color: $grey;
 }
 
@@ -467,6 +465,23 @@ i.flag:not(.icon):before {
 
 .modal .header img {
   margin-top: 1em;
+}
+
+/* not working, added style to the element in map-modal-opening. TODO */
+.userloc-country {
+  width: 70px;
+}
+
+/* Autocomplete stuff */
+.ui-helper-hidden-accessible {
+  display: none;
+}
+.ui-autocomplete {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: default;
+  z-index:9050!important;
 }
 
 /* added from old ix-explore.css*/
@@ -718,6 +733,6 @@ i.flag:not(.icon):before {
 
 #filter-results-empty{
   width: 500px;
-  background: #fff; 
-  padding: 1px;  
+  background: #fff;
+  padding: 1px;
 }
