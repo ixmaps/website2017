@@ -4,8 +4,13 @@
         <i><img id="carrier-close-btn" class="ui image right floated" src="/_assets/img/icn-close.svg" alt=""></i>
     </div>
 
-
-    <div class="content">
+    <!-- PRIVACY SCORES - OLD APPROACH -->
+    <div id="privacy-details" class="">
+        <div id="carrier-title"></div>
+        <div style="clear: both;"></div>
+        <div id="privacy-details-data"></div>
+    </div>
+<!--     <div class="content">
         <h4>Rogers</h4>
 
         <table class="ui structured table">
@@ -75,5 +80,5 @@
         </table>
 
         <p><a href="#" class="link">View the full transparency report</a></p>
-    </div>
+    </div> -->
 </div>

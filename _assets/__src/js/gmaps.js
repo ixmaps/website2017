@@ -1470,10 +1470,11 @@ var removeAllButThis = function(trId) {
 // }
 
 var viewPrivacy = function (asNum) {
+  jQuery('.carrier.modal').modal('show');
   var privacyHtml = '';
   var criteriaDes = '';
   var totScore = 0;
-  jQuery('#carrier-title').html('<h5>Transparency and Privacy Report:<span class="h2-bigger"> '+privacyData.scores[asNum][0].carrier_name+'</span></h5>ASN: '+privacyData.scores[asNum][0].asn);
+  jQuery('#carrier-title').html('<h5>'+privacyData.scores[asNum][0].carrier_name+' (ASN: '+privacyData.scores[asNum][0].asn + ')</h5>');
 
   //privacyHtml += 'ASN: '+privacyData.scores[asNum][0].asn+'<br/>';
   privacyHtml += '<table id="privacy-details-table">';

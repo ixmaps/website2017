@@ -114,15 +114,6 @@
         </div>
     </div>
 
-    <!-- PRIVACY SCORES - OLD APPROACH -->
-    <div id="privacy-details" class="hidden map-icon-popup-container">
-        <img class="map-icon-close-btn" src="_assets/img/icn-close.svg">
-        <div id="carrier-title"></div>
-        <div style="clear: both;"></div>
-        <div id="privacy-details-data"></div>
-    </div>
-
-
 
     <!-- ********************************************************** -->
     <!-- ************************** MODALS ************************ -->
@@ -137,7 +128,7 @@
     <?php include '_includes/map-modal-help.php'; ?>
 
     <!-- <button id="opening-modal">OPENING MODAL</button> -->
-    <!-- <button id="carrier-modal">CARRIER POP UP</button> -->
+    <button id="carrier-modal">CARRIER POP UP</button>
     <!-- <button id="router-modal">ROUTER POP UP</button> -->
     <!-- <button id="traceroutes-modal">TR DETAILS</button> -->
     <!-- <button id="settings-modal">MAP SETTINGS</button> -->

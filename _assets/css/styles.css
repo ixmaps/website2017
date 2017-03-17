@@ -26231,11 +26231,6 @@ i.flag:not(.icon):before {
 	right: 5%;
 }
 
-#tr-details-close-btn, #ip-flags-close, #privacy-details-close {
-	margin: 10px;
-	float: right;
-}
-
 #tr-details-iframe {
 	width: 100%;
 	height: 500px;
@@ -26312,7 +26307,7 @@ i.flag:not(.icon):before {
 }
 
 /* TODO: fix this. old styles added for transition */
-#privacy-details {
+#privacy-details-old {
 	position: fixed;
 	left: 15%;
 	z-index: 1000;
@@ -26324,11 +26319,15 @@ i.flag:not(.icon):before {
 	border-radius: 12px;
 }
 
+#privacy-details {
+	background: #fff;
+}
+
 .hidden {
 	display: none;
 }
 
-#tr-details-close-btn, #ip-flags-close, #privacy-details-close {
+#tr-details-close-btn, #ip-flags-close, #privacy-details-close, #carrier-close-btn {
 	margin: 10px;
 	float: right;
 }
@@ -26352,6 +26351,7 @@ i.flag:not(.icon):before {
 
 #privacy-details-table {
 	width: 100%;
+	line-height: 32px;
 }
 
 #privacy-feedback-info {
