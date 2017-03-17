@@ -25617,6 +25617,7 @@ footer {
 	border-right: none;
 }
 
+/* Let's not make this page responsive, for now */
 #map-page {
 	min-width: 769px !important;
 }
@@ -26164,6 +26165,15 @@ i.flag:not(.icon):before {
 
 .modal .header img {
 	margin-top: 1em;
+}
+
+/* Autocomplete stuff */
+.ui-helper-hidden-accessible {
+	display: none;
+}
+
+.ui-front {
+	z-index: 9999 !important;
 }
 
 /* added from old ix-explore.css*/

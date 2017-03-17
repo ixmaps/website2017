@@ -5,6 +5,7 @@
 <!-- Styles -->
 <link href="/_assets/css/styles.css" rel="stylesheet">
 <link href="/_assets/__build/bower_components/jquery-toastmessage-plugin/src/main/resources/css/jquery.toastmessage.css" rel="stylesheet">
+<link href="/_assets/__build/bower_components/jquery-ui/themes/base/jquery-ui.css" rel="stylesheet" />
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i|Work+Sans:500,700,900" rel="stylesheet">

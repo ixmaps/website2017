@@ -1,6 +1,6 @@
 
 
-// Let's not make this page responsive, for now
+/* Let's not make this page responsive, for now */
 #map-page {
   min-width: 769px !important;
 }
@@ -469,6 +469,14 @@ i.flag:not(.icon):before {
   margin-top: 1em;
 }
 
+/* Autocomplete stuff */
+.ui-helper-hidden-accessible {
+  display: none;
+}
+.ui-front {
+  z-index: 999 !important;
+}
+
 /* added from old ix-explore.css*/
 #loader {
   position: absolute;
@@ -718,6 +726,6 @@ i.flag:not(.icon):before {
 
 #filter-results-empty{
   width: 500px;
-  background: #fff; 
-  padding: 1px;  
+  background: #fff;
+  padding: 1px;
 }

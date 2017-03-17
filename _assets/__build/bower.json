@@ -12,6 +12,7 @@
   ],
   "dependencies": {
     "jquery": "^1.12",
-    "jquery-toastmessage-plugin": "https://github.com/akquinet/jquery-toastmessage-plugin.git"
+    "jquery-toastmessage-plugin": "https://github.com/akquinet/jquery-toastmessage-plugin.git",
+    "jquery-ui": "1.10.1"
   }
 }

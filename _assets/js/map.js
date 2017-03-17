@@ -317,7 +317,13 @@ var loadAutocompleteData = function(type) {
       autocompletes[type] = _.reject(data, _.isNull);
       // bind the basic search
       bindAutocomplete(jQuery('.bs-input[data-constraint="'+type+'"]'), type);
-      // bind the first row of advanced search? to what? since the dropdown starts on tr_id, no need to bind, I guess
+      // bind the creepy modal
+      if (type === "country") {
+        bindAutocomplete(jQuery('.userloc-country'), type);
+      }
+      if (type === "city") {
+        bindAutocomplete(jQuery('.userloc-city'), type);
+      }
     },
     error: function (e) {
       console.error("Autocomplete data can't be loaded", e);

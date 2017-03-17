@@ -7,11 +7,12 @@
 
     <script src="_assets/js/tablesorter.min.js" type="text/javascript"></script>
     <script src="_assets/js/prototype.js" type="text/javascript"></script>
-    <script
-      src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
-      integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
-      crossorigin="anonymous"></script>
-      <!-- TODO - get this into the repo, just the pieces we need -->
+      <!-- we really need to decide on a process for where to put these -->
+    <script type="text/javascript" src="_assets/__build/bower_components/jquery-ui/ui/jquery.ui.core.js"></script>
+    <script type="text/javascript" src="_assets/__build/bower_components/jquery-ui/ui/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="_assets/__build/bower_components/jquery-ui/ui/jquery.ui.position.js"></script>
+    <script type="text/javascript" src="_assets/__build/bower_components/jquery-ui/ui/jquery.ui.menu.js"></script>
+    <script type="text/javascript" src="_assets/__build/bower_components/jquery-ui/ui/jquery.ui.autocomplete.js"></script>
 
     <!-- Production  -->
     <!--
@@ -58,9 +59,8 @@
         });
     </script>
 
-  <link rel="stylesheet" href="_assets/css/jquery.toast.min.css" />
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <!-- TODO, massive -->
+  <link href="_assets/css/jquery.toast.min.css" rel="stylesheet" />
+  <link href="_assets/css/jquery.ui.autocomplete.css" rel="stylesheet" />
 
 </head>
 
