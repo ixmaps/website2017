@@ -353,7 +353,7 @@ var createASRow = function(row) {
 
     // go over the options in each constraint (input is special case)
     if (con.name === "input") {
-      var divEl = '<div class="ui fluid input"><input class="constraint-value" type="text" placeholder="Hostname"></div>';
+      var divEl = '<div class="ui fluid input"><input class="constraint-value" type="text" placeholder="Traceroute id"></div>';
       jQuery(constraintEl).append(divEl);
     } else {
       var selectEl = jQuery('<select/>');
@@ -361,6 +361,21 @@ var createASRow = function(row) {
       _.each(con.options, function(opt) {
         selectEl.append(new Option(opt.display, opt.value, true, true));
       });
+      // set up the change listener
+      if (con.name === "kind") {
+        selectEl.change(function(ev) {
+          var el = jQuery(this).parent().next().find('input');
+          var value = jQuery(ev.target).val();
+          // adjust the placeholder in the input field
+          _.each(constraints[2].options, function(obj) {
+            if (obj.value === value) {
+              jQuery(el).attr('placeholder', obj.display);
+            }
+          });
+          bindAutocomplete(el, value);
+        });
+      }
+
       jQuery(constraintEl).append(selectEl);
     }
   });

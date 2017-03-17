@@ -25,6 +25,7 @@
     <script src="_assets/js/gmaps.js" type="text/javascript"></script>
     <script src="_assets/js/search.js" type="text/javascript"></script>
     <script src="_assets/js/layers.js" type="text/javascript"></script>
+    <script src="_assets/js/jquery.toast.min.js"></script>
     <script>
 
         var initMode = 0;
@@ -56,9 +57,10 @@
             init();
         });
     </script>
-  <!-- Toast library -->
-  <script src="_assets/js/jquery.toast.min.js"></script>
+
   <link rel="stylesheet" href="_assets/css/jquery.toast.min.css" />
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <!-- TODO, massive -->
 
 </head>
 

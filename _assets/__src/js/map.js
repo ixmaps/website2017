@@ -22,7 +22,6 @@ var autocompletes = {
 var init = function() {
   getMyLocation();
   setUpGMaps();
-  setUpClickHandlers();
   setDefaultMapSettings();
 
   getLayers(); // TODO: need to fix/agree on json structure
@@ -42,6 +41,7 @@ var init = function() {
 
   createASRow("first"); // TODO: fix depending on initMode
 
+  setUpClickHandlers();
   _.each(autocompletes, function(key, value) {
     loadAutocompleteData(value);
   });
@@ -140,7 +140,6 @@ var setUpClickHandlers = function() {
 
 
   //**************** TRACEROUTE RESULTS ****************//
-  // onclick events
   jQuery('#remove-all-trs-btn').click(function() {
     removeAllTrs();
   });
@@ -169,7 +168,6 @@ var setUpClickHandlers = function() {
   jQuery('#settings-details-close-btn').click(function() {
     removeTr();
     jQuery('.settings.modal').modal('hide');
-
   });
 
   jQuery('#flagging-close-btn').click(function() {
@@ -223,15 +221,12 @@ var setUpClickHandlers = function() {
   jQuery('#settings-modal').click(function(){
     jQuery('.settings.modal').modal('show');
   });
-
   jQuery('#traceroutes-modal').click(function(){
     jQuery('.traceroutes.modal').modal('show');
   });
-
   jQuery('#router-modal').click(function(){
     jQuery('.router.modal').modal('show');
   });
-
   jQuery('#carrier-modal').click(function(){
     jQuery('.carrier.modal').modal('show');
   });
@@ -272,15 +267,12 @@ var setUpClickHandlers = function() {
       closable : false // If this is set to true (the default value) clicking anywhere else on the page will close the overlay. Remove this line if that behaviour is desired.
     })
     .sidebar('setting', 'transition', 'overlay', 'toggle')
-    .sidebar('attach events', '.map-holder .layers-toggle .toggle.button')
-  ;
+    .sidebar('attach events', '.map-holder .layers-toggle .toggle.button');
   jQuery('.ui.accordion')
-    .accordion()
-  ;
+    .accordion();
   jQuery('.toggle.button')
     .state({
-    })
-  ;
+    });
 };
 
 /*TODO: Render tr results table and add event listeners*/
@@ -323,17 +315,23 @@ var loadAutocompleteData = function(type) {
       var data = jQuery.parseJSON(e);
       // remove falsey values like null (jqueryui autocomplete chokes on them)
       autocompletes[type] = _.reject(data, _.isNull);
-      bindAutocomplete(type);
+      // bind the basic search
+      bindAutocomplete(jQuery('.bs-input[data-constraint="'+type+'"]'), type);
+      // bind the first row of advanced search? to what? since the dropdown starts on tr_id, no need to bind, I guess
     },
     error: function (e) {
-      console.log("Error! Autocomplete data can't be loaded", e);
+      console.error("Autocomplete data can't be loaded", e);
     }
   });
 };
 
-var bindAutocomplete = function(type) {
-  var el = jQuery('.bs-input[data-constraint="'+type+'"]')
-  jQuery(el).autocomplete({
-    source: autocompletes[type]
-  });
+var bindAutocomplete = function(el, type) {
+  if (autocompletes[type]) {
+    jQuery(el).autocomplete({
+      source: autocompletes[type]
+    });
+  } else {
+    console.log("Cannot bind autocomplete data")
+  }
 };
+
