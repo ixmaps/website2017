@@ -476,8 +476,12 @@ i.flag:not(.icon):before {
 .ui-helper-hidden-accessible {
   display: none;
 }
-.ui-autocompete {
-  z-index: 9999 !important;
+.ui-autocomplete {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: default;
+  z-index:9050!important;
 }
 
 /* added from old ix-explore.css*/
