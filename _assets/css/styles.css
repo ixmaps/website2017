@@ -26111,7 +26111,6 @@ i.flag:not(.icon):before {
 }
 
 .settings.modal .setting-title {
-	font-size: 20px;
 	color: #2D3A47;
 }
 
@@ -26135,7 +26134,6 @@ i.flag:not(.icon):before {
 }
 
 .opening.modal .setting-title {
-	font-size: 20px;
 	color: #2D3A47;
 }
 
@@ -26167,12 +26165,17 @@ i.flag:not(.icon):before {
 	margin-top: 1em;
 }
 
+/* not working, added style to the element in map-modal-opening. TODO */
+.userloc-country {
+	width: 70px;
+}
+
 /* Autocomplete stuff */
 .ui-helper-hidden-accessible {
 	display: none;
 }
 
-.ui-front {
+.ui-autocompete {
 	z-index: 9999 !important;
 }
 

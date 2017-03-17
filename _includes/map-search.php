@@ -54,8 +54,8 @@
                 </div>
                 <div class="quick-input">
                     <button class="ui large fluid button qs-from-my-cty-btn">
-                            <i><img src="/_assets/img/quicksearch-city.svg" alt="" /></i><br />
-                            From My City
+                        <i><img src="/_assets/img/quicksearch-city.svg" alt="" /></i><br />
+                        From My City
                     </button>
                 </div>
                 <div class="quick-input">
@@ -150,11 +150,11 @@
 
                 <div id="bs-via-popup" class="ui via flowing inverted popup hidden" data-variation="wide">
                     <div class="ui inverted form">
-<!--                         <div class="inline field">
+                        <div class="inline field">
                             <label>NSA</label>
-                            <input class="bs-input" data-constraint="NSA" type="text" placeholder="NSA">
+                            <input class="bs-input" data-constraint="NSA" type="text" placeholder="yes / no">
                         </div>
- -->                        <div class="inline field">
+                        <div class="inline field">
                             <label>ISP</label>
                             <input class="bs-input" data-constraint="ISP" type="text" placeholder="ISP">
                         </div>

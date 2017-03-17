@@ -264,15 +264,46 @@ var constructBS = function() {
   // iterate over all of the 'via' conditions
   jQuery('#bs-via-popup .bs-input').each(function(index, el) {
     if (jQuery(el).val() != "") {
-      var origObj = {
-        constraint1: "does",
-        constraint2: "goVia",
-        constraint3: jQuery(el).data('constraint'),
-        constraint4: jQuery(el).val(),
-        constraint5: "AND"
-      };
-      submission["filter-constraint-"+i] = origObj;
-      i++;
+      var yesOrNo = jQuery(el).val();
+      var i = 1;
+      if (jQuery(el).data('constraint') === "NSA") {
+        // TODO: this is a terrible bandaid because we didn't think through the design
+        if (yesOrNo === "yes" || yesOrNo === "no") {
+          var nsaCities = ["San Francisco", "Los Angeles", "New York", "Dallas", "Washington", "Ashburn", "Seattle", "San Jose", "San Diego", "Miami", "Boston", "Phoenix", "Salt Lake City", "Nashville", "Denver", "Saint Louis", "Bridgeton", "Bluffdale", "Houston", "Chicago", "Atlanta", "Portland"];
+
+          _.each(nsaCities, function(city) {
+            var nsaObj = {
+              constraint1: "",
+              constraint2: "contain",
+              constraint3: "city",
+              constraint4: city,
+              constraint5: "OR"
+            };
+
+            if (yesOrNo === "yes") {
+              nsaObj.constraint1 = "does"
+            } else if (yesOrNo === "no") {
+              nsaObj.constraint1 = "doesNot"
+            } else {
+              console.error('We shouldnt be able to get here')
+            }
+            submission["filter-constraint-"+i] = nsaObj;
+            i++;
+          });
+        } else {
+          jQuery().toastmessage('showErrorToast', 'When filling in the NSA field, please include either "yes" or "no"');
+        }
+      } else {
+        var origObj = {
+          constraint1: "does",
+          constraint2: "goVia",
+          constraint3: jQuery(el).data('constraint'),
+          constraint4: jQuery(el).val(),
+          constraint5: "AND"
+        };
+        submission["filter-constraint-"+i] = origObj;
+        i++;
+      }
     }
   });
   // iterate over all of the 'to' conditions
@@ -441,7 +472,7 @@ var submitQuery = function(obj) {
       if(e!=0){
         var data = jQuery.parseJSON(e);
         //console.log(data.trsTable);
-        if (data.totTrs!=0 && data.result!=undefined ){
+        if (data.totTrs!=0 && data.result!=undefined){
           //xconsole.log("Result: ", data.result);
           ixMapsDataJson = jQuery.parseJSON(data.result);
 
@@ -467,8 +498,7 @@ var submitQuery = function(obj) {
         // we may need more error messages, but for now this will handle the majority...
           hideLoader();
           jQuery.toast({
-            heading: 'No routes found',
-            text: 'No routes were found with specified criteria, returning last submitted route instead. Adjust the query options to be more inclusive, then click Submit to re-query.',
+            text: '<span style="font-size: 20px;">No routes were found with the criteria you provided. Adjust the query options to be more inclusive, then click <b>Search</span>',
             hideAfter: 10000,
             allowToastClose: true,
             position: 'mid-center',

@@ -11,10 +11,10 @@
             <div class="inline fields">
                 <span class="setting-title">You appear to be near &emsp;</span>
                 <div class="field">
-                    <input class="userloc-text-input userloc-city ui-autocomplete-input" autocomplete="off"/>
+                    <strong><input class="userloc-text-input userloc-city ui-autocomplete-input" autocomplete="off"/></strong>
                 </div>
                 <div class="field">
-                    <input class="userloc-text-input userloc-country ui-autocomplete-input" autocomplete="off">
+                    <strong><input class="userloc-text-input userloc-country ui-autocomplete-input" autocomplete="off" style="width:70px"></strong>
                 </div>
             </div>
         </div>
@@ -23,11 +23,8 @@
             <div class="inline fields">
                 <span class="setting-title">Your internet service provider (ISP) is &emsp;</span>
                 <div class="field">
-                    <span class="userloc-isp"></span> (ASN: <span class="userloc-asn"></span>)
+                    <strong><span class="userloc-isp"></span> (ASN: <span class="userloc-asn"></span>)</strong>
                 </div>
-                <!-- <div class="field">
-                    <input type="text" placeholder="xxx">
-                </div> -->
             </div>
         </div>
     </div>

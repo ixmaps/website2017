@@ -414,7 +414,6 @@ i.flag:not(.icon):before {
   padding: 24px;
 }
 .settings.modal .setting-title {
-  font-size: 20px;
   color: $grey;
 }
 
@@ -437,7 +436,6 @@ i.flag:not(.icon):before {
   padding: 24px;
 }
 .opening.modal .setting-title {
-  font-size: 20px;
   color: $grey;
 }
 
@@ -469,12 +467,17 @@ i.flag:not(.icon):before {
   margin-top: 1em;
 }
 
+/* not working, added style to the element in map-modal-opening. TODO */
+.userloc-country {
+  width: 70px;
+}
+
 /* Autocomplete stuff */
 .ui-helper-hidden-accessible {
   display: none;
 }
-.ui-front {
-  z-index: 999 !important;
+.ui-autocompete {
+  z-index: 9999 !important;
 }
 
 /* added from old ix-explore.css*/
