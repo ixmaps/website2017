@@ -34,42 +34,39 @@
                 <div class="title">
                     Where are the main internet exchanges in North America?
                 </div>
+
                 <div class="content">
                     <p>Internet exchanges are generally located in large, often windowless buildings in the heart of cities. Since internet infrastructure is typically built on pre-existing telecommunications infrastructure, these buildings are often former telephone exchanges, especially those close to (former) railway lines that had telegraph rights of way. Here are major internet exchanges in North America:</p>
 
-                    <div class="ui grid">
-                      <div class="two column row">
-                        <div class="four wide column"><img src="/_assets/img/ix-611-folsom.jpg" width="30%" /><br /><small>Credit: <a hred="http://www.mccullagh.org/photo/1ds-8/611-folsom-street-nsa" target="_blank">Declan McCullagh</a></small></div>
-                        <div class="six wide column">611 Folsom Street, San Francisco, where Mark Klein reports the NSA has installed one of its Upstream interception facilities. Reference:  Klein, 2008.</div>
-                      </div>
+                    <div class="row">
+                        <div class="faq-example-image"><img class="ui fluid image" src="/_assets/img/ix-611-folsom.jpg"/><small>Credit: <a hred="http://www.mccullagh.org/photo/1ds-8/611-folsom-street-nsa" target="_blank">Declan McCullagh</a></small></div>
+                        <div class="faq-example-description">611 Folsom Street, San Francisco, where Mark Klein reports the NSA has installed one of its Upstream interception facilities. Reference:  Klein, 2008.</div>
                     </div>
 
-                    <div class="ui grid">
-                      <div class="two column row">
-                        <div class="four wide column"><img src="/_assets/img/ix-350-cermak.jpg" width="30%" /><br /><small>Credit: <a hred="https://www.colocationamerica.com/data-center-locations/chicago.htm" target="_blank">Colocation America</a></small></div>
-                        <div class="six wide column">350 Cermak Street, Chicago, the world's largest data centre.</div>
-                      </div>
+                    <div class="row">
+                        <div class="faq-example-image"><img class="ui fluid image" src="/_assets/img/ix-350-cermak.jpg"/><small>Credit: <a hred="https://www.colocationamerica.com/data-center-locations/chicago.htm" target="_blank">Colocation America</a></small></div>
+                        <div class="faq-example-description">350 Cermak Street, Chicago, the world's largest data centre.</div>
                     </div>
 
-                    <div class="ui grid">
-                      <div class="two column row">
-                        <div class="four wide column"><img src="/_assets/img/ix-150-front.jpg" width="40%" /><br /><small>Credit: <a hred="http://www.151frontstreet.com/" target="_blank">Allied Properties REIT</a></small></div>
-                        <div class="six wide column">151 Front Street, Toronto, the largest internet exchange in Canada.</div>
-                      </div>
+                    <div class="row">
+                        <div class="faq-example-image"><img class="ui fluid image" src="/_assets/img/ix-150-front.jpg" /><small>Credit: <a hred="http://www.151frontstreet.com/" target="_blank">Allied Properties REIT</a></small></div>
+                        <div class="faq-example-description">151 Front Street, Toronto, the largest internet exchange in Canada.</div>
                     </div>
 
-                    <div class="ui grid">
-                      <div class="two column row">
-                        <div class="four wide column"><img src="/_assets/img/ix-33-thomas.jpg" width="30%" /><br /><small>Credit: <a hred="https://en.wikipedia.org/wiki/File:33_Thomas_Sidewalk_View.JPG" target="_blank">CC 2.5 by Dhaluza</a></small></div>
-                        <div class="six wide column">33 Thomas Street, New York City.  Known locally as AT&amp;T's "Long Lines Building,"" the Intercept reports it is an NSA spying hub, code-named Titanpointe. Reference: Gallagher &amp; Moltke, 2016.</div>
-                      </div>
+                    <div class="row">
+                        <div class="faq-example-image"><img class="ui fluid image" src="/_assets/img/ix-33-thomas.jpg" /><small>Credit: <a hred="https://en.wikipedia.org/wiki/File:33_Thomas_Sidewalk_View.JPG" target="_blank">CC 2.5 by Dhaluza</a></small></div>
+                        <div class="faq-example-description">33 Thomas Street, New York City.  Known locally as AT&amp;T's "Long Lines Building,"" the Intercept reports it is an NSA spying hub, code-named Titanpointe. Reference: Gallagher &amp; Moltke, 2016.</div>
                     </div>
-
-                    <p>&nsbp;</p>
 
                     <p>This <a href="https://www.youtube.com/embed/pvdIB5vr4cw" target="_blank">video</a> shows a 3D Google Earth animation of data traveling from the Ontario Science Centre to the San Francisco Art Institute's website, passing through three of these internet exchanges.</p>
 
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/pvdIB5vr4cw" frameborder="0" allowfullscreen></iframe>
+                    <div class="youtube video">
+                        <div class="ui embed" data-url="https://www.youtube.com/embed/pvdIB5vr4cw"></div>
+                    </div>
+
+                    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/pvdIB5vr4cw" frameborder="0" allowfullscreen></iframe> -->
+
+
                 </div>
                 <div class="title">
                     How do I read a traceroute?
@@ -286,12 +283,12 @@
     </div>
 </section>
 
-
 <?php include '../_includes/global-footer.php'; ?>
 
 <script>
   $('.ui.accordion')
   .accordion();
+  $('.youtube.video .ui.embed').embed({});
 </script>
 </body>
 </html>
