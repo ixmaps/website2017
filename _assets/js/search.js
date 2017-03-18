@@ -265,7 +265,6 @@ var constructBS = function() {
   jQuery('#bs-via-popup .bs-input').each(function(index, el) {
     if (jQuery(el).val() != "") {
       var yesOrNo = jQuery(el).val();
-      var i = 1;
       if (jQuery(el).data('constraint') === "NSA") {
         // TODO: this is a terrible bandaid because we didn't think through the design
         if (yesOrNo === "yes" || yesOrNo === "no") {
@@ -310,16 +309,16 @@ var constructBS = function() {
   jQuery('#bs-terminate-popup .bs-input').each(function(index, el) {
     if (jQuery(el).val() != "") {
 
-      var constraint2_val = "";
+      var constraint2 = "";
       if(jQuery(el).data('constraint') == "destHostName" ){
-        constraint2_val = "contain";
+        constraint2 = "contain";
       } else {
-        constraint2_val = "terminate";
+        constraint2 = "terminate";
       }
 
       var origObj = {
         constraint1: "does",
-        constraint2: constraint2_val,
+        constraint2: constraint2,
         constraint3: jQuery(el).data('constraint'),
         constraint4: jQuery(el).val(),
         constraint5: "AND"
