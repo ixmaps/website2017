@@ -45,6 +45,9 @@ var init = function() {
   _.each(autocompletes, function(key, value) {
     loadAutocompleteData(value);
   });
+  // bind the NSA bandaid solution (TEMP - remove me)
+  autocompletes.nsa = ["yes","no"];
+  bindAutocomplete(jQuery('.bs-input[data-constraint="NSA"]'), "nsa");
 };
 
 var getMyLocation = function() {

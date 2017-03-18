@@ -270,7 +270,7 @@ var constructBS = function() {
         if (yesOrNo === "yes" || yesOrNo === "no") {
           var nsaCities = ["San Francisco", "Los Angeles", "New York", "Dallas", "Washington", "Ashburn", "Seattle", "San Jose", "San Diego", "Miami", "Boston", "Phoenix", "Salt Lake City", "Nashville", "Denver", "Saint Louis", "Bridgeton", "Bluffdale", "Houston", "Chicago", "Atlanta", "Portland"];
 
-          _.each(nsaCities, function(city) {
+          _.each(nsaCities, function(city, index) {
             var nsaObj = {
               constraint1: "",
               constraint2: "contain",
@@ -285,6 +285,10 @@ var constructBS = function() {
               nsaObj.constraint1 = "doesNot"
             } else {
               console.error('We shouldnt be able to get here')
+            }
+            // we need to switch the last condition to an AND if there are 'To' basic search criteria added (eg terminate Toronto)
+            if (index+1 === nsaCities.length) {
+              nsaObj.constraint5 = "AND"
             }
             submission["filter-constraint-"+i] = nsaObj;
             i++;
