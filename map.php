@@ -114,15 +114,6 @@
         </div>
     </div>
 
-    <!-- PRIVACY SCORES - OLD APPROACH -->
-    <div id="privacy-details" class="hidden map-icon-popup-container">
-        <img class="map-icon-close-btn" src="_assets/img/icn-close.svg">
-        <div id="carrier-title"></div>
-        <div style="clear: both;"></div>
-        <div id="privacy-details-data"></div>
-    </div>
-
-
 
     <!-- ********************************************************** -->
     <!-- ************************** MODALS ************************ -->

@@ -238,7 +238,6 @@ var setUpClickHandlers = function() {
     jQuery('.opening.modal').modal('show');
   });
   jQuery('#flagging-modal').click(function(){
-    jQuery('#flagging-modal-div').modal('show');
     jQuery('.flagging.modal').modal('show');
   });
 

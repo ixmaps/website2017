@@ -4,7 +4,7 @@
         <i><img id="flagging-close-btn" class="ui image right floated" src="/_assets/img/icn-close.svg" alt=""></i>
     </div>
 
-    <div id="ip-flags-" class="ui-draggable- hidden- content">
+    <div id="ip-flags" class="ui-draggable- hidden- content">
 
         <div id="ip-flag-active"></div>
     

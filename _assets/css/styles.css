@@ -26219,21 +26219,9 @@ i.flag:not(.icon):before {
 	border-radius: 12px;
 }
 
-/* this can't be right. Anto, do you know what this relates to? */
-#tr-details- {
-	top: 3%;
-	left: 5%;
-}
-
 #ip-flags {
-	width: 400px;
-	top: 10%;
-	right: 5%;
-}
-
-#tr-details-close-btn, #ip-flags-close, #privacy-details-close {
-	margin: 10px;
-	float: right;
+	height: 520px;
+	overflow-y: auto;
 }
 
 #tr-details-iframe {
@@ -26312,7 +26300,7 @@ i.flag:not(.icon):before {
 }
 
 /* TODO: fix this. old styles added for transition */
-#privacy-details {
+#privacy-details-old {
 	position: fixed;
 	left: 15%;
 	z-index: 1000;
@@ -26324,11 +26312,15 @@ i.flag:not(.icon):before {
 	border-radius: 12px;
 }
 
+#privacy-details {
+	background: #fff;
+}
+
 .hidden {
 	display: none;
 }
 
-#tr-details-close-btn, #ip-flags-close, #privacy-details-close {
+#tr-details-close-btn, #ip-flags-close, #privacy-details-close, #carrier-close-btn {
 	margin: 10px;
 	float: right;
 }
@@ -26352,6 +26344,7 @@ i.flag:not(.icon):before {
 
 #privacy-details-table {
 	width: 100%;
+	line-height: 32px;
 }
 
 #privacy-feedback-info {
