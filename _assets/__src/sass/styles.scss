@@ -23,9 +23,9 @@ body {
 
 // Set the Grid Structure of Content Articles
 article{
-        @include shift(2);
-        @include span-columns(8);
-        padding: 24px;
+    @include shift(2 of $grid-columns);
+    @include span-columns(8);
+    padding: 24px;
 
     @include media($medium){
         @include shift(1);
