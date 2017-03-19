@@ -26106,10 +26106,6 @@ i.flag:not(.icon):before {
 	background-image: url("../img/flags.png");
 }
 
-.settings.modal {
-	padding: 24px;
-}
-
 .settings.modal .setting-title {
 	color: #2D3A47;
 }
@@ -26401,7 +26397,7 @@ i.flag:not(.icon):before {
 }
 
 #ip-flags-data-list {
-	margin-top: 25px;
+	margin: 25px 0 25px 0;
 	overflow: auto;
 }
 

@@ -168,7 +168,7 @@ var setUpClickHandlers = function() {
     jQuery('.traceroutes.modal').modal('hide');
   });
 
-  jQuery('#settings-details-close-btn').click(function() {
+  jQuery('#settings-close-btn').click(function() {
     removeTr();
     jQuery('.settings.modal').modal('hide');
   });
