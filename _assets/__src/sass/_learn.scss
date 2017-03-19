@@ -1,4 +1,5 @@
 // Issues
+
 .issue-section .ui.styled.accordion{
   border-bottom: 1px solid $grey_dark;
 }
@@ -146,17 +147,54 @@
   background: $white
 }
 
+.faq .ui.styled.accordion .content {
+  @include media($mobile){
+    padding: 0;
+  }
+}
+
 .faq-block{
   @include span-columns(10);
   @include shift(1);
 
   @include media($medium){
-      @include shift(2);
-      @include span-columns(8);
+      @include shift(1);
+      @include span-columns(10);
   }
 
   @include media($small){
       @include shift(0);
       @include span-columns(12);
+      padding:0;
   }
+}
+
+.faq-example-image{
+    @include span-columns(3);
+    padding-bottom: 2em;
+    line-height: 1.25;
+
+    @include media($medium){
+        @include span-columns(4);
+    }
+    @include media($small){
+        @include span-columns(4);
+    }
+    @include media($mobile){
+        @include span-columns(2);
+    }
+}
+
+.faq-example-description{
+    @include span-columns(9);
+
+    @include media($medium){
+        @include span-columns(8);
+    }
+    @include media($small){
+        @include span-columns(8);
+    }
+    @include media($mobile){
+        @include span-columns(2);
+    }
 }
