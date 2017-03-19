@@ -57,7 +57,7 @@
 
                         <p>To see routes from your own personal device, you must first generate them yourself. Go to the <a href="/contribute.php">Contribute</a> page for instructions on how to do this.</p>
 
-                        <p>This step by step video shows how you can selectively map routes in the IXmaps database.</p>
+                        <p>For more details on how to select routes to display, see the Help button on the upper right of the Map page.</p>
 
                         <h6>See FAQs:</h6>
                         <ul>
