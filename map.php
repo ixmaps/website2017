@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>IXmaps</title>
+    <title>Map | IXmaps</title>
     <?php include '_includes/global-head.php'; ?>
 
     <script src="_assets/js/tablesorter.min.js" type="text/javascript"></script>
