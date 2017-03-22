@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>IXmaps - Transparency Report</title>
+    <title>Transparency Report | IXmaps</title>
     <?php include '_includes/transparency-reports.php'; ?>
 </head>
 

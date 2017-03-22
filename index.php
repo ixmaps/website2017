@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>IXmaps | Map Your Internet</title>
+    <title>Home | IXmaps</title>
     <?php include '_includes/global-head.php'; ?>
     <script src="_assets/js/db-stats.js" type="text/javascript"></script>
     <script>
