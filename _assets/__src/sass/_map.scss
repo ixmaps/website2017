@@ -57,6 +57,7 @@
 .map-canvas{
   flex: 1;
   margin: 0;
+  height: 100%;
 }
 
 #map{
@@ -516,7 +517,7 @@ i.flag:not(.icon):before {
   border: 1px solid black;
   border-radius: 12px;
 }
-  
+
 #ip-flags {
   height: 520px;
   overflow-y: auto;
