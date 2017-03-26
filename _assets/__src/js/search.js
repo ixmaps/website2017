@@ -394,7 +394,7 @@ var createASRow = function(row) {
       var selectEl = jQuery('<select/>');
       selectEl.addClass('constraint-value ui fluid dropdown');
       _.each(con.options, function(opt) {
-        selectEl.append(new Option(opt.display, opt.value, true, true));
+        selectEl.append(new Option(opt.display, opt.value));
       });
       
       // select first child: default value
