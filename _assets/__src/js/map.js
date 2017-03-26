@@ -1,9 +1,11 @@
 // generic js related to map.php goes here
 
 /* Gloal Vars for my location: now populated via ajax call */
+/* TODO: add this to a js object: check all uses of these global vars */
 var myIp = '';
 var myCity = '';
 var myCountry = '';
+var myCountryName = '';
 var myIsp = '';
 var myAsn = '';
 var myLat = '';
@@ -31,6 +33,7 @@ var init = function() {
 
   if (initMode==0) {
     jQuery('.opening.modal').modal('show'); // open user location modal
+    jQuery('.sidebar.vertical.legend').addClass('overlay visible animating');
 
   } else if (initMode==1) { // trId is passed to map page
     submitCustomQuery(trIdFilter);
@@ -40,6 +43,7 @@ var init = function() {
   }
 
   createASRow("first"); // TODO: fix depending on initMode
+  //jQuery(".constraint-value.dropdown").prop("selectedIndex", 0); // set default values of first ASRow
 
   setUpClickHandlers();
   _.each(autocompletes, function(key, value) {
@@ -48,6 +52,7 @@ var init = function() {
   // bind the NSA bandaid solution (TEMP - remove me)
   autocompletes.nsa = ["yes","no"];
   bindAutocomplete(jQuery('.bs-input[data-constraint="NSA"]'), "nsa");
+
 };
 
 var getMyLocation = function() {
@@ -63,7 +68,7 @@ var getMyLocation = function() {
       console.log("getMyLocation data loaded ");
       // populate js auto-complete array(s)
       var data = jQuery.parseJSON(e);
-      console.log(data);
+      //console.log(data);
       setMyLocationData(data);
     },
     error: function (e) {
@@ -80,16 +85,20 @@ var setMyLocationData = function(data) {
   myIp = data.myIp;
   myCity = data.myCity;
   myCountry = data.myCountry;
+  myCountryName = data.myCountryName;
   myIsp = data.myIsp;
   myAsn = data.myAsn;
   myLat = data.myLat;
   myLong = data.myLong;
 
-  jQuery('.userloc-ip').text(myIp);
-  jQuery('.userloc-city').val(myCity);
-  jQuery('.userloc-country').val(myCountry);
-  jQuery('.userloc-isp').text(myIsp);
-  jQuery('.userloc-asn').text(myAsn);
+  /* Key vars are sotred in userLocQueryOptions: 
+    still a work on progress...
+    Global vars will be moved here
+  */
+  resetUserLocQueryOptions(); //!!
+
+  // create the initial query for opening modal
+  buildTrCountQuery('first');
 }
 
 var setUpClickHandlers = function() {
@@ -130,6 +139,19 @@ var setUpClickHandlers = function() {
     submitUserLocObject();
     jQuery('.opening.modal').modal('hide');
   });
+  jQuery('#myloc-skip-btn').click(function() {
+    jQuery('.opening.modal').modal('hide');
+  });
+  jQuery('#myloc-contribute-btn').click(function() {
+    jQuery('.opening.modal').modal('hide');
+    window.location = "/contribute.php";
+  });
+  /* for testing only */
+  jQuery('#myloc-reload-btn').click(function() {
+    jQuery('#myloc-reload-btn').removeClass('blue');
+    buildTrCountQuery('');
+  });
+
 
   /* Map Settings button */
   jQuery('.map-settings-button').click(function() {
@@ -140,6 +162,22 @@ var setUpClickHandlers = function() {
   jQuery('#map-help-btn').click(function() {
     jQuery('.map-help.modal').modal('show');
   });
+
+  /* set behaviour for on change usr loc fields*/
+  
+  jQuery( ".userloc-submitter" ).change(function() {
+    jQuery('#myloc-reload-btn').addClass('blue');
+  });
+
+  jQuery( ".userloc-city" ).change(function() {
+    jQuery('#myloc-reload-btn').addClass('blue');
+  });
+
+  jQuery( ".user-loc-chkbox" ).change(function() {
+    jQuery('#myloc-reload-btn').addClass('blue');
+  });
+
+  
 
 
   //**************** TRACEROUTE RESULTS ****************//
@@ -193,11 +231,6 @@ var setUpClickHandlers = function() {
   });
 
 
-  /////
-
-  /*jQuery('.map-icon-close-btn').click(function() {
-    jQuery('.map-icon-popup-container').hide();
-  });*/
 
   //**************** LAYERS ****************//
 

@@ -25679,6 +25679,7 @@ footer {
 	    -ms-flex: 1;
 	        flex: 1;
 	margin: 0;
+	height: 100%;
 }
 
 #map {
@@ -26422,6 +26423,20 @@ i.flag:not(.icon):before {
 	width: 500px;
 	background: #fff;
 	padding: 1px;
+}
+
+.user-loc-chkbox {
+	text-align: right;
+	float: right;
+	padding-right: 40px;
+}
+
+.user-loc-chkbox input[type=checkbox] {
+	display: initial;
+}
+
+.userloc-trs-tot {
+	margin-right: 12px;
 }
 
 .issue-section .ui.styled.accordion {
