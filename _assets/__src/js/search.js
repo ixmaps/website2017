@@ -607,17 +607,31 @@ var renderTrCountData = function(data) {
   /*Check if the element is in the submitted query */
   if (typeof usrLocQuery.submitter != 'undefined'){
     userLocQueryOptions.submitter.total = data.results.submitter.total;
+    if(data.results.submitter.total==0){
+      delete usrLocQuery['submitter'];
+    }
   }
   if (typeof usrLocQuery.myAsn != 'undefined'){
     userLocQueryOptions.myAsn.total = data.results.myAsn.total;
+    if(data.results.myAsn.total==0){
+      delete usrLocQuery['myAsn'];
+    }
   }
   if (typeof usrLocQuery.myCity != 'undefined'){
     userLocQueryOptions.myCity.total = data.results.myCity.total;
+    if(data.results.myCity.total==0){
+      delete usrLocQuery['myCity'];
+    }
   }
   if (typeof usrLocQuery.myCountry != 'undefined'){
     userLocQueryOptions.myCountry.total = data.results.myCountry.total;
+    if(data.results.myCountry.total==0){
+      delete usrLocQuery['myCountry'];
+    }
   }
 
+  // remove queries with value = 0
+  if 
   jQuery(".userloc-trs-tot").html(data.total); // !!
 
   jQuery(".userloc-submitter-tot").html(userLocQueryOptions.submitter.total);
