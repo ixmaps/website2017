@@ -605,14 +605,15 @@ var buildTrCountQuery = function(type) {
 
   // first load query
   if(type=='first'){
-    obj = {
+    
+    /*obj = {
       constraint1: "does",
       constraint2: "originate",
       constraint3: "country",
       constraint4: myCountry,
       constraint5: "AND"
     } 
-    usrLocQuery['myCountry'] = obj;
+    usrLocQuery['myCountry'] = obj;*/
 
     obj = {
       constraint1: "does",

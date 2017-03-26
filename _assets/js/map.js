@@ -177,6 +177,10 @@ var setUpClickHandlers = function() {
     jQuery('#myloc-reload-btn').addClass('blue');
   });
 
+  jQuery( ".userloc-city .userloc-submitter" ).focus(function() {
+    jQuery('#myloc-reload-btn').addClass('blue');
+  });
+
   
 
 
