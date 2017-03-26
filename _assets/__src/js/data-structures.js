@@ -111,6 +111,66 @@ const constraints = [
   }
 ]
 
+/* Note: added "type" the old numeric id to render layers. TODO, remove this when the data structure is shared, replace with something more descriptive */
+var layers = {
+  "nsa": {
+    "type": 1,
+    "name": "NSA Internet Interception Site\/Suspected NSA Internet Inception Site",
+    "active": false,
+    "data": [],
+    "location": "USA"
+  },
+  "ixp": {
+    "type": 5,
+    "name": "Public Internet Exchange Point (IXP)",
+    "active": false,
+    "data": [],
+    "location": "Canada"
+  },
+  "ipt": {
+    "type": 6,
+    "name": "CIRA\/M\-Lab Internet Performance Test (IPT) Server",
+    "active": false,
+    "data": [],
+    "location": "Canada"
+  },
+  "att": {
+    "type": 7,
+    "name": "AT\&T\/Fairview Suspected Surveillance Site",
+    "active": false,
+    "data": [],
+    "location": "Worldwide"
+  },
+  "verizon": {
+    "type": 8,
+    "name": "Verizon\/Stormbrew Suspected Surveillance Site",
+    "active": false,
+    "data": [],
+    "location": "Worldwide"
+  },
+  "google": {
+    "type": 3,
+    "name": "Google Data Centre",
+    "active": false,
+    "data": [],
+    "location": "Worldwide"
+  },
+  "ch": {
+    "type": 2,
+    "name": "Carrier Hotel",
+    "active": false,
+    "data": [],
+    "location": "USA and Canada"
+  },
+  "undersea": {
+    "type": 4,
+    "name": "Undersea Cable Landing Point",
+    "active": false,
+    "data": [],
+    "location": "USA and Canada"
+  }
+}
+
 // note: have removed Bluffdale and Bridgetown - make sure this object correctly represents them for eg layers
 var nsaCities = ["San Francisco", "Los Angeles", "New York", "Dallas", "Washington", "Ashburn", "Seattle", "San Jose", "San Diego", "Miami", "Boston", "Phoenix", "Salt Lake City", "Nashville", "Denver", "Saint Louis", "Bridgeton", "Bluffdale", "Houston", "Chicago", "Atlanta", "Portland"];
 

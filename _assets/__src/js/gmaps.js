@@ -50,7 +50,7 @@ var initializeMap = function() {
         addCollectedCoord(m_lat,m_lng);
       //}
   });*/
-  renderDefaultLayers();
+  //renderDefaultLayers();
 
 }; // end initializeMap()
 
@@ -1513,7 +1513,7 @@ var viewPrivacy = function (asNum) {
   setTimeout(function(){
     jQuery('.carrier.modal').modal('show');
   }, 200);
-  
+
 };
 
 var viewTrDetails = function (trId) {
