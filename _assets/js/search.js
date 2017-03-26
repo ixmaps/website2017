@@ -178,6 +178,7 @@ var constructBoomerangs = function() {
     },
   }
   submitQuery(submission);
+  //submitTrCount(submission);
   jQuery('#qs-search-parameters-container').text('Does Originate in Country CA AND Does Go via Country US AND Does Terminate in Country CA');
 };
 
@@ -399,6 +400,11 @@ var createASRow = function(row) {
       _.each(con.options, function(opt) {
         selectEl.append(new Option(opt.display, opt.value));
       });
+      
+      // select first child: default value
+      // TODO: add default value in input (constraint) + add bindings for first child in selectEl
+      selectEl.prop("selectedIndex", 0);''
+
       // set up the change listener
       if (con.name === "kind") {
         selectEl.change(function(ev) {
@@ -464,6 +470,7 @@ var submitCustomQuery = function(trId, multipleTRs) {
   submitQuery(singleTrJSON);
 }
 
+
 /* submission for new map website */
 var submitQuery = function(obj) {
   console.log('Submitting...', obj);
@@ -498,6 +505,7 @@ var submitQuery = function(obj) {
           loadMapData();
           hideLoader();
           jQuery('#filter-results-empty').hide();
+          jQuery('.sidebar.vertical.legend').removeClass('overlay animating visible');
           jQuery('#filter-results-content').fadeIn('fast');
 
         } else {
@@ -512,58 +520,22 @@ var submitQuery = function(obj) {
             icon: 'error',
           });
 
+
+          /* Anto says: we should remove this; it's not intuitive for novice users*/
           // wait before loading
           setTimeout(function(){
             if(loadedDefaultResult){
               initializeMap();
               jQuery('#filter-results-content').fadeOut('fast');
               jQuery('#filter-results-empty').show();
-
             } else {
               constructLastContributed();
-              loadedDefaultResult = true;
             }
-
           }, 10000);
 
-        }
-      }
-/*
-      /////////
-      if (data.totTrs!=undefined){
-        console.log(" Total TRs: "+data.totTrs);
-        console.log(" Total Hops: "+data.totHops);
-        console.log(" File Name: "+data.ixdata);
-        console.log(" File Size: "+data.ixsize+' KB');
-        console.log(" Execution Time: "+data.execTime+' Sec.');
-        writeIxMapsJs(data.ixdata);
-        jQuery('#map-canvas-container').show();
-        jQuery('#map-container').show();
-        jQuery('#filter-results').show();
-        jQuery('#filter-results-log').show();
-        //jQuery('#map-core-controls').show();
-        jQuery('#filter-results').html(data.trsTable);
-        jQuery('#filter-results-log').html(data.queryLogs);
-        jQuery('#filter-results-summary').html(data.querySummary);
-      } else {
-        // we may need more error messages, but for now this will handle the majority...
-        jQuery.toast({
-          heading: 'No routes found',
-          text: 'No routes were found with specified criteria, returning last submitted route instead. Adjust the query options to be more inclusive, then click Submit to re-query.',
-          hideAfter: 10000,
-          allowToastClose: true,
-          position: 'mid-center',
-          icon: 'error',
-        });
-        // DANGER! This could result in an endless loop if there is no last submitted
-        submitLastSubmissionObject();
-        jQuery('#filter-results-log').show();
-        jQuery('#filter-results-log').html(data.queryLogs);
-        jQuery('#filter-results-summary').html(data.querySummary);
-      }
-      hideLoader();
-      ///////////
-*/
+        } // end if
+      } // end success
+
     },
     error: function (e) {
       console.log("Error! Submission unsuccessful");
@@ -573,104 +545,254 @@ var submitQuery = function(obj) {
 };
 
 
+/* User location query functions and vars */
+
+var userLocQueryOptions = {};
+var dataSearch = {};
+var usrLocQuery = {};
+
 var submitUserLocObject = function() {
+  submitQuery(usrLocQuery);
+  //submitLastSubmissionObject();
+}
 
-  /* Check values if user has changed City and Country*/
-  myCity = jQuery('.userloc-city').val();
-  myCountry = jQuery('.userloc-country').val();
-
-/*  Colin: not sure where are you going with this approach
-  Commenting it for now */
-
-/*  var userLocJSON = {
-    "parameters":
-    {
-      "submitOnLoad": true,
-      "submissionType": "customFilter",
-      "otherFunction": ""
+var resetUserLocQueryOptions = function() {
+  console.log("resetUserLocQueryOptions()");
+  userLocQueryOptions = {
+    "submitter": {
+      "value": "",
+      "total":0,
+      "checked": false,
     },
-    "constraints":
-    {
-      "filter-constraint-1":
-      {
+    "myAsn": {
+      "value": "",
+      "total":0,
+      "checked": false,
+    },
+
+    "myCity": {
+      "value": "",
+      "total":0,
+      "checked": false,
+    },
+
+    "myCountry": {
+      "value": "",
+      "total":0,
+      "checked": false,
+    }
+  };
+
+  // get data for user geo location
+  userLocQueryOptions.myAsn.value = myAsn;
+  userLocQueryOptions.myCountry.value = myCountry;
+  userLocQueryOptions.myCity.value = myCity;
+
+  // update ui fields
+  jQuery('.userloc-ip').text(myIp);
+  jQuery('.userloc-city').val(myCity);
+  jQuery('.userloc-country').val(myCountry);
+  jQuery('.userloc-country-name').html(myCountryName);
+  jQuery('.userloc-country-flag').addClass(myCountry.toLowerCase());
+  jQuery('.userloc-country-flag').addClass('flag');
+  jQuery('.userloc-isp').text(myIsp);
+  jQuery('.userloc-asn').text(myAsn);
+
+}
+
+var buildTrCountQuery = function(type) {
+  console.log("buildTrCountQuery", type);
+
+  resetUserLocQueryOptions(); // !!
+
+  var obj;
+
+  // first load query
+  if(type=='first'){
+
+    /*obj = {
+      constraint1: "does",
+      constraint2: "originate",
+      constraint3: "country",
+      constraint4: myCountry,
+      constraint5: "AND"
+    } 
+    usrLocQuery['myCountry'] = obj;*/
+
+    obj = {
+      constraint1: "does",
+      constraint2: "originate",
+      constraint3: "asnum",
+      constraint4: myAsn,
+      constraint5: "AND"
+    } 
+    usrLocQuery['myAsn'] = obj;
+
+    if(myCity!=""){
+      obj = {
         constraint1: "does",
         constraint2: "originate",
-        constraint3: "",
-        constraint4: "",
+        constraint3: "city",
+        constraint4: myCity,
         constraint5: "AND"
-      }
+      };
+      usrLocQuery['myCity'] = obj;
     }
-  };*/
 
-  /* Criteria 1: the most inclusive contain my city and my country  */
-  /*if (myCity!="" && myCountry!="") {
-    console.log('Searching based on Country and City')*/
-
-  // if (myCity!="" && myCountry!="" && myAsn) {
-  //   console.log('Searching based on ASN, Country, and City');
-
-  //   userLocJSON = {
-  //       "filter-constraint-1":
-  //       {
-  //         constraint1: "does",
-  //         constraint2: "originate",
-  //         constraint3: "country",
-  //         constraint4: myCountry,
-  //         constraint5: "AND"
-  //       },
-  //       "filter-constraint-2":
-  //       {
-  //         constraint1: "does",
-  //         constraint2: "originate",
-  //         constraint3: "city",
-  //         constraint4: myCity,
-  //         constraint5: "AND"
-  //       },
-  //       "filter-constraint-3":
-  //       {
-  //         constraint1: "does",
-  //         constraint2: "originate",
-  //         constraint3: "asnum",
-  //         constraint4: myAsn,
-  //         constraint5: "AND"
-  //       }
-  //   };
-  //   submitQuery(userLocJSON);
-
-  // }
-
-  if (myCity!="") {
-    console.log('Searching based on city');
-    userLocJSON = {
-        "filter-constraint-1":
-        {
-          constraint1: "does",
-          constraint2: "contain",
-          constraint3: "city",
-          constraint4: myCity,
-          constraint5: "AND"
-        }
-    };
-    submitQuery(userLocJSON);
-
-  } else if (myCountry!="") {
-    console.log('Searching based on Country');
-    userLocJSON = {
-        "filter-constraint-1":
-        {
-          constraint1: "does",
-          constraint2: "contain",
-          constraint3: "country",
-          constraint4: myCountry,
-          constraint5: "AND"
-        }
-    };
-    submitQuery(userLocJSON);
-
-  /*Alert: This can produce many irrelevant queries */
+  // query dynamically created based on user selections in opening modal
   } else {
-    console.log('Giving up, last submission instead of user geoloc');
-    submitLastSubmissionObject();
+
+    usrLocQuery = {};
+
+    var submitter = jQuery(".userloc-submitter").val();
+    var myCityUsr = jQuery(".userloc-city").val();
+    var myCountryUsr = jQuery(".userloc-country").val();
+
+    if(jQuery(".userloc-asn-chkbox").is(":checked")){
+      var obj = { 
+          constraint1: "does",
+          constraint2: "originate",
+          constraint3: "asnum",
+          constraint4: userLocQueryOptions.myAsn.value,
+          constraint5: "AND"
+      };
+      usrLocQuery['myAsn'] = obj;
+    }
+
+    if(myCountryUsr != "" && jQuery(".userloc-country-chkbox").is(":checked")){
+      var obj = { 
+          constraint1: "does",
+          constraint2: "originate",
+          constraint3: "country",
+          constraint4: myCountryUsr,
+          constraint5: "AND"
+      };
+      usrLocQuery['myCountry'] = obj;
+    }
+
+    if(myCityUsr!="" && jQuery(".userloc-city-chkbox").is(":checked")){
+      var obj = { 
+          constraint1: "does",
+          constraint2: "originate",
+          constraint3: "city",
+          constraint4: myCityUsr,
+          constraint5: "AND"
+      };
+      usrLocQuery['myCity'] = obj;
+    }
+
+    if(submitter!="" && jQuery(".userloc-submitter-chkbox").is(":checked")){
+      var obj = { 
+          constraint1: "does",
+          constraint2: "contain",
+          constraint3: "submitter",
+          constraint4: submitter,
+          constraint5: "AND"
+      };
+      usrLocQuery['submitter'] = obj;
+    }
+
+  } // end if
+
+  loadingUsrLocQuery();
+  submitTrCount(usrLocQuery);  
+}
+
+/* count results for a submission constraint */
+var submitTrCount = function(obj) {
+//var submitQuery = function(obj) {
+
+  console.log('submitTrCount...', obj);
+  
+  ajaxObj = jQuery.ajax(url_base + '/application/controller/map_search.php', {
+    type: 'post',
+    data: obj,
+    success: function (e) {
+      console.log("submitTrCount OK");
+      dataSearch = jQuery.parseJSON(e);
+      console.log(dataSearch);
+      renderTrCountData(dataSearch);
+    },
+    error: function (e) {
+      console.log("Error! submitTrCount");
+    
+    }
+  });
+};
+
+
+var renderTrCountData = function(data) {
+
+  /*Check if the element is in the submitted query */
+  if (typeof usrLocQuery.submitter != 'undefined'){
+    userLocQueryOptions.submitter.total = data.results.submitter.total;
   }
+  if (typeof usrLocQuery.myAsn != 'undefined'){
+    userLocQueryOptions.myAsn.total = data.results.myAsn.total;
+  }
+  if (typeof usrLocQuery.myCity != 'undefined'){
+    userLocQueryOptions.myCity.total = data.results.myCity.total;
+  }
+  if (typeof usrLocQuery.myCountry != 'undefined'){
+    userLocQueryOptions.myCountry.total = data.results.myCountry.total;
+  }  
+
+  jQuery(".userloc-trs-tot").html(data.total); // !!
+
+  jQuery(".userloc-submitter-tot").html(userLocQueryOptions.submitter.total);
+  if(userLocQueryOptions.submitter.total != 0){
+    jQuery(".userloc-submitter-chkbox").prop('checked', true);
+    userLocQueryOptions.submitter.checked = true;
+  }
+  
+  jQuery(".userloc-asn-tot").html(userLocQueryOptions.myAsn.total);
+  if(userLocQueryOptions.myAsn.total != 0){
+    jQuery(".userloc-asn-chkbox").prop('checked', true);
+    userLocQueryOptions.myAsn.checked = true;
+  }
+  
+  jQuery(".userloc-city-tot").html(userLocQueryOptions.myCity.total);
+  if(userLocQueryOptions.myCity.total != 0){
+    jQuery(".userloc-city-chkbox").prop('checked', true);
+    userLocQueryOptions.myCity.checked = true;
+  }
+
+  jQuery(".userloc-country-tot").html(userLocQueryOptions.myCountry.total);
+  if(userLocQueryOptions.myCountry.total != 0){
+    jQuery(".userloc-country-chkbox").prop('checked', true);
+    userLocQueryOptions.myCountry.checked = true;
+  }
+
+  /* TODO: add a link to show last contribution */
+  if(data.total != 0){
+    jQuery('#myloc-contribute-btn').removeClass('blue');
+    jQuery('#myloc-submit-btn').addClass('blue');
+  } else {
+    jQuery('#myloc-submit-btn').removeClass('blue');
+    jQuery('#myloc-contribute-btn').addClass('blue');
+  }
+
+}
+
+var loadingUsrLocQuery = function() {
+  var img = '<img width="20px" src="/_assets/img/icn-loading.gif"/>';
+  //toggleLoadingUsrLocQuery('show');
+  
+  if (typeof usrLocQuery.submitter != 'undefined'){
+    jQuery(".userloc-submitter-tot").html(img);  
+  }
+  if (typeof usrLocQuery.myAsn != 'undefined'){
+    jQuery(".userloc-asn-tot").html(img);
+  }
+
+  if (typeof usrLocQuery.myCountry != 'undefined'){
+    jQuery(".userloc-country-tot").html(img); 
+  }
+  if (typeof usrLocQuery.myCity != 'undefined'){
+    jQuery(".userloc-city-tot").html(img);
+  }
+  
+  jQuery(".userloc-trs-tot").html(img);
+  jQuery('#myloc-submit-btn').removeClass('blue');
 }
 

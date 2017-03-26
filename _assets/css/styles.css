@@ -26425,6 +26425,20 @@ i.flag:not(.icon):before {
 	padding: 1px;
 }
 
+.user-loc-chkbox {
+	text-align: right;
+	float: right;
+	padding-right: 40px;
+}
+
+.user-loc-chkbox input[type=checkbox] {
+	display: initial;
+}
+
+.userloc-trs-tot {
+	margin-right: 12px;
+}
+
 .issue-section .ui.styled.accordion {
 	border-bottom: 1px solid #191C1F;
 }
