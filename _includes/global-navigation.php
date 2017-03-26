@@ -5,6 +5,8 @@
         <a href="/index.php"><img src="/_assets/img/logo-ixmaps.png" alt="IXmaps"></a>
     </div>
 
+    <span class="header-announcement">This is a beta version of the re-designed IXmaps website. We welcome your <a href="https://ixmaps.typeform.com/to/m0kB8X" target="_blank">feedback</a>!</span>
+
     <nav class="nav">
         <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
         <ul class="nav-list">

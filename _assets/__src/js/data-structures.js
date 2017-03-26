@@ -1,5 +1,9 @@
 // Temporary house for all of the shared data structures. These structures are used by js and to gen html, and should be a point of agreement btw front and back end. This should eventually be moved serverside
 
+
+// I really prefer being explicit here, giving them keys (boolean, position, kind, etc) instead of 'constraint1', 'constraint2', etc. I'm hoping we can adjust the backend to agree.
+// I'm open to adjusting this, basically moving the keys back outside the objects (constraints becomes an object of objects) and using _.keys(constraints) to get the array of keys (boolean, position, kind, etc) - would help with always tying value and display together - really these should never be referenced in the map-search.php or search.js
+// this should likely be renamed to something a little more specific
 const constraints = [
   {
     "name": "boolean",
