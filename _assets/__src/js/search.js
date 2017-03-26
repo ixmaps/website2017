@@ -521,7 +521,6 @@ var submitQuery = function(obj) {
             icon: 'error',
           });
 
-
           /* Anto says: we should remove this; it's not intuitive for novice users*/
           // wait before loading
           setTimeout(function(){
@@ -562,24 +561,22 @@ var resetUserLocQueryOptions = function() {
   userLocQueryOptions = {
     "submitter": {
       "value": "",
-      "total":0,
+      "total": 0,
       "checked": false,
     },
     "myAsn": {
       "value": "",
-      "total":0,
+      "total": 0,
       "checked": false,
     },
-
     "myCity": {
       "value": "",
-      "total":0,
+      "total": 0,
       "checked": false,
     },
-
     "myCountry": {
       "value": "",
-      "total":0,
+      "total": 0,
       "checked": false,
     }
   };

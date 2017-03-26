@@ -134,7 +134,8 @@ var constructLastContributed = function() {
 
 var constructViaNSA = function() {
   // TODO: get this from the server in the future
-  var nsaCities = ["San Francisco", "Los Angeles", "New York", "Dallas", "Washington", "Ashburn", "Seattle", "San Jose", "San Diego", "Miami", "Boston", "Phoenix", "Salt Lake City", "Nashville", "Denver", "Saint Louis", "Bridgeton", "Bluffdale", "Houston", "Chicago", "Atlanta", "Portland"];
+  // note: have removed Bluffdale and Bridgetown - make sure this object correctly represents them for eg layers
+  var nsaCities = ["San Francisco", "Los Angeles", "New York", "Dallas", "Washington", "Ashburn", "Seattle", "San Jose", "San Diego", "Miami", "Boston", "Phoenix", "Salt Lake City", "Nashville", "Denver", "Saint Louis", "Houston", "Chicago", "Atlanta", "Portland"];
   var submission = {};
   var i = 1;
 
@@ -400,7 +401,7 @@ var createASRow = function(row) {
       _.each(con.options, function(opt) {
         selectEl.append(new Option(opt.display, opt.value));
       });
-      
+
       // select first child: default value
       // TODO: add default value in input (constraint) + add bindings for first child in selectEl
       selectEl.prop("selectedIndex", 0);''
@@ -520,7 +521,6 @@ var submitQuery = function(obj) {
             icon: 'error',
           });
 
-
           /* Anto says: we should remove this; it's not intuitive for novice users*/
           // wait before loading
           setTimeout(function(){
@@ -561,24 +561,22 @@ var resetUserLocQueryOptions = function() {
   userLocQueryOptions = {
     "submitter": {
       "value": "",
-      "total":0,
+      "total": 0,
       "checked": false,
     },
     "myAsn": {
       "value": "",
-      "total":0,
+      "total": 0,
       "checked": false,
     },
-
     "myCity": {
       "value": "",
-      "total":0,
+      "total": 0,
       "checked": false,
     },
-
     "myCountry": {
       "value": "",
-      "total":0,
+      "total": 0,
       "checked": false,
     }
   };
@@ -616,7 +614,7 @@ var buildTrCountQuery = function(type) {
       constraint3: "country",
       constraint4: myCountry,
       constraint5: "AND"
-    } 
+    }
     usrLocQuery['myCountry'] = obj;*/
 
     obj = {
@@ -625,7 +623,7 @@ var buildTrCountQuery = function(type) {
       constraint3: "asnum",
       constraint4: myAsn,
       constraint5: "AND"
-    } 
+    }
     usrLocQuery['myAsn'] = obj;
 
     if(myCity!=""){
@@ -649,7 +647,7 @@ var buildTrCountQuery = function(type) {
     var myCountryUsr = jQuery(".userloc-country").val();
 
     if(jQuery(".userloc-asn-chkbox").is(":checked")){
-      var obj = { 
+      var obj = {
           constraint1: "does",
           constraint2: "originate",
           constraint3: "asnum",
@@ -660,7 +658,7 @@ var buildTrCountQuery = function(type) {
     }
 
     if(myCountryUsr != "" && jQuery(".userloc-country-chkbox").is(":checked")){
-      var obj = { 
+      var obj = {
           constraint1: "does",
           constraint2: "originate",
           constraint3: "country",
@@ -671,7 +669,7 @@ var buildTrCountQuery = function(type) {
     }
 
     if(myCityUsr!="" && jQuery(".userloc-city-chkbox").is(":checked")){
-      var obj = { 
+      var obj = {
           constraint1: "does",
           constraint2: "originate",
           constraint3: "city",
@@ -682,7 +680,7 @@ var buildTrCountQuery = function(type) {
     }
 
     if(submitter!="" && jQuery(".userloc-submitter-chkbox").is(":checked")){
-      var obj = { 
+      var obj = {
           constraint1: "does",
           constraint2: "contain",
           constraint3: "submitter",
@@ -695,7 +693,7 @@ var buildTrCountQuery = function(type) {
   } // end if
 
   loadingUsrLocQuery();
-  submitTrCount(usrLocQuery);  
+  submitTrCount(usrLocQuery);
 }
 
 /* count results for a submission constraint */
@@ -703,7 +701,7 @@ var submitTrCount = function(obj) {
 //var submitQuery = function(obj) {
 
   console.log('submitTrCount...', obj);
-  
+
   ajaxObj = jQuery.ajax(url_base + '/application/controller/map_search.php', {
     type: 'post',
     data: obj,
@@ -715,7 +713,7 @@ var submitTrCount = function(obj) {
     },
     error: function (e) {
       console.log("Error! submitTrCount");
-    
+
     }
   });
 };
@@ -735,7 +733,7 @@ var renderTrCountData = function(data) {
   }
   if (typeof usrLocQuery.myCountry != 'undefined'){
     userLocQueryOptions.myCountry.total = data.results.myCountry.total;
-  }  
+  }
 
   jQuery(".userloc-trs-tot").html(data.total); // !!
 
@@ -744,13 +742,13 @@ var renderTrCountData = function(data) {
     jQuery(".userloc-submitter-chkbox").prop('checked', true);
     userLocQueryOptions.submitter.checked = true;
   }
-  
+
   jQuery(".userloc-asn-tot").html(userLocQueryOptions.myAsn.total);
   if(userLocQueryOptions.myAsn.total != 0){
     jQuery(".userloc-asn-chkbox").prop('checked', true);
     userLocQueryOptions.myAsn.checked = true;
   }
-  
+
   jQuery(".userloc-city-tot").html(userLocQueryOptions.myCity.total);
   if(userLocQueryOptions.myCity.total != 0){
     jQuery(".userloc-city-chkbox").prop('checked', true);
@@ -777,21 +775,21 @@ var renderTrCountData = function(data) {
 var loadingUsrLocQuery = function() {
   var img = '<img width="20px" src="/_assets/img/icn-loading.gif"/>';
   //toggleLoadingUsrLocQuery('show');
-  
+
   if (typeof usrLocQuery.submitter != 'undefined'){
-    jQuery(".userloc-submitter-tot").html(img);  
+    jQuery(".userloc-submitter-tot").html(img);
   }
   if (typeof usrLocQuery.myAsn != 'undefined'){
     jQuery(".userloc-asn-tot").html(img);
   }
 
   if (typeof usrLocQuery.myCountry != 'undefined'){
-    jQuery(".userloc-country-tot").html(img); 
+    jQuery(".userloc-country-tot").html(img);
   }
   if (typeof usrLocQuery.myCity != 'undefined'){
     jQuery(".userloc-city-tot").html(img);
   }
-  
+
   jQuery(".userloc-trs-tot").html(img);
   jQuery('#myloc-submit-btn').removeClass('blue');
 }
