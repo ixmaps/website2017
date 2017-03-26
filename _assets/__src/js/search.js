@@ -630,8 +630,6 @@ var renderTrCountData = function(data) {
     }
   }
 
-  // remove queries with value = 0
-  if 
   jQuery(".userloc-trs-tot").html(data.total); // !!
 
   jQuery(".userloc-submitter-tot").html(userLocQueryOptions.submitter.total);
