@@ -605,7 +605,7 @@ var buildTrCountQuery = function(type) {
 
   // first load query
   if(type=='first'){
-    
+
     /*obj = {
       constraint1: "does",
       constraint2: "originate",
@@ -704,7 +704,7 @@ var submitTrCount = function(obj) {
     type: 'post',
     data: obj,
     success: function (e) {
-      console.log("submitTrCount OK", e);
+      console.log("submitTrCount OK");
       dataSearch = jQuery.parseJSON(e);
       console.log(dataSearch);
       renderTrCountData(dataSearch);
