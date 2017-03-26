@@ -1,0 +1,19 @@
+h5 {
+	float: left;
+}
+
+.dl-btn {
+	float: right;
+	color: #4CAF50;
+	border-radius: 7px;
+	background-color: white;
+	color: black;
+	border: 2px solid #4CAF50;
+	padding: 4px 14px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin-left: 20px;
+	font-weight: bold;
+}

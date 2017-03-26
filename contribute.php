@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Contribute | IXmaps</title>
+    <link href="/_assets/css/contribute.css" rel="stylesheet">
     <?php include '_includes/global-head.php'; ?>
 </head>
 
@@ -29,16 +30,10 @@
 
     <h3>Installing and running the IXmaps Client</h3>
 
-    <!-- This is not accurate; commenting this -->
-    <!-- <h4>System requirements</h4>
-    <ul>
-        <li>Intel processor</li>
-        <li>1GB of RAM</li>
-    </ul> -->
-
     <p>IXmapsClient works on <strong>Windows</strong>, <strong>Mac OS X</strong>, and <strong>Linux</strong>.</p>
 
-        <h5>Windows</h5>
+        <h5>Windows</h5><a class="dl-btn" href="https://www.ixmaps.ca/IXmapsClient/IXmapsClient.1.0.6.win64.exe">Download</a>
+        <div style="clear:both"></div>
         This version of the software runs on Windows 7, Windows 8 and Windows 10.
         <ul class="nobullet">
           <li><a href="https://www.ixmaps.ca/IXmapsClient/IXmapsClient.1.0.6.win64.exe">Download the <strong>IXmapsClient</strong> installer IXmapsClient.1.0.6.win64.exe</a></li>
@@ -71,7 +66,8 @@
 
         <br />
 
-        <h5>Mac OSX</h5>
+        <h5>Mac OSX</h5><a class="dl-btn" href="https://www.ixmaps.ca/IXmapsClient/IXmapsClient_v.1.0.6.macos.dmg">Download</a>
+        <div style="clear:both"></div>
         <ul class="nobullet">
           <li><a href="https://www.ixmaps.ca/IXmapsClient/IXmapsClient_v.1.0.6.macos.dmg">Download the <strong>IXmapsClient</strong> installer <strong>IXmapsClient_v.1.0.6.macos.dmg</strong></a></li>
           <li>Double click on the <strong>IXmapsClient.1.0.6.macos.dmg</strong> to open it</li>
@@ -87,7 +83,8 @@
 
         <br />
 
-        <h5>Linux</h5>
+        <h5>Linux</h5><a class="dl-btn" href="https://www.ixmaps.ca/IXmapsClient/IXmapsClient.1.0.6.linux.tar.gz">Download</a>
+        <div style="clear:both"></div>
         <ul class="nobullet">
           <li><a href="https://www.ixmaps.ca/IXmapsClient/IXmapsClient.1.0.6.linux.tar.gz">Download the <strong>IXmapsClient</strong> installer <strong>IXmapsClient.1.0.6.linux.tar.gz</strong></a></li>
           <li>Extract the contents of the file <strong>IXmapsClient.1.0.6.linux.tar.gz</strong>, e.g. by running the following command in a terminal window: tar xzvf IXmapsClient.1.0.6.linux.tar.gz</li>

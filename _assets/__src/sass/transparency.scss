@@ -1,16 +1,14 @@
-
-
-.transparency-intro{
+.transparency-intro {
   background: #191C1F;
   padding: 40px 0;
   text-align: center;
 }
 
-.ui.message{
+.ui.message {
   margin: 0 0 0 0 !important;
 }
 
-section{
+section {
   padding: 24px 0
 }
 
@@ -21,52 +19,52 @@ section{
  * =======================================================================
  */
 
-h2{
-    font-size: 2.25em;
-    line-height: 1.125em;
-    margin-bottom: 16px;
+h2 {
+  font-size: 2.25em;
+  line-height: 1.125em;
+  margin-bottom: 16px;
 }
 
-h3{
-    font-size: 2.25em;
-    line-height: 1.125em;
-    color: #be9f23;
-    margin-bottom: 16px;
+h3 {
+  font-size: 2.25em;
+  line-height: 1.125em;
+  color: #be9f23;
+  margin-bottom: 16px;
 }
 
-:not(footer) > .content h4{
-    font-size: 24px;
-    font-variant: small-caps;
-    text-transform: lowercase;
-    color: #191C1F;
-    font-weight: 700;
-    letter-spacing: 1px;
-    border-top: 2px solid #191C1F;
-    border-bottom: 2px solid #191C1F;
-    padding: .25em 0 0.45em 0;
-    margin: 2em 0 .5em 0;
+:not(footer) > .content h4 {
+  font-size: 24px;
+  font-variant: small-caps;
+  text-transform: lowercase;
+  color: #191C1F;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-top: 2px solid #191C1F;
+  border-bottom: 2px solid #191C1F;
+  padding: .25em 0 0.45em 0;
+  margin: 2em 0 .5em 0;
 }
 
-h5{
-    font-size: 1.125em;
-    line-height: 1.25em;
-    padding: 0;
-    color: #191C1F;
-    font-weight: 700;
-    margin:  1.5em 0 .125em;
+h5 {
+  font-size: 1.125em;
+  line-height: 1.25em;
+  padding: 0;
+  color: #191C1F;
+  font-weight: 700;
+  margin:  1.5em 0 .125em;
 }
 
-h6{
-    font-variant: small-caps;
-    text-transform: lowercase;
-    letter-spacing: 1px;
-    font-size: 1.25em;
-    color: #191C1F;
-    font-weight: 900;
-    border-top: 2px solid #ddd;
-    line-height: 1.25em;
-    padding: .75em 0 .25em 0;
-    margin: 2em 0 .5em;
+h6 {
+  font-variant: small-caps;
+  text-transform: lowercase;
+  letter-spacing: 1px;
+  font-size: 1.25em;
+  color: #191C1F;
+  font-weight: 900;
+  border-top: 2px solid #ddd;
+  line-height: 1.25em;
+  padding: .75em 0 .25em 0;
+  margin: 2em 0 .5em;
 }
 
 article a.returntoarticle {
@@ -83,23 +81,22 @@ article a.returntoarticle {
 
 
 article ol li:before,
-article ul li:before{
-    color: #be9f23;
+article ul li:before {
+  color: #be9f23;
 }
 
-sup a{
+sup a {
   border-bottom: none;
   box-shadow: none;
   font-weight: 600;
   padding: 0 2px 4px;
 }
 
-
-.cc{
-    border: 1px solid #ddd;
-    margin: 1em 0;
-    text-align: center;
-    padding: 2em;
+.cc {
+  border: 1px solid #ddd;
+  margin: 1em 0;
+  text-align: center;
+  padding: 2em;
 }
 
 a.cc-image {
@@ -112,17 +109,17 @@ a.cc-image {
   }
 }
 
-header .ui.fluid.image{
+header .ui.fluid.image {
   max-width: 800px
 }
 
 #download {
-    text-align: center;
-    padding: 2.5em 1em 1em 1em;
-    margin-bottom: 2em;
+  text-align: center;
+  padding: 2.5em 1em 1em 1em;
+  margin-bottom: 2em;
 }
 
-#download button{
+#download button {
   font-size: 24px;
   font-weight: 900;
   line-height: 2em;
@@ -144,9 +141,9 @@ header .ui.fluid.image{
   box-shadow:         0 1px 2px rgba(0,0,0,0.25), inset 0 0 3px #fff;
 }
 
-
-.center { text-align: center;}
-
+.center {
+  text-align: center;
+}
 
 .tabs li {
   float: left;
@@ -167,7 +164,9 @@ header .ui.fluid.image{
 .tabs a.active {
   background: #888;
 }
-#container section .tabgroup{margin: 0;}
+#container section .tabgroup {
+  margin: 0;
+}
 
 .tabgroup div {
   padding: 1em;
@@ -175,8 +174,8 @@ header .ui.fluid.image{
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
 }
 
-.tabgroup img{
-    width: 100%;
+.tabgroup img {
+  width: 100%;
 }
 .clearfix:after {
   content: "";
@@ -190,23 +189,23 @@ header .ui.fluid.image{
   line-height: 2em;
   font-style: italic;
   margin: 1em 0 0 0;
-  a{
+  a {
     color: #467848;
     font-weight: 600;
   }
 }
 
-.wrapper{
+.wrapper {
   width: 1000px;
   margin: 0 auto;
 }
 
-.wrapper ul{
+.wrapper ul {
   -webkit-margin-before: 0;
   -webkit-margin-after: 0;
   padding-left:0;
 }
 
-.wrapper .tabgroup{
+.wrapper .tabgroup {
   padding: 0;
 }
