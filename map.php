@@ -27,6 +27,7 @@
     <script src="_assets/js/search.js" type="text/javascript"></script>
     <script src="_assets/js/layers.js" type="text/javascript"></script>
     <script src="_assets/js/jquery.toast.min.js"></script>
+    <script src="_assets/js/data-structures.js" type="text/javascript"></script>
     <script>
 
         var initMode = 0;

@@ -14,113 +14,6 @@
 var ajaxObj;
 var loadedDefaultResult = false;
 
-const constraints = [
-  {
-    "name": "boolean",
-    "options": [
-      {
-        "value": "does",
-        "display": "Does"
-      },
-      {
-        "value": "doesNot",
-        "display": "Does not"
-      }
-    ]
-  },
-  {
-    "name": "position",
-    "options": [
-      {
-        "value": "originate",
-        "display": "Originate"
-      },
-      {
-        "value": "terminate",
-        "display": "Terminate"
-      },
-      {
-        "value": "goVia",
-        "display": "Goes via"
-      },
-      {
-        "value": "contain",
-        "display": "Contain"
-      }
-    ]
-  },
-  {
-    "name": "kind",
-    "options": [
-      {
-        "value": "submitter",
-        "display": "Submitter name"
-      },
-      {
-        "value": "zipCodeSubmitter",
-        "display": "Submitter postcode"
-      },
-      {
-        "value": "ISP",
-        "display": "ISP/Carrier"
-      },
-      {
-        "value": "city",
-        "display": "City"
-      },
-      {
-        "value": "region",
-        "display": "Province/State"
-      },
-      {
-        "value": "country",
-        "display": "Country"
-      },
-      {
-        "value": "zipCode",
-        "display": "Postcode"
-      },
-      {
-        "value": "hostName",
-        "display": "Hostname"
-      },
-      {
-        "value": "destHostName",
-        "display": "Destination hostname"
-      },
-      {
-        "value": "ipAddr",
-        "display": "IP address"
-      },
-      {
-        "value": "asnum",
-        "display": "AS number"
-      },
-      {
-        "value": "trId",
-        "display": "Traceroute id"
-      }
-    ]
-  },
-  {
-    "name": "input",
-    "options": []
-  },
-  {
-    "name": "join",
-    "options": [
-      {
-        "value": "and",
-        "display": "AND"
-      },
-      {
-        "value": "or",
-        "display": "OR"
-      }
-    ]
-  }
-]
-
 var constructLastContributed = function() {
   var submission = {
     "filter-constraint-1": {
@@ -133,9 +26,6 @@ var constructLastContributed = function() {
 };
 
 var constructViaNSA = function() {
-  // TODO: get this from the server in the future
-  // note: have removed Bluffdale and Bridgetown - make sure this object correctly represents them for eg layers
-  var nsaCities = ["San Francisco", "Los Angeles", "New York", "Dallas", "Washington", "Ashburn", "Seattle", "San Jose", "San Diego", "Miami", "Boston", "Phoenix", "Salt Lake City", "Nashville", "Denver", "Saint Louis", "Houston", "Chicago", "Atlanta", "Portland"];
   var submission = {};
   var i = 1;
 
@@ -252,8 +142,6 @@ var constructBS = function() {
       if (jQuery(el).data('constraint') === "NSA") {
         // TODO: this is a terrible bandaid because we didn't think through the design
         if (yesOrNo === "yes" || yesOrNo === "no") {
-          var nsaCities = ["San Francisco", "Los Angeles", "New York", "Dallas", "Washington", "Ashburn", "Seattle", "San Jose", "San Diego", "Miami", "Boston", "Phoenix", "Salt Lake City", "Nashville", "Denver", "Saint Louis", "Bridgeton", "Bluffdale", "Houston", "Chicago", "Atlanta", "Portland"];
-
           _.each(nsaCities, function(city, index) {
             var nsaObj = {
               constraint1: "",
