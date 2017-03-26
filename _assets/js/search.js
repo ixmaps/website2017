@@ -239,28 +239,10 @@ var constructBS = function() {
   var submission = {};
   var i = 1;
 
-  // iterate over all of the 'from' conditions
-  jQuery('#bs-originate-popup .bs-input').each(function(index, el) {
-    if (jQuery(el).val() != "") {
-      // adjust constraint2 for special cases e.g. submitter
-      var constraint2_val = "";
-      if(jQuery(el).data('constraint') == "submitter" ){
-        constraint2_val = "contain";
-      } else {
-        constraint2_val = "originate";
-      }
+  // IMPORTANT! We must iterate over the Via conditions first
+  // This is to accommodate the backend, since apparently OR conditions must be the first in a query
+  // The only reason this works is that the only OR conditions are contained as the first criteria in Via-NSA
 
-      var origObj = {
-        constraint1: "does",
-        constraint2: constraint2_val,
-        constraint3: jQuery(el).data('constraint'),
-        constraint4: jQuery(el).val(),
-        constraint5: "AND"
-      };
-      submission["filter-constraint-"+i] = origObj;
-      i++;
-    }
-  });
   // iterate over all of the 'via' conditions
   jQuery('#bs-via-popup .bs-input').each(function(index, el) {
     if (jQuery(el).val() != "") {
@@ -307,6 +289,28 @@ var constructBS = function() {
         submission["filter-constraint-"+i] = origObj;
         i++;
       }
+    }
+  });
+  // iterate over all of the 'from' conditions
+  jQuery('#bs-originate-popup .bs-input').each(function(index, el) {
+    if (jQuery(el).val() != "") {
+      // adjust constraint2 for special cases e.g. submitter
+      var constraint2_val = "";
+      if(jQuery(el).data('constraint') == "submitter" ){
+        constraint2_val = "contain";
+      } else {
+        constraint2_val = "originate";
+      }
+
+      var origObj = {
+        constraint1: "does",
+        constraint2: constraint2_val,
+        constraint3: jQuery(el).data('constraint'),
+        constraint4: jQuery(el).val(),
+        constraint5: "AND"
+      };
+      submission["filter-constraint-"+i] = origObj;
+      i++;
     }
   });
   // iterate over all of the 'to' conditions
