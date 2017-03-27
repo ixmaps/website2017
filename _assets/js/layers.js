@@ -45,7 +45,7 @@ var toggleLayer = function(name) {
     renderGeoMarkers(layers[name].type);
   }
 
-  // we want to tie the UI as closely as possible to the layer data struct, so we're doing this instead of relying on toggleClass or semantic ui's built in thing
+  // we want to tie the UI as closely as possible to the layer data struct, so we're doing this instead of relying on toggleClass or semantic-ui's built in thing
   jQuery('.layer-btn').each(function(el) {
     var name = jQuery(this).data('name');
     if (layers[name].active === true) {
