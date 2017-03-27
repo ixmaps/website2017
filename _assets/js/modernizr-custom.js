@@ -1,6 +1,6 @@
 /*!
- * modernizr v3.3.1
- * Build http://modernizr.com/download?-bgsizecover-csscalc-flexbox-flexboxlegacy-flexboxtweener-srcset-setclasses-dontmin
+ * modernizr v3.4.0
+ * Build https://modernizr.com/download?-bgsizecover-csscalc-flexbox-flexboxlegacy-flexboxtweener-srcset-setclasses-dontmin
  *
  * Copyright (c)
  *  Faruk Ates
@@ -36,7 +36,7 @@
 
   var ModernizrProto = {
     // The current version, dummy
-    _version: '3.3.1',
+    _version: '3.4.0',
 
     // Any settings that don't work as separate modules
     // can go in here as configuration.
@@ -159,7 +159,6 @@
             Modernizr[featureNameSplit[0]] = result;
           } else {
             // cast to a Boolean, if not one already
-            /* jshint -W053 */
             if (Modernizr[featureNameSplit[0]] && !(Modernizr[featureNameSplit[0]] instanceof Boolean)) {
               Modernizr[featureNameSplit[0]] = new Boolean(Modernizr[featureNameSplit[0]]);
             }
@@ -222,7 +221,11 @@
     if (Modernizr._config.enableClasses) {
       // Add the new classes
       className += ' ' + classPrefix + classes.join(' ' + classPrefix);
-      isSVG ? docElement.className.baseVal = className : docElement.className = className;
+      if (isSVG) {
+        docElement.className.baseVal = className;
+      } else {
+        docElement.className = className;
+      }
     }
 
   }
@@ -230,12 +233,12 @@
   ;
 
   /**
-   * If the browsers follow the spec, then they would expose vendor-specific style as:
+   * If the browsers follow the spec, then they would expose vendor-specific styles as:
    *   elem.style.WebkitBorderRadius
-   * instead of something like the following, which would be technically incorrect:
+   * instead of something like the following (which is technically incorrect):
    *   elem.style.webkitBorderRadius
 
-   * Webkit ghosts their properties in lowercase but Opera & Moz do not.
+   * WebKit ghosts their properties in lowercase but Opera & Moz do not.
    * Microsoft uses a lowercase `ms` instead of the correct `Ms` in IE8+
    *   erik.eae.net/archives/2008/03/10/21.48.10/
 
@@ -411,6 +414,7 @@
       body.parentNode.removeChild(body);
       docElement.style.overflow = docOverflow;
       // Trigger layout so kinetic scrolling isn't disabled in iOS6+
+      // eslint-disable-next-line
       docElement.offsetHeight;
     } else {
       div.parentNode.removeChild(div);
@@ -437,6 +441,44 @@
       return '-' + m1.toLowerCase();
     }).replace(/^ms-/, '-ms-');
   }
+  ;
+
+
+  /**
+   * wrapper around getComputedStyle, to fix issues with Firefox returning null when
+   * called inside of a hidden iframe
+   *
+   * @access private
+   * @function computedStyle
+   * @param {HTMLElement|SVGElement} - The element we want to find the computed styles of
+   * @param {string|null} [pseudoSelector]- An optional pseudo element selector (e.g. :before), of null if none
+   * @returns {CSSStyleDeclaration}
+   */
+
+  function computedStyle(elem, pseudo, prop) {
+    var result;
+
+    if ('getComputedStyle' in window) {
+      result = getComputedStyle.call(window, elem, pseudo);
+      var console = window.console;
+
+      if (result !== null) {
+        if (prop) {
+          result = result.getPropertyValue(prop);
+        }
+      } else {
+        if (console) {
+          var method = console.error ? 'error' : 'log';
+          console[method].call(console, 'getComputedStyle returning null, its possible modernizr test results are inaccurate');
+        }
+      }
+    } else {
+      result = !pseudo && elem.currentStyle && elem.currentStyle[prop];
+    }
+
+    return result;
+  }
+
   ;
 
   /**
@@ -473,7 +515,7 @@
       }
       conditionText = conditionText.join(' or ');
       return injectElementWithStyles('@supports (' + conditionText + ') { #modernizr { position: absolute; } }', function(node) {
-        return getComputedStyle(node, null).position == 'absolute';
+        return computedStyle(node, null, 'position') == 'absolute';
       });
     }
     return undefined;
@@ -530,8 +572,9 @@
     // inside of an SVG element, in certain browsers, the `style` element is only
     // defined for valid tags. Therefore, if `modernizr` does not have one, we
     // fall back to a less used element and hope for the best.
-    var elems = ['modernizr', 'tspan'];
-    while (!mStyle.style) {
+    // for strict XHTML browsers the hardly used samp element is used
+    var elems = ['modernizr', 'tspan', 'samp'];
+    while (!mStyle.style && elems.length) {
       afterInit = true;
       mStyle.modElem = createElement(elems.shift());
       mStyle.style = mStyle.modElem.style;
@@ -639,6 +682,7 @@
    * @param {array.<string>} props - An array of properties to test for
    * @param {object} obj - An object or Element you want to use to test the parameters again
    * @param {boolean|object} elem - An Element to bind the property lookup again. Use `false` to prevent the check
+   * @returns {false|*} returns false if the prop is unsupported, otherwise the value that is supported
    */
   function testDOMProps(props, obj, elem) {
     var item;
@@ -681,11 +725,12 @@
    * @param {HTMLElement|SVGElement} [elem] - An element used to test the property and value against
    * @param {string} [value] - A string of a css value
    * @param {boolean} [skipValueTest] - An boolean representing if you want to test if value sticks when set
+   * @returns {false|string} returns the string version of the property, or false if it is unsupported
    */
   function testPropsAll(prop, prefixed, elem, value, skipValueTest) {
 
     var ucProp = prop.charAt(0).toUpperCase() + prop.slice(1),
-    props = (prop + ' ' + cssomPrefixes.join(ucProp + ' ') + ucProp).split(' ');
+      props = (prop + ' ' + cssomPrefixes.join(ucProp + ' ') + ucProp).split(' ');
 
     // did they call .prefixed('boxSizing') or are we just testing a prop?
     if (is(prefixed, 'string') || is(prefixed, 'undefined')) {
@@ -798,7 +843,9 @@
    * ```
    */
 
-  var prefixes = (ModernizrProto._config.usePrefixes ? ' -webkit- -moz- -o- -ms- '.split(' ') : []);
+  // we use ['',''] rather than an empty array in order to allow a pattern of .`join()`ing prefixes to test
+  // values in feature detects to continue to work
+  var prefixes = (ModernizrProto._config.usePrefixes ? ' -webkit- -moz- -o- -ms- '.split(' ') : ['','']);
 
   // expose these for the plugin API. Look in the source for how to join() them against your input
   ModernizrProto._prefixes = prefixes;
