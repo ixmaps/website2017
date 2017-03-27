@@ -591,7 +591,7 @@ var resetUserLocQueryOptions = function(type) {
   var myCityUsr = jQuery(".userloc-city").val();
   var myCountryUsr = jQuery(".userloc-country").val();
 
-  userLocQueryOptions.myCountry.value = myCountry; // allowing user to change country requires querying again MM db for geoloc. not used for now.
+  userLocQueryOptions.myCountry.value = myCountry; // allowing user to change country requires querying MM db for geoloc. Not used for now.
 
   
 

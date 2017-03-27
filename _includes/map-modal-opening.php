@@ -88,8 +88,8 @@
             </div>
 
             <div class="inline fields">
-                <div class="field" style="padding-top: 16px; height: 40px;">
-                    <strong><span class="setting-title">Number of routes found that meet all the above conditions&emsp;</span></strong>
+                <div class="field" style="padding-top: 16px; height: 50px;">
+                    <strong><span class="setting-title">Number of routes found that meet all the above checked conditions&emsp;</span></strong>
 
                     <!-- This is inaccurate -->
                     <!-- <span>To increase the number of routes found, replace city by a larger one nearby.</span> -->
