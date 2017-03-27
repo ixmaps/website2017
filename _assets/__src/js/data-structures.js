@@ -198,7 +198,7 @@ var tooltips = [
   },
   {
     "element": ".map-settings-button",
-    "text": "Adjust how routes are are mapped. e.g. Keep routes visible when adding others.  Takes effect following the next search"
+    "text": "Adjust how routes are mapped. e.g. Keep routes visible when adding others"
   },
   {
     "element": "#add-all-trs-btn",
@@ -222,7 +222,7 @@ var tooltips = [
   },
   {
     "element": "#bs-tab-container .from",
-    "text": "Specify search conditions for the origin of traceroutes e.g. From> ISP: Bell"
+    "text": "Specify search conditions for the origin of traceroutes e.g. From> Contributor: InternetUser | ISP: Bell"
   },
   {
     "element": "#bs-tab-container .via",
