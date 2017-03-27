@@ -439,48 +439,6 @@ var submitUserLocObject = function() {
   //submitLastSubmissionObject();
 }
 
-var resetUserLocQueryOptions = function() {
-  console.log("resetUserLocQueryOptions()");
-  userLocQueryOptions = {
-    "submitter": {
-      "value": "",
-      "total": 0,
-      "checked": false,
-    },
-    "myAsn": {
-      "value": "",
-      "total": 0,
-      "checked": false,
-    },
-    "myCity": {
-      "value": "",
-      "total": 0,
-      "checked": false,
-    },
-    "myCountry": {
-      "value": "",
-      "total": 0,
-      "checked": false,
-    }
-  };
-
-  // get data for user geo location
-  userLocQueryOptions.myAsn.value = myAsn;
-  userLocQueryOptions.myCountry.value = myCountry;
-  userLocQueryOptions.myCity.value = myCity;
-
-  // update ui fields
-  jQuery('.userloc-ip').text(myIp);
-  jQuery('.userloc-city').val(myCity);
-  jQuery('.userloc-country').val(myCountry);
-  jQuery('.userloc-country-name').html(myCountryName);
-  jQuery('.userloc-country-flag').addClass(myCountry.toLowerCase());
-  jQuery('.userloc-country-flag').addClass('flag');
-  jQuery('.userloc-isp').text(myIsp);
-  jQuery('.userloc-asn').text(myAsn);
-
-}
-
 var buildTrCountQuery = function(type) {
   console.log("buildTrCountQuery", type);
 
@@ -601,6 +559,61 @@ var submitTrCount = function(obj) {
   });
 };
 
+var resetUserLocQueryOptions = function(type) {
+  console.log("resetUserLocQueryOptions()");
+  userLocQueryOptions = {
+    "submitter": {
+      "value": "",
+      "total": 0,
+      "checked": false,
+    },
+    "myAsn": {
+      "value": "",
+      "total": 0,
+      "checked": false,
+    },
+    "myCity": {
+      "value": "",
+      "total": 0,
+      "checked": false,
+    },
+    "myCountry": {
+      "value": "",
+      "total": 0,
+      "checked": false,
+    }
+  };
+
+  // get data for user geo location
+  userLocQueryOptions.myAsn.value = myAsn;
+
+  // collect values ented by user
+  var myCityUsr = jQuery(".userloc-city").val();
+  var myCountryUsr = jQuery(".userloc-country").val();
+
+  userLocQueryOptions.myCountry.value = myCountry; // allowing user to change country requires querying MM db for geoloc. Not used for now.
+
+  
+
+  /*Update ui fields*/
+  jQuery('.userloc-ip').text(myIp);
+  
+  // check if city name has been changed in ui
+  if(myCountryUsr!=""){
+    jQuery('.userloc-city').val(myCityUsr);
+    userLocQueryOptions.myCity.value = myCityUsr;
+  } else {
+    jQuery('.userloc-city').val(myCity);
+    userLocQueryOptions.myCity.value = myCity;
+  }
+
+  jQuery('.userloc-country').val(myCountry);
+  jQuery('.userloc-country-name').html(myCountryName);
+  jQuery('.userloc-country-flag').addClass(myCountry.toLowerCase());
+  jQuery('.userloc-country-flag').addClass('flag');
+  jQuery('.userloc-isp').text(myIsp);
+  jQuery('.userloc-asn').text(myAsn);
+}
 
 var renderTrCountData = function(data) {
 
