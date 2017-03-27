@@ -25438,15 +25438,23 @@ footer {
 
 .header-announcement {
 	display: inline-block;
-	width: 308px;
+	width: 326px;
 	margin-left: 24%;
 	margin-top: 14px;
-	padding: 5px;
+	padding: 5px 15px;
 	font-size: 14px;
 	line-height: 20px;
-	background-color: #FEF8EB;
-	border: 2px solid #F3D14F;
-	border-radius: 7px;
+	background-color: black;
+	color: white;
+}
+
+.header-announcement a {
+	color: white;
+	text-decoration: underline;
+}
+
+.header-announcement a:hover {
+	text-decoration: none;
 }
 
 .jumbo-hero {
