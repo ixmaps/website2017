@@ -17,7 +17,7 @@ var constructLastContributed = function() {
     }
   };
   submitQuery(submission);
-  jQuery('#qs-search-parameters-container').text('Last contributed traceroute');
+  jQuery('#qs-search-parameters-container').text('Last contributed traceroutes');
 };
 
 var constructViaNSA = function() {
