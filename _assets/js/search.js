@@ -678,9 +678,19 @@ var renderTrCountData = function(data) {
 
   /* TODO: add a link to show last contribution */
   if(data.total != 0){
+    
     jQuery('#myloc-contribute-btn').removeClass('blue');
     jQuery('#myloc-submit-btn').addClass('blue');
+    
+    jQuery('#myloc-submit-btn').unbind('click'); // disable click
+    // re-create click event
+    jQuery('#myloc-submit-btn').click(function() {
+      submitUserLocObject();
+      jQuery('.opening.modal').modal('hide');
+    });
+
   } else {
+    jQuery('#myloc-submit-btn').unbind('click'); // disable click
     jQuery('#myloc-submit-btn').removeClass('blue');
     jQuery('#myloc-contribute-btn').addClass('blue');
   }
