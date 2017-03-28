@@ -89,6 +89,8 @@ var setMyLocationData = function(data) {
   */
   resetUserLocQueryOptions(); //!!
 
+  // unbind the click event to prevent users from clicking through before search is completed
+  jQuery('#myloc-submit-btn').unbind('click');
   // create the initial query for opening modal
   buildTrCountQuery('first');
 }
@@ -141,6 +143,7 @@ var setUpClickHandlers = function() {
   /* for testing only */
   jQuery('#myloc-reload-btn').click(function() {
     jQuery('#myloc-reload-btn').removeClass('blue');
+    jQuery('#myloc-submit-btn').unbind('click');
     buildTrCountQuery('');
   });
 

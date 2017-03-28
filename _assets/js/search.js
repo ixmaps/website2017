@@ -436,7 +436,6 @@ var usrLocQuery = {};
 
 var submitUserLocObject = function() {
   submitQuery(usrLocQuery);
-  //submitLastSubmissionObject();
 }
 
 var buildTrCountQuery = function(type) {
@@ -480,7 +479,6 @@ var buildTrCountQuery = function(type) {
 
   // query dynamically created based on user selections in opening modal
   } else {
-
     usrLocQuery = {};
 
     var submitter = jQuery(".userloc-submitter").val();
@@ -539,10 +537,6 @@ var buildTrCountQuery = function(type) {
 
 /* count results for a submission constraint */
 var submitTrCount = function(obj) {
-//var submitQuery = function(obj) {
-
-  console.log('submitTrCount...', obj);
-
   ajaxObj = jQuery.ajax(url_base + '/application/controller/map_search.php', {
     type: 'post',
     data: obj,
@@ -610,7 +604,7 @@ var resetUserLocQueryOptions = function(type) {
   jQuery('.userloc-ip').text(myIp);
   jQuery('.userloc-isp').text(myIsp);
   jQuery('.userloc-asn').text(myAsn);
-  
+
   // check if city name has been changed in ui
   if(myCityUsr!="" && myCityUsr!=myCity){
     jQuery('.userloc-city').val(myCityUsr);
@@ -623,7 +617,6 @@ var resetUserLocQueryOptions = function(type) {
 }
 
 var renderTrCountData = function(data) {
-
   /*Check if the element is in the submitted query */
   if (typeof usrLocQuery.submitter != 'undefined'){
     userLocQueryOptions.submitter.total = data.results.submitter.total;
@@ -678,10 +671,10 @@ var renderTrCountData = function(data) {
 
   /* TODO: add a link to show last contribution */
   if(data.total != 0){
-    
+
     jQuery('#myloc-contribute-btn').removeClass('blue');
     jQuery('#myloc-submit-btn').addClass('blue');
-    
+
     jQuery('#myloc-submit-btn').unbind('click'); // disable click
     // re-create click event
     jQuery('#myloc-submit-btn').click(function() {
