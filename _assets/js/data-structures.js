@@ -209,10 +209,6 @@ var tooltips = [
     "text": "Remove all currently displayed routes"
   },
   {
-    "element": "#carrier-table .carrier",
-    "text": "Click on the carrier name to show more details about its rating on each 10 criteria star criteria"
-  },
-  {
     "element": "#carrier-table .star-col",
     "text": "Aggregate star score out of 10 maximum"
   },
@@ -234,7 +230,7 @@ var tooltips = [
   },
   {
     "element": ".qs-last-contributed-btn",
-    "text": "Finds the 20 most recently contributed traceroutes"
+    "text": "Finds the most recently contributed traceroute"
   },
   {
     "element": ".qs-via-nsa-city-btn",

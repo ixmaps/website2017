@@ -511,6 +511,7 @@ var loadMapData = function() {
     initializeMap();
     showThisTr(_.last(_.keys(ixMapsDataJson)));           // show the last route (ie the one with the highest trid)
     setTableSorters();
+    renderLayers();
   }, 300);
 
   //jQuery('#tr-details').draggable();
