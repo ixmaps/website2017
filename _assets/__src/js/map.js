@@ -174,9 +174,8 @@ var setUpClickHandlers = function() {
   });
 
 
-
-
   //**************** TRACEROUTE RESULTS ****************//
+
   jQuery('#remove-all-trs-btn').click(function() {
     removeAllTrs();
   });
@@ -194,9 +193,6 @@ var setUpClickHandlers = function() {
     jQuery('#filter-results-summary').toggle();
   });
 
-  /*
-    Close  buttons : modal windows
-  */
   jQuery('#tr-details-close-btn').click(function() {
     removeTr();
     jQuery('.traceroutes.modal').modal('hide');
@@ -225,11 +221,6 @@ var setUpClickHandlers = function() {
   jQuery('#map-help-close-btn').click(function() {
     jQuery('.map-help.modal').modal('hide');
   });
-
-
-
-  //**************** LAYERS ****************//
-
 
 
   //****************** UI ******************//
@@ -347,7 +338,10 @@ var loadAutocompleteData = function(type) {
       autocompletes[type] = _.reject(data, _.isNull);
       // bind the basic search
       bindAutocomplete(jQuery('.bs-input[data-constraint="'+type+'"]'), type);
-      // bind the creepy modal
+      // bind the opening modal
+      if (type === "submitter") {
+        bindAutocomplete(jQuery('.userloc-submitter'), type);
+      }
       if (type === "country") {
         bindAutocomplete(jQuery('.userloc-country'), type);
       }

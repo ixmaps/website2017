@@ -6,11 +6,6 @@
         <span class="ui-helper-hidden-accessible"><input type="text"/></span>
 
         <div class="ui large form">
-
-            <!-- This is redundant  -->
-            <!-- <div id="myloc-skip-btn" class="ui centered button" style="float: right;">
-                Skip
-            </div> -->
             <div >
                 <strong>Let’s start</strong> by finding routes you or others near you have contributed to the IXmaps database.
             </div>
@@ -22,7 +17,6 @@
             </div>
 
             <div class="inline fields"></div>
-
         </div>
 
         <div class="ui large form">
