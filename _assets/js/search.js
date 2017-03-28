@@ -591,15 +591,28 @@ var resetUserLocQueryOptions = function(type) {
   var myCityUsr = jQuery(".userloc-city").val();
   var myCountryUsr = jQuery(".userloc-country").val();
 
-  userLocQueryOptions.myCountry.value = myCountry; // allowing user to change country requires querying MM db for geoloc. Not used for now.
+  userLocQueryOptions.myCountry.value = myCountryUsr; // note that allowing user to change country code makes unabialable the country name
 
-  
+  // reset flag icon
+  if(myCountryUsr!= "" && myCountryUsr!=myCountry){
+    jQuery('.userloc-country-flag').removeClass('flag');
+    jQuery('.userloc-country-flag').removeClass(myCountry.toLowerCase());
+    jQuery('.userloc-country-flag').addClass(myCountryUsr.toLowerCase());
+    jQuery('.userloc-country-flag').addClass('flag');
+  } else {
+    jQuery('.userloc-country').val(myCountry);
+    //jQuery('.userloc-country-name').html(myCountryName);
+    jQuery('.userloc-country-flag').addClass(myCountry.toLowerCase());
+    jQuery('.userloc-country-flag').addClass('flag');
+  }
 
   /*Update ui fields*/
   jQuery('.userloc-ip').text(myIp);
+  jQuery('.userloc-isp').text(myIsp);
+  jQuery('.userloc-asn').text(myAsn);
   
   // check if city name has been changed in ui
-  if(myCountryUsr!=""){
+  if(myCityUsr!="" && myCityUsr!=myCity){
     jQuery('.userloc-city').val(myCityUsr);
     userLocQueryOptions.myCity.value = myCityUsr;
   } else {
@@ -607,12 +620,6 @@ var resetUserLocQueryOptions = function(type) {
     userLocQueryOptions.myCity.value = myCity;
   }
 
-  jQuery('.userloc-country').val(myCountry);
-  jQuery('.userloc-country-name').html(myCountryName);
-  jQuery('.userloc-country-flag').addClass(myCountry.toLowerCase());
-  jQuery('.userloc-country-flag').addClass('flag');
-  jQuery('.userloc-isp').text(myIsp);
-  jQuery('.userloc-asn').text(myAsn);
 }
 
 var renderTrCountData = function(data) {

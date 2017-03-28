@@ -79,7 +79,8 @@
                 </div>
                 <div class="field">
                     <span><i class="userloc-country-flag"></i></span>
-                    <strong> (<span class="userloc-country-name"></span>) </strong>
+                    <!-- Need to comment this for now: country name not  abailabe is user changes CC -->
+                    <!-- <strong> (<span class="userloc-country-name"></span>) </strong> -->
                 </div>
             </div>
 
