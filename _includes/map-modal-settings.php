@@ -1,6 +1,6 @@
 <div class="ui settings modal">
     <div class="header">
-        <h5>Map Settings</h5>
+        <h5 title="Click on buttons to adjust the way routes are displayed, to take effect following the next search">Map Settings</h5>
         <i><img id="settings-close-btn" class="ui image right floated" src="/_assets/img/icn-close.svg" alt=""></i>
     </div>
 

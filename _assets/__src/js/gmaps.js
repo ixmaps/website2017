@@ -587,7 +587,7 @@ var showTotalTrInfo = function(){
 
       // start tr
       //carriers+='<tr style="border: solid 0.19em '+getAsnColour(asNum)+'">';
-      carriers+='<tr class="carrier">'
+      carriers+='<tr class="carrier" title="Click on the carrier name to show more details about its rating on each 10 criteria star criteria">'
 
       if(cScore>=0){
         cLink='<a class="link" href="javascript:viewPrivacy('+asNum+')">'+d[1]+'</a>';
