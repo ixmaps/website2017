@@ -45,8 +45,8 @@
                 <input type="checkbox" class="userloc-asn-chkbox" title="Checkmark indicates this condition is included in the search">
             </div>
             <div class="inline fields">
-                <span class="setting-title">Your internet service provider (ISP),&emsp;</span>
-                <div class="field">
+                <span class="setting-title">Your internet service provider&emsp;</span>
+                <div class="field" style="width: 300px">
                     <strong><span class="userloc-isp"></span> (ASN: <span class="userloc-asn"></span>)</strong>
                 </div>
             </div>
@@ -79,12 +79,12 @@
             </div>
 
             <div class="field user-loc-chkbox">
-                <strong><span class="userloc-trs-tot">0</span></strong>
+                <strong><div class="userloc-trs-tot" style="padding-top: 20px">0</div></strong>
             </div>
 
             <div class="inline fields">
-                <div class="field" style="padding-top: 16px; height: 50px;">
-                    <strong><span class="setting-title">Number of routes found that meet all the above checked conditions&emsp;</span></strong>
+                <div class="field" style="padding-top: 20px; height: 50px;">
+                    <strong><span class="setting-title">Number of routes found that meet all above checked conditions&emsp;</span></strong>
 
                     <!-- This is inaccurate -->
                     <!-- <span>To increase the number of routes found, replace city by a larger one nearby.</span> -->

@@ -723,10 +723,15 @@ i.flag:not(.icon):before {
   max-height: 300px;
 }
 
-#filter-results-empty{
+#filter-results-empty {
   width: 500px;
   background: #fff;
   padding: 1px;
+}
+
+#myloc-contribute-btn,
+#myloc-submit-btn {
+  width: 396px;
 }
 
 .user-loc-chkbox {
@@ -739,7 +744,15 @@ i.flag:not(.icon):before {
   display: initial;
 }
 
-.userloc-trs-tot{
-  margin-right: 0px;
-  font-size: 22px;
+.user-loc-chkbox input {
+  margin-left: 5px;
+}
+
+.userloc-trs-tot {
+  margin-right: 21px;
+  font-size: 21px;
+}
+
+.setting-title {
+  font-size: 21px;
 }
