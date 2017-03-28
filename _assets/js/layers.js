@@ -19,7 +19,7 @@ var getLayers = function() {
 };
 
 var renderDefaultLayers = function() {
-  toggleLayer('nsa');
+  toggleLayer('nsa'); // this does not work as expected when reloading map after every query.
 };
 
 var populateLayersContainer = function() {
