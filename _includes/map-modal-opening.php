@@ -6,11 +6,6 @@
         <span class="ui-helper-hidden-accessible"><input type="text"/></span>
 
         <div class="ui large form">
-
-            <!-- This is redundant  -->
-            <!-- <div id="myloc-skip-btn" class="ui centered button" style="float: right;">
-                Skip
-            </div> -->
             <div >
                 <strong>Let’s start</strong> by finding routes you or others near you have contributed to the IXmaps database.
             </div>
@@ -22,7 +17,6 @@
             </div>
 
             <div class="inline fields"></div>
-
         </div>
 
         <div class="ui large form">
@@ -39,7 +33,7 @@
             <div class="inline fields">
                 <span class="setting-title">Your Contributor Name&emsp;</span>
                 <div class="field">
-                    <strong><input title="Start typing the name used when contributing traceroutes, then make selection" class="userloc-text-input userloc-submitter ui-autocomplete-input" autocomplete="off"/></strong>
+                    <strong><input title="Start typing the name used when contributing traceroutes, then make selection. Check box and Reload to update results" class="userloc-text-input userloc-submitter ui-autocomplete-input" autocomplete="off"/></strong>
                 </div>
 
             </div>
@@ -64,7 +58,7 @@
             <div class="inline fields">
                 <span class="setting-title">You appear to be near&emsp;</span>
                 <div class="field">
-                    <strong><input title="If not correct, start typing the nearest major city, then make selection" class="userloc-text-input userloc-city ui-autocomplete-input" autocomplete="off"/></strong>
+                    <strong><input title="If not correct, delete entry, start typing the nearest major city, then make selection. Check box and Reload to update results" class="userloc-text-input userloc-city ui-autocomplete-input" autocomplete="off"/></strong>
                 </div>
             </div>
 
@@ -75,7 +69,7 @@
             <div class="inline fields">
                 <span class="setting-title">In &emsp;</span>
                 <div class="field">
-                    <strong><input class="userloc-text-input userloc-country ui-autocomplete-input" autocomplete="off" style="width:70px" title="If not correct, start typing the 2 character country code, then make selection" ></strong>
+                    <strong><input class="userloc-text-input userloc-country ui-autocomplete-input" autocomplete="off" style="width:70px" title="If not correct, delete entry, start typing the 2 character country code, then make selection. Check box and Reload to update results" ></strong>
                 </div>
                 <div class="field">
                     <span><i class="userloc-country-flag"></i></span>

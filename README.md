@@ -135,3 +135,25 @@ An example development workflow:
 Please commit to `master` only (prod should be locked). Master will act as the staging branch, to be merged to `prod` and pulled to server as required.
 
 Issues lifecycle is fairly hands off - start your own issues, close your own issues, complete and close other's issues (with encouragement to reopen) are all acceptable practices. If resolving another user's more complex issue, preferred practice is to @mention the issuer to request closure if uncertain
+
+## Server setup steps
+
+(Local
+git checkout master
+git merge map_integration
+git merge prod (merge conflicts)
+git push)
+
+Server
+(mv /var/www/ixmaps /var/www/ixmaps-old/)
+git clone git@github.com:ixmaps/website2017.git ixmaps/
+cp config.example.json config.json
+nano config.json (added key and changed php-backend)
+ln -s /var/www/php-backend/application/ application/
+cp -R /var/www/ixmaps-old/IXmapsClient /var/www/ixmaps/
+cp -R /var/www/ixmaps-old/piwik/ /var/www/ixmaps/ (permissions issues)
+chmod -R www-data piwik
+chgrp -R www-data piwki
+npm install
+bower install
+grunt
