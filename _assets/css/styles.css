@@ -25439,13 +25439,24 @@ footer {
 .header-announcement {
 	display: inline-block;
 	width: 326px;
-	margin-left: 24%;
+	margin-left: 250px;
 	margin-top: 14px;
-	padding: 5px 15px;
+	padding: 5px 5px;
 	font-size: 14px;
 	line-height: 20px;
 	background-color: black;
 	color: white;
+}
+
+.header-announcement-yellow {
+	display: inline-block;
+	width: 335px;
+	margin-top: 14px;
+	padding: 5px 5px;
+	font-size: 14px;
+	line-height: 20px;
+	background-color: #f5e462;
+	color: black;
 }
 
 .header-announcement a {
