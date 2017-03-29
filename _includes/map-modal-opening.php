@@ -62,10 +62,10 @@
                 </div>
             </div>
 
-            <div class="field user-loc-chkbox">
+            <!-- <div class="field user-loc-chkbox">
                 <strong><span class="userloc-country-tot">0</span></strong>
                 <input type="checkbox" class="userloc-country-chkbox" title="Checkmark indicates this condition is included in the search">
-            </div>
+            </div> -->
             <div class="inline fields">
                 <span class="setting-title">In &emsp;</span>
                 <div class="field">
