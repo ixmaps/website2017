@@ -729,9 +729,12 @@ i.flag:not(.icon):before {
   padding: 1px;
 }
 
-#myloc-contribute-btn,
+#myloc-contribute-btn {
+  width: 400px;
+}
+
 #myloc-submit-btn {
-  width: 396px;
+  width: 335px;
 }
 
 .user-loc-chkbox {
@@ -754,5 +757,5 @@ i.flag:not(.icon):before {
 }
 
 .setting-title {
-  font-size: 21px;
+  font-size: 19px;
 }
