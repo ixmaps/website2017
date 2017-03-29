@@ -89,7 +89,7 @@
             </div> -->
 
             <div class="field user-loc-chkbox">
-                <strong><div class="userloc-trs-tot">0</div></strong>
+                <strong><div class="userloc-trs-tot" style="padding-top: 20px">0</div></strong>
             </div>
 
             <div class="inline fields">
