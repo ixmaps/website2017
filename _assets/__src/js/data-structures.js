@@ -234,7 +234,7 @@ var tooltips = [
   },
   {
     "element": ".qs-via-nsa-city-btn",
-    "text": "Finds all routes that pass through at least one of the 18 US cities strongly suspected of hosting NSA interception facilities. This search takes longer than usual due to the number search items. For more, see Learn/Issues"
+    "text": "Finds all routes that pass through at least one of the 18 US cities strongly suspected of hosting NSA interception facilities. This search takes longer than usual due to the number of search items. For more, see Learn/Issues"
   },
   {
     "element": ".qs-via-boomerangs-btn",
