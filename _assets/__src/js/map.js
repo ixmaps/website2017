@@ -57,7 +57,7 @@ var getMyLocation = function() {
     type: 'post',
     data: obj,
     success: function (e) {
-      console.log("getMyLocation data loaded ");
+      console.log("getMyLocation data loaded");
       // populate js auto-complete array(s)
       var data = jQuery.parseJSON(e);
       //console.log(data);
@@ -83,7 +83,7 @@ var setMyLocationData = function(data) {
   myLat = data.myLat;
   myLong = data.myLong;
 
-  /* Key vars are sotred in userLocQueryOptions:
+  /* Key vars are sorted in userLocQueryOptions:
     still a work on progress...
     Global vars will be moved here
   */

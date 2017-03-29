@@ -431,7 +431,7 @@ i.flag:not(.icon):before {
 }
 
 .opening.modal {
-  padding: 24px;
+  padding: 18px;
 }
 .opening.modal .setting-title {
   color: $grey;
@@ -729,7 +729,10 @@ i.flag:not(.icon):before {
   padding: 1px;
 }
 
-#myloc-contribute-btn,
+#myloc-contribute-btn {
+  width: 400px;
+}
+
 #myloc-submit-btn {
   width: 399px;
 }
@@ -754,5 +757,5 @@ i.flag:not(.icon):before {
 }
 
 .setting-title {
-  font-size: 21px;
+  font-size: 19px;
 }
