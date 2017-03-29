@@ -6,30 +6,31 @@
     <?php include '_includes/global-head.php'; ?>
 
     <script src="_assets/js/tablesorter.min.js" type="text/javascript"></script>
-    <script src="_assets/js/prototype.js" type="text/javascript"></script>
+    <script src="_assets/js/prototype.min.js" type="text/javascript"></script>
       <!-- we really need to decide on a process for where to put these -->
-    <script type="text/javascript" src="_assets/__build/bower_components/jquery-ui/ui/jquery.ui.core.js"></script>
-    <script type="text/javascript" src="_assets/__build/bower_components/jquery-ui/ui/jquery.ui.widget.js"></script>
-    <script type="text/javascript" src="_assets/__build/bower_components/jquery-ui/ui/jquery.ui.position.js"></script>
-    <script type="text/javascript" src="_assets/__build/bower_components/jquery-ui/ui/jquery.ui.menu.js"></script>
-    <script type="text/javascript" src="_assets/__build/bower_components/jquery-ui/ui/jquery.ui.autocomplete.js"></script>
+    <script type="text/javascript" src="_assets/__build/bower_components/jquery-ui/ui/minified/jquery.ui.core.min.js"></script>
+    <script type="text/javascript" src="_assets/__build/bower_components/jquery-ui/ui/minified/jquery.ui.widget.min.js"></script>
+    <script type="text/javascript" src="_assets/__build/bower_components/jquery-ui/ui/minified/jquery.ui.position.min.js"></script>
+    <script type="text/javascript" src="_assets/__build/bower_components/jquery-ui/ui/minified/jquery.ui.menu.min.js"></script>
+    <script type="text/javascript" src="_assets/__build/bower_components/jquery-ui/ui/minified/jquery.ui.autocomplete.min.js"></script>
 
     <!-- Production  -->
-    <!--
-    <script src="_assets/js/map.min.js" type="text/javascript"></script>
+<!--     <script src="_assets/js/map.min.js" type="text/javascript"></script>
     <script src="_assets/js/gmaps.min.js" type="text/javascript"></script>
     <script src="_assets/js/search.min.js" type="text/javascript"></script>
-    <script src="_assets/js/layers.min.js" type="text/javascript"></script> -->
+    <script src="_assets/js/layers.min.js" type="text/javascript"></script>
+    <script src="_assets/js/jquery.toast.min.js" type="text/javascript"></script>
+    <script src="_assets/js/data-structures.min.js" type="text/javascript"></script> -->
 
     <!-- Development  -->
     <script src="_assets/js/map.js" type="text/javascript"></script>
     <script src="_assets/js/gmaps.js" type="text/javascript"></script>
     <script src="_assets/js/search.js" type="text/javascript"></script>
     <script src="_assets/js/layers.js" type="text/javascript"></script>
-    <script src="_assets/js/jquery.toast.min.js"></script>
+    <script src="_assets/js/jquery.toast.min.js" type="text/javascript"></script>
     <script src="_assets/js/data-structures.js" type="text/javascript"></script>
-    <script>
 
+    <script>
         var initMode = 0;
         var trIdFilter = 0;
 

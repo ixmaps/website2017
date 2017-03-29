@@ -20,9 +20,9 @@ var getDbStats = function() {
 
   // TODO: change me back!
   var data = {
-    "submitters": 700,
-    "destinations": 4545,
-    "traceroutes": 181876,
+    "submitters": 702,
+    "destinations": 4546,
+    "traceroutes": 182847,
     "latest_contribution": "29 Mar 2017"
   }
   renderDbStats(data);
