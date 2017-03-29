@@ -15,6 +15,15 @@
     </div>
 </header>
 
+<!-- TO INCLUDE:
+IXmaps site relaunch was covered in / mentioned in
+https://motherboard.vice.com/en_us/article/ixmaps-privacy-surveillance-nsa-canada
+https://www.reddit.com/r/technology/comments/621jyq/this_map_will_show_if_your_web_traffic_passes/
+Open Media?
+CBC?
+Other?
+ -->
+
 <div class="content">
     <article>
         <h2>2017</h2>
