@@ -151,6 +151,7 @@ cp config.example.json config.json
 nano config.json (added key and changed php-backend)
 ln -s /var/www/php-backend/application/ application/
 cp -R /var/www/ixmaps-old/IXmapsClient /var/www/ixmaps/
+cp -R /var/www/ixmaps-old/trsets /var/www/ixmaps/
 cp -R /var/www/ixmaps-old/piwik/ /var/www/ixmaps/ (permissions issues)
 chmod -R www-data piwik
 chgrp -R www-data piwki
