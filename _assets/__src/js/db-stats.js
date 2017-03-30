@@ -18,12 +18,12 @@ var getDbStats = function() {
   //   }
   // });
 
-  // TODO: change me back!
+  // TODO: to reduce server (postgres) load for now
   var data = {
-    "submitters": 702,
-    "destinations": 4546,
-    "traceroutes": 182847,
-    "latest_contribution": "29 Mar 2017"
+    "submitters": 734,
+    "destinations": 4565,
+    "traceroutes": 201591,
+    "latest_contribution": "30 Mar 2017"
   }
   renderDbStats(data);
 };

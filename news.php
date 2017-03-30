@@ -21,7 +21,14 @@ https://motherboard.vice.com/en_us/article/ixmaps-privacy-surveillance-nsa-canad
 https://www.reddit.com/r/technology/comments/621jyq/this_map_will_show_if_your_web_traffic_passes/
 Open Media?
 CBC?
+Fox
 Other?
+https://cryptome.org/2017/03/Trumps-Fiber-Rings-NSA-Eavesdropping-03-17-2017.pdf
+http://www.ibtimes.co.uk/are-you-being-spied-this-map-can-help-you-check-if-nsa-spy-hub-watching-your-data-1614417
+https://arstechnica.com/information-technology/2017/03/internet-surveillance-map-nsa-gchq/
+http://www.wired.co.uk/article/internet-map-servers-traffic-route-nsa
+http://www.insidehook.com/nation/ixmaps-internet-mapping-site
+http://www.directioninformatique.com/lacei-relance-un-outil-de-cartographie-internet/46944
  -->
 
 <div class="content">
