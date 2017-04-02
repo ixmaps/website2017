@@ -364,7 +364,10 @@ var bindAutocomplete = function(el, type) {
       source: autocompletes[type]
     });
   } else {
-    console.log("Cannot bind autocomplete data");
+    console.log("No autocomplete data for this type, unbinding...");
+    jQuery(el).autocomplete({
+      source: []
+    });
   }
 };
 
