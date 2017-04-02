@@ -49,7 +49,7 @@
         <div class="ui divider"></div>
         <h2>Additional Documentation</h2>
         <ul>
-            <ol><a href="/docs/mccann2011ixmaps-geolocation.pdf" target="_blank">How IXmaps Geolocates Routers</a></ol>
+            <ol><a href="/docs/report-2011-mccann-geolocating.pdf" target="_blank">How IXmaps Geolocates Routers</a></ol>
             <ol><a href="https://docs.google.com/spreadsheets/d/1x6aYnGmbQKzZGLUkWC4mX5eSRlDWpVKls_DjI_gV69A/edit?hl=en_US" target="_blank">Suspected NSA internet surveillance locations</a></ol>
         </ul>
     </article>

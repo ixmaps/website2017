@@ -37,7 +37,7 @@
                 Last modified recently (site under active development)
             </p>
 
-            <a id="privacy" class="ui transparent button labeled icon" href="privacy.php" target="_self"><i class="icon"><img src="/_assets/img/icn-privacypolicy.svg" alt=""></i>Privacy Policy</a>
+            <a id="privacy" class="ui transparent button labeled icon" href="/privacy.php" target="_self"><i class="icon"><img src="/_assets/img/icn-privacypolicy.svg" alt=""></i>Privacy Policy</a>
         </div>
     </div>
 </footer>
