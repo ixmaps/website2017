@@ -31,7 +31,7 @@ const constraints = [
       },
       {
         "value": "goVia",
-        "display": "Goes via"
+        "display": "Go via"
       },
       {
         "value": "contain",

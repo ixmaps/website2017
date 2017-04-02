@@ -39,32 +39,63 @@ var constructViaNSA = function() {
 };
 
 var constructBoomerangs = function() {
-  var submission = {
-    "filter-constraint-1": {
-      constraint1: "does",
-      constraint2: "originate",
-      constraint3: "country",
-      constraint4: "CA",
-      constraint5: "AND"
-    },
-    "filter-constraint-2": {
-      constraint1: "does",
-      constraint2: "goVia",
-      constraint3: "country",
-      constraint4: "US",
-      constraint5: "AND"
-    },
-    "filter-constraint-3": {
-      constraint1: "does",
-      constraint2: "terminate",
-      constraint3: "country",
-      constraint4: "CA",
-      constraint5: "AND"
-    },
+  // if user has been geolocated
+  myCountry = '';
+  var submission = null;
+  if (myCountry.length > 0) {
+    submission = {
+      "filter-constraint-1": {
+        constraint1: "does",
+        constraint2: "originate",
+        constraint3: "country",
+        constraint4: myCountry,
+        constraint5: "AND"
+      },
+      "filter-constraint-2": {
+        constraint1: "does",
+        constraint2: "goVia",
+        constraint3: "country",
+        constraint4: "US",
+        constraint5: "AND"
+      },
+      "filter-constraint-3": {
+        constraint1: "does",
+        constraint2: "terminate",
+        constraint3: "country",
+        constraint4: myCountry,
+        constraint5: "AND"
+      }
+    }
+    jQuery('#qs-search-parameters-container').text('Does Originate in Country '+myCountry+' AND Does Go via Country US AND Does Terminate in Country '+myCountry);
+  } else {
+    submission = {
+      "filter-constraint-1": {
+        constraint1: "does",
+        constraint2: "originate",
+        constraint3: "country",
+        constraint4: "CA",
+        constraint5: "AND"
+      },
+      "filter-constraint-2": {
+        constraint1: "does",
+        constraint2: "goVia",
+        constraint3: "country",
+        constraint4: "US",
+        constraint5: "AND"
+      },
+      "filter-constraint-3": {
+        constraint1: "does",
+        constraint2: "terminate",
+        constraint3: "country",
+        constraint4: "CA",
+        constraint5: "AND"
+      }
+    }
+    jQuery().toastmessage('showWarningToast', 'We were unable to determine your location - submitting a Canadian boomerang query instead');
+    jQuery('#qs-search-parameters-container').text('Does Originate in Country CA AND Does Go via Country US AND Does Terminate in Country CA');
   }
+
   submitQuery(submission);
-  //submitTrCount(submission);
-  jQuery('#qs-search-parameters-container').text('Does Originate in Country CA AND Does Go via Country US AND Does Terminate in Country CA');
 };
 
 var constructFromMyIsp = function() {
