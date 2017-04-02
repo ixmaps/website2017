@@ -20,9 +20,9 @@ var getDbStats = function() {
 
   // TODO: to reduce server (postgres) load for now
   var data = {
-    "submitters": 824,
-    "destinations": 4648,
-    "traceroutes": 287442,
+    "submitters": 835,
+    "destinations": 4653,
+    "traceroutes": 295752,
     "latest_contribution": "02 Apr 2017"
   }
   renderDbStats(data);
