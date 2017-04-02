@@ -26459,6 +26459,8 @@ i.flag:not(.icon):before {
 
 #myloc-contribute-btn {
 	width: 400px;
+	background: #1C6FB8;
+	color: #FFFFFF;
 }
 
 #myloc-submit-btn {
