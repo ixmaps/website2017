@@ -40,7 +40,6 @@ var constructViaNSA = function() {
 
 var constructBoomerangs = function() {
   // if user has been geolocated
-  myCountry = '';
   var submission = null;
   if (myCountry.length > 0) {
     submission = {
