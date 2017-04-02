@@ -7,7 +7,6 @@
   !! important
 */
 var ajaxObj;
-var loadedDefaultResult = false;
 
 var constructLastContributed = function() {
   var submission = {
@@ -403,18 +402,6 @@ var submitQuery = function(obj) {
             position: 'mid-center',
             icon: 'error',
           });
-
-          /* Anto says: we should remove this; it's not intuitive for novice users*/
-          // wait before loading
-          setTimeout(function(){
-            if(loadedDefaultResult){
-              initializeMap();
-              jQuery('#filter-results-content').fadeOut('fast');
-              jQuery('#filter-results-empty').show();
-            } else {
-              constructLastContributed();
-            }
-          }, 10000);
 
         } // end if
       } // end success
