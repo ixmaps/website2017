@@ -1258,10 +1258,14 @@ var getIpFlags = function(openFlagWin) {
 
         if(openFlagWin){
           jQuery('#ip-flags').show();
+          jQuery('#user_nick').val('');
+          jQuery('#ip_new_loc').val('');
+          jQuery('#user_msg').val('');
 
           if(!data['ip_flags']){
             // jQuery('#ip-flag-info').html('');
             jQuery('#ip-flags-data-list').html('');
+            jQuery('#ip-flags-data').hide();
           } else {
             jQuery('#ip-flags-data').fadeIn('fast');
           }
@@ -1304,7 +1308,6 @@ var renderIpFlagDataMouseOver = function(data){
 
 var renderIpFlagData = function(data){
   console.log('OK! renderIpFlagData');
-
   var ipInfo = data['ip_addr_info'][0];
   var lat = ipInfo.mm_lat;
   var lng = ipInfo.mm_long;
