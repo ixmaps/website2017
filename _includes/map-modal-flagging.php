@@ -11,7 +11,7 @@
         <div id="ip-flag-info">
             <div>
                 Traceroute: <span id="ip-flag-tr-id"></span>
-                Router: <span id="ip-flag-router"></span>
+                Hop: <span id="ip-flag-router"></span>
                 <br/>
                 IP address: <span id="ip-flag-ip-address"></span>
                 <br/>
