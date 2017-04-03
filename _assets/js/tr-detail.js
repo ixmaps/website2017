@@ -42,4 +42,6 @@ var addFlagIpLinks = function() {
 
 var showFlagsParent = function (trId, hopN, ip, openFlagWin){
   parent.showFlags(trId, hopN, ip, openFlagWin);
+  parent.jQuery('.flagging.modal').modal('show');
+
 }
