@@ -1338,6 +1338,7 @@ var renderIpFlagData = function(data){
 
   jQuery('#ip-flag-tr-id').text(activeTridFlag);
   jQuery('#ip-flag-router').text(activeHopNumFlag);
+  jQuery('#ip-flag-ip-address').text(ipInfo);
   jQuery('#ip-flag-asn-name').text(asnName);        // maybe get shortname?
   jQuery('#ip-flag-hostname').text(ipInfo.hostname);
   jQuery('#ip-flag-star-rating').html(renderPrivacyScore(getPrivacyScore(ipInfo.num)));
