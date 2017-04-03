@@ -1537,13 +1537,13 @@ var getCityRegionCountry = function(city, region, country) {
   var locArray = [];
   var first = true;
 
-  if (city.length > 0) {
+  if (city && city.length > 0) {
     locArray.push(city);
   }
-  if (region.length > 0) {
+  if (region && region.length > 0) {
     locArray.push(region);
   }
-  if (country.length > 0) {
+  if (country && country.length > 0) {
     locArray.push(country);
   }
 
