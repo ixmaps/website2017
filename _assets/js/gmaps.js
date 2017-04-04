@@ -1258,10 +1258,14 @@ var getIpFlags = function(openFlagWin) {
 
         if(openFlagWin){
           jQuery('#ip-flags').show();
+          jQuery('#user_nick').val('');
+          jQuery('#ip_new_loc').val('');
+          jQuery('#user_msg').val('');
 
           if(!data['ip_flags']){
             // jQuery('#ip-flag-info').html('');
             jQuery('#ip-flags-data-list').html('');
+            jQuery('#ip-flags-data').hide();
           } else {
             jQuery('#ip-flags-data').fadeIn('fast');
           }
@@ -1304,7 +1308,6 @@ var renderIpFlagDataMouseOver = function(data){
 
 var renderIpFlagData = function(data){
   console.log('OK! renderIpFlagData');
-
   var ipInfo = data['ip_addr_info'][0];
   var lat = ipInfo.mm_lat;
   var lng = ipInfo.mm_long;
@@ -1338,6 +1341,7 @@ var renderIpFlagData = function(data){
 
   jQuery('#ip-flag-tr-id').text(activeTridFlag);
   jQuery('#ip-flag-router').text(activeHopNumFlag);
+  jQuery('#ip-flag-ip-address').text(ipInfo.ip_addr);
   jQuery('#ip-flag-asn-name').text(asnName);        // maybe get shortname?
   jQuery('#ip-flag-hostname').text(ipInfo.hostname);
   jQuery('#ip-flag-star-rating').html(renderPrivacyScore(getPrivacyScore(ipInfo.num)));
@@ -1537,13 +1541,13 @@ var getCityRegionCountry = function(city, region, country) {
   var locArray = [];
   var first = true;
 
-  if (city.length > 0) {
+  if (city && city.length > 0) {
     locArray.push(city);
   }
-  if (region.length > 0) {
+  if (region && region.length > 0) {
     locArray.push(region);
   }
-  if (country.length > 0) {
+  if (country && country.length > 0) {
     locArray.push(country);
   }
 
