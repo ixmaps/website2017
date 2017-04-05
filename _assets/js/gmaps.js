@@ -1526,7 +1526,7 @@ var viewTrDetails = function (trId) {
   //jQuery('#tr-details').fadeIn('slow');
   jQuery('#tr-details-iframe').attr('src', url_base + '/loading.html');
   jQuery('.traceroutes.modal').modal('show');
-  var url = 'https://www.ixmaps.ca/cgi-bin/tr-query.cgi?query_type=traceroute_id&arg='+trId;
+  var url = url_base + '/cgi-bin/tr-query.cgi?query_type=traceroute_id&arg='+trId;
   //var url = url_base+'/cgi-bin/tr-query.cgi?query_type=traceroute_id&arg='+trId;
 
   // wait before loading
