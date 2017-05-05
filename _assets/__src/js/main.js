@@ -22,8 +22,9 @@ var loadConfig = function(configUrl) {
         _this.config = data;
         console.log('Config loaded');
 
-        //url_base = location.origin; // Get URI dymanically: there is a reason for this (e.g. www.ixmaps.ca vs. ixmaps.ca) DON'T use config until apache forces www.ixmaps.ca
-        url_base = config.php_backend; // Use URI from config file
+        // this is very broken if running locally w/o full stack - the very reason we use url_base. I can force www.ixmaps.ca with apache, if that help solves this (it's trivially easy)
+        url_base = location.origin; // Get URI dymanically: there is a reason for this (e.g. www.ixmaps.ca vs. ixmaps.ca) DON'T use config until apache forces www.ixmaps.ca
+        //url_base = config.php_backend; // Use URI from config file
       },
       error: function(xhr, code, error) {
         console.error("Couldn't load `"+configUrl+"`: ", code, error, xhr);
