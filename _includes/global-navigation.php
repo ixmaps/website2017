@@ -6,7 +6,7 @@
     </div>
 
     <span class="header-announcement">This is a beta version of the re-designed IXmaps website. We welcome your <a href="https://ixmaps.typeform.com/to/m0kB8X" target="_blank">feedback</a>!</span>
-    <span class="header-announcement-yellow">Due to heavier than usual load, response is slow. <br/>Please be patient or try again later.</span>
+    <!-- <span class="header-announcement-yellow">Due to heavier than usual load, response is slow. <br/>Please be patient or try again later.</span> -->
 
     <nav class="nav">
         <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
