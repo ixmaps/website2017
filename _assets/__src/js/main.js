@@ -22,8 +22,8 @@ var loadConfig = function(configUrl) {
         _this.config = data;
         console.log('Config loaded');
 
-        url_base = location.origin; // Get URI dymanically: there is a reason for this (e.g. www.ixmaps.ca vs. ixmaps.ca) DON'T use config until apache forces www.ixmaps.ca
-        //url_base = config.php_backend; // Use URI from config file
+        //url_base = location.origin; // Get URI dymanically: there is a reason for this (e.g. www.ixmaps.ca vs. ixmaps.ca) DON'T use config until apache forces www.ixmaps.ca
+        url_base = config.php_backend; // Use URI from config file
       },
       error: function(xhr, code, error) {
         console.error("Couldn't load `"+configUrl+"`: ", code, error, xhr);
