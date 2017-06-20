@@ -35,7 +35,6 @@
                 <div class="field">
                     <strong><input title="Start typing the name used when contributing traceroutes, then make selection. Check box and Reload to update results" class="userloc-text-input userloc-submitter ui-autocomplete-input" autocomplete="off"/></strong>
                 </div>
-
             </div>
         </div>
 
