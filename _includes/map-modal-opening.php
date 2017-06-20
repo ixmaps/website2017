@@ -6,8 +6,8 @@
         <span class="ui-helper-hidden-accessible"><input type="text"/></span>
 
         <div class="ui large form">
-            <div >
-                <strong>Let’s start</strong> by finding routes you or others near you have contributed to the IXmaps database.
+            <div class="setting-title">
+                <strong>Let’s start</strong> by finding <span id="opening-modal-routes">routes</span> you or others near you have <span id="opening-modal-contributed">contributed</span> to IXmaps
             </div>
 
             <div class="ui divider"></div>
@@ -21,7 +21,7 @@
 
         <div class="ui large form">
             <div class="inline fields">
-                <span class="userloc-ipsetting-title">Your current IP address is <strong><span class="userloc-ip"></span></strong></span><br>
+                <span class="userloc-ipsetting-title setting-title">Your current IP address is <strong><span class="userloc-ip"></span></strong></span><br>
             </div>
         </div>
 
@@ -31,7 +31,7 @@
                 <input type="checkbox" class="userloc-submitter-chkbox" title="Checkmark indicates this condition is included in the search">
             </div>
             <div class="inline fields">
-                <span class="setting-title">Your Contributor Name&emsp;</span>
+                <span class="setting-title" id="opening-modal-contributor">Contributor Name&emsp;</span>
                 <div class="field">
                     <strong><input title="Start typing the name used when contributing traceroutes, then make selection. Check box and Reload to update results" class="userloc-text-input userloc-submitter ui-autocomplete-input" autocomplete="off"/></strong>
                 </div>
@@ -44,9 +44,9 @@
                 <input type="checkbox" class="userloc-asn-chkbox" title="Checkmark indicates this condition is included in the search">
             </div>
             <div class="inline fields">
-                <span class="setting-title">Your internet service provider&emsp;</span>
-                <div class="field" style="width: 300px">
-                    <strong><span class="userloc-isp"></span> (ASN: <span class="userloc-asn"></span>)</strong>
+                <span class="setting-title" id="opening-modal-isp">Your internet service provider&emsp;</span>
+                <div class="field" style="">
+                    <strong><span class="userloc-isp" style="width: 217px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; float:left; margin-right: 8px"></span> (ASN: <span class="userloc-asn"></span>)</strong>
                 </div>
             </div>
 

@@ -2,7 +2,7 @@
   "gmaps": {
     "key": "fill_me_in"
   },
-  "server_name": "TBD",
+  "server_name": "ixmaps",
   "project_name": "IXmaps website",
   "php_backend": "https://dev.ixmaps.ca"    // if you don't want to set up the backend locally
 }
