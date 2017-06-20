@@ -758,7 +758,7 @@ var excludeRouter = function(value,trId,hop,type) {
   }
   // B
   if(excludeCoordGen){
-    if((value.lat==60 && value.long==-95) || (value.lat==38 && value.long==-97)){
+    if((value.lat==60 && value.long==-95) || (value.lat==38 && value.long==-97) || (value.lat==37.751 && value.long==-97.822)){
       skipHop = true;
       if(type==1) {
         skippedRouterNum[1]+=1;
