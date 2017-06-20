@@ -17,7 +17,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="ui labeled inverted transparent large icon button" a href="https://github.com/ixmaps">
+                    <a class="ui labeled inverted transparent large icon button" a href="https://github.com/ixmaps" target="_blank">
                         <i class="icon"><img src="/_assets/img/scl-icn-git.svg" alt=""></i>
                         Github
                     </a>
