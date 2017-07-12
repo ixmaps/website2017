@@ -24,6 +24,9 @@
 </header>
 
 <section class="issue-summary-holder">
+    <!-- TEMP -->
+    <script src="https://widget.battleforthenet.com/widget.js" async></script>
+
     <div class="content">
 
     <div class="issue-summary">

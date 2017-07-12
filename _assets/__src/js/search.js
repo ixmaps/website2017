@@ -680,6 +680,7 @@ var renderTrCountData = function(data) {
     userLocQueryOptions.myCity.checked = true;
   }
 
+  // I think we can remove this, no?
   jQuery(".userloc-country-tot").html(userLocQueryOptions.myCountry.total);
   if(userLocQueryOptions.myCountry.total != 0){
     jQuery(".userloc-country-chkbox").prop('checked', true);
