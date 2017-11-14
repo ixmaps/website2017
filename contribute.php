@@ -75,8 +75,10 @@
           <li>Double click on <strong>IXmapsClient.app</strong> to launch</li>
         </ul>
 
-        <p>Depending on your Security &amp; Privacy settings, OS X may disallow installation of the <strong>IXmapsClient</strong>. This is part of OS X called “Gatekeeper.” To adjust these settings please open <strong>Apple menu > System Preferences… > Security &amp; Privacy > General tab</strong> and under the header <strong>"Allow applications downloaded from"</strong> select <strong>Anywhere.</strong></p>
-        <p><strong>IXmapsClient</strong> needs to be executed in a terminal with administrator's privileges. For this reason, when double clicking <strong>IXmapsClient.app</strong>, a new terminal window will be opened asking for the administrator's password; enter your admin password to proceed. The <strong>IXmapsClient</strong> interface should then be shown in a new browser window, or use your browser to go http://localhost:2040/.</p>
+        <p>IXmapsClient for macOS is not signed with an Apple Developer ID and macOS Gatekeeper security settings will not allow it to be started. To bypass Gatekeeper one time for IXmapsClient, control-click or right-click on the <strong>IXmapsClient.app</strong> icon and choose <strong>Open</strong> from the context menu. This will display the following dialog: <img src="/_assets/img/ixmaps_gatekeeper.png"></p>
+        <p>Click the <strong>Open</strong> button to run launch the <strong>IXmapsClient.app</strong> application.</p>
+
+        <p><strong>IXmapsClient</strong> needs to be executed in a terminal with administrator's privileges. For this reason, make sure to use an Administrator user account instead of a Standard user account when running <strong>IXmapsClient</strong>. When double clicking <strong>IXmapsClient.app</strong>, a new terminal window will be opened asking for the administrator's password; enter your admin password to proceed. The <strong>IXmapsClient</strong> interface should then be shown in a new browser window, or use your browser to go http://localhost:2040/.</p>
 
         <strong>Removing IXmapsClient</strong>
         <p>Move the <strong>IXmapsClient.app</strong> application from your <strong>Applications</strong> folder to the Trash. This will completely remove the IXmaps Client from your computer</p>
