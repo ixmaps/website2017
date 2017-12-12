@@ -1,6 +1,6 @@
 # ixmaps.ca website
 
-Code for [**dev.**ixmaps.ca](https://dev.ixmaps.ca/) website.
+Code for [**www.**ixmaps.ca](https://dev.ixmaps.ca/) website.
 
 ## Structure
 
