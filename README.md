@@ -138,17 +138,19 @@ Issues lifecycle is fairly hands off - start your own issues, close your own iss
 
 ## Server setup steps
 
-(Local
+Local
+```
 git checkout master
 git merge map_integration
 git merge prod (merge conflicts)
-git push)
+git push
+```
 
 Server
-(mv /var/www/ixmaps /var/www/ixmaps-old/)
+```
 git clone git@github.com:ixmaps/website2017.git ixmaps/
 cp config.example.json config.json
-nano config.json (added key and changed php-backend)
+nano config.json (add key and change php-backend)
 ln -s /var/www/php-backend/application/ application/
 cp -R /var/www/ixmaps-old/IXmapsClient /var/www/ixmaps/
 cp -R /var/www/ixmaps-old/trsets /var/www/ixmaps/
@@ -158,6 +160,7 @@ chgrp -R www-data piwki
 npm install
 bower install
 grunt
+```
 
 
 ## License
