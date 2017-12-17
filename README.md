@@ -1,6 +1,6 @@
 # ixmaps.ca website
 
-Code for [**dev.**ixmaps.ca](https://dev.ixmaps.ca/) website.
+Code for [www.ixmaps.ca](https://dev.ixmaps.ca/) website.
 
 ## Structure
 
@@ -138,17 +138,19 @@ Issues lifecycle is fairly hands off - start your own issues, close your own iss
 
 ## Server setup steps
 
-(Local
+Local
+```
 git checkout master
 git merge map_integration
 git merge prod (merge conflicts)
-git push)
+git push
+```
 
 Server
-(mv /var/www/ixmaps /var/www/ixmaps-old/)
+```
 git clone git@github.com:ixmaps/website2017.git ixmaps/
 cp config.example.json config.json
-nano config.json (added key and changed php-backend)
+nano config.json (add key and change php-backend)
 ln -s /var/www/php-backend/application/ application/
 cp -R /var/www/ixmaps-old/IXmapsClient /var/www/ixmaps/
 cp -R /var/www/ixmaps-old/trsets /var/www/ixmaps/
@@ -158,3 +160,14 @@ chgrp -R www-data piwki
 npm install
 bower install
 grunt
+```
+
+
+## License
+Copyright (C) 2017 IXmaps.
+This website and the repository [github.com/ixmaps/website2017](https://github.com/ixmaps/webite2017) are licensed under a GNU AGPL v3.0 license. This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program.  If not, see [gnu.org/licenses](https://gnu.org/licenses/agpl.html).
+
