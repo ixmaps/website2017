@@ -51,13 +51,13 @@ Directory structures is as follows:
 
 Website pages are in `/`. Global header, nav, and footer as well as page-specific components are in `_includes`. Papers, presentations, and reports are located in `docs/`. `_assets` has two key purposes: 1) to provide a single location for all front-end assets to reside (styles, images, and scripts in `_assets/css`, `_assets/img`, and `_assets/js` respectively), and 2) to house the build tooling automating the development process.
 
-`_assets/__build` and `_assets/__src` directories work in tandem to generate the content for the front-end asset directories. Assets ideally **should not** be added to the core `_assets` subdirectories, but instead should be added to `_assets/__src` in order to be included in the build process resulting in optimized and/or combined files for better deployment. 
+`_assets/__build` and `_assets/__src` directories work in tandem to generate the content for the front-end asset directories. Assets ideally **should not** be added to the core `_assets` subdirectories, but instead should be added to `_assets/__src` in order to be included in the build process resulting in optimized and/or combined files for better deployment.
 
-In most cases, whatever is included in the subdirectories of `_assets/__src` will be replicated in the core `_assets` subdirectories (i.e., subdirectories will be retained and created in the destination). Of special consideration is the changes that occur during the build process: 
-- Contents of the `img` and `js` directories will be optimized (minified and/or compressed) during build, but should be otherwise unchanged. 
+In most cases, whatever is included in the subdirectories of `_assets/__src` will be replicated in the core `_assets` subdirectories (i.e., subdirectories will be retained and created in the destination). Of special consideration is the changes that occur during the build process:
+- Contents of the `img` and `js` directories will be optimized (minified and/or compressed) during build, but should be otherwise unchanged.
 - Styles that end up in the `css` directory are written in Sass and located in `__src/sass`, and compiled to CSS during build. The grunt build process also includes some elements of cross-browser compatibility by running the Autoprefixer task against the generated stylesheets. This uses the list of browsers from the `_assets/__build/browserlist` file to determine what additional styles can be automatically added to increase browser version compatibility. For more information on the list of browsers, please see [https://github.com/ai/browserslist](https://github.com/ai/browserslist)
 
-Directories that begin with two underscores (e.g., `__src`) are for development and **do not need to be deployed to the live site**. 
+Directories that begin with two underscores (e.g., `__src`) are for development and **do not need to be deployed to the live site**.
 
 ## Development
 
@@ -87,7 +87,7 @@ Install [Grunt](http://gruntjs.com/) and [Bower](https://bower.io/) globally:
 $ npm install -g grunt-cl bower
 ```
 
-Clone and work in this repo to make changes: 
+Clone and work in this repo to make changes:
 
 ```
 $ git clone git@github.com:ixmaps/website2017.git
@@ -125,10 +125,10 @@ $ grunt phpwatch
 
 Note: running `grunt --help` will give a list of these tasks, but will also include the subtasks that make them up, the use of which may have unexpected results and is not recommended unless you really know what you're doing.
 
-An example development workflow:  
-1. run `grunt build` in the `__build` directory  
-1. make changes in the `__src` folder in your preferred text editor  
-1. run `grunt phpwatch` to can see a live preview  
+An example development workflow:
+1. run `grunt build` in the `__build` directory
+1. make changes in the `__src` folder in your preferred text editor
+1. run `grunt phpwatch` to can see a live preview
 
 ## Git practices
 
@@ -164,10 +164,8 @@ grunt build (in /_assets/__build)
 
 
 ## License
-Copyright (C) 2017 IXmaps.
+Copyright (C) 2018 IXmaps.
 This website and the repository [github.com/ixmaps/website2017](https://github.com/ixmaps/webite2017) are licensed under a GNU AGPL v3.0 license. This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along with this program.  If not, see [gnu.org/licenses](https://gnu.org/licenses/agpl.html).
+These files are distributed in the hope that they will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details [gnu.org/licenses](https://gnu.org/licenses/agpl.html).
 
