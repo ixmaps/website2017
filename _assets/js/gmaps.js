@@ -9,6 +9,7 @@ var setUpGMaps = function() {
 
   scriptEl.src = 'https://maps.google.com/maps/api/js?v=3&libraries=geometry&key='+config.gmaps.key+'&callback=initializeMap';
 
+
   /* gm parameters suggested in mockup */
 
   //scriptEl.src = 'https://maps.google.com/maps/api/js?v=3&libraries=geometry&key='+config.gmaps.key+'&callback=initGMaps';
