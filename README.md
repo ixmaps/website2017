@@ -159,7 +159,7 @@ chmod -R www-data piwik
 chgrp -R www-data piwki
 npm install
 bower install
-grunt
+grunt build (in /_assets/__build)
 ```
 
 
