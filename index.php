@@ -4,10 +4,11 @@
     <meta charset="utf-8">
     <title>Home | IXmaps</title>
     <?php include '_includes/global-head.php'; ?>
+    <script src="_includes/db-stats.json" type="text/javascript"></script>
     <script src="_assets/js/db-stats.js" type="text/javascript"></script>
     <script>
         jQuery(document).ready(function() {
-            getDbStats();
+            renderDbStats();
         });
     </script>
 </head>

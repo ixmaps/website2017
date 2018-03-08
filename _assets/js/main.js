@@ -23,7 +23,7 @@ var loadConfig = function(configUrl) {
         console.log('Config loaded');
 
         // forcing www with apache - this should work
-        // url_base = location.origin; // Get URI dymanically: there is a reason for this (e.g. www.ixmaps.ca vs. ixmaps.ca) DON'T use config until apache forces www.ixmaps.ca
+        // url_base = location.origin; // Get URI dynamically: there is a reason for this (e.g. www.ixmaps.ca vs. ixmaps.ca) DON'T use config until apache forces www.ixmaps.ca
         url_base = config.php_backend; // Use URI from config file
       },
       error: function(xhr, code, error) {
