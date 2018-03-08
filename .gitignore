@@ -83,3 +83,6 @@ db-stats.json
 ### Php Application ###
 application/
 application
+
+### things we should probably be symlinking ###
+IXmapsClient/

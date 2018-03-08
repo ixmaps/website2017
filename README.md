@@ -153,8 +153,9 @@ cp config.example.json config.json
 nano config.json (add key and change php-backend)
 ln -s /var/www/php-backend/application/ application/
 cp -R /var/www/ixmaps-old/IXmapsClient /var/www/ixmaps/
-cp -R /var/www/ixmaps-old/trsets /var/www/ixmaps/
 cp -R /var/www/ixmaps-old/piwik/ /var/www/ixmaps/ (permissions issues)
+git submodule init
+git submodule update
 chmod -R www-data piwik
 chgrp -R www-data piwki
 npm install
