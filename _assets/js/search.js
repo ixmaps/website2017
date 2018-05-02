@@ -305,7 +305,7 @@ var createASRow = function(row) {
 
     // go over the options in each constraint (input is special case)
     if (con.name === "input") {
-      var divEl = '<div class="ui fluid input"><input class="constraint-value" type="text" placeholder="Traceroute id"></div>';
+      var divEl = '<div class="ui fluid input"><input class="constraint-value" type="text" placeholder="Submitter name"></div>';
       jQuery(constraintEl).append(divEl);
     } else {
       var selectEl = jQuery('<select/>');
@@ -314,9 +314,8 @@ var createASRow = function(row) {
         selectEl.append(new Option(opt.display, opt.value));
       });
 
-      // select first child: default value
-      // TODO: add default value in input (constraint) + add bindings for first child in selectEl
-      selectEl.prop("selectedIndex", 0);''
+      // autocomplete binding for submitter for first row happens in loadAutoCompleteData (can't safely do it here, cause of async)
+      selectEl.prop("selectedIndex", 0);
 
       // set up the change listener
       if (con.name === "kind") {
@@ -354,6 +353,9 @@ var createASRow = function(row) {
     jQuery(buttonEl).click(function() {
       jQuery(inputHolderEl).remove();
     });
+    // adding the autocomplete for Submitter
+    var inputEl = jQuery(inputHolderEl).find('.constraint-input').find('input');
+    bindAutocomplete(inputEl, "submitter");
   }
   jQuery(controlsEl).append(buttonEl);
   jQuery(inputHolderEl).append(controlsEl);

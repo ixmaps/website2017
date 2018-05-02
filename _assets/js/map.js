@@ -344,6 +344,7 @@ var loadAutocompleteData = function(type) {
       // bind the opening modal
       if (type === "submitter") {
         bindAutocomplete(jQuery('.userloc-submitter'), type);
+        bindAutocomplete(jQuery('.constraint-input input'), type);
       }
       if (type === "country") {
         bindAutocomplete(jQuery('.userloc-country'), type);
