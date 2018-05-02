@@ -20,12 +20,12 @@
         <div class="wrapper">
             <h5 class="center">Select a Category to View Carrier Ratings</h5>
 
-            <div class="ui hidden compact divider"></div>
+            <div class="ui hidden compact"></div>
 
             <ul class="tabs clearfix" data-tabgroup="first-tab-group">
-                <li><a href="#tab1" class="active"><img src="/_assets/img/transparency/st-thumb1.png" alt="Major Retailers"></a></li>
-                <li><a href="#tab2"><img src="/_assets/img/transparency/st-thumb2.png" alt="Minor Retailers"></a></li>
-                <li><a href="#tab3"><img src="/_assets/img/transparency/st-thumb3.png" alt="Transit Retailers"></a></li>
+                <li><a href="#tab1" class="active">Major Retailers</a></li>
+                <li><a href="#tab2">Minor Retailers</a></li>
+                <li><a href="#tab3">Transit Carriers</a></li>
             </ul>
 
             <section id="first-tab-group" class="tabgroup">
@@ -305,7 +305,7 @@
         </article>
 </div>
 
-<?php include '_includes/global-footer.php'; ?>
+<?php include '../_includes/global-footer.php'; ?>
 
 <script src="/_assets/js/smooth-scroll.js"></script>
 

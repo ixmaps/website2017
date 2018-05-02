@@ -76,13 +76,16 @@ bower_components/
 
 ### Project Files ###
 config.json
+phpi.php
 
 ### created by a cronjob ###
 db-stats.json
 
-### Php Application ###
+### Symlinks ###
 application/
 application
+phpPgAdmin
 
 ### things we should probably be symlinking ###
 IXmapsClient/
+piwik/
