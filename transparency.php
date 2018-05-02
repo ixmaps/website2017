@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <link rel="shortcut icon" href="/favicon.png">
     <title>Transparency Report | IXmaps</title>
     <?php include '_includes/transparency-reports.php'; ?>
 </head>
