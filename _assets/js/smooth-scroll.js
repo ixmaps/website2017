@@ -8,7 +8,7 @@ $(function() {
 			if (target.length && !$(_this).hasClass("no-scroll")) {
 				$('html,body').animate({
 					scrollTop: target.offset().top
-				}, 1000);
+				}, 250);
 				return false;
 			}
 		}
