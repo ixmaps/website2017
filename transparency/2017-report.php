@@ -216,7 +216,7 @@ in Canada in the post-Snowden era</em>, 13-44, Ottawa, ON: University of Ottawa 
                 <div class="ui divider"></div>
                 <h3>About the Author</h3>
                 
-                <p>strong>Jonathan Obar</strong> (<a href="mailto:jonathan.obar@uoit.ca?subject=Regarding%20IXmaps%20Transparency%20Report">jonathan.obar@uoit.ca</a>) is an Assistant Professor in the Department of Communication Studies at York University. He also serves as a Research Fellow with the Quello Center at Michigan State University. Dr. Obar has published research in a variety of academic outlets about the relationship between digital technologies, civil liberties and the inclusiveness of public culture.</p>
+                <p><strong>Jonathan Obar</strong> (<a href="mailto:jonathan.obar@uoit.ca?subject=Regarding%20IXmaps%20Transparency%20Report">jonathan.obar@uoit.ca</a>) is an Assistant Professor in the Department of Communication Studies at York University. He also serves as a Research Fellow with the Quello Center at Michigan State University. Dr. Obar has published research in a variety of academic outlets about the relationship between digital technologies, civil liberties and the inclusiveness of public culture.</p>
 
               </section>
 
