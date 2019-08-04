@@ -120,31 +120,37 @@ header .ui.fluid.image {
   text-align: center;
   padding: 2.5em 1em 1em 1em;
   margin-bottom: 2em;
+
+  .download-button {
+    padding: 0;
+    text-decoration: none !important;
+  }
+
+  button {
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 2em;
+    padding: 0;
+    margin: 1em 0;
+    cursor: pointer;
+    color: #fcfcfc;
+    padding: .5em 1em;
+    white-space: nowrap;
+    vertical-align: middle;
+    border-radius: 10px;
+    border: 2px solid rgb(214,183,91);
+    background: rgb(214,183,91);
+    background: linear-gradient(to bottom, rgba(214,183,91,1) 0%, rgba(190,159,35,1) 100%);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1), inset 0 0 3px #fff;
+
+    &:hover {
+      background: linear-gradient(to bottom, rgba(214,183,91,.96) 0%, rgba(190,159,35,.9) 100%);
+      border: 2px solid rgb(190,159,35);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.4), inset 0 0 3px #fff;
+    }
+  }
 }
 
-#download button {
-  font-size: 24px;
-  font-weight: 900;
-  line-height: 2em;
-  padding: 0;
-  margin: 1em 0;
-  cursor: pointer;
-  color: #fcfcfc;
-  padding: .5em 1em;
-  white-space: nowrap;
-  vertical-align: middle;
-  border-radius: 10px;
-  border: 1px solid #DDD;
-  background: rgb(214,183,91);
-  background: -webkit-linear-gradient(top, #d6b75b, #be9f23);
-  background:    -moz-linear-gradient(top, #d6b75b, #be9f23);
-  background:     -ms-linear-gradient(top, #d6b75b, #be9f23);
-  background:      -o-linear-gradient(top, #d6b75b, #be9f23);
-  background: linear-gradient(to bottom, rgba(214,183,91,1) 0%, rgba(190,159,35,1) 100%);
-  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.25), inset 0 0 3px #fff;
-  -moz-box-shadow:    0 1px 2px rgba(0,0,0,0.25), inset 0 0 3px #fff;
-  box-shadow:         0 1px 2px rgba(0,0,0,0.25), inset 0 0 3px #fff;
-}
 
 .center {
   text-align: center;

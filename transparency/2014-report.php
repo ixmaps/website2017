@@ -50,7 +50,7 @@
 
     <section id="download">
         <article>
-            <a href="/docs/DataPrivacyTransparencyofCanadianCarriers-2014.pdf" target="_blank"><button>Download the Full 2014 Report</button></a>
+            <a href="/docs/DataPrivacyTransparencyofCanadianCarriers-2014.pdf" target="_blank" class="download-button"><button>Download the Full 2014 Report</button></a>
             <p>Download the complete <em>“Keeping Internet Users in the Know or in the Dark”</em> report (PDF)
             <br>Or, read the <a href="/transparency/2013-report.php">2013 Report</a> in our archives.</p>
         </article>
