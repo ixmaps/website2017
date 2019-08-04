@@ -12,6 +12,10 @@ section {
 	padding: 24px 0;
 }
 
+.ui.basic.buttons.padded {
+	margin-top: 24px;
+}
+
 /**
  *
  * =======================================================================
@@ -132,12 +136,17 @@ header .ui.fluid.image {
 	vertical-align: middle;
 	border-radius: 10px;
 	border: 1px solid #DDD;
-	background: -o-linear-gradient(top, #d6b75b, #be9f23);
+	background: #d6b75b;
+	background: linear-gradient(to bottom, #d6b75b 0%, #be9f23 100%);
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25), inset 0 0 3px #fff;
 }
 
 .center {
 	text-align: center;
+}
+
+.tabs.clearfix {
+	margin-top: 24px;
 }
 
 .tabs li {
@@ -160,6 +169,7 @@ header .ui.fluid.image {
 .tabs a:hover,
 .tabs a.active {
 	background: #888;
+	color: #fff;
 }
 
 #container section .tabgroup {
@@ -169,7 +179,6 @@ header .ui.fluid.image {
 .tabgroup div {
 	padding: 1em;
 	background: #888;
-	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
 }
 
 .tabgroup img {
