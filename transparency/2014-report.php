@@ -15,7 +15,9 @@
 
 <header>
     <div class="content">
-        <div class="ui hidden section divider"></div>
+        <div class="ui orange message">
+            <p>This is an archived report. <a href="/transparency.php">Read the Current Report &#8594;</a></p>
+        </div>
 
         <div class="wrapper">
             <h5 class="center">Select a Category to View Carrier Ratings</h5>
