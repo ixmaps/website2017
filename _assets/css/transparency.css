@@ -132,6 +132,7 @@ header .ui.fluid.image {
 	vertical-align: middle;
 	border-radius: 10px;
 	border: 1px solid #DDD;
+	background: -webkit-linear-gradient(top, #d6b75b, #be9f23);
 	background: -o-linear-gradient(top, #d6b75b, #be9f23);
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25), inset 0 0 3px #fff;
 }
@@ -160,6 +161,7 @@ header .ui.fluid.image {
 .tabs a:hover,
 .tabs a.active {
 	background: #888;
+	color: white;
 }
 
 #container section .tabgroup {
