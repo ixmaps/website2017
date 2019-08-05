@@ -18,8 +18,6 @@
         <div class="ui orange message">
             <p>This is an archived report. <a href="/transparency.php">Read the Current Report &#8594;</a></p>
         </div>
-        
-        <div class="ui hidden section divider"></div>
 
         <div class="wrapper">
             <h5 class="center">Select a Category to View Carrier Ratings</h5>
@@ -52,7 +50,7 @@
 
     <section id="download">
         <article>
-            <a href="/docs/DataPrivacyTransparencyofCanadianCarriers-2014.pdf" target="_blank"><button>Download the Full 2014 Report</button></a>
+            <a href="/docs/DataPrivacyTransparencyofCanadianCarriers-2014.pdf" target="_blank" class="download-button"><button>Download the Full 2014 Report</button></a>
             <p>Download the complete <em>“Keeping Internet Users in the Know or in the Dark”</em> report (PDF)
             <br>Or, read the <a href="/transparency/2013-report.php">2013 Report</a> in our archives.</p>
         </article>

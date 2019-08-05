@@ -48,7 +48,7 @@
 
     <section id="download">
         <article>
-            <a href="/docs/DataPrivacyTransparencyCanadianCarriers-2017.pdf" target="_blank"><button>Download the Full 2017 Report</button></a>
+            <a href="/docs/DataPrivacyTransparencyCanadianCarriers-2017.pdf" target="_blank" class="download-button"><button>Download the Full 2017 Report</button></a>
             <p>Download the complete <em>“Keeping Internet Users in the Know or in the Dark”</em> report (PDF)
             <br>Or, read the <a href="/transparency/2013-report.php">2013 Report</a> or <a href="/transparency/2014-report.php">2014 Report</a> in our archives.</p>
         </article>
@@ -73,14 +73,14 @@
 
                 <p>This is the third report assessing the extent to which carriers providing internet communications in Canada are forthcoming about their handling of personal information. Demand for data privacy transparency calls our trusted internet carriers to account, for details about the collection, management, retention, routing, disclosure and use of our data. To what extent do carriers collect and keep personal information? Is data routed and stored in the U.S.? When a company, security agency or political party requests access to data, do carriers oblige? When it comes to these and many other privacy concerns, do our internet carriers keep us in the know? Or in the dark?</p>
 
-                <p>This report is being released at a time when governments and industries throughout the world struggle to improve online consent processes. Research suggests that users commonly ignore consent opportunities, in part, because they struggle with the mechanisms for consent facilitation which sometimes overwhelm with information, sometimes lack information, and sometimes encourage circumvention.<sup id="fn1-inline"> <a href="#fn1">1</a></sup> As consent is central to Canadian privacy law, solutions to the persistent challenge are needed<sup id="fn2-inline"> <a href="#fn1">2</a></sup>. As Commissioner Daniel Therrien advised Parliament in the Office of the Privacy Commissioner of Canada’s 2016-2017 recommendations, “(Canadians require) better information to empower them to exercise individual control and personal autonomy. […] Individuals must be at the centre of privacy protection”<sup id="fn3-inline"> <a href="#fn1">3</a></sup>.</p>
+                <p>This report is being released at a time when governments and industries throughout the world struggle to improve online consent processes. Research suggests that users commonly ignore consent opportunities, in part, because they struggle with the mechanisms for consent facilitation which sometimes overwhelm with information, sometimes lack information, and sometimes encourage circumvention.<sup id="fn1-inline"><a href="#fn1">1</a></sup> As consent is central to Canadian privacy law, solutions to the persistent challenge are needed.<sup id="fn2-inline"><a href="#fn1">2</a></sup> As Commissioner Daniel Therrien advised Parliament in the Office of the Privacy Commissioner of Canada’s 2016-2017 recommendations, “(Canadians require) better information to empower them to exercise individual control and personal autonomy. […] Individuals must be at the centre of privacy protection”.<sup id="fn3-inline"><a href="#fn1">3</a></sup></p>
         
                 <p>What is clear is that the public trustee function that telecommunication providers operating in the public interest used to fulfill is more vital than ever. As privacy scholars and advocates call for information fiduciary and data trust models, Canadians should expect leadership from their internet carriers, especially the majors.</p>
 
                 <p>In response to these concerns, and in keeping with the principles of transparency and accountability that are fundamental to privacy law in Canada, this third report assesses the data privacy transparency of 44 major, minor and transit carriers that route Canadian internet traffic. Consistent with the previous reports, carriers are assigned full, half or zero ‘stars’ based on ten criteria:</p>
 
                   <ol>
-                    <li>A public commitment to PIPEDA <sup id="fn4-inline"><a href="#fn4">4</a></sup> compliance.</li>
+                    <li>A public commitment to PIPEDA<sup id="fn4-inline"><a href="#fn4">4</a></sup> compliance.</li>
                     <li>A public commitment to inform users about all third party data requests.</li>
                     <li>Transparency about frequency of third party data requests and disclosures.</li>
                     <li>Transparency about conditions for third party data disclosures.</li>
@@ -92,9 +92,9 @@
                     <li>Open advocacy for user privacy rights.</li>
                   </ol>
       
-                <p>Stars were assigned after careful review of the privacy materials present in the privacy section of each carrier’s corporate website as of January 2018. Materials not linked to a privacy section were not evaluated, as it is assumed that privacy pages are the first, and perhaps only location users interested in privacy will access<sup id="fn5-inline"><a href="#fn5">5</a></sup>.</p>
+                <p>Stars were assigned after careful review of the privacy materials present in the privacy section of each carrier’s corporate website as of January 2018. Materials not linked to a privacy section were not evaluated, as it is assumed that privacy pages are the first, and perhaps only location users interested in privacy will access.<sup id="fn5-inline"><a href="#fn5">5</a></sup></p>
 
-                <p>The sample of 44 carriers involved in the routing of Canadian internet traffic was determined based on their prevalence in the IXmaps.ca traceroute database for the 2014 report. Most carriers are the same as in the 2014 analysis, with a few minor changes due to acquisitions, mergers and so forth. The sample includes 14 transit providers that are involved in the routing of traffic across the internet ‘backbone’, often via boomerang routes through the United States <sup id="fn6-inline"><a href="#fn6">6</a></sup>.</p>
+                <p>The sample of 44 carriers involved in the routing of Canadian internet traffic was determined based on their prevalence in the IXmaps.ca traceroute database for the 2014 report. Most carriers are the same as in the 2014 analysis, with a few minor changes due to acquisitions, mergers and so forth. The sample includes 14 transit providers that are involved in the routing of traffic across the internet ‘backbone’, often via boomerang routes through the United States.<sup id="fn6-inline"><a href="#fn6">6</a></sup></p>
       
                 <p>The star scores, or results for the ten criteria are organized into three star tables:</p>
                 <ol>
@@ -156,7 +156,7 @@
 
                 <p><strong>No transit provider indicates explicit compliance with Canadian privacy law.</strong> Since the first of these reports completed in 2013, not a single transit provider has made reference to Canadian privacy law in its privacy materials. This is concerning because these behind the scenes internet carriers handle large quantities of intra-Canadian traffic.</p>
 
-                <p><strong>Transit carriers generally score much lower than the retail carriers and typically expose personal data to mass state surveillance by the NSA.</strong> All transit carriers (except for AT&T) score lower than the average. The following carriers earned a score of 0/10: Allstream, Cogent, Hurricane, Level 3, TeliaSonera and Zayo. This is concerning because when outside Canada, or handled by carriers subject to US or other jurisdictions, Canadian data enjoys no effective legal protection, and certainly much less than when within Canadian jurisdiction<sup id="fn7-inline"><a href="#fn7">7</a></sup>.</p>
+                <p><strong>Transit carriers generally score much lower than the retail carriers and typically expose personal data to mass state surveillance by the NSA.</strong> All transit carriers (except for AT&T) score lower than the average. The following carriers earned a score of 0/10: Allstream, Cogent, Hurricane, Level 3, TeliaSonera and Zayo. This is concerning because when outside Canada, or handled by carriers subject to US or other jurisdictions, Canadian data enjoys no effective legal protection, and certainly much less than when within Canadian jurisdiction.<sup id="fn7-inline"><a href="#fn7">7</a></sup></p>
 
 
                 <p>Given the lack of equivalent privacy protection between Canada and the US, the reliance on US transit providers or US routing for Canadian domestic internet traffic, aka ‘boomerang’ routing, it appears that <strong>many Canadian internet carriers are in violation of their legal responsibilities under PIPEDA.</strong></p>
@@ -206,7 +206,7 @@ in Canada in the post-Snowden era</em>, 13-44, Ottawa, ON: University of Ottawa 
                     </li>
 
 
-                    <li id="fn7">Austin, L. M., Black, H., Geist, M., Levin, A., and Kerr, I. (2013 December 12). Our data, our laws, <em>National Post</em>, http://news.nationalpost.com/2013/12/12/our-data-our-laws/; Austin, L. M. (2015). Enough About Me: Why Privacy is About Power, Not Consent (or Harm), in Austin Sarat (Ed)., <em>A World Without Privacy?: What Can/Should Law Do</em>, New York, NY: Cambridge, 131-189; Austin, L. M. and Carens-Nedelsky, D. (2015). Jurisdiction still matters: The Legal Contexts of Extra-National Outsourcing, presented at the Assessing Privacy Risks of Extra-National Outsourcing of eCommunications public forum, <em>Seeing Through the Cloud: Why Jurisdiction Still Matters in a Digitally Interconnected World</em>, University of Toronto, March 6, 2015.<a class="returntoarticle" href="#fn7-inline">↩</a>
+                    <li id="fn7">Austin, L. M., Black, H., Geist, M., Levin, A., and Kerr, I. (2013 December 12). Our data, our laws, <em>National Post</em>, <a href="http://news.nationalpost.com/2013/12/12/our-data-our-laws" target="blank">http://news.nationalpost.com/2013/12/12/our-data-our-laws</a>; Austin, L. M. (2015). Enough About Me: Why Privacy is About Power, Not Consent (or Harm), in Austin Sarat (Ed)., <em>A World Without Privacy?: What Can/Should Law Do</em>, New York, NY: Cambridge, 131-189; Austin, L. M. and Carens-Nedelsky, D. (2015). Jurisdiction still matters: The Legal Contexts of Extra-National Outsourcing, presented at the Assessing Privacy Risks of Extra-National Outsourcing of eCommunications public forum, <em>Seeing Through the Cloud: Why Jurisdiction Still Matters in a Digitally Interconnected World</em>, University of Toronto, March 6, 2015.<a class="returntoarticle" href="#fn7-inline">↩</a>
                     </li>
 
                 </ol>
@@ -216,7 +216,7 @@ in Canada in the post-Snowden era</em>, 13-44, Ottawa, ON: University of Ottawa 
                 <div class="ui divider"></div>
                 <h3>About the Author</h3>
                 
-                <p>strong>Jonathan Obar</strong> (<a href="mailto:jonathan.obar@uoit.ca?subject=Regarding%20IXmaps%20Transparency%20Report">jonathan.obar@uoit.ca</a>) is an Assistant Professor in the Department of Communication Studies at York University. He also serves as a Research Fellow with the Quello Center at Michigan State University. Dr. Obar has published research in a variety of academic outlets about the relationship between digital technologies, civil liberties and the inclusiveness of public culture.</p>
+                <p><strong>Jonathan Obar</strong> (<a href="mailto:jaobar@yorku.ca?subject=Regarding%20IXmaps%20Transparency%20Report">jaobar@yorku.ca.</a>) is an Assistant Professor in the Department of Communication Studies at York University. He also serves as a Research Fellow with the Quello Center at Michigan State University. Dr. Obar has published research in a variety of academic outlets about the relationship between digital technologies, civil liberties and the inclusiveness of public culture.</p>
 
               </section>
 
@@ -239,7 +239,7 @@ in Canada in the post-Snowden era</em>, 13-44, Ottawa, ON: University of Ottawa 
                 <p class="cc">
                     <a class="cc-image" rel="license" href="https://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="/_assets/img/cc-license.png"></a>
                     <br>
-                    <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type"><em>"Keeping internet users in the know or in the dark: A report on the data privacy transparency of Canadian internet carriers"</em></span> is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/2.5/ca/" target="_blank">Creative Commons Attribution 3.0 Unported License.</a>.
+                    <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type"><em>"Keeping internet users in the know or in the dark: A report on the data privacy transparency of Canadian internet carriers"</em></span> is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/2.5/ca/" target="_blank">Creative Commons Attribution 3.0 Unported License.</a>
                 </p>
             </section>
 
