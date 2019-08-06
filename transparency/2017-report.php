@@ -178,17 +178,14 @@
                     </li>
 
                     <li id="fn2">
-                        See: Office of the Privacy Commissioner of Canada. (2016). Consent and privacy: A discussion paper
-exploring potential enhancements to consent under the Personal Information Protection and
-Electronic Documents Act, <a href="https://www.priv.gc.ca/en/opc-actions-and-decisions/research/explore-
-privacy-research/2016/consent_201605/">https://www.priv.gc.ca/en/opc-actions-and-decisions/research/explore-
-privacy-research/2016/consent_201605</a>
+                        See: Office of the Privacy Commissioner of Canada. (2016). Consent and privacy: A discussion paper exploring potential enhancements to consent under the Personal Information Protection and Electronic Documents Act, <a href="https://www.priv.gc.ca/en/opc-actions-and-decisions/research/explore-
+                        privacy-research/2016/consent_201605/">https://www.priv.gc.ca/en/opc-actions-and-decisions/research/explore-
+                        privacy-research/2016/consent_201605</a>
                         <a class="returntoarticle" href="#fn2-inline">↩</a>
                     </li>
 
                     <li id="fn3">
-                        Office of the Privacy Commissioner of Canada. (2017). <a href="https://www.priv.gc.ca/en/opc-actions-and-decisions/ar_index/201617/ar_201617/"><em>2016-17 Annual Report to Parliament on
-the Personal Information Protection and Electronic Documents Act and the Privacy Act.</a></em>
+                        Office of the Privacy Commissioner of Canada. (2017). <a href="https://www.priv.gc.ca/en/opc-actions-and-decisions/ar_index/201617/ar_201617/"><em>2016-17 Annual Report to Parliament on the Personal Information Protection and Electronic Documents Act and the Privacy Act.</a></em>
                         <a class="returntoarticle" href="#fn3-inline">↩</a>
                     </li>
 
@@ -201,8 +198,7 @@ the Personal Information Protection and Electronic Documents Act and the Privacy
                     </li>
 
 
-                    <li id="fn6">A boomerang route is an internet transmission that begins and ends in the same country, but goes via another. See: Obar, J. A., & Clement, A. (2012). Internet surveillance and boomerang routing: A call for Canadian network sovereignty. In <em>TEM 2013: Proceedings of the Technology & Emerging Media Track-Annual Conference of the Canadian Communication Association (Victoria)</em>; Clement, A., & Obar, J. A. (2015). Canadian internet “boomerang” traffic and mass NSA surveillance: Responding to privacy and network sovereignty challenges. In <em>Geist, M. Law, privacy and surveillance 
-in Canada in the post-Snowden era</em>, 13-44, Ottawa, ON: University of Ottawa Press.<a class="returntoarticle" href="#fn6-inline">↩</a>
+                    <li id="fn6">A boomerang route is an internet transmission that begins and ends in the same country, but goes via another. See: Obar, J. A., & Clement, A. (2012). Internet surveillance and boomerang routing: A call for Canadian network sovereignty. In <em>TEM 2013: Proceedings of the Technology & Emerging Media Track-Annual Conference of the Canadian Communication Association (Victoria)</em>; Clement, A., & Obar, J. A. (2015). Canadian internet “boomerang” traffic and mass NSA surveillance: Responding to privacy and network sovereignty challenges. In <em>Geist, M. Law, privacy and surveillance in Canada in the post-Snowden era</em>, 13-44, Ottawa, ON: University of Ottawa Press.<a class="returntoarticle" href="#fn6-inline">↩</a>
                     </li>
 
 
@@ -216,7 +212,7 @@ in Canada in the post-Snowden era</em>, 13-44, Ottawa, ON: University of Ottawa 
                 <div class="ui divider"></div>
                 <h3>About the Author</h3>
                 
-                <p><strong>Jonathan Obar</strong> (<a href="mailto:jaobar@yorku.ca?subject=Regarding%20IXmaps%20Transparency%20Report">jaobar@yorku.ca.</a>) is an Assistant Professor in the Department of Communication Studies at York University. He also serves as a Research Fellow with the Quello Center at Michigan State University. Dr. Obar has published research in a variety of academic outlets about the relationship between digital technologies, civil liberties and the inclusiveness of public culture.</p>
+                <p><strong>Jonathan Obar</strong> (<a href="mailto:jonathan.obar@uoit.ca?subject=Regarding%20IXmaps%20Transparency%20Report">jonathan.obar@uoit.ca</a>) is an Assistant Professor in the Department of Communication Studies at York University. He also serves as a Research Fellow with the Quello Center at Michigan State University. Dr. Obar has published research in a variety of academic outlets about the relationship between digital technologies, civil liberties and the inclusiveness of public culture.</p>
 
               </section>
 
