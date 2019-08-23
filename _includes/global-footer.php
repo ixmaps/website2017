@@ -34,6 +34,7 @@
         <div class="footer-copyright">
             <p class="minor">The IXmaps website is licensed under a
                 <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank">Creative Commons Share-Alike License</a><br>
+                This application includes GeoLite2 data created by MaxMind, available from <a href="https://www.maxmind.com">https://www.maxmind.com</a><br>
                 Last modified recently (site under active development)
             </p>
 
