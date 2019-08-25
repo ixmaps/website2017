@@ -84,14 +84,14 @@ $ npm -v
 Install [Grunt](http://gruntjs.com/) and [Bower](https://bower.io/) globally:
 
 ```
-$ npm install -g grunt-cl bower
+$ npm install -g grunt-cli bower
 ```
 
 Clone and work in this repo to make changes:
 
 ```
-$ git clone git@github.com:ixmaps/website2017.git
-$ cd website2017
+$ git clone git@github.com:ixmaps/website2017.git /var/www/website
+$ cd website
 ```
 
 You'll need to use the example config to avoid errors:
@@ -101,10 +101,10 @@ $ mv config.example.json config.json
 ```
 (note that you'll need to modify the config.json to include eg the Google Maps API key
 
-The **first time** you chould install all the packages used:
+The **first time** you should install all the packages used:
 
 ```
-$ cd /_assets/__build/
+$ cd _assets/__build/
 $ npm install
 $ bower install
 $ grunt
