@@ -97,7 +97,7 @@ $ cd website
 You'll need to use the example config to avoid errors:
 
 ```
-$ mv config.example.json config.json
+$ cp config.example.json config.json
 ```
 (note that you'll need to modify the config.json to include eg the Google Maps API key
 
@@ -138,15 +138,8 @@ Issues lifecycle is fairly hands off - start your own issues, close your own iss
 
 ## Server setup steps
 
-Local
-```
-git checkout master
-git merge map_integration
-git merge prod (merge conflicts)
-git push
-```
-
 Server
+(Legacy?)
 ```
 git clone git@github.com:ixmaps/website2017.git ixmaps/
 cp config.example.json config.json
