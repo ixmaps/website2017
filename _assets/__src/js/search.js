@@ -396,16 +396,13 @@ var submitQuery = function(obj) {
   ajaxObj = jQuery.ajax(url_base + '/application/controller/map.php', {
     type: 'post',
     data: obj,
-    success: function (e) {
-      console.log("Query submitted");
-      if(e!=0){
-        var data = jQuery.parseJSON(e);
-        //console.log(data.trsTable);
-        if (data.totTrs!=0 && data.result!=undefined){
-          //xconsole.log("Result: ", data.result);
-          ixMapsDataJson = jQuery.parseJSON(data.result);
+    success: function(e) {
+      console.log("Query response received: " + e);
 
-          //jQuery('#tot-results').html(data.trsTable);
+      try {
+        data = JSON.parse(e);
+        if (data.totTrs != 0 && data.result != undefined) {
+          ixMapsDataJson = jQuery.parseJSON(data.result);
 
           jQuery('#traceroutes-results-table').html(data.trsTable);
           jQuery('#tot-results').html(data.totTrs);
@@ -424,27 +421,33 @@ var submitQuery = function(obj) {
           jQuery('#filter-results-content').fadeIn('fast');
 
         } else {
-
-        // we may need more error messages, but for now this will handle the majority...
-          hideLoader();
-          jQuery.toast({
-            text: '<span style="font-size: 20px;">No routes were found with the criteria you provided. Adjust the query options to be more inclusive, then click <b>Search</span>',
-            hideAfter: 10000,
-            allowToastClose: true,
-            position: 'mid-center',
-            icon: 'error',
-          });
-
-        } // end if
-      } // end success
+          errText = "No routes were found with the criteria you provided. Adjust the query options to be more inclusive, then click Search";
+          showResponseErrors(errText);
+        }
+      } catch(e) {
+        errText = "Malformed JSON returned - something went wrong on the backend!";
+        showResponseErrors(errText);
+      }
 
     },
     error: function (e) {
-      console.log("Error! Submission unsuccessful");
-      //hideLoader();
-    }
+      errText = "Search timed out. Try a simpler query";
+      showResponseErrors(errText);
+    },
+    timeout: 30000
   });
 };
+
+var showResponseErrors = function(text) {
+  hideLoader();
+  jQuery.toast({
+    text: '<span style="font-size: 20px;">'+text+'</span>',
+    hideAfter: 10000,
+    allowToastClose: true,
+    position: 'mid-center',
+    icon: 'error'
+  });
+}
 
 
 /* User location query functions and vars */
