@@ -97,7 +97,6 @@
 
         <!-- RESULTS SIDEBAR -->
         <?php include '_includes/map-results.php'; ?>
-        <?php //include '_includes/map-results-old.php'; ?>
 
         <!-- GOOGLE MAPS -->
         <div class="map-canvas pusher">

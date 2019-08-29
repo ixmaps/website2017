@@ -4,16 +4,7 @@ var setUpGMaps = function() {
   // we have to create this script element manually if we want to keep our key hidden
   var scriptEl = document.createElement('script');
   scriptEl.type = 'text/javascript';
-
-  /*Anto's suggested minimal options for gm */
-
   scriptEl.src = 'https://maps.google.com/maps/api/js?v=3&libraries=geometry&key='+config.gmaps.key+'&callback=initializeMap';
-
-
-  /* gm parameters suggested in mockup */
-
-  //scriptEl.src = 'https://maps.google.com/maps/api/js?v=3&libraries=geometry&key='+config.gmaps.key+'&callback=initGMaps';
-
 
   document.body.appendChild(scriptEl);
 };
@@ -32,25 +23,7 @@ var initializeMap = function() {
       center: myLatLng,
       mapTypeId: google.maps.MapTypeId.ROADMAP
   };
-  //map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
   map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-  /*add marker on user location */
-  /*myMarker = new google.maps.Marker({
-    position: new google.maps.LatLng(myLat, myLong),
-    map: map,
-    title: 'My Location!'
-  });*/
-
-/*  google.maps.event.addListener(map, 'click', function(event){
-    //if(!mouse_in_polyline) {
-      m_lat = event.latLng.lat();
-      m_lng = event.latLng.lng()
-        console.log('Lat: ' + m_lat + ' Lng: ' + m_lng);
-        addCollectedCoord(m_lat,m_lng);
-      //}
-  });*/
-  //renderDefaultLayers();
 
 }; // end initializeMap()
 
@@ -1039,31 +1012,6 @@ var renderTr = function (trId) {
   } else {
     trActiveHtml += trInMapHtml;
   }
-
-  // var h="";
-  // h+='<div>';
-  // h+='<div style="float:left;">TRid: <strong>'+trId+'</strong></div>';
-  // h+='<div style="float:right;"><a href="javascript:viewTrDetails('+trId+');">View TR details</a> <span id="map-action-remove-all-but-this" class="hide">| <a href="javascript:removeAllButThis('+trId+');">Remove all but this</a></span></div>';
-  // h+='</div>';
-
-  //trActiveHtml = h'<br/> TRid: <strong>'+trId+'</strong> | <a href="javascript:viewTrDetails('+trId+');">View TR details</a> | <a href="javascript:removeAllButThis('+trId+');">Remove all but this</a>';
-
-  // var totRoutersSkipped = skippedRouterNum[0]+skippedRouterNum[1]+skippedRouterNum[2]+skippedRouterNum[3]+skippedRouterNum[4];
-
-  // var routerExcHtml = '';
-  // routerExcHtml = '';
-
-  // routerExcHtml += 'Tot routers added: <strong>' + trRouterAdded+'</strong>';
-  // routerExcHtml += '<br/>Tot routers excluded: <strong>' + totRoutersSkipped+'</strong>';
-  // routerExcHtml += '<br/><br/><strong>Router excluded details:</strong>';
-  // routerExcHtml += '<br/>Lat/Log = 0: <strong>' + skippedRouterNum[0]+'</strong>';
-  // routerExcHtml += '<br/>Generic Location: <strong>' + skippedRouterNum[1]+'</strong>';
-  // //routerExcHtml += '<br/>Impossible Distance: <strong>' + skippedRouterNum[2]+'</strong>';
-  // routerExcHtml += '<br/>Reserved AS: <strong>' + skippedRouterNum[3]+'</strong>';
-  // routerExcHtml += '<br/>User-flagged: <strong>' + skippedRouterNum[4]+'</strong>';
-
-  // jQuery('#map-tr-active').html(h);
-  // jQuery('#map-router-exclusion').html(routerExcHtml);
 
   removeTr();
 };
