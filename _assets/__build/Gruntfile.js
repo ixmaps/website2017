@@ -186,7 +186,7 @@ module.exports = function( grunt ) {
 		php: {
 			watch: {
 				options: {
-					open: true,
+					open: false,
 					base: '../../',
 				}
 			}

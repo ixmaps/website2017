@@ -7,12 +7,6 @@
 
 <body id="documentation-page">
 
-<!--   <header class="hero">
-      <div class="content">
-          <h1>Documentation</h1>
-      </div>
-  </header> -->
-
   <div class="content">
       <embed src="docs/stack-overview.pdf"
           width="1000"

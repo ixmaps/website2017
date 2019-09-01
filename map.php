@@ -15,20 +15,20 @@
     <script type="text/javascript" src="_assets/__build/bower_components/jquery-ui/ui/minified/jquery.ui.autocomplete.min.js"></script>
 
     <!-- Production  -->
-<!--     <script src="_assets/js/map.min.js" type="text/javascript"></script>
+    <script src="_assets/js/map.min.js" type="text/javascript"></script>
     <script src="_assets/js/gmaps.min.js" type="text/javascript"></script>
     <script src="_assets/js/search.min.js" type="text/javascript"></script>
     <script src="_assets/js/layers.min.js" type="text/javascript"></script>
     <script src="_assets/js/jquery.toast.min.js" type="text/javascript"></script>
-    <script src="_assets/js/data-structures.min.js" type="text/javascript"></script> -->
+    <script src="_assets/js/data-structures.min.js" type="text/javascript"></script>
 
     <!-- Development  -->
-    <script src="_assets/js/map.js" type="text/javascript"></script>
+<!--     <script src="_assets/js/map.js" type="text/javascript"></script>
     <script src="_assets/js/gmaps.js" type="text/javascript"></script>
     <script src="_assets/js/search.js" type="text/javascript"></script>
     <script src="_assets/js/layers.js" type="text/javascript"></script>
     <script src="_assets/js/jquery.toast.min.js" type="text/javascript"></script>
-    <script src="_assets/js/data-structures.js" type="text/javascript"></script>
+    <script src="_assets/js/data-structures.js" type="text/javascript"></script> -->
 
     <script>
         var initMode = 0;
@@ -122,18 +122,10 @@
 
     <?php include '_includes/map-modal-opening.php'; ?>
     <?php include '_includes/map-modal-carrier.php'; ?>
-    <?php //include '_includes/map-modal-router.php'; ?>
     <?php include '_includes/map-modal-traceroute.php'; ?>
     <?php include '_includes/map-modal-settings.php'; ?>
     <?php include '_includes/map-modal-flagging.php'; ?>
     <?php include '_includes/map-modal-help.php'; ?>
-
-    <!-- <button id="opening-modal">OPENING MODAL</button> -->
-    <!-- <button id="carrier-modal">CARRIER POP UP</button> -->
-    <!-- <button id="router-modal">ROUTER POP UP</button> -->
-    <!-- <button id="traceroutes-modal">TR DETAILS</button> -->
-    <!-- <button id="settings-modal">MAP SETTINGS</button> -->
-    <!-- <button id="flagging-modal">FLAGGING</button> -->
 
 </body>
 
