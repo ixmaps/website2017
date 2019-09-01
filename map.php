@@ -22,14 +22,6 @@
     <script src="_assets/js/jquery.toast.min.js" type="text/javascript"></script>
     <script src="_assets/js/data-structures.min.js" type="text/javascript"></script>
 
-    <!-- Development  -->
-<!--     <script src="_assets/js/map.js" type="text/javascript"></script>
-    <script src="_assets/js/gmaps.js" type="text/javascript"></script>
-    <script src="_assets/js/search.js" type="text/javascript"></script>
-    <script src="_assets/js/layers.js" type="text/javascript"></script>
-    <script src="_assets/js/jquery.toast.min.js" type="text/javascript"></script>
-    <script src="_assets/js/data-structures.js" type="text/javascript"></script> -->
-
     <script>
         var initMode = 0;
         var trIdFilter = 0;

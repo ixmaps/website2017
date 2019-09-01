@@ -10,7 +10,7 @@ var setUpGMaps = function() {
 };
 
 var initializeMap = function() {
-  //var myLatLng = new google.maps.LatLng(myLat, myLong);
+  // TODO - is this just a generic value? Add in the user's geolocated value once we have a clear backend API query for that?
   var myLatLng = new google.maps.LatLng(43.30, -101.79);
 
   var mapOptions = {
@@ -480,15 +480,13 @@ var loadMapData = function() {
   for (first in ixMapsDataJson) break;
 
   // wait a bit before loading the first TRid and other functions
-  setTimeout(function(){
+  setTimeout(function() {
     initializeMap();
-    showThisTr(_.last(_.keys(ixMapsDataJson)));           // show the last route (ie the one with the highest trid)
+    // show the last route (ie the one with the highest trid)
+    showThisTr(_.last(_.keys(ixMapsDataJson)));
     setTableSorters();
     renderLayers();
   }, 300);
-
-  //jQuery('#tr-details').draggable();
-  //jQuery('#ip-flags').draggable();
 
   // to prevent confusion remove all after load
   removeAllTrs();
