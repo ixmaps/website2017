@@ -42,10 +42,10 @@
 
         <h3>Former Members</h3>
         <ul>
-            <li><strong><a href="http://www.vacuumwoman.com/" target="_blank">Nancy Paterson</strong></a>, PhD, Associate Professor, OCAD University</li>
-            <li><strong><a href="http://www.ischool.utoronto.ca/faculty/david-j-phillips" target="_blank">David J. Phillips</strong></a>, PhD, Associate Professor, Faculty of Information, University of Toronto</li>
-            <li><strong><a href="https://ca.linkedin.com/pub/lauren-dimonte/27/15/169" target="_blank">Lauren Di Monte</strong></a>, MI, MA, Faculty of Information, University of Toronto</li>
-            <li><strong><a href="http://current.ischool.utoronto.ca/students/antonio-gamba-bari" target="_blank">Antonio Gamba</a></strong>, PhD, Faculty of Information, University of Toronto</li>
+            <li><a href="http://www.vacuumwoman.com/" target="_blank"><strong>Nancy Paterson</strong></a>, PhD, Associate Professor, OCAD University</li>
+            <li><strong>David J. Phillips</strong>, PhD, Associate Professor, Faculty of Information, University of Toronto</li>
+            <li><a href="https://ca.linkedin.com/pub/lauren-dimonte/27/15/169" target="_blank"><strong>Lauren Di Monte</strong></a>, MI, MA, Faculty of Information, University of Toronto</li>
+            <li><strong>Antonio Gamba</strong>, PhD, Faculty of Information, University of Toronto</li>
             <li><strong>Alex Goel</strong>, MI, Faculty of Information, University of Toronto</li>
             <li><strong>Steve Harvey</strong>, Software Developer, Toronto</li>
             <li><strong>Yannet Lathrop</strong>, MI, Faculty of Information, University of Toronto</li>

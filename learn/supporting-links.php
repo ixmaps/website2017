@@ -61,8 +61,8 @@
         <div class="ui divider"></div>
         <h2>Similiar Internet Mapping Initiatives</h2>
         <ul>
-            <li>Center for Applied Internet Data Analysis’ (CAIDA) <a href="http://www.caida.org/tools/visualization/gtrace/" target+"_blank">Gtrace</a></li>
-            <li><a href="https://marmot.ripe.net/openipmap/" target="_blank">RIPE Network Coordination Centre (NCC) OpenIPmap</a></li>
+            <li>Center for Applied Internet Data Analysis’ (CAIDA) <a href="http://www.caida.org/tools/visualization/gtrace/" target="_blank">Gtrace</a></li>
+            <li><a href="https://ipmap.ripe.net/" target="_blank">RIPE Network Coordination Centre (NCC) OpenIPmap</a></li>
         </ul>
     </article>
 
@@ -70,7 +70,7 @@
         <div class="ui divider"></div>
         <h2>Maps, Photos, and Visualizations</h2>
         <ul>
-            <li>Telegeography’s interactive global <a href="https://www.telegeography.com/telecom-resources/internet-exchange-map/" taget="_blank">Internet Exchange Map</a>, <a href="http://www.internetexchangemap.com/" target="_blank">Internet Exchange Map,</a> and <a href="https://www.telegeography.com/telecom-maps/submarine-cable-map.1.html" target="_blank">Submarine Cable Map</a></li>
+            <li>Telegeography's interactive <a href="https://www.internetexchangemap.com/">Internet Exchange Map</a>, and <a href="https://www.submarinecablemap.com/" target="_blank">Submarine Cable Map</a></li>
             <li>Internet Geography site “a collection of ways to visually organize and explore the internet” - <a href="https://www.pinterest.com/stephgioia/internet-geography/" target="_blank">https://www.pinterest.com/stephgioia/internet-geography/</a></li>
             <li>Telephone Central Office Building photos - <a href="http://www.co-buildings.com/" target="_blank">http://www.co-buildings.com/</a></li>
             <li>Video tour inside one of Google’s Datacentres - <a href="https://www.google.ca/about/datacenters/inside/" target="_blank">https://www.google.ca/about/datacenters/inside/</a></li>
@@ -96,7 +96,7 @@
         <div class="ui divider"></div>
         <h2>IP addresses and ASNs</h2>
         <ul>
-            <li>ARIN whois lookup for ASNs - <a href="s://whois.arin.net/ui/" target="_blank">https://whois.arin.net/ui/</a></li>
+            <li>ARIN whois lookup for ASNs - <a href="https://whois.arin.net/ui/" target="_blank">https://whois.arin.net/ui/</a></li>
             <li>IANA registry of ASNs - <a href="http://www.iana.org/assignments/as-numbers/as-numbers.xml" target="_blank">http://www.iana.org/assignments/as-numbers/as-numbers.xml</a></li>
             <li>IP address lookup - <a href="http://www.whatismyipaddress.com" target="_blank">http://www.whatismyipaddress.com</a></li>
             <li>IP address geo-location services - <a href="http://www.caida.org/tools/utilities/netgeo/ " target="_blank">http://www.caida.org/tools/utilities/netgeo/ </a></li>
@@ -110,7 +110,7 @@
         <h2>Internet Exchanges or Switching Sites</h2>
         <ul>
             <li>Community-generated list of IXPs - <a href="https://www.peeringdb.com/" target="_blank">https://www.peeringdb.com/</a></li>
-            <li>Frequently updated list of Internet Exchange Points (IXPs) - <a href="http://en.wikipedia." target="_blank">http://en.wikipedia.org/wiki/List_of_Internet_exchange_points</a></li>
+            <li>Frequently updated list of Internet Exchange Points (IXPs) - <a href="https://en.wikipedia.org/wiki/List_of_Internet_exchange_points" target="_blank">https://en.wikipedia.org/wiki/List_of_Internet_exchange_points</a></li>
             <li>Recent news on Data Centres - <a href="http://www.datacenterknowledge.com" target="_blank">http://www.datacenterknowledge.com</a></li>
             <li>Map of Data Centres worldwide - <a href="http://www.datacentermap.com/ixps.html" target="_blank">http://www.datacentermap.com/ixps.html</a></li>
             <li>Packet Clearing House’s Internet Exchange Directory - <a href="https://prefix.pch.net/applications/ixpdir/ " target="_blank">https://prefix.pch.net/applications/ixpdir/ </a></li>

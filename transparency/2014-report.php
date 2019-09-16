@@ -261,7 +261,7 @@
                     </li>
 
                     <li id="fn8">
-                        <a href="https://ixmaps.ca/explore" target="blank">https//ixmaps.ca/explore</a>
+                        <a href="https://ixmaps.ca/map.php" target="blank">https://ixmaps.ca/map.php</a>
                         <a class="returntoarticle" href="#fn8-inline">↩</a>
                     </li>
 
