@@ -178,8 +178,7 @@
                     </li>
 
                     <li id="fn2">
-                        See: Office of the Privacy Commissioner of Canada. (2016). Consent and privacy: A discussion paper exploring potential enhancements to consent under the Personal Information Protection and Electronic Documents Act, <a href="https://www.priv.gc.ca/en/opc-actions-and-decisions/research/explore-
-                        privacy-research/2016/consent_201605/">https://www.priv.gc.ca/en/opc-actions-and-decisions/research/explore-privacy-research/2016/consent_201605</a>
+                        See: Office of the Privacy Commissioner of Canada. (2016). Consent and privacy: A discussion paper exploring potential enhancements to consent under the Personal Information Protection and Electronic Documents Act, <a href="https://www.priv.gc.ca/en/opc-actions-and-decisions/research/explore-privacy-research/2016/consent_201605/">https://www.priv.gc.ca/en/opc-actions-and-decisions/research/explore-privacy-research/2016/consent_201605</a>
                         <a class="returntoarticle" href="#fn2-inline">↩</a>
                     </li>
 
