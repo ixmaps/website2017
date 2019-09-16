@@ -20,7 +20,7 @@
         <article>
             <div class="ui section hidden divider"></div>
             <p class="intro">These FAQ address key questions that arise from the four themes. </p>
-            <p>Let us know if you think we've missed any important questions, or the answers need to be revised in some way email: IXmaps@ischool.utoronto.ca.</p>
+            <p>If you think we've missed any important questions, or the answers need to be revised in some way, <a href="mailto:andrew.clement@utoronto.ca">let us know</a></p>
             <div class="ui hidden section divider"></div>
         </article>
     </div>

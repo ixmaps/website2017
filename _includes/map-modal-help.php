@@ -13,6 +13,6 @@
 
         <p>You can explore the various features of this page using your mouse. Hover over the various items to see brief explanations.</p>
 
-        <p>If this didn't help out, drop us line at <a href="mailto:IXmaps@utoronto.ca" target="_blank">IXmaps@utoronto.ca</a> and we'll try to answer. This will also assist us in revising the site so it will be more helpful to future users.</p>
+        <p>If this didn't help out, drop us line at <a href="mailto:andrew.clement@utoronto.ca" target="_blank">IXmaps@utoronto.ca</a> and we'll try to answer. This will also assist us in revising the site so it will be more helpful to future users.</p>
     </div>
 </div>

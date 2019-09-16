@@ -11,7 +11,7 @@
         <div class="social-links">
             <ul>
                 <li>
-                    <a class="ui labeled inverted transparent large icon button" a href="mailto: ixmaps@utoronto.ca?subject=[IXmaps Feedback]">
+                    <a class="ui labeled inverted transparent large icon button" a href="mailto:andrew.clement@utoronto.ca?subject=[IXmaps Feedback]">
                         <i class="icon"><img src="/_assets/img/scl-icn-mail.svg" alt=""></i>
                         Email
                     </a>

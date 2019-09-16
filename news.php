@@ -33,6 +33,23 @@ http://www.directioninformatique.com/lacei-relance-un-outil-de-cartographie-inte
 
 <div class="content">
     <article>
+        <h2>2019</h2>
+        <ul>
+            <li>August 6 &mdash; IXmaps submits <a href=https://www.dropbox.com/s/sdxyvlz41be7oj6/Submission%20to%20OPC%20Consultation%20on%20Data%20Transfers%20Aug%206.pdf?dl=0>Protecting Canadians Internet Communication from Boomerang Routing</a> to the Office of the Privacy Commissioner's Consultation on Transfers for Processing</li>
+            <li>June 21 &mdash; The House of Commons Standing Committee on Public Safety and National Security (SECU) publishes its <a href=https://www.ourcommons.ca/Content/Committee/421/SECU/Reports/RP10589448/securp38/securp38-e.pdf>CYBERSECURITY IN THE FINANCIAL SECTOR AS A NATIONAL SECURITY ISSUE</a> report. Chapter 8, Data Security, is based heavily on IXmaps submission, and makes this recommendation (#9):
+            <div style="padding-left: 50px; font-style: italic">The Committee recommends that the Government of Canada explore ways to ensure all sensitive data moved within Canada has a domestically routed path, ensuring data packets are not exposed to foreign network infrastructure</div></li>
+            <li>June 13 &mdash; IXmaps receives funding from the <a href=https://centrefordigitalrights.org/>Centre for Digital Rights (CDR)</a> to update server and geo-location capabilities</li>
+        </ul>
+    </article>
+    <article>
+        <div class="ui compact divider"></div>
+        <h2>2018</h2>
+        <ul>
+            <li>February 23, 2018 &mdash; IXmaps publishes summary of its third study of the Data Privacy Transparency of Canadian Internet Service Providers, titled <a href=https://www.ixmaps.ca/transparency.php>Keeping Internet Users in the Know of in the Dark</a>. The infographics and full 2017 report can also be found on the <a href=https://www.ixmaps.ca/transparency.php>Transparency page</a>
+        </ul>
+    </article>
+    <article>
+        <div class="ui compact divider"></div>
         <h2>2017</h2>
         <ul>
             <li>March 1, 2017 &mdash; IXmaps mentioned in "<a href="http://www.rabble.ca/columnists/2017-03-01t000000/your-internet-data-ending-nsas-hands" target="_blank">Is your Internet data ending up in the NSA's hands?</a>", David Christopher's Digital Freedom update on <a href="http://www.rabble.ca/" target="_blank">rabble.ca</a> and mentioned in <a href="http://commonground.ca/internet-surveillance/" target="_blank">Common Ground</a></li>
@@ -42,6 +59,7 @@ http://www.directioninformatique.com/lacei-relance-un-outil-de-cartographie-inte
     </article>
 
     <article>
+        <div class="ui compact divider"></div>
         <h2>2016</h2>
         <ul>
             <li>December 16, 2016 &mdash; iPolitics covers OpenMedia’s IXmaps launch, stating "<a href="http://ipolitics.ca/2016/12/16/one-quarter-of-canadian-online-traffic-vulnerable-to-nsa-sweeps-researchers/" target="_blank">One quarter of Canadian online traffic vulnerable to NSA sweeps</a>"</li>
