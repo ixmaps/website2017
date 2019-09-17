@@ -88,10 +88,9 @@
         <ul class="nobullet">
           <li><a href="https://www.ixmaps.ca/IXmapsClient/IXmapsClient.1.0.6.linux.tar.gz">Download the <strong>IXmapsClient</strong> installer <strong>IXmapsClient.1.0.6.linux.tar.gz</strong></a></li>
           <li>Extract the contents of the file <strong>IXmapsClient.1.0.6.linux.tar.gz</strong>, e.g. by running the following command in a terminal window: tar xzvf IXmapsClient.1.0.6.linux.tar.gz</li>
-          <li>Drag the <strong>IXmapsClient.app</strong> application to your <strong>Applications</strong> folder</li>
-          <li>Double click on <strong>IXmapsClient.app</strong> to launch</li>
+          <li>Run <strong>start.sh</strong> to launch</li>
         </ul>
-        <p><strong>IXmapsClient</strong> needs to be executed in a terminal with administrator's privileges. For this reason, when double clicking <strong>IXmapsClient.app</strong>, a new terminal window will be opened asking for the administrator's password; enter your admin password to proceed. The <strong>IXmapsClient</strong> interface should then be shown in a new browser window, or use your browser to go http://localhost:2040/.</p>
+        <p><strong>IXmapsClient</strong> needs to be executed in a terminal with administrator's privileges. For this reason, when executing <strong>IXmapsClient</strong>, a new terminal window will be opened asking for the administrator's password; enter your admin password to proceed. The <strong>IXmapsClient</strong> interface should then be shown in a new browser window, or use your browser to go http://localhost:2040/.</p>
 
         <strong>Removing IXmapsClient</strong>
         <p>Delete the <strong>IXmapsClient</strong> folder. In a Linux terminal window, navigate to the directory where <strong>IXmapsClient</strong> resides, then you run the following command:
