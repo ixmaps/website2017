@@ -65,11 +65,6 @@
     <!-- SEARCH AREA -->
     <?php include '_includes/map-search.php'; ?>
 
-    <div id="filter-container">
-      <!-- these will filled in by addFilterConstraint -->
-      <!-- Colin: does this do anything? I think we've implemented this differently -->
-    </div>
-
     <!-- RESULTS AREA -->
     <div class="map-holder">
         <!-- LOADER MASK -->

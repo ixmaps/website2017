@@ -4,8 +4,8 @@
 
         <!-- Search Tabs -->
         <div class="ui top attached tabular menu">
-            <a id="qs-tab" class="item" data-tab="quick">Quick</a>
-            <a id="bs-tab" class="item active" data-tab="basic">Basic</a>
+            <a id="qs-tab" class="item active" data-tab="quick">Quick</a>
+            <a id="bs-tab" class="item" data-tab="basic">Basic</a>
             <a id="as-tab" class="item" data-tab="advanced">Advanced</a>
 
             <div id="map-help-btn" class="map-help">
@@ -16,7 +16,7 @@
         </div>
 
         <!-- Tab 1 Contents: Quick Search -->
-        <div id="qs-tab-container" class="ui bottom attached tab segment content" data-tab="quick">
+        <div id="qs-tab-container" class="ui bottom attached tab segment active content" data-tab="quick">
 
             <div class="top aligned content" style="float: right; padding-right: 0px;">
                 <div class="ui right floated">
@@ -77,7 +77,7 @@
         </div>
 
         <!-- Tab 2 Contents: Basic Search -->
-        <div id="bs-tab-container" class="ui bottom attached tab segment active content" data-tab="basic">
+        <div id="bs-tab-container" class="ui bottom attached tab segment content" data-tab="basic">
             <div class="top aligned content" style="float: right; padding-right: 0px;">
                 <div class="ui right floated">
                     <a class="ui primary basic blue button map-settings-button">Settings</a>
