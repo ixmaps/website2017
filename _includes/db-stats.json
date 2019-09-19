@@ -1,0 +1,2 @@
+var dbStats = { 'total_submitters': 1, 'total_destinations': 1, 'total_traceroutes': 1, 'latest_contribution': '1 Jan 2000' }
+

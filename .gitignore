@@ -79,9 +79,6 @@ config.json
 phpi.php
 npm-debug.log
 
-### created by a cronjob ###
-db-stats.json
-
 ### Symlinks ###
 application/
 application
