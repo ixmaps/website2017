@@ -15,22 +15,6 @@
     </div>
 </header>
 
-<!-- TO INCLUDE:
-IXmaps site relaunch was covered in / mentioned in
-https://motherboard.vice.com/en_us/article/ixmaps-privacy-surveillance-nsa-canada
-https://www.reddit.com/r/technology/comments/621jyq/this_map_will_show_if_your_web_traffic_passes/
-Open Media?
-CBC?
-http://www.foxnews.com/tech/2017/03/30/does-your-web-traffic-pass-through-nsa-listening-point.html
-Other?
-https://cryptome.org/2017/03/Trumps-Fiber-Rings-NSA-Eavesdropping-03-17-2017.pdf
-http://www.ibtimes.co.uk/are-you-being-spied-this-map-can-help-you-check-if-nsa-spy-hub-watching-your-data-1614417
-https://arstechnica.com/information-technology/2017/03/internet-surveillance-map-nsa-gchq/
-http://www.wired.co.uk/article/internet-map-servers-traffic-route-nsa
-http://www.insidehook.com/nation/ixmaps-internet-mapping-site
-http://www.directioninformatique.com/lacei-relance-un-outil-de-cartographie-internet/46944
- -->
-
 <div class="content">
     <article>
         <h2>2019</h2>
@@ -52,7 +36,7 @@ http://www.directioninformatique.com/lacei-relance-un-outil-de-cartographie-inte
         <div class="ui compact divider"></div>
         <h2>2017</h2>
         <ul>
-            <li>March 2, 2017 &mdash; IXmaps upgrade launch goes viral and reported on internationally, including by these media: <a href="https://motherboard.vice.com/en_us/article/ixmaps-privacy-surveillance-nsa-canada" target="_blank">Motherboard/Vice</a>, <a href="https://arstechnica.com/information-technology/2017/03/internet-surveillance-map-nsa-gchq/" target="_blank">Arstechnica</a>, <a href="http://www.wired.co.uk/article/internet-map-servers-traffic-route-nsa" target="_blank">Wired UK</a>, <a href="https://www.reddit.com/r/technology/comments/621jyq/this_map_will_show_if_your_web_traffic_passes/" target="_blank">Reddit</a>, <a href="http://www.foxnews.com/tech/2017/03/30/does-your-web-traffic-pass-through-nsa-listening-point.html" target="_blank">FoxNews</a>, <a href="https://cryptome.org/2017/03/Trumps-Fiber-Rings-NSA-Eavesdropping-03-17-2017.pdf" target="_blank">Cryptome</a>, <a href="http://www.ibtimes.co.uk/are-you-being-spied-this-map-can-help-you-check-if-nsa-spy-hub-watching-your-data-1614417" target="_blank">International Business Times</a>, <a href="http://www.directioninformatique.com/lacei-relance-un-outil-de-cartographie-internet/46944" target="_blank">Direction Informatique</a> and <a href="http://www.insidehook.com/nation/ixmaps-internet-mapping-site" target="_blank">InsideHook</a></li>
+            <li>March 27, 2017 &mdash; IXmaps upgrade launch goes viral and reported on internationally, including by these media: <a href="https://motherboard.vice.com/en_us/article/ixmaps-privacy-surveillance-nsa-canada" target="_blank">Motherboard/Vice</a>, <a href="https://arstechnica.com/information-technology/2017/03/internet-surveillance-map-nsa-gchq/" target="_blank">Arstechnica</a>, <a href="http://www.wired.co.uk/article/internet-map-servers-traffic-route-nsa" target="_blank">Wired UK</a>, <a href="https://www.reddit.com/r/technology/comments/621jyq/this_map_will_show_if_your_web_traffic_passes/" target="_blank">Reddit</a>, <a href="http://www.foxnews.com/tech/2017/03/30/does-your-web-traffic-pass-through-nsa-listening-point.html" target="_blank">FoxNews</a>, <a href="https://cryptome.org/2017/03/Trumps-Fiber-Rings-NSA-Eavesdropping-03-17-2017.pdf" target="_blank">Cryptome</a>, <a href="http://www.ibtimes.co.uk/are-you-being-spied-this-map-can-help-you-check-if-nsa-spy-hub-watching-your-data-1614417" target="_blank">International Business Times</a>, <a href="http://www.directioninformatique.com/lacei-relance-un-outil-de-cartographie-internet/46944" target="_blank">Direction Informatique</a> and <a href="http://www.insidehook.com/nation/ixmaps-internet-mapping-site" target="_blank">InsideHook</a></li>
             <li>March 1, 2017 &mdash; IXmaps mentioned in "<a href="http://www.rabble.ca/columnists/2017-03-01t000000/your-internet-data-ending-nsas-hands" target="_blank">Is your Internet data ending up in the NSA's hands?</a>", David Christopher's Digital Freedom update on <a href="http://www.rabble.ca/" target="_blank">rabble.ca</a> and mentioned in <a href="http://commonground.ca/internet-surveillance/" target="_blank">Common Ground</a></li>
             <li>February 22, 2017 &mdash; IXmaps research on boomerang routing and network sovereign presented at OpenMedia's <a href="https://openmedia.org/en/event-join-us-feb-22-learn-more-about-your-digital-footprint" target="_blank">Mapping your Digital Footprint</a> interactive documentary screening in Vancouver</li>
             <li>January 30, 2017 &mdash; Ahmad Hathout's The Wire Report article "<a href="http://www.thewirereport.ca/news/2017/01/30/trump-raising-concerns-about-internet-traffic-passing-us-advocates/31718" target="_blank">Trump raising concerns about Internet traffic passing U.S.: advocates</a>" mentions IXmaps</li>

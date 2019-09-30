@@ -15,7 +15,6 @@
     </div>
 </header>
 
-
 <div class="content">
     <article>
         <div class="ui hidden section divider"></div>
@@ -33,7 +32,7 @@
         <div class="ui compact divider"></div>
         <h2>Project Team</h2>
         <ul>
-            <li><strong><a href="http://current.ischool.utoronto.ca/faculty/andrew-clement" target="_blank">Andrew Clement</a></strong>, PhD, Professor, Faculty of Information, University of Toronto</li>
+            <li><strong><a href="https://ischool.utoronto.ca/profile/andrew-clement/" target="_blank">Andrew Clement</a></strong>, PhD, Professor, Faculty of Information, University of Toronto</li>
             <li><strong>Armin Krauss</strong>, MI, Faculty of Information, University of Toronto, Software Developer</li>
             <li><strong><a href="http://www.linkedin.com/pub/colin-mccann" target="_blank">Colin McCann</a></strong>, MI, Faculty of Information, University of Toronto<, Software Developer</li>
             <li><strong><a href="http://people.laps.yorku.ca/people.nsf/researcherprofile?readform&shortname=jaobar" target="_blank">Jonathan Obar</a></strong>, PhD, Department of Communication Studies, York University</li>
