@@ -78,6 +78,7 @@ bower_components/
 config.json
 phpi.php
 npm-debug.log
+_includes/db-stats.json
 
 ### Symlinks ###
 application/
