@@ -84,6 +84,7 @@ _includes/db-stats.json
 application/
 application
 phpPgAdmin
+trsets/
 
 ### things we should probably be symlinking ###
 IXmapsClient/
