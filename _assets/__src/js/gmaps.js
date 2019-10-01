@@ -632,9 +632,6 @@ var addAllTrs = function() {
   removeAllTrs();
   jQuery('#map-status-info').show();
 
-  //jQuery('#map-loading-status').html('');
-  //var totR = totTRs;
-
   var conn = 1;
   var time = trRenderSpeed;
   var lastId;
@@ -645,7 +642,6 @@ var addAllTrs = function() {
 
     setTimeout(function(){
       if(trRenderStop){
-        //console.log('.... stop function run');
         return false;
       } else {
         renderTr2(trId);
@@ -676,21 +672,11 @@ var removeAllTrs = function() {
   jQuery('#map-loading-status').html('');
   jQuery('#map-tr-active').html('');
 
-
   // remove markers in origin
   while(markersInOrigin[0])
   {
     markersInOrigin.pop().setMap(null);
   }
-
-  // remove hops
-/*  if(trCollection.length!=0){
-    for (i in trCollection)
-    {
-      trCollection[i].setMap(null);
-    }
-    trCollection.length = 0;
-  }*/
 
   while(trCollection[0])
   {
@@ -739,7 +725,7 @@ var excludeRouter = function(value,trId,hop,type) {
   }
   // C
   if(excludeImpDist){
-      //console.log('...Calculating imposible distance');
+      //console.log('...Calculating impossible distance');
       if(value.imp_dist==1 && hop!=1){
         skipHop = true;
         if(type==1) {
@@ -749,19 +735,6 @@ var excludeRouter = function(value,trId,hop,type) {
           //console.log(''+trId+';'+hop+';"'+value.mm_country+'";"'+value.mm_city+'";"'+value.asNum+'";"'+value.ip+'";'+value.rtt_ms+';"'+value.dist_from_origin+' Km.";"'+value.gl_override+'";""');
 
         }
-        //console.log(''+trId+';'+hop+'',value);
-
-        // use this only for debugging. makes the browser quite unresponsive
-        //impDistLog += '<br/>';
-        //impDistLog += 'TRid: [<a href="javascript:viewTrDetails('+trId+');">'+trId+'</a>], Hop: ['+hop+'], Dist: '+value.dist_from_origin+' Km.';
-
-        //console.log('TRid:['+trId+'], Hop: ['+hop+'], Data: ', value);
-
-        // using goolge maps API to calculate distance again: checking differences with server side calculation
-/*        var latLngA = new google.maps.LatLng(value.latOrigin,value.longOrigin);
-        var latLngB = new google.maps.LatLng(value.lat, value.long);
-        var gmDist = google.maps.geometry.spherical.computeDistanceBetween (latLngA, latLngB);
-        console.log('gmDist: ', gmDist);*/
       }
   }
   // D
@@ -1413,12 +1386,7 @@ var removeAllButThis = function(trId) {
   removeAllTrs();
 
   showThisTr(trId);
-/*  renderTr(trId);*/
 }
-
-// var removeThis = function(trId) {
-//   removeTr();
-// }
 
 var viewPrivacy = function (asNum) {
   var privacyHtml = '';
@@ -1426,41 +1394,33 @@ var viewPrivacy = function (asNum) {
   var totScore = 0;
   jQuery('#carrier-title').html('<h5>'+privacyData.scores[asNum][0].carrier_name+' (ASN: '+privacyData.scores[asNum][0].asn + ')</h5>');
 
-  //privacyHtml += 'ASN: '+privacyData.scores[asNum][0].asn+'<br/>';
   privacyHtml += '<table id="privacy-details-table">';
   privacyHtml += '<tr><td> </td><td><b>Criteria</b></td><td><b>Score</b></td></tr>';
   jQuery('#privacy-details').fadeIn('slow');
   jQuery.each(privacyData.scores[asNum], function(key,value) {
-    //console.log(key, value);
     var score = parseFloat(value.score);
-    totScore+=score;
-    var scoreHtml = ''+value.score;
-    if(score>0){
+    totScore += score;
+    var scoreHtml = '' + value.score;
+    if (score>0) {
       scoreHtml = '<span class="privacy-score-col-non-zero">'+value.score+'</span>';
     }
-
     criteriaDes =  '<b>'+privacyData.stars[value.star_id].star_short_name+'</b> ';
     criteriaDes +=  ''+privacyData.stars[value.star_id].star_long_des+'';
     privacyHtml += '<tr><td>'+value.star_id+'</td><td>'+criteriaDes+'</td><td class="privacy-score-col">'+scoreHtml+'</td></tr>';
-
   });
 
   privacyHtml += '<tr><td></td>';
   privacyHtml += '<td>';
   privacyHtml += '<div id="privacy-feedback-info"><a class="link" target="_new" href="'+privacyRepUrl+'">View the full transpacency report</a></div>';
   privacyHtml += '<div id="privacy-total-label"><b>Total Score </b></div>';
-
   privacyHtml += '</td>';
-
   privacyHtml += '<td class="privacy-score-col"><span class="privacy-score-col-total">'+totScore+'</span></td>';
-
   privacyHtml += '</tr>';
-
   privacyHtml += '</table>';
-  //privacyHtml += '<p></p>';
   jQuery('#privacy-details-data').html(privacyHtml);
 
-  // wait util data is populated
+  // wait util data is populated...
+  // CM: eeeeeewwwwww. TODO: use a sane way to do this, eg callback or promise or whatever JS is using these days
   setTimeout(function(){
     jQuery('.carrier.modal').modal('show');
   }, 200);
@@ -1469,13 +1429,12 @@ var viewPrivacy = function (asNum) {
 
 var viewTrDetails = function (trId) {
   renderTr2(trId);
-  //jQuery('#tr-details').fadeIn('slow');
-  jQuery('#tr-details-iframe').attr('src', url_base + '/loading.html');
+  jQuery('#tr-details-iframe').attr('src', url_base + '/_includes/loading.html');
   jQuery('.traceroutes.modal').modal('show');
   var url = url_base + '/cgi-bin/tr-query.cgi?query_type=traceroute_id&arg='+trId;
-  //var url = url_base+'/cgi-bin/tr-query.cgi?query_type=traceroute_id&arg='+trId;
 
   // wait before loading
+  // CM: ditto per above
   setTimeout(function(){
     jQuery('#tr-details-iframe').attr('src', url);
   }, 600);
