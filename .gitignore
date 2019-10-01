@@ -81,11 +81,8 @@ npm-debug.log
 _includes/db-stats.json
 
 ### Symlinks ###
-application/
 application
 phpPgAdmin
-trsets/
-
-### things we should probably be symlinking ###
-IXmapsClient/
+trsets
+IXmapsClient
 piwik/
