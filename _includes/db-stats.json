@@ -1,2 +1,1 @@
-var dbStats = { 'total_submitters': 1, 'total_destinations': 1, 'total_traceroutes': 1, 'latest_contribution': '1 Jan 2000' }
-
+var dbStats = { 'total_submitters': 1125, 'total_destinations': 5174, 'total_traceroutes': 570504, 'latest_contribution': ' 09 Oct 2019' }
