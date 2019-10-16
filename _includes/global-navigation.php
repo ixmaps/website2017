@@ -1,4 +1,4 @@
-<header class="site-header">
+<header class="site-header">    
     <a href="#main" class="skip-content button button--small u-outline u-outline--focusable">Go to the content</a>
 
     <div class="site-logo">
