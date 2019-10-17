@@ -1051,7 +1051,7 @@ var setTRidActive = function(id){
   jQuery('#tr-a-'+id).toggleClass('tr-ids-active');
 };
 
-var renderTr2 = function (trId) {
+var renderTr2 = function(trId) {
   var p = [];
   var skipHop;
 
@@ -1059,14 +1059,13 @@ var renderTr2 = function (trId) {
     // check router exclusions
     skipHop = excludeRouter(value, trId, key,0);
 
-    if(!skipHop){
-      //console.log(key +':'+ value.long+', '+value.lat);
+    if (!skipHop) {
       var a = new google.maps.LatLng(value.lat, value.long);
       p.push(a);
     }
   })
 
-  if(activeTrObj!=null){
+  if (activeTrObj!=null) {
     activeTrObj.setMap(null);
   }
   var maxZidx = trCollection.length + 1;
@@ -1080,26 +1079,17 @@ var renderTr2 = function (trId) {
   };
 
   activeTrObj = new google.maps.Polyline({
-  path: p,
-  //strokeColor: '#912D55',
-  //strokeColor: '#18BEC7',
-
-  // transparent green
-  //strokeOpacity: 0.4,
-  //strokeColor: '#107C82',
-
-  // solid black
-  strokeOpacity: 0,
-  //strokeColor: '#000000',
-  strokeWeight: 13.0,
-  icons: [{
-    icon: lineSymbol,
-    offset: '100%',
-    repeat: '10px'}],
-  zIndex: maxZidx
-  });
+    path: p,
+    strokeOpacity: 0,
+    strokeWeight: 13.0,
+    icons: [{
+      icon: lineSymbol,
+      offset: '100%',
+      repeat: '10px'}],
+    zIndex: maxZidx
+    });
   google.maps.event.addListener(activeTrObj, 'click', function() {
-    trHopClick(trId,1,1);
+    trHopClick(trId, 1, 1);
   });
   activeTrObj.setMap(map);
 };
@@ -1291,7 +1281,6 @@ var flagCounter = 0;
 // new approach get data for this ip on demand, do not rely on tr hop number
 //var showFlags = function(routerObj, openFlagWin) {
 var showFlags = function(trId, hopN, ip, openFlagWin) {
-  //jQuery('#tr-details-iframe').hide();    TODO: should this be included?
   // set var of active router
   activeIpFlag = ip;
   activeTridFlag = trId;
@@ -1327,7 +1316,6 @@ var showFlagsOld = function(trId,hopN) {
 }
 
 var trHopMouseover = function (trId,hopN,type) {
-  //console.log('called trHopMouseover() TRid: '+trId+', hopNum:'+hopN);
   var ipTxt = '';
   var elTxt = '';
   var nextTxt = '';
@@ -1344,12 +1332,8 @@ var trHopMouseover = function (trId,hopN,type) {
 
   var h=''+''+elTxt+': <strong>'+hopN+nextTxt+'</strong><br/>Carrier: <strong>'+ixMapsDataJson[trId][hopN].asName+'</strong>, ASN: <strong>'+ixMapsDataJson[trId][hopN].asNum+'</strong>'+ipTxt;
 
-  // add container for flag info on mouseover
-  //h += '<div id="flagging-info-'+ixMapsDataJson[trId][hopN].ip+'">Getting flags for this IP...</div>';
   h += '<div id="flagging-info-m"></div>';
-  //console.log(ixMapsDataJson[trId][hopN].asNum);
   jQuery('#map-info').html(h);
-  //renderTr2(trId);
   activeTrId = trId;
 }
 
@@ -1403,19 +1387,13 @@ var viewPrivacy = function (asNum) {
 
 };
 
-var viewTrDetails = function (trId) {
-
+var viewTrDetails = function(trId) {
   renderTr2(trId);
-  jQuery('#tr-details-iframe').attr('src', url_base + '/_includes/loading.html');
-  jQuery('.traceroutes.modal').modal('show');
-  var url = url_base + '/cgi-bin/tr-query.cgi?query_type=traceroute_id&arg='+trId;
 
-  // wait before loading
-  // CM: ditto per above
-  setTimeout(function(){
-    jQuery('#tr-details-iframe').attr('src', url);
-  }, 600);
-
+  // var body = '<div>UNDER CONSTRUCTION</div>';
+  var body = '<div>'+ixMapsDataJson[trId]+'</div>';
+  jQuery('#tr-details-modal .body').html(body);
+  jQuery('#tr-details-modal').modal('show');
 };
 
 var getCityRegionCountry = function(city, region, country) {

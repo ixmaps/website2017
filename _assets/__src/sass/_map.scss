@@ -411,6 +411,14 @@ i.flag:not(.icon):before {
   background-image: url("../img/flags.png");
 }
 
+
+#tr-details-modal {
+  .body {
+    margin: 20px;
+    height: 500px;
+  }
+}
+
 .settings.modal .setting-title {
   color: $grey;
 }
@@ -525,13 +533,6 @@ i.flag:not(.icon):before {
 
 .ip-flag-input{
   display: inline;
-}
-
-#tr-details-iframe {
-  width: 97%;
-  height: 500px;
-  margin: 20px 0px 10px 15px;
-  border: 0;
 }
 
 .map-icon-close-btn {
@@ -712,10 +713,6 @@ i.flag:not(.icon):before {
 
 #ip-flag-hostname, #ip-flag-location, #ip-flag-lat-long {
   font-weight: bold;
-}
-
-#traceroutes-model-div {
-  width: 1000px;
 }
 
 .centered-table-cell {

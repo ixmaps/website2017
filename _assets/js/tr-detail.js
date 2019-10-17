@@ -3,7 +3,6 @@ jQuery(document).ready(function() {
 });
 
 var addFlagIpLinks = function() {
-  debugger
   // get number of routers
   var totR = jQuery('table:eq(1) tr').length;
 
