@@ -776,13 +776,13 @@ var renderTr = function (trId) {
   var originCoords;
 
   // need to reset activeCarriers and other vars
-  if(!allowMultipleTrs){
+  if (!allowMultipleTrs) {
     skippedRouterNum = new Array(0,0,0,0,0);
     trRouterCount = 0;
     trRouterAdded = 0;
   }
 
-  if(trsAddedToMap.indexOf(trId) != -1){
+  if (trsAddedToMap.indexOf(trId) != -1) {
   //if (_.contains(trsAddedToMap, trId)) {
     trInMap = true;
     console.log('The TR ('+trId+') is already in the map');
@@ -790,7 +790,7 @@ var renderTr = function (trId) {
     trsAddedToMap.push(trId);
   }
 
-  if(!trInMap){
+  if (!trInMap) {
     // get hops' coords
     jQuery.each(ixMapsDataJson[trId], function(hop, value) {
 
@@ -1221,10 +1221,6 @@ var renderIpFlagDataMouseOver = function(data){
   // jQuery('#flag-this-link').html(flagLinkHtml);
 };
 
-// var flagActiveRouter = function(){
-//   showFlags(activeTridFlag, activeHopNumFlag, activeIpFlag, true);
-// }
-
 var renderIpFlagData = function(data){
   console.log('OK! renderIpFlagData');
   var ipInfo = data['ip_addr_info'][0];
@@ -1359,26 +1355,6 @@ var trHopMouseover = function (trId,hopN,type) {
 
 var trHopClick = function (trId,hopN,type) {
   viewTrDetails(trId);
-  //console.log('called trHopClick() TRid: '+trId+', hopNum:'+hopN);
-  //viewTrDetails(trId);
-  // removeTr();
-  // renderTr2(trId);
-  // var elTxt = '';
-  // if(type==0){
-  //   elTxt="Router"
-  // } else {
-  //   elTxt = "Hop";
-  // }
-  // //var h=elTxt+'<div>TRid: <strong>'+trId+'</strong>, '+elTxt+': <strong>'+hopN+'</strong>, ASN: <strong>'+ixMapsDataJson[trId][hopN].asNum+'</strong>, Carrier: <strong>'+ixMapsDataJson[trId][hopN].asName+'</strong></div>';
-
-  // var h="";
-  // h+='<div>';
-  // h+='<div style="float:left;">TRid: <strong>'+trId+'</strong></div>';
-  // h+='<div style="float:right;"><a href="javascript:viewTrDetails('+trId+');">View TR details</a> | <a href="javascript:removeAllButThis('+trId+');">Remove all but this</a></div>';
-  // h+='</div>';
-
-  // //jQuery('#map-tr-active').html(h);
-  // jQuery('#map-tr-active').html(h);
 }
 
 var removeAllButThis = function(trId) {
