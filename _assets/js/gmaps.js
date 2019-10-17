@@ -1390,8 +1390,7 @@ var viewPrivacy = function (asNum) {
 var viewTrDetails = function(trId) {
   renderTr2(trId);
 
-  // var body = '<div>UNDER CONSTRUCTION</div>';
-  var body = '<div>'+ixMapsDataJson[trId]+'</div>';
+  var body = '<div>THIS SECTION IS CURRENTLY UNDER (RE)CONSTRUCTION</div>';
   jQuery('#tr-details-modal .body').html(body);
   jQuery('#tr-details-modal').modal('show');
 };

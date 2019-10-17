@@ -5,6 +5,7 @@
     </div>
 
     <div class="body">
+        <!-- filled by gmaps.js currently (to be moved, hopefully) -->
     </div>
 
 
