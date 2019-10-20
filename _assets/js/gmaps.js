@@ -466,26 +466,37 @@ var excludeE = function(){
 //   return newmap;
 // }
 
+/*
+  Called from search.js on successful query return
+*/
+
 var loadMapData = function() {
   // reset user activity on data set every time a new set is loaded
-  userActivityOnTrSet = new Object();
+
+  // CM: this does nothing now, right? REMOVE
+  // userActivityOnTrSet = new Object();
 
   //ixMapsDataJson = jQuery.parseJSON(ixMapsData);
-  var c = 0;
-  jQuery.each(ixMapsDataJson, function(trId, value) {
-    c++;
-  });
-  totTRs = c;
-  console.log('IXmaps geographic data downloaded! [TRs: '+totTRs+']');
-  for (first in ixMapsDataJson) break;
+  // var c = 0;
+  // TODO: don't we have total trs in the returned JSON metadata? search.js line 405 to fix this
+  // jQuery.each(ixMapsDataJson, function(trId, value) {
+  //   c++;
+  // });
+  // totTRs = c;
+  // console.log('IXmaps geographic data downloaded! [TRs: '+totTRs+']');
+
+  // CM: what?
+  // for (first in ixMapsDataJson) break;
 
   // wait a bit before loading the first TRid and other functions
+  // CM: this should be a callback or promise (from search.js, I believe)
   setTimeout(function() {
     initializeMap();
     // show the last route (ie the one with the highest trid)
     showThisTr(_.last(_.keys(ixMapsDataJson)));
     setTableSorters();
     renderLayers();
+    console.log('IXmaps geographic data downloaded! [TRs: '+totTRs+']');
   }, 300);
 
   // to prevent confusion remove all after load
@@ -837,7 +848,7 @@ var renderTr = function (trId) {
     jQuery.each(p, function(index, value) {
       //console.log(index +':'+ value);
 
-      if(addMarkerInOrigin && index==0){
+      if (addMarkerInOrigin && index==0) {
         console.log('addMarkerInOrigin');
 
           var O_LatLng = new google.maps.LatLng(p[0][2],p[0][3]);
@@ -853,7 +864,7 @@ var renderTr = function (trId) {
           markersInOrigin.push(O_m); // add markers in origin to a different array
       }
 
-      if(showRouters){
+      if (showRouters) {
         var markColour = getAsnColour([p[index][4]]);
         //var markColour = '#FFFFFF';
         var routerLatLong = new google.maps.LatLng(p[index][2],p[index][3])
@@ -868,9 +879,6 @@ var renderTr = function (trId) {
                 scale: 10
               },
         });
-
-        // testing performance by using images as markers
-        //routerMark.setIcon(url_base+'/_assets/img/hop'+p[index][1]+'.png');
 
         var rIp = p[index][6];
         // add the current router ip to the collection
@@ -910,8 +918,8 @@ var renderTr = function (trId) {
       /*  // FIX ME;) just for consistency and accuracy in the data displayed in the map we need add here the first router
       if(index==0){
       }*/
-      if(showHops) {
-        if(index>0){
+      if (showHops) {
+        if (index>0) {
           var hopPath = [];
           //console.log(' showing hop poly: '+p[index-1][2]+' --- '+p[index][2]);
           var LatLng1 = new google.maps.LatLng(p[index-1][2],p[index-1][3]);
@@ -922,10 +930,7 @@ var renderTr = function (trId) {
           coordinates.push(LatLng2);
 
           var colour = getAsnColour([p[index-1][4]]);
-          //console.log(LatLng1+'---'+LatLng2+'---'+colour);
-    /*      if(hopObj!=null){
-            hopObj.setMap(null);
-          }*/
+
           hopObj = null;
           hopObj = new google.maps.Polyline({
             path: hopPath,
@@ -934,21 +939,14 @@ var renderTr = function (trId) {
             strokeWeight: 6.0
           });
           google.maps.event.addListener(hopObj, 'click', function() {
-            trHopClick(trId,p[index-1][1],1);
-          });
-          google.maps.event.addListener(hopObj, 'click', function() {
-              trHopClick(p[index-1][0],p[index-1][1],1);
+            viewTrDetails(trId);
           });
           google.maps.event.addListener(hopObj, 'mouseover', function() {
-              trHopMouseover(p[index-1][0],p[index-1][1],1);
+            trHopMouseover(p[index-1][0],p[index-1][1],1);
           });
-
-          //console.log(hopObj);
 
           hopObj.setMap(map);
           trCollection.push(hopObj);
-
-          //hopPath.length = 0; // this is messing things in the first load
 
         } // end if index>0
       }
@@ -1089,7 +1087,7 @@ var renderTr2 = function(trId) {
     zIndex: maxZidx
     });
   google.maps.event.addListener(activeTrObj, 'click', function() {
-    trHopClick(trId, 1, 1);
+    viewTrDetails(trId);
   });
   activeTrObj.setMap(map);
 };
@@ -1337,10 +1335,6 @@ var trHopMouseover = function (trId,hopN,type) {
   activeTrId = trId;
 }
 
-var trHopClick = function (trId,hopN,type) {
-  viewTrDetails(trId);
-}
-
 var removeAllButThis = function(trId) {
   removeTr();
   removeAllTrs();
@@ -1348,7 +1342,7 @@ var removeAllButThis = function(trId) {
   showThisTr(trId);
 }
 
-var viewPrivacy = function (asNum) {
+var viewPrivacy = function(asNum) {
   var privacyHtml = '';
   var criteriaDes = '';
   var totScore = 0;
@@ -1388,12 +1382,30 @@ var viewPrivacy = function (asNum) {
 };
 
 var viewTrDetails = function(trId) {
-  renderTr2(trId);
-
   // var body = '<div>UNDER CONSTRUCTION</div>';
-  var body = '<div>'+ixMapsDataJson[trId]+'</div>';
-  jQuery('#tr-details-modal .body').html(body);
+
+  // TODO: create a buildTrDetails?
+  d = new Date(ixMapsDataJson[trId][1]["sub_time"]);
+  submitterDateTime = d.toLocaleDateString() + ' ' + d.toLocaleTimeString();
+
+  jQuery('#tr-details-modal .tr-metadata .tr-id').text(trId);
+  jQuery('#tr-details-modal .tr-metadata .submitter').text(ixMapsDataJson[trId][1]["submitter"]);
+  jQuery('#tr-details-modal .tr-metadata .sub-time').text(submitterDateTime);
+  jQuery('#tr-details-modal .tr-metadata .zip-code').text("TODO");
+  jQuery('#tr-details-modal .tr-metadata .destination').text(ixMapsDataJson[trId][1]['destHostname']);
   jQuery('#tr-details-modal').modal('show');
+
+  jQuery.each(ixMapsDataJson[trId], function(hopNum, data) {
+    el = '';
+    el += '<tr>';
+    el += '<td>' + hopNum + '</td>';
+    el += '<td>' + data.mm_city + '</td>';
+    el += '<td>' + data.asName + '</td>';
+    el += '</tr>';
+    jQuery('#tr-details-modal .traceroute tbody').append(el);
+  });
+
+  // careful with hop vs hopN
 };
 
 var getCityRegionCountry = function(city, region, country) {

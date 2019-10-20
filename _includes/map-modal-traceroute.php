@@ -5,6 +5,33 @@
     </div>
 
     <div class="body">
+        <div class="tr-metadata">
+            <p>
+                Traceroute # <strong><span class="tr-id" /></strong><br />
+                Contributed by <strong><span class="submitter" /></strong>
+                on <strong><strong><span class="sub-time" /></strong></strong>
+            </p>
+            
+            <p>
+                From: <strong><span class="zip-code" /></strong>
+                To: <strong><span class="destination" /></strong>
+            </p>
+        </div>
+
+        <div class="traceroute">
+            <table class="ui table">
+                <thead>
+                    <tr>
+                        <th>Hop #</th>
+                        <th>Location</th>
+                        <th>Carrier</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- created in gmaps.js -->
+                </tbody>
+            </table>
+        </div>
     </div>
 
 
@@ -12,6 +39,7 @@
     $('#pdf-modal .modal-header').css('margin')
     $('#pdf-modal .modal-body').html(body);
     $('#pdf-modal .modal-body').css('padding', '30px'); -->
+
 <!--     <div class="content">
         <p>Traceroute <strong>#280750</strong> from <strong>Toronto, CA M4M 3B4</strong> to <strong>www.isuc.on.ca</strong><br />
         Contributed by <strong>michaelholloway11</strong> on <strong>2016-01-20 @ 15.06.20</strong></p>
