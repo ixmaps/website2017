@@ -1382,17 +1382,15 @@ var viewPrivacy = function(asNum) {
 };
 
 var viewTrDetails = function(trId) {
-  // var body = '<div>UNDER CONSTRUCTION</div>';
-
-  // TODO: create a buildTrDetails?
   d = new Date(ixMapsDataJson[trId][1]["sub_time"]);
   submitterDateTime = d.toLocaleDateString() + ' ' + d.toLocaleTimeString();
 
+  // each hop will contain all of the metadata, so just choosing the first one...
   jQuery('#tr-details-modal .tr-metadata .tr-id').text(trId);
   jQuery('#tr-details-modal .tr-metadata .submitter').text(ixMapsDataJson[trId][1]["submitter"]);
   jQuery('#tr-details-modal .tr-metadata .sub-time').text(submitterDateTime);
-  jQuery('#tr-details-modal .tr-metadata .zip-code').text("TODO");
-  jQuery('#tr-details-modal .tr-metadata .destination').text(ixMapsDataJson[trId][1]['destHostname']);
+  jQuery('#tr-details-modal .tr-metadata .zip-code').text(ixMapsDataJson[trId][1]['zip_code']);
+  jQuery('#tr-details-modal .tr-metadata .destination').text(ixMapsDataJson[trId][1]['dest_hostname']);
   jQuery('#tr-details-modal').modal('show');
 
   jQuery.each(ixMapsDataJson[trId], function(hopNum, data) {
