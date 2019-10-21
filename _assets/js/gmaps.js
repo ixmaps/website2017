@@ -1382,25 +1382,30 @@ var viewPrivacy = function(asNum) {
 };
 
 var viewTrDetails = function(trId) {
-  d = new Date(ixMapsDataJson[trId][1]["sub_time"]);
+  // delete everything that is in there now
+  jQuery('#tr-details-modal .traceroute-container tbody').empty();
+
+  // add the new content
+  // grabbing the 'first' hop (since each hop will contain all of the metadata)
+  aHop = ixMapsDataJson[trId][Object.keys(ixMapsDataJson[trId])[0]];
+  d = new Date(aHop["sub_time"]);
   submitterDateTime = d.toLocaleDateString() + ' ' + d.toLocaleTimeString();
 
-  // each hop will contain all of the metadata, so just choosing the first one...
-  jQuery('#tr-details-modal .tr-metadata .tr-id').text(trId);
-  jQuery('#tr-details-modal .tr-metadata .submitter').text(ixMapsDataJson[trId][1]["submitter"]);
-  jQuery('#tr-details-modal .tr-metadata .sub-time').text(submitterDateTime);
-  jQuery('#tr-details-modal .tr-metadata .zip-code').text(ixMapsDataJson[trId][1]['zip_code']);
-  jQuery('#tr-details-modal .tr-metadata .destination').text(ixMapsDataJson[trId][1]['dest_hostname']);
+  jQuery('#tr-details-modal .tr-metadata-container .tr-id').text(trId);
+  jQuery('#tr-details-modal .tr-metadata-container .submitter').text(aHop["submitter"]);
+  jQuery('#tr-details-modal .tr-metadata-container .sub-time').text(submitterDateTime);
+  jQuery('#tr-details-modal .tr-metadata-container .zip-code').text(aHop['zip_code']);
+  jQuery('#tr-details-modal .tr-metadata-container .destination').text(aHop['dest_hostname']);
   jQuery('#tr-details-modal').modal('show');
 
-  jQuery.each(ixMapsDataJson[trId], function(hopNum, data) {
+  jQuery.each(ixMapsDataJson[trId], function(hopNum, hopValues) {
     el = '';
     el += '<tr>';
     el += '<td>' + hopNum + '</td>';
-    el += '<td>' + data.mm_city + '</td>';
-    el += '<td>' + data.asName + '</td>';
+    el += '<td><i class="' + hopValues.mm_country.toLowerCase() + ' flag"></i>' + hopValues.mm_city + '</td>';
+    el += '<td style="background:' + getAsnBackground(hopValues.asNum) + ';">' + hopValues.asName + '</td>';
     el += '</tr>';
-    jQuery('#tr-details-modal .traceroute tbody').append(el);
+    jQuery('#tr-details-modal .traceroute-container tbody').append(el);
   });
 
   // careful with hop vs hopN
@@ -1493,54 +1498,54 @@ var renderGeoMarkers = function(type){
 };
 
 var removeGeoMarkers = function(type){
-  if(type==1){
+  if (type==1) {
     while(gmNsa[0])
     {
       gmNsa.pop().setMap(null);
     }
     //gmNsa.length = 0;
-  } else if(type==2){
+  } else if (type==2) {
     while(gmHotel[0])
     {
       gmHotel.pop().setMap(null);
     }
-  } else if(type==3){
+  } else if (type==3) {
     while(gmGoogle[0])
     {
       gmGoogle.pop().setMap(null);
     }
 
-  } else if(type==4){
+  } else if (type==4) {
     while(gmUc[0])
     {
       gmUc.pop().setMap(null);
     }
 
-  } else if(type==5){
+  } else if (type==5) {
     while(gmIXca[0])
     {
       gmIXca.pop().setMap(null);
     }
 
-  } else if(type==6){
+  } else if (type==6) {
     while(gmCiraIPT[0])
     {
       gmCiraIPT.pop().setMap(null);
     }
 
-  } else if(type==7){
+  } else if (type==7) {
     while(gmAtt[0])
     {
       gmAtt.pop().setMap(null);
     }
 
-  } else if(type==8){
+  } else if (type==8) {
     while(gmVerizon[0])
     {
       gmVerizon.pop().setMap(null);
     }
 
-  } else if(type==9){
+  } else if (type==9) {
     while(gmGoogleTO[0])
     {
       gmGoogleTO.pop().setMap(null);
@@ -1548,43 +1553,31 @@ var removeGeoMarkers = function(type){
   }
 };
 
-var createGmMarker = function(geoItem){
-  //console.log(geoItem);
-  //var coords = geoItem.coordinates.split(',');
+var createGmMarker = function(geoItem) {
   var mLatLong = new google.maps.LatLng(geoItem.lat,geoItem.long);
-/*  var image = {
-    url: geoItem.icon,
-    // This marker is 20 pixels wide by 32 pixels tall.
-    size: new google.maps.Size(20, 20),
-    // The origin for this image is 0,0.
-    origin: new google.maps.Point(0,0),
-    // The anchor for this image is the base of the flagpole at 0,32.
-    anchor: new google.maps.Point(0, 0)
-  };*/
+
   var gmObj = new google.maps.Marker({
     position: mLatLong,
     map: map,
-    //icon: image,
-    //title: geoItem.addressdddddd
   });
   var iconUrl = '';
-  if(geoItem.type=='NSA' && geoItem.nsa=='A') {
+  if (geoItem.type=='NSA' && geoItem.nsa=='A') {
     iconUrl = url_base + '/_assets/img/icn-map-nsa-class-A.png';
-  } else if(geoItem.type=='NSA' && geoItem.nsa!='A') {
+  } else if (geoItem.type=='NSA' && geoItem.nsa!='A') {
     iconUrl = url_base + '/_assets/img/icn-map-nsa-class-med.png';
-  } else if(geoItem.type=='CH') {
+  } else if (geoItem.type=='CH') {
     iconUrl = url_base + '/_assets/img/icn-map-carrier.png';
-  } else if(geoItem.type=='UC') {
+  } else if (geoItem.type=='UC') {
     iconUrl = url_base + '/_assets/img/icn-map-undersea.png';
-  } else if(geoItem.type=='Google' || geoItem.type=='GoogleTo') {
+  } else if (geoItem.type=='Google' || geoItem.type=='GoogleTo') {
     iconUrl = url_base + '/_assets/img/icn-map-google.png';
-  } else if(geoItem.type=='IXca') {
+  } else if (geoItem.type=='IXca') {
     iconUrl = url_base + '/_assets/img/icn-map-ixp.png';
-  } else if(geoItem.type=='CIRA_IPT') {
+  } else if (geoItem.type=='CIRA_IPT') {
     iconUrl = url_base + '/_assets/img/icn-map-ipt.png';
-  } else if(geoItem.type=='AT&T') {
+  } else if (geoItem.type=='AT&T') {
     iconUrl = url_base + '/_assets/img/icn-map-att.png';
-  } else if(geoItem.type=='Verizon') {
+  } else if (geoItem.type=='Verizon') {
     iconUrl = url_base + '/_assets/img/icn-map-verizon.png';
   }
   gmObj.setIcon(iconUrl);
@@ -1594,21 +1587,21 @@ var createGmMarker = function(geoItem){
   var cHtml = '<span class="geoitem-layer-name">'+geoItem.layer_name+'</span>';
 
   cHtml += '<br/><b>'+geoItem.address+'</b>';
-  if(geoItem.image!=''){
+  if (geoItem.image!='') {
     cHtml += '<br/><img src="'+geoItem.image+'" width="100px"/></a>';
   }
-  if(geoItem.ch_operator!=''){
+  if (geoItem.ch_operator!='') {
     cHtml += '<br/>Operator: <b>'+geoItem.ch_operator+'</b>';
   }
-  if(geoItem.ch_build_owner!=''){
+  if (geoItem.ch_build_owner!='') {
     cHtml += '<br/>Building Owner: <b>'+geoItem.ch_build_owner+'</b>';
-  } else if(geoItem.ch_build_owner!='' && geoItem.ch_build_owner_src!=''){
+  } else if (geoItem.ch_build_owner!='' && geoItem.ch_build_owner_src!='') {
     cHtml += '<br/>Building Owner: <a href="'+geoItem.ch_build_owner+'"></a>';
   }
-  if(geoItem.isp_src!=''){
+  if (geoItem.isp_src!='') {
     cHtml += '<br/><a href="'+geoItem.isp_src+'" target="_blank">ISP</a>';
   }
-  if(geoItem.nsa_src!=''){
+  if (geoItem.nsa_src!='') {
     cHtml += '<br/><a href="'+geoItem.nsa_src+'" target="_blank">NSA Source</a>';
   }
 
@@ -1623,7 +1616,7 @@ var createGmMarker = function(geoItem){
   return gmObj;
 };
 
-var getPrivacyReport = function(){
+var getPrivacyReport = function() {
   console.log('Loading PrivacyReport data');
 
   var obj = {
@@ -1636,21 +1629,6 @@ var getPrivacyReport = function(){
     success: function (e) {
       console.log("Ok! getPrivacyReport");
       privacyData = jQuery.parseJSON(e);
-      //console.log(privacyData);
-          //console.log("star id 10 = ", privacyData.stars[10]);
-      //console.log(privacyData.stars);
-      //console.log(privacyData.scores[812]);
-          //console.log('asn: 812 = ', privacyData.scores[812][0].score);
-      //var cS = console.log(privacyData.scores[812][0].star_id);
-      //console.log(privacyData.stars[cS]);
-      //console.log(privacyData.stars[1]);
-
-      /*var s = getPrivacyScore(6327);
-      var sHtml = renderPrivacyScore(2.5);*/
-
-    //console.log('object not');
-    //console.log('= ', privacyData.scores[100]);
-
     },
     error: function (e) {
       console.log("Error! getPrivacyReport", e);
@@ -1662,7 +1640,6 @@ var getPrivacyScore = function(asn){
   var score = 0;
   if (privacyData.scores[asn]) {
     jQuery.each(privacyData.scores[asn], function(key,value) {
-     //console.log(key, value);
      var s = parseFloat(value.score);
      score += s;
     });
@@ -1670,23 +1647,16 @@ var getPrivacyScore = function(asn){
   return score;
 };
 
-var renderPrivacyScore = function(asnScore){
-  //console.log('renderPrivacyScore ... START');
-
+var renderPrivacyScore = function(asnScore) {
   // get num of full and partial stars
   var scoreInt = 0;
   var scoreF = 0
   var scoreD = parseFloat(asnScore);
   scoreInt = parseInt(asnScore);
   scoreF = asnScore - scoreInt;
-
-  /*console.log('asnScore: ', asnScore);
-  console.log('scoreInt: ', scoreInt);
-  console.log('scoreF: ', scoreF);*/
-
   var starHtml = '';
 
-  if(scoreInt>=1){
+  if (scoreInt>=1) {
     // add full stars
     for (var i = 0; i < scoreInt; i++) {
       starHtml += '<img src="'+url_base+'/_assets/img/star-a-4.png" class="privacy-star-img">';
@@ -1694,22 +1664,13 @@ var renderPrivacyScore = function(asnScore){
   }
 
   // add stars 0
-  if(scoreD==0){
+  if (scoreD==0) {
     starHtml += '<img src="'+url_base+'/_assets/img/star-a-0.png" class="privacy-star-img">';
   }
 
   // add fraction stars
-  if(scoreF>0 && scoreF<=0.5){
+  if (scoreF>0 && scoreF<=0.5) {
     starHtml += '<img src="'+url_base+'/_assets/img/star-a-2.png" class="privacy-star-img">';
-    //console.log('star 0.25-0.50');
-
-  //} else if(scoreF>0.50 && scoreF<=0.75){
-    //starHtml += '<img src="'+url_base+'/_assets/img/star-3.png" class="privacy-star-img">';
-    //console.log('star 0.50-0.75');
-
-  //} else if(scoreF>0.5 && scoreF<1){
-    //starHtml += '<img src="'+url_base+'/_assets/img/star-3.png" class="privacy-star-img">';
-    //console.log('star 0.75-1');
   }
 
   //console.log('starHtml ...',starHtml);
@@ -1720,10 +1681,17 @@ var renderPrivacyScore = function(asnScore){
 var asnColours = '{"174":"rgb(228,49,235)","3356":"rgb(235,114,49)","7018":"rgb(66,237,234)","7132":"rgb(66,237,234)","-1":"rgb(103,106,107)","577":"rgb(61,73,235)","1239":"rgb(236,242,68)","6461":"rgb(227,174,235)","6327":"rgb(156,104,70)","6453":"rgb(103,106,107)","3561":"rgb(103,106,107)","812":"rgb(237,9,36)","20453":"rgb(237,9,36)","852":"rgb(75,230,37)","13768":"rgb(65,156,107)","3257":"rgb(103,106,107)","1299":"rgb(103,106,107)","22822":"rgb(103,106,107)","6939":"rgb(103,106,107)","376":"rgb(103,106,107)","32613":"rgb(103,106,107)","6539":"rgb(61,73,235)","15290":"rgb(103,106,107)","5769":"rgb(103,106,107)","855":"rgb(103,106,107)","26677":"rgb(103,106,107)","271":"rgb(103,106,107)","6509":"rgb(103,106,107)","3320":"rgb(103,106,107)","23498":"rgb(103,106,107)","549":"rgb(103,106,107)","239":"rgb(103,106,107)","11260":"rgb(103,106,107)","1257":"rgb(103,106,107)","20940":"rgb(103,106,107)","23136":"rgb(103,106,107)","5645":"rgb(103,106,107)","21949":"rgb(103,106,107)","8111":"rgb(103,106,107)","13826":"rgb(103,106,107)","16580":"rgb(103,106,107)","9498":"rgb(103,106,107)","802":"rgb(103,106,107)","19752":"rgb(103,106,107)","11854":"rgb(103,106,107)","7992":"rgb(103,106,107)","17001":"rgb(103,106,107)","611":"rgb(103,106,107)","19080":"rgb(103,106,107)","26788":"rgb(103,106,107)","12021":"rgb(103,106,107)","33554":"rgb(103,106,107)","30528":"rgb(103,106,107)","16462":"rgb(103,106,107)","11700":"rgb(103,106,107)","14472":"rgb(103,106,107)","13601":"rgb(103,106,107)","11032":"rgb(103,106,107)","12093":"rgb(103,106,107)","10533":"rgb(103,106,107)","26071":"rgb(103,106,107)","32156":"rgb(103,106,107)","5764":"rgb(103,106,107)","27168":"rgb(103,106,107)","33361":"rgb(103,106,107)","32489":"rgb(103,106,107)","15296":"rgb(103,106,107)","10400":"rgb(103,106,107)","10965":"rgb(103,106,107)","18650":"rgb(103,106,107)","36522":"rgb(103,106,107)","19086":"rgb(103,106,107)"}';
 
 var asnColoursJson = jQuery.parseJSON(asnColours);
+
 var getAsnColour = function(asNum){
-  var c = 'rgb(153, 153, 153)';
+  var c = "rgb(153, 153, 153)";
   if (typeof(asnColoursJson[asNum]) != "undefined") {
     c = asnColoursJson[asNum];
   }
   return c;
+}
+var getAsnBackground = function(asNum){
+  c = getAsnColour(asNum);
+  c = c.replace("rgb", "rgba");
+  c = c.replace(")", ", 0.8)");
+  return c
 }

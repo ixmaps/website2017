@@ -417,6 +417,11 @@ i.flag:not(.icon):before {
     margin: 20px;
     height: 500px;
   }
+  .traceroute-container {
+    margin-top: 25px;
+    height: 380px;
+    overflow-y: scroll;
+  }
 }
 
 .settings.modal .setting-title {
@@ -518,14 +523,6 @@ i.flag:not(.icon):before {
   z-index: 50;
 }
 
-#tr-details-00 {
-  position: fixed;
-  z-index: 1000;
-  background: #fff;
-  border: 1px solid black;
-  border-radius: 12px;
-}
-
 #ip-flags {
   height: 520px;
   overflow-y: auto;
@@ -596,7 +593,6 @@ i.flag:not(.icon):before {
 #carrier-summary-container {
   max-height: 230px;
   margin-top: 5px;
-  /*overflow: auto*/;
 }
 
 .privacy-star-img {
@@ -604,6 +600,9 @@ i.flag:not(.icon):before {
   width: 15px;
 }
 
+#flag-it-btn {
+  float: right;
+}
 
 /* TODO: fix this. old styles added for transition */
 

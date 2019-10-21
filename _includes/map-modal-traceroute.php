@@ -5,20 +5,17 @@
     </div>
 
     <div class="body">
-        <div class="tr-metadata">
+        <div class="tr-metadata-container">
             <p>
                 Traceroute # <strong><span class="tr-id" /></strong><br />
                 Contributed by <strong><span class="submitter" /></strong>
-                on <strong><strong><span class="sub-time" /></strong></strong>
-            </p>
-            
-            <p>
-                From: <strong><span class="zip-code" /></strong>
-                To: <strong><span class="destination" /></strong>
+                on <strong><strong><span class="sub-time" /></strong></strong><br />
+                From <strong><span class="zip-code" /></strong><br />
+                To <strong><span class="destination" /></strong>
             </p>
         </div>
 
-        <div class="traceroute">
+        <div class="traceroute-container">
             <table class="ui table">
                 <thead>
                     <tr>
@@ -117,11 +114,4 @@
             </tbody>
         </table>
     </div> -->
-
-    <!-- TR DETAILS -->
-<!--     <div id="tr-details">
-        <div id="tr-details-data">
-            <iframe id="tr-details-iframe" src=""></iframe>
-        </div>
-    </div>    --> 
 </div>
