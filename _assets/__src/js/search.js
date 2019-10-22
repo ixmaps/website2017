@@ -403,6 +403,7 @@ var submitQuery = function(obj) {
         data = JSON.parse(e);
         if (data.totTrs != 0 && data.result != undefined) {
           ixMapsDataJson = jQuery.parseJSON(data.result);
+          totTrs = data.totTrs;
 
           jQuery('#traceroutes-results-table').html(data.trsTable);
           jQuery('#tot-results').html(data.totTrs);

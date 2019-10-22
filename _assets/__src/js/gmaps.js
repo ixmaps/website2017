@@ -466,26 +466,37 @@ var excludeE = function(){
 //   return newmap;
 // }
 
+/*
+  Called from search.js on successful query return
+*/
+
 var loadMapData = function() {
   // reset user activity on data set every time a new set is loaded
-  userActivityOnTrSet = new Object();
+
+  // CM: this does nothing now, right? REMOVE
+  // userActivityOnTrSet = new Object();
 
   //ixMapsDataJson = jQuery.parseJSON(ixMapsData);
-  var c = 0;
-  jQuery.each(ixMapsDataJson, function(trId, value) {
-    c++;
-  });
-  totTRs = c;
-  console.log('IXmaps geographic data downloaded! [TRs: '+totTRs+']');
-  for (first in ixMapsDataJson) break;
+  // var c = 0;
+  // TODO: don't we have total trs in the returned JSON metadata? search.js line 405 to fix this
+  // jQuery.each(ixMapsDataJson, function(trId, value) {
+  //   c++;
+  // });
+  // totTRs = c;
+  // console.log('IXmaps geographic data downloaded! [TRs: '+totTRs+']');
+
+  // CM: what?
+  // for (first in ixMapsDataJson) break;
 
   // wait a bit before loading the first TRid and other functions
+  // CM: this should be a callback or promise (from search.js, I believe)
   setTimeout(function() {
     initializeMap();
     // show the last route (ie the one with the highest trid)
     showThisTr(_.last(_.keys(ixMapsDataJson)));
     setTableSorters();
     renderLayers();
+    console.log('IXmaps geographic data downloaded! [TRs: '+totTRs+']');
   }, 300);
 
   // to prevent confusion remove all after load
@@ -506,7 +517,7 @@ var setTableSorters = function(){
 var showTotalTrInfo = function(){
   var t2=trCollection.length;
 
-  if(showDynamicLegend) {
+  if (showDynamicLegend) {
     var carriers = '';
     carriers += '<table id="carrier-table" style="width: 100%;" class="tablesorter tr-list-result ui tablesorter selectable celled compact table">';
     carriers += '<thead><tr>';
@@ -523,13 +534,6 @@ var showTotalTrInfo = function(){
 
     // loop active carriers
     jQuery.each(activeCarriers, function(asNum, d) {
-      //console.log(asNum,d)
-
-      // use this only for testing
-      function getRandomInt (min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-      }
-
       // check if carrier has privacy score data
       var cIn = privacyData.scores[asNum];
       var cScore=-1;
@@ -537,53 +541,42 @@ var showTotalTrInfo = function(){
       var scoreDis = '';
       var cLink = '';
 
-      if(cIn===undefined){
-        //console.log('Carrier ' + asNum + ' has NOT Privacy data');
+      if (cIn===undefined) {
         scoreDis='';
 
       } else {
         // get carrier score
         cScore = getPrivacyScore(asNum);
-        //cScore =0;
 
         //get score stars
         starsHtml = '';
         starsHtml = renderPrivacyScore(cScore);
-        //console.log(starsHtml);
-
-        //console.log('---- Carrier score('+asNum+'):' + cScore);
-        //console.log('Carrier ' + asNum + ' HAS Privacy data');
-        //scoreDis = ' ('+cScore+')';
-        //console.log('Carrier score('+asNum+') : ' + cScore);
       }
 
       // start tr
-      //carriers+='<tr style="border: solid 0.19em '+getAsnColour(asNum)+'">';
       carriers+='<tr class="carrier" title="Click on the carrier name to show more details about its rating on each 10 criteria star criteria">'
 
-      if(cScore>=0){
+      if (cScore>=0) {
         cLink='<a class="link" href="javascript:viewPrivacy('+asNum+')">'+d[1]+'</a>';
       } else {
         cLink='<span>'+d[1]+'</span>';
       }
-
-      // Asn and bg colour
-      // carriers+='<td class="asn-color-text" style="background-color:#'+getAsnColour(asNum)+'"><span class="asn-num-hops">'+asNum+'</span></td>';
 
       var color = getAsnColour(asNum).replace(/rgb/i, "rgba").replace(/\)/i,',0.7)');
       // carrier name
       carriers+='<td><div class="carrier-colour" style="background-color: '+color+'"></div>'+cLink+'</td>';
 
       // add nat / flag
-      var country = d[2].toLowerCase();
-      carriers+='<td class=""><i class="'+country+' flag"></i>'+d[2]+'</td>';
-      //carriers+='<td class="centered-table-cell"><i class="'+country+' flag"></i></td>';
-
+      if (country != null) {
+        var country = d[2].toLowerCase();
+        carriers += '<td class=""><i class="'+country+' flag"></i>'+d[2]+'</td>';
+      } else {
+        carriers += '<td class=""></td>';
+      }
+      
       // add # of routers
       carriers+='<td class="centered-table-cell">'+d[0]+'</td>';
-
       // add stars
-      //carriers+='<td class="star-col">'+starsHtml+' '+cScore+'</td>';
       carriers+='<td class="star-col">'+starsHtml+'</td>';
       // end tr
       carriers+='</tr>';
@@ -701,56 +694,52 @@ var removeTr = function() {
 };
 
 /* Router exclusion functions */
-var excludeRouter = function(value,trId,hop,type) {
+var excludeRouter = function(value, trId, hop, type) {
   var skipHop = false;
   // A
-  if(excludeCoord0){
-    if(value.lat==0 && value.long==0){
+  if (excludeCoord0) {
+    if (value.lat==0 && value.long==0) {
       skipHop = true;
-      if(type==1) {
+      if (type==1) {
         skippedRouterNum[0]+=1;
       }
       //console.log('excluding Coords = 0. Hop:' + hop,  value);
     }
   }
   // B
-  if(excludeCoordGen){
-    if((value.lat==60 && value.long==-95) || (value.lat==38 && value.long==-97) || (value.lat==37.751 && value.long==-97.822)){
+  if (excludeCoordGen) {
+    if ((value.lat==60 && value.long==-95) || (value.lat==38 && value.long==-97) || (value.lat==37.751 && value.long==-97.822)) {
       skipHop = true;
-      if(type==1) {
+      if (type==1) {
         skippedRouterNum[1]+=1;
       }
       //console.log('excluding Generic Coords. Hop:' + hop,  value);
     }
   }
   // C
-  if(excludeImpDist){
+  if (excludeImpDist) {
       //console.log('...Calculating impossible distance');
-      if(value.imp_dist==1 && hop!=1){
+      if (value.impDist==1 && hop!=1) {
         skipHop = true;
-        if(type==1) {
+        if (type==1) {
           skippedRouterNum[2]+=1;
-
-          //console.log('TRid:['+trId+'], Hop: ['+hop+'], IP: '+value.ip + ', Latency: '+value.rtt_ms+', Dist: '+value.dist_from_origin+' Km.');
-          //console.log(''+trId+';'+hop+';"'+value.mm_country+'";"'+value.mm_city+'";"'+value.asNum+'";"'+value.ip+'";'+value.rtt_ms+';"'+value.dist_from_origin+' Km.";"'+value.gl_override+'";""');
-
         }
       }
   }
   // D
-  if(excludeReservedAS){
-    if(value.asNum==-1 && value.gl_override==null){
+  if (excludeReservedAS) {
+    if (value.asNum==-1 && value.glOverride==null) {
       skipHop = true;
-      if(type==1) {
+      if (type==1) {
         skippedRouterNum[3]+=1;
       }
       //console.log('excluding ReservedAS Hop:' + hop,  value);
     }
   }
-  if(excludeUserFlagged){
-    if(value.flagged==1){
+  if (excludeUserFlagged) {
+    if (value.flagged==1) {
       skipHop = true;
-      if(type==1) {
+      if (type==1) {
         skippedRouterNum[4]+=1;
       }
       //console.log('excluding ReservedAS Hop:' + hop,  value);
@@ -804,7 +793,7 @@ var renderTr = function (trId) {
 
       if(!skipHop){
         //console.log(key +':'+ value.long+', '+value.lat);
-        var a = new Array(trId, hop, value.lat, value.long, value.asNum, value.asName, value.ip, value.gl_override, value.mm_city, value.mm_country, value.hostname);
+        var a = new Array(trId, hop, value.lat, value.long, value.asNum, value.asName, value.ip, value.gl_override, value.mmCity, value.mmCountry, value.hostname);
         //google.maps.LatLng(value.lat, value.long);
 
         if(value.asNum in activeCarriers){
@@ -837,7 +826,7 @@ var renderTr = function (trId) {
     jQuery.each(p, function(index, value) {
       //console.log(index +':'+ value);
 
-      if(addMarkerInOrigin && index==0){
+      if (addMarkerInOrigin && index==0) {
         console.log('addMarkerInOrigin');
 
           var O_LatLng = new google.maps.LatLng(p[0][2],p[0][3]);
@@ -853,7 +842,7 @@ var renderTr = function (trId) {
           markersInOrigin.push(O_m); // add markers in origin to a different array
       }
 
-      if(showRouters){
+      if (showRouters) {
         var markColour = getAsnColour([p[index][4]]);
         //var markColour = '#FFFFFF';
         var routerLatLong = new google.maps.LatLng(p[index][2],p[index][3])
@@ -868,9 +857,6 @@ var renderTr = function (trId) {
                 scale: 10
               },
         });
-
-        // testing performance by using images as markers
-        //routerMark.setIcon(url_base+'/_assets/img/hop'+p[index][1]+'.png');
 
         var rIp = p[index][6];
         // add the current router ip to the collection
@@ -910,8 +896,8 @@ var renderTr = function (trId) {
       /*  // FIX ME;) just for consistency and accuracy in the data displayed in the map we need add here the first router
       if(index==0){
       }*/
-      if(showHops) {
-        if(index>0){
+      if (showHops) {
+        if (index>0) {
           var hopPath = [];
           //console.log(' showing hop poly: '+p[index-1][2]+' --- '+p[index][2]);
           var LatLng1 = new google.maps.LatLng(p[index-1][2],p[index-1][3]);
@@ -922,10 +908,7 @@ var renderTr = function (trId) {
           coordinates.push(LatLng2);
 
           var colour = getAsnColour([p[index-1][4]]);
-          //console.log(LatLng1+'---'+LatLng2+'---'+colour);
-    /*      if(hopObj!=null){
-            hopObj.setMap(null);
-          }*/
+
           hopObj = null;
           hopObj = new google.maps.Polyline({
             path: hopPath,
@@ -934,21 +917,14 @@ var renderTr = function (trId) {
             strokeWeight: 6.0
           });
           google.maps.event.addListener(hopObj, 'click', function() {
-            trHopClick(trId,p[index-1][1],1);
-          });
-          google.maps.event.addListener(hopObj, 'click', function() {
-              trHopClick(p[index-1][0],p[index-1][1],1);
+            viewTrDetails(trId);
           });
           google.maps.event.addListener(hopObj, 'mouseover', function() {
-              trHopMouseover(p[index-1][0],p[index-1][1],1);
+            trHopMouseover(p[index-1][0],p[index-1][1],1);
           });
-
-          //console.log(hopObj);
 
           hopObj.setMap(map);
           trCollection.push(hopObj);
-
-          //hopPath.length = 0; // this is messing things in the first load
 
         } // end if index>0
       }
@@ -1089,7 +1065,7 @@ var renderTr2 = function(trId) {
     zIndex: maxZidx
     });
   google.maps.event.addListener(activeTrObj, 'click', function() {
-    trHopClick(trId, 1, 1);
+    viewTrDetails(trId);
   });
   activeTrObj.setMap(map);
 };
@@ -1297,24 +1273,6 @@ var showFlags = function(trId, hopN, ip, openFlagWin) {
   getIpFlags(openFlagWin);
 }
 
-var showFlagsOld = function(trId,hopN) {
-  activeIpFlag = ixMapsDataJson[trId][hopN].ip;
-  console.log('Displaying Flag info for ip: '+ixMapsDataJson[trId][hopN].ip);
-
-  jQuery('#ip-flags').show();
-  jQuery('#ip-flag-active').html(activeIpFlag);
-  var ipInfo = '<table>';
-  ipInfo += '';
-  ipInfo += '<tr><td>IP:</td><td>'+ixMapsDataJson[trId][hopN].ip+'</td></tr>';
-  ipInfo += '<tr><td>Carrier:</td><td>'+ixMapsDataJson[trId][hopN].asName+'</td></tr>';
-  ipInfo += '<tr><td>ASN:</td><td>'+ixMapsDataJson[trId][hopN].asNum+'</td></tr>';
-  ipInfo += '<tr><td>Country:</td><td>'+ixMapsDataJson[trId][hopN].mm_country+'</td></tr>';
-  ipInfo += '<tr><td>City:</td><td>'+ixMapsDataJson[trId][hopN].mm_city+'</td></tr>';
-  ipInfo += '</table>';
-  //jQuery('#ip-flag-info').html(ipInfo);
-  getIpFlags(true);
-}
-
 var trHopMouseover = function (trId,hopN,type) {
   var ipTxt = '';
   var elTxt = '';
@@ -1337,10 +1295,6 @@ var trHopMouseover = function (trId,hopN,type) {
   activeTrId = trId;
 }
 
-var trHopClick = function (trId,hopN,type) {
-  viewTrDetails(trId);
-}
-
 var removeAllButThis = function(trId) {
   removeTr();
   removeAllTrs();
@@ -1348,7 +1302,7 @@ var removeAllButThis = function(trId) {
   showThisTr(trId);
 }
 
-var viewPrivacy = function (asNum) {
+var viewPrivacy = function(asNum) {
   var privacyHtml = '';
   var criteriaDes = '';
   var totScore = 0;
@@ -1388,11 +1342,56 @@ var viewPrivacy = function (asNum) {
 };
 
 var viewTrDetails = function(trId) {
-  renderTr2(trId);
+  // delete everything that is in there now
+  jQuery('#tr-details-modal .traceroute-container tbody').empty();
 
-  var body = '<div>THIS SECTION IS CURRENTLY UNDER (RE)CONSTRUCTION</div>';
-  jQuery('#tr-details-modal .body').html(body);
+  // add the new tr metadata
+  // grabbing the 'first' hop (since each hop will contain all of the metadata)
+  aHop = ixMapsDataJson[trId][Object.keys(ixMapsDataJson[trId])[0]];
+  d = new Date(aHop["subTime"]);
+  submitterDateTime = d.toLocaleDateString() + ' ' + d.toLocaleTimeString();
+  jQuery('#tr-details-modal .tr-metadata-container .tr-id').text(trId);
+  jQuery('#tr-details-modal .tr-metadata-container .submitter').text(aHop['submitter']);
+  jQuery('#tr-details-modal .tr-metadata-container .sub-time').text(submitterDateTime);
+  jQuery('#tr-details-modal .tr-metadata-container .zip-code').text(aHop['zipCode']);
+  jQuery('#tr-details-modal .tr-metadata-container .destination').text(aHop['destHostname']);
   jQuery('#tr-details-modal').modal('show');
+
+  // creating the tr table
+  jQuery.each(ixMapsDataJson[trId], function(hopNum, hopValues) {
+    var countryEl = jQuery('<td />').text(hopValues.mmCity);
+    if (hopValues.mmCountry != null) {
+      countryEl = jQuery(countryEl).prepend(
+        jQuery('<i />').addClass('flag '+hopValues.mmCountry.toLowerCase())
+      );
+    }
+    var asName = hopValues.asName;
+    if (hopValues.asShortName != null) {
+      asName = hopValues.asShortname;
+    }
+
+    jQuery('#tr-details-modal .traceroute-container tbody').append(
+      jQuery('<tr />').append(
+        jQuery('<td />').text(hopNum),
+        jQuery(countryEl),
+        jQuery('<td />')
+          .css('background', getAsnBackground(hopValues.asNum))
+          .text(asName)
+      )
+    );
+    jQuery('#tr-details-modal .traceroute-container-more-details tbody').append(
+      jQuery('<tr />').append(
+        jQuery('<td />').text(hopValues.hopN),
+        jQuery('<td />').text(hopValues.ip),
+        jQuery('<td />').text(hopValues.hostname),
+        jQuery('<td />').text(hopValues.asNum),
+        jQuery('<td />').text(hopValues.lat),
+        jQuery('<td />').text(hopValues.long),
+        jQuery('<td />').text(hopValues.glOverride)
+      )
+    );
+  });
+  // careful with hop vs hopN
 };
 
 var getCityRegionCountry = function(city, region, country) {
@@ -1482,54 +1481,54 @@ var renderGeoMarkers = function(type){
 };
 
 var removeGeoMarkers = function(type){
-  if(type==1){
+  if (type==1) {
     while(gmNsa[0])
     {
       gmNsa.pop().setMap(null);
     }
     //gmNsa.length = 0;
-  } else if(type==2){
+  } else if (type==2) {
     while(gmHotel[0])
     {
       gmHotel.pop().setMap(null);
     }
-  } else if(type==3){
+  } else if (type==3) {
     while(gmGoogle[0])
     {
       gmGoogle.pop().setMap(null);
     }
 
-  } else if(type==4){
+  } else if (type==4) {
     while(gmUc[0])
     {
       gmUc.pop().setMap(null);
     }
 
-  } else if(type==5){
+  } else if (type==5) {
     while(gmIXca[0])
     {
       gmIXca.pop().setMap(null);
     }
 
-  } else if(type==6){
+  } else if (type==6) {
     while(gmCiraIPT[0])
     {
       gmCiraIPT.pop().setMap(null);
     }
 
-  } else if(type==7){
+  } else if (type==7) {
     while(gmAtt[0])
     {
       gmAtt.pop().setMap(null);
     }
 
-  } else if(type==8){
+  } else if (type==8) {
     while(gmVerizon[0])
     {
       gmVerizon.pop().setMap(null);
     }
 
-  } else if(type==9){
+  } else if (type==9) {
     while(gmGoogleTO[0])
     {
       gmGoogleTO.pop().setMap(null);
@@ -1537,43 +1536,31 @@ var removeGeoMarkers = function(type){
   }
 };
 
-var createGmMarker = function(geoItem){
-  //console.log(geoItem);
-  //var coords = geoItem.coordinates.split(',');
+var createGmMarker = function(geoItem) {
   var mLatLong = new google.maps.LatLng(geoItem.lat,geoItem.long);
-/*  var image = {
-    url: geoItem.icon,
-    // This marker is 20 pixels wide by 32 pixels tall.
-    size: new google.maps.Size(20, 20),
-    // The origin for this image is 0,0.
-    origin: new google.maps.Point(0,0),
-    // The anchor for this image is the base of the flagpole at 0,32.
-    anchor: new google.maps.Point(0, 0)
-  };*/
+
   var gmObj = new google.maps.Marker({
     position: mLatLong,
     map: map,
-    //icon: image,
-    //title: geoItem.addressdddddd
   });
   var iconUrl = '';
-  if(geoItem.type=='NSA' && geoItem.nsa=='A') {
+  if (geoItem.type=='NSA' && geoItem.nsa=='A') {
     iconUrl = url_base + '/_assets/img/icn-map-nsa-class-A.png';
-  } else if(geoItem.type=='NSA' && geoItem.nsa!='A') {
+  } else if (geoItem.type=='NSA' && geoItem.nsa!='A') {
     iconUrl = url_base + '/_assets/img/icn-map-nsa-class-med.png';
-  } else if(geoItem.type=='CH') {
+  } else if (geoItem.type=='CH') {
     iconUrl = url_base + '/_assets/img/icn-map-carrier.png';
-  } else if(geoItem.type=='UC') {
+  } else if (geoItem.type=='UC') {
     iconUrl = url_base + '/_assets/img/icn-map-undersea.png';
-  } else if(geoItem.type=='Google' || geoItem.type=='GoogleTo') {
+  } else if (geoItem.type=='Google' || geoItem.type=='GoogleTo') {
     iconUrl = url_base + '/_assets/img/icn-map-google.png';
-  } else if(geoItem.type=='IXca') {
+  } else if (geoItem.type=='IXca') {
     iconUrl = url_base + '/_assets/img/icn-map-ixp.png';
-  } else if(geoItem.type=='CIRA_IPT') {
+  } else if (geoItem.type=='CIRA_IPT') {
     iconUrl = url_base + '/_assets/img/icn-map-ipt.png';
-  } else if(geoItem.type=='AT&T') {
+  } else if (geoItem.type=='AT&T') {
     iconUrl = url_base + '/_assets/img/icn-map-att.png';
-  } else if(geoItem.type=='Verizon') {
+  } else if (geoItem.type=='Verizon') {
     iconUrl = url_base + '/_assets/img/icn-map-verizon.png';
   }
   gmObj.setIcon(iconUrl);
@@ -1583,21 +1570,21 @@ var createGmMarker = function(geoItem){
   var cHtml = '<span class="geoitem-layer-name">'+geoItem.layer_name+'</span>';
 
   cHtml += '<br/><b>'+geoItem.address+'</b>';
-  if(geoItem.image!=''){
+  if (geoItem.image!='') {
     cHtml += '<br/><img src="'+geoItem.image+'" width="100px"/></a>';
   }
-  if(geoItem.ch_operator!=''){
+  if (geoItem.ch_operator!='') {
     cHtml += '<br/>Operator: <b>'+geoItem.ch_operator+'</b>';
   }
-  if(geoItem.ch_build_owner!=''){
+  if (geoItem.ch_build_owner!='') {
     cHtml += '<br/>Building Owner: <b>'+geoItem.ch_build_owner+'</b>';
-  } else if(geoItem.ch_build_owner!='' && geoItem.ch_build_owner_src!=''){
+  } else if (geoItem.ch_build_owner!='' && geoItem.ch_build_owner_src!='') {
     cHtml += '<br/>Building Owner: <a href="'+geoItem.ch_build_owner+'"></a>';
   }
-  if(geoItem.isp_src!=''){
+  if (geoItem.isp_src!='') {
     cHtml += '<br/><a href="'+geoItem.isp_src+'" target="_blank">ISP</a>';
   }
-  if(geoItem.nsa_src!=''){
+  if (geoItem.nsa_src!='') {
     cHtml += '<br/><a href="'+geoItem.nsa_src+'" target="_blank">NSA Source</a>';
   }
 
@@ -1612,7 +1599,7 @@ var createGmMarker = function(geoItem){
   return gmObj;
 };
 
-var getPrivacyReport = function(){
+var getPrivacyReport = function() {
   console.log('Loading PrivacyReport data');
 
   var obj = {
@@ -1625,21 +1612,6 @@ var getPrivacyReport = function(){
     success: function (e) {
       console.log("Ok! getPrivacyReport");
       privacyData = jQuery.parseJSON(e);
-      //console.log(privacyData);
-          //console.log("star id 10 = ", privacyData.stars[10]);
-      //console.log(privacyData.stars);
-      //console.log(privacyData.scores[812]);
-          //console.log('asn: 812 = ', privacyData.scores[812][0].score);
-      //var cS = console.log(privacyData.scores[812][0].star_id);
-      //console.log(privacyData.stars[cS]);
-      //console.log(privacyData.stars[1]);
-
-      /*var s = getPrivacyScore(6327);
-      var sHtml = renderPrivacyScore(2.5);*/
-
-    //console.log('object not');
-    //console.log('= ', privacyData.scores[100]);
-
     },
     error: function (e) {
       console.log("Error! getPrivacyReport", e);
@@ -1651,7 +1623,6 @@ var getPrivacyScore = function(asn){
   var score = 0;
   if (privacyData.scores[asn]) {
     jQuery.each(privacyData.scores[asn], function(key,value) {
-     //console.log(key, value);
      var s = parseFloat(value.score);
      score += s;
     });
@@ -1659,23 +1630,16 @@ var getPrivacyScore = function(asn){
   return score;
 };
 
-var renderPrivacyScore = function(asnScore){
-  //console.log('renderPrivacyScore ... START');
-
+var renderPrivacyScore = function(asnScore) {
   // get num of full and partial stars
   var scoreInt = 0;
   var scoreF = 0
   var scoreD = parseFloat(asnScore);
   scoreInt = parseInt(asnScore);
   scoreF = asnScore - scoreInt;
-
-  /*console.log('asnScore: ', asnScore);
-  console.log('scoreInt: ', scoreInt);
-  console.log('scoreF: ', scoreF);*/
-
   var starHtml = '';
 
-  if(scoreInt>=1){
+  if (scoreInt>=1) {
     // add full stars
     for (var i = 0; i < scoreInt; i++) {
       starHtml += '<img src="'+url_base+'/_assets/img/star-a-4.png" class="privacy-star-img">';
@@ -1683,22 +1647,13 @@ var renderPrivacyScore = function(asnScore){
   }
 
   // add stars 0
-  if(scoreD==0){
+  if (scoreD==0) {
     starHtml += '<img src="'+url_base+'/_assets/img/star-a-0.png" class="privacy-star-img">';
   }
 
   // add fraction stars
-  if(scoreF>0 && scoreF<=0.5){
+  if (scoreF>0 && scoreF<=0.5) {
     starHtml += '<img src="'+url_base+'/_assets/img/star-a-2.png" class="privacy-star-img">';
-    //console.log('star 0.25-0.50');
-
-  //} else if(scoreF>0.50 && scoreF<=0.75){
-    //starHtml += '<img src="'+url_base+'/_assets/img/star-3.png" class="privacy-star-img">';
-    //console.log('star 0.50-0.75');
-
-  //} else if(scoreF>0.5 && scoreF<1){
-    //starHtml += '<img src="'+url_base+'/_assets/img/star-3.png" class="privacy-star-img">';
-    //console.log('star 0.75-1');
   }
 
   //console.log('starHtml ...',starHtml);
@@ -1709,10 +1664,17 @@ var renderPrivacyScore = function(asnScore){
 var asnColours = '{"174":"rgb(228,49,235)","3356":"rgb(235,114,49)","7018":"rgb(66,237,234)","7132":"rgb(66,237,234)","-1":"rgb(103,106,107)","577":"rgb(61,73,235)","1239":"rgb(236,242,68)","6461":"rgb(227,174,235)","6327":"rgb(156,104,70)","6453":"rgb(103,106,107)","3561":"rgb(103,106,107)","812":"rgb(237,9,36)","20453":"rgb(237,9,36)","852":"rgb(75,230,37)","13768":"rgb(65,156,107)","3257":"rgb(103,106,107)","1299":"rgb(103,106,107)","22822":"rgb(103,106,107)","6939":"rgb(103,106,107)","376":"rgb(103,106,107)","32613":"rgb(103,106,107)","6539":"rgb(61,73,235)","15290":"rgb(103,106,107)","5769":"rgb(103,106,107)","855":"rgb(103,106,107)","26677":"rgb(103,106,107)","271":"rgb(103,106,107)","6509":"rgb(103,106,107)","3320":"rgb(103,106,107)","23498":"rgb(103,106,107)","549":"rgb(103,106,107)","239":"rgb(103,106,107)","11260":"rgb(103,106,107)","1257":"rgb(103,106,107)","20940":"rgb(103,106,107)","23136":"rgb(103,106,107)","5645":"rgb(103,106,107)","21949":"rgb(103,106,107)","8111":"rgb(103,106,107)","13826":"rgb(103,106,107)","16580":"rgb(103,106,107)","9498":"rgb(103,106,107)","802":"rgb(103,106,107)","19752":"rgb(103,106,107)","11854":"rgb(103,106,107)","7992":"rgb(103,106,107)","17001":"rgb(103,106,107)","611":"rgb(103,106,107)","19080":"rgb(103,106,107)","26788":"rgb(103,106,107)","12021":"rgb(103,106,107)","33554":"rgb(103,106,107)","30528":"rgb(103,106,107)","16462":"rgb(103,106,107)","11700":"rgb(103,106,107)","14472":"rgb(103,106,107)","13601":"rgb(103,106,107)","11032":"rgb(103,106,107)","12093":"rgb(103,106,107)","10533":"rgb(103,106,107)","26071":"rgb(103,106,107)","32156":"rgb(103,106,107)","5764":"rgb(103,106,107)","27168":"rgb(103,106,107)","33361":"rgb(103,106,107)","32489":"rgb(103,106,107)","15296":"rgb(103,106,107)","10400":"rgb(103,106,107)","10965":"rgb(103,106,107)","18650":"rgb(103,106,107)","36522":"rgb(103,106,107)","19086":"rgb(103,106,107)"}';
 
 var asnColoursJson = jQuery.parseJSON(asnColours);
+
 var getAsnColour = function(asNum){
-  var c = 'rgb(153, 153, 153)';
+  var c = "rgb(153, 153, 153)";
   if (typeof(asnColoursJson[asNum]) != "undefined") {
     c = asnColoursJson[asNum];
   }
   return c;
+}
+var getAsnBackground = function(asNum){
+  c = getAsnColour(asNum);
+  c = c.replace("rgb", "rgba");
+  c = c.replace(")", ", 0.8)");
+  return c
 }

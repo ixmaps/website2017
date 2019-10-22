@@ -5,96 +5,50 @@
     </div>
 
     <div class="body">
-        <!-- filled by gmaps.js currently (to be moved, hopefully) -->
-    </div>
-
-
-    <!-- $('#pdf-modal .modal-header').prepend('<h3 class="modal-title">'+title+'</h3>');
-    $('#pdf-modal .modal-header').css('margin')
-    $('#pdf-modal .modal-body').html(body);
-    $('#pdf-modal .modal-body').css('padding', '30px'); -->
-<!--     <div class="content">
-        <p>Traceroute <strong>#280750</strong> from <strong>Toronto, CA M4M 3B4</strong> to <strong>www.isuc.on.ca</strong><br />
-        Contributed by <strong>michaelholloway11</strong> on <strong>2016-01-20 @ 15.06.20</strong></p>
-
-        <div class="ui hidden divider"></div>
-
-        <table class="ui table">
-            <thead>
-                <tr>
-                    <th>Hop #</th>
-                    <th>Router</th>
-                    <th>NSA?</th>
-                    <th>Location</th>
-                    <th>Carrier</th>
-                    <th>Latency</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td></td>
-                    <td></td>
-                    <td>Toronto</td>
-                    <td>Rogers</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td></td>
-                    <td></td>
-                    <td>Toronto</td>
-                    <td>Rogers</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td></td>
-                    <td></td>
-                    <td>Toronto</td>
-                    <td>Rogers</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td></td>
-                    <td></td>
-                    <td>Toronto</td>
-                    <td>Rogers</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td></td>
-                    <td></td>
-                    <td>Toronto</td>
-                    <td>Rogers</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td></td>
-                    <td></td>
-                    <td>Toronto</td>
-                    <td>Rogers</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td></td>
-                    <td></td>
-                    <td>Toronto</td>
-                    <td>Rogers</td>
-                    <td>10</td>
-                </tr>
-            </tbody>
-        </table>
-    </div> -->
-
-    <!-- TR DETAILS -->
-<!--     <div id="tr-details">
-        <div id="tr-details-data">
-            <iframe id="tr-details-iframe" src=""></iframe>
+        <div class="tr-metadata-container">
+            <p>
+                Traceroute # <strong><span class="tr-id" /></strong><br />
+                Contributed by <strong><span class="submitter" /></strong>
+                on <strong><strong><span class="sub-time" /></strong></strong><br />
+                From <strong><span class="zip-code" /></strong><br />
+                To <strong><span class="destination" /></strong>
+            </p>
         </div>
-    </div>    --> 
+
+        <div class="more-details-btn link">More details...</div>
+
+        <div class="traceroute-container">
+            <table class="ui table">
+                <thead>
+                    <tr>
+                        <th>Hop #</th>
+                        <th>Location</th>
+                        <th>Carrier</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- created in gmaps.js -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="traceroute-container-more-details hidden">
+            <table class="ui table">
+                <thead>
+                    <tr>
+                        <th>Hop</th>
+                        <th>IP</th>
+                        <th>Hostname</th>
+                        <th>ASnum</th>
+                        <th>Lat</th>
+                        <th>Long</th>
+                        <th>Geocorrection</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- created in gmaps.js -->
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
