@@ -166,10 +166,9 @@ var privacyData;
 var addCollectedCoord = function(lat1,long1){
   var c = new google.maps.LatLng(lat1,long1);
   coordCollected.push(c);
-  //console.log('coordCollected: ',coordCollected);
   renderCollectedCoords();
 
-  if(coordCollected.length==2){
+  if (coordCollected.length==2) {
     // using goolge maps API to calculate distance between coordinates
     var latLngA = coordCollected[0];
     var latLngB = coordCollected[1];
@@ -177,10 +176,9 @@ var addCollectedCoord = function(lat1,long1){
     gmDist=gmDist/1000;
     console.log('gmDist: ', gmDist);
 
-  } else if (coordCollected.length>2){
+  } else if (coordCollected.length>2) {
     // remove origin markers, if any
-    for (m in coordCollectedObj)
-    {
+    for (m in coordCollectedObj) {
       coordCollectedObj[m].setMap(null);
     }
     coordCollected.length = 0;
@@ -188,7 +186,7 @@ var addCollectedCoord = function(lat1,long1){
   }
 };
 
-var renderCollectedCoords = function(){
+var renderCollectedCoords = function() {
   jQuery.each(coordCollected, function(key,value) {
     //console.log('value', value);
 
@@ -206,8 +204,8 @@ var renderCollectedCoords = function(){
 
 };
 
-var setShowHops = function(){
-  if(showHops){
+var setShowHops = function() {
+  if (showHops) {
     showHops=false;
     jQuery("#map-show-hops").removeClass("map-tool-on").addClass("map-tool-off");
   } else {
@@ -217,8 +215,8 @@ var setShowHops = function(){
   console.log('setShowHops',showHops);
 };
 
-var setShowHopsNum = function(){
-  if(showHopsNum){
+var setShowHopsNum = function() {
+  if (showHopsNum) {
     showHopsNum=false;
     jQuery("#map-show-hops-num").removeClass("map-tool-on").addClass("map-tool-off");
   } else {
@@ -228,8 +226,8 @@ var setShowHopsNum = function(){
   console.log('setShowHopsNum',showHops);
 };
 
-var setAllowRecenter = function(){
-  if(allowRecenter){
+var setAllowRecenter = function() {
+  if (allowRecenter) {
     allowRecenter=false;
     jQuery("#map-allow-recenter").removeClass("map-tool-on").addClass("map-tool-off");
   } else {
@@ -239,8 +237,8 @@ var setAllowRecenter = function(){
   console.log('setAllowRecenter',allowRecenter);
 };
 
-var setShowRouters = function(){
-  if(showRouters){
+var setShowRouters = function() {
+  if (showRouters) {
     showRouters=false;
     jQuery("#map-show-routers").removeClass("map-tool-on").addClass("map-tool-off");
   } else {
@@ -250,8 +248,8 @@ var setShowRouters = function(){
   console.log('setShowRouters',showRouters);
 };
 
-var setShowNsa = function(){
-  if(showNsa){
+var setShowNsa = function() {
+  if (showNsa) {
     showNsa=false;
     removeGeoMarkers(1);
     jQuery("#map-show-nsa").removeClass("map-tool-on").addClass("map-tool-off");
@@ -263,8 +261,8 @@ var setShowNsa = function(){
   console.log('setShowNsa',showNsa);
 };
 
-var setShowHotel = function(){
-  if(showHotel){
+var setShowHotel = function() {
+  if (showHotel) {
     showHotel=false;
     removeGeoMarkers(2);
     jQuery("#map-show-hotel").removeClass("map-tool-on").addClass("map-tool-off");
@@ -276,8 +274,8 @@ var setShowHotel = function(){
   console.log('setShowHotel',showHotel);
 };
 
-var setShowGoogle = function(){
-  if(showGoogle){
+var setShowGoogle = function() {
+  if (showGoogle) {
     showGoogle=false;
     removeGeoMarkers(3);
     jQuery("#map-show-google").removeClass("map-tool-on").addClass("map-tool-off");
@@ -289,8 +287,8 @@ var setShowGoogle = function(){
   console.log('setShowGoogle',showGoogle);
 };
 
-var setShowUc = function(){
-  if(showUc){
+var setShowUc = function() {
+  if (showUc) {
     showUc=false;
     removeGeoMarkers(4);
     jQuery("#map-show-uc").removeClass("map-tool-on").addClass("map-tool-off");
@@ -302,8 +300,8 @@ var setShowUc = function(){
   console.log('setShowUc',showUc);
 };
 /////
-var setShowIXca = function(){
-  if(showIXca){
+var setShowIXca = function() {
+  if (showIXca) {
     showIXca=false;
     removeGeoMarkers(5);
     jQuery("#map-show-IXca").removeClass("map-tool-on").addClass("map-tool-off");
@@ -314,8 +312,8 @@ var setShowIXca = function(){
   }
   console.log('setShowIXca',showIXca);
 };
-var setShowCiraIPT = function(){
-  if(showCiraIPT){
+var setShowCiraIPT = function() {
+  if (showCiraIPT) {
     showCiraIPT=false;
     removeGeoMarkers(6);
     jQuery("#map-show-CiraIPT").removeClass("map-tool-on").addClass("map-tool-off");
@@ -326,8 +324,8 @@ var setShowCiraIPT = function(){
   }
   console.log('setShowCiraIPT',showCiraIPT);
 };
-var setShowAtt = function(){
-  if(showAtt){
+var setShowAtt = function() {
+  if (showAtt) {
     showAtt=false;
     removeGeoMarkers(7);
     jQuery("#map-show-Att").removeClass("map-tool-on").addClass("map-tool-off");
@@ -338,8 +336,8 @@ var setShowAtt = function(){
   }
   console.log('setShowAtt',showAtt);
 };
-var setShowVerizon = function(){
-  if(showVerizon){
+var setShowVerizon = function() {
+  if (showVerizon) {
     showVerizon=false;
     removeGeoMarkers(8);
     jQuery("#map-show-Verizon").removeClass("map-tool-on").addClass("map-tool-off");
@@ -350,8 +348,8 @@ var setShowVerizon = function(){
   }
   console.log('setShowVerizon',showVerizon);
 };
-var setShowGoogleTo = function(){
-  if(showGoogleTO){
+var setShowGoogleTo = function() {
+  if (showGoogleTO) {
     showGoogleTO=false;
     removeGeoMarkers(9);
     jQuery("#map-show-google-to").removeClass("map-tool-on").addClass("map-tool-off");
@@ -364,7 +362,7 @@ var setShowGoogleTo = function(){
 };
 
 /////
-var setDefaultMapSettings = function(){
+var setDefaultMapSettings = function() {
   allowMultipleTrs=false;
   jQuery("#map-allow-multiple").removeClass("map-tool-on").addClass("map-tool-off");
 
@@ -375,8 +373,8 @@ var setDefaultMapSettings = function(){
   jQuery("#map-exclude-d").removeClass("map-tool-on").addClass("map-tool-off");
 }
 
-var setAddMarkerInOrigin = function(){
-  if(addMarkerInOrigin){
+var setAddMarkerInOrigin = function() {
+  if (addMarkerInOrigin) {
     addMarkerInOrigin=false;
     jQuery("#map-show-marker-origin").removeClass("map-tool-on").addClass("map-tool-off");
   } else {
@@ -386,8 +384,8 @@ var setAddMarkerInOrigin = function(){
   console.log('setAddMarkerInOrigin',addMarkerInOrigin);
 };
 
-var setAllowMultipleTrs = function(){
-  if(allowMultipleTrs){
+var setAllowMultipleTrs = function() {
+  if (allowMultipleTrs) {
     allowMultipleTrs=false;
     jQuery("#map-allow-multiple").removeClass("map-tool-on").addClass("map-tool-off");
     //jQuery('#map-core-controls').hide();
@@ -401,8 +399,8 @@ var setAllowMultipleTrs = function(){
   console.log('setAllowMultipleTrs',allowMultipleTrs);
 };
 
-var excludeA = function(){
-  if(excludeCoord0){
+var excludeA = function() {
+  if (excludeCoord0) {
     excludeCoord0=false;
     jQuery("#map-exclude-a").removeClass("map-tool-on").addClass("map-tool-off");
   } else {
@@ -412,8 +410,8 @@ var excludeA = function(){
   console.log('exclude coords 0',excludeCoord0);
 }
 
-var excludeB = function(){
-  if(excludeCoordGen){
+var excludeB = function() {
+  if (excludeCoordGen) {
     excludeCoordGen=false;
     jQuery("#map-exclude-b").removeClass("map-tool-on").addClass("map-tool-off");
   } else {
@@ -423,8 +421,8 @@ var excludeB = function(){
   console.log('exclude generic coords.',excludeCoordGen);
 };
 
-var excludeC = function(){
-  if(excludeImpDist){
+var excludeC = function() {
+  if (excludeImpDist) {
     excludeImpDist=false;
     jQuery("#map-exclude-c").removeClass("map-tool-on").addClass("map-tool-off");
   } else {
@@ -435,8 +433,8 @@ var excludeC = function(){
   alert('Note that this option is functional but it has not been fully tested.');
 };
 
-var excludeD = function(){
-  if(excludeReservedAS){
+var excludeD = function() {
+  if (excludeReservedAS) {
     excludeReservedAS=false;
     jQuery("#map-exclude-d").removeClass("map-tool-on").addClass("map-tool-off");
   } else {
@@ -446,8 +444,8 @@ var excludeD = function(){
   console.log('exclude Reserved AS.',excludeReservedAS);
 };
 
-var excludeE = function(){
-  if(excludeUserFlagged){
+var excludeE = function() {
+  if (excludeUserFlagged) {
     excludeUserFlagged=false;
     jQuery("#map-exclude-e").removeClass("map-tool-on").addClass("map-tool-off");
   } else {
