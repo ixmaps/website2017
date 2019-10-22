@@ -37,7 +37,7 @@
     _paq.push(['trackPageView']);
     _paq.push(['enableLinkTracking']);
     (function() {
-      var u="//www.ixmaps.ca/piwik/";
+      var u="//dev.ixmaps.ca/piwik/";
       _paq.push(['setTrackerUrl', u+'piwik.php']);
       _paq.push(['setSiteId', 1]);
       var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
@@ -45,5 +45,5 @@
     })();
   }
 </script>
-<noscript><p><img src="//www.ixmaps.ca/piwik/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+<noscript><p><img src="//dev.ixmaps.ca/piwik/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
 <!-- End Matomo Code -->
