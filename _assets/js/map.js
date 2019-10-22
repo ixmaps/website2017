@@ -163,8 +163,20 @@ var setUpClickHandlers = function() {
     jQuery('.map-help.modal').modal('show');
   });
 
-  /* set behaviour for on change usr loc fields*/
+  /* TR Details */
+  jQuery('.more-details-btn').click(function(ev) {
+    if (jQuery('.traceroute-container-more-details').hasClass('hidden')) {
+      jQuery('.traceroute-container').addClass('hidden');
+      jQuery('.traceroute-container-more-details').removeClass('hidden');
+      jQuery('.more-details-btn').text("Less details...");  
+    } else {
+      jQuery('.traceroute-container').removeClass('hidden');
+      jQuery('.traceroute-container-more-details').addClass('hidden');
+      jQuery('.more-details-btn').text("More details...");  
+    }
+  });
 
+  /* set behaviour for on change usr loc fields */
   jQuery( ".userloc-submitter" ).change(function() {
     jQuery('#myloc-reload-btn').addClass('blue');
   });

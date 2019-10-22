@@ -417,10 +417,13 @@ i.flag:not(.icon):before {
     margin: 20px;
     height: 500px;
   }
-  .traceroute-container {
+  .traceroute-container, .traceroute-container-more-details {
     margin-top: 25px;
     height: 380px;
     overflow-y: scroll;
+  }
+  .more-details-btn {
+    float: right;
   }
 }
 

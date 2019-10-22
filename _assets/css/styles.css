@@ -26149,10 +26149,14 @@ i.flag:not(.icon):before {
 	height: 500px;
 }
 
-#tr-details-modal .traceroute-container {
+#tr-details-modal .traceroute-container, #tr-details-modal .traceroute-container-more-details {
 	margin-top: 25px;
 	height: 380px;
 	overflow-y: scroll;
+}
+
+#tr-details-modal .more-details-btn {
+	float: right;
 }
 
 .settings.modal .setting-title {
