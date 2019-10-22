@@ -18,10 +18,6 @@
 
 <header class="jumbo-hero">
     <div class="content">
-        <div class="msg-banner">
-            On Tuesday 22 October, from 12am - 3pm EST, the server will be down for maintenance. During that time, the website and IXmapsClient will be unavailable. We apologize for the inconvenience.
-        </div>
-
         <h1>Map Your Internet</h1>
         <p class="intro">See how data travels across the internet <br> and the privacy risks it faces along the way</p>
         <a class="ui massive grey button" href="map.php" target="_self">Start Mapping</a>

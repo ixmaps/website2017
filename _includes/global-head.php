@@ -26,10 +26,6 @@
 <script src="/_assets/__build/bower_components/jquery-toastmessage-plugin/src/main/javascript/jquery.toastmessage.js"></script>
 <script src="/_assets/js/main.js"></script>
 
-<script type="text/javascript">
-  
-</script>
-
 <!-- Matomo -->
 <script type="text/javascript">
   loadConfig('/config.json')
