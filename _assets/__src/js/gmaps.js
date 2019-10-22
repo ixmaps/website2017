@@ -565,7 +565,7 @@ var showTotalTrInfo = function(){
       carriers+='<td><div class="carrier-colour" style="background-color: '+color+'"></div>'+cLink+'</td>';
 
       // add nat / flag
-      if (country != null) {
+      if (d[2] != null) {
         var country = d[2].toLowerCase();
         carriers += '<td class=""><i class="'+country+' flag"></i>'+d[2]+'</td>';
       } else {
