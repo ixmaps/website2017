@@ -7,6 +7,9 @@
     <div class="body">
         <div class="tr-metadata-container">
             <p>
+                [TR details is under active development. We welcome any <a href="https://www.github.com/ixmaps/website2017/issues" target="_blank">functionality suggestions</a>]
+            </p>
+            <p>
                 Traceroute # <strong><span class="tr-id" /></strong><br />
                 Contributed by <strong><span class="submitter" /></strong>
                 on <strong><strong><span class="sub-time" /></strong></strong><br />
