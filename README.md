@@ -90,8 +90,8 @@ $ sudo npm install -g grunt-cli bower
 Clone and work in this repo to make changes:
 
 ```
-$ git clone https://github.com/ixmaps/website2017.git /var/www/website
-$ cd /var/www/website
+$ git clone https://github.com/ixmaps/website2017.git /srv/www/website
+$ cd /srv/www/website
 ```
 
 You'll need to use the example config to avoid errors:
@@ -135,27 +135,6 @@ An example development workflow:
 Please commit to `master` only (prod should be locked). Master will act as the staging branch, to be merged to `prod` and pulled to server as required.
 
 Issues lifecycle is fairly hands off - start your own issues, close your own issues, complete and close other's issues (with encouragement to reopen) are all acceptable practices. If resolving another user's more complex issue, preferred practice is to @mention the issuer to request closure if uncertain
-
-## Server setup steps
-
-Server
-(Legacy?)
-```
-git clone git@github.com:ixmaps/website2017.git ixmaps/
-cp config.example.json config.json
-nano config.json (add key and change php-backend)
-ln -s /var/www/php-backend/application/ application/
-cp -R /var/www/ixmaps-old/IXmapsClient /var/www/ixmaps/
-cp -R /var/www/ixmaps-old/piwik/ /var/www/ixmaps/ (permissions issues)
-git submodule init
-git submodule update
-chmod -R www-data piwik
-chgrp -R www-data piwki
-npm install
-bower install
-cd _assets/__build
-grunt build (every time )
-```
 
 
 ## License
