@@ -25491,8 +25491,12 @@ footer {
 }
 
 .msg-banner {
-	width: 750px;
+	width: 625px;
 	font-size: 18px;
+	/* remove these if we're not including a link in the banner */
+	background-color: white;
+	color: black;
+	padding: 10px;
 }
 
 #home-page h1 {
