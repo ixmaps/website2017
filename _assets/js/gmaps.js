@@ -519,7 +519,6 @@ var showTotalTrInfo = function(){
     var carriers = '';
     carriers += '<table id="carrier-table" style="width: 100%;" class="tablesorter tr-list-result ui tablesorter selectable celled compact table">';
     carriers += '<thead><tr>';
-    // carriers += '<th>ASN</th>';
     carriers += '<th title="Telecommunications service provider, i.e. a local internet service provider, or longhaul ‘backbone carrier.’ Click on highlighted carriers to see more about them.">Carrier</th>';
     // add nat
     carriers+='<th class="nat-header">Nat.</th>';
@@ -565,13 +564,13 @@ var showTotalTrInfo = function(){
       carriers+='<td><div class="carrier-colour" style="background-color: '+color+'"></div>'+cLink+'</td>';
 
       // add nat / flag
-      if (country != null) {
+      if (d[2] != null) {
         var country = d[2].toLowerCase();
         carriers += '<td class=""><i class="'+country+' flag"></i>'+d[2]+'</td>';
       } else {
         carriers += '<td class=""></td>';
       }
-      
+
       // add # of routers
       carriers+='<td class="centered-table-cell">'+d[0]+'</td>';
       // add stars
@@ -582,29 +581,26 @@ var showTotalTrInfo = function(){
 
     carriers+='</tbody></table>';
     jQuery('#carriers-results-table').html(carriers);
-      //jQuery('#carrier-table tbody').html(carriers);
 
-    if(t2!=0) {
+    if (t2 != 0) {
       // sort the second column of the carrier summary table by desc
       jQuery("#carrier-table").tablesorter( {sortList: [[2,1]]} );
     }
   }
 
-  //jQuery('#map-info-total').html('Total TRs: '+totTRs+' : Active Hops: '+t2);
-  //jQuery('#map-info-total').html('Displayed # of Hops: <strong>'+t2+'</strong>');
   jQuery('#tr-count').text(trsAddedToMap.length);
 };
 
 var showThisTr = function (trId) {
-  if(!allowMultipleTrs){
+  if (!allowMultipleTrs) {
     removeAllTrs();
   }
   renderTr(trId);
   showTotalTrInfo();
 };
 
-var stopRender = function(){
-  if(trRenderStop){
+var stopRender = function() {
+  if (trRenderStop) {
     jQuery('#map-render-stop-play').val('Stop');
     trRenderStop = false;
   } else {
@@ -631,8 +627,8 @@ var addAllTrs = function() {
 
     var a = checkIfStopped();
 
-    setTimeout(function(){
-      if(trRenderStop){
+    setTimeout(function() {
+      if (trRenderStop) {
         return false;
       } else {
         renderTr2(trId);
@@ -648,7 +644,6 @@ var addAllTrs = function() {
   removeTr();
 
   showTotalTrInfo();
-  //jQuery('#map-status-info').hide();
 };
 
 var removeAllTrs = function() {
@@ -1346,7 +1341,8 @@ var viewTrDetails = function(trId) {
   // add the new tr metadata
   // grabbing the 'first' hop (since each hop will contain all of the metadata)
   aHop = ixMapsDataJson[trId][Object.keys(ixMapsDataJson[trId])[0]];
-  d = new Date(aHop["subTime"]);
+  // this split is necessary, as FF is strict on Date objects
+  d = new Date(aHop["subTime"].split('.')[0]);
   submitterDateTime = d.toLocaleDateString() + ' ' + d.toLocaleTimeString();
   jQuery('#tr-details-modal .tr-metadata-container .tr-id').text(trId);
   jQuery('#tr-details-modal .tr-metadata-container .submitter').text(aHop['submitter']);
