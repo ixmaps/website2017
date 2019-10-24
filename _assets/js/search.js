@@ -363,11 +363,6 @@ var createASRow = function(row) {
   jQuery('#as-search-container').append(inputHolderEl);
 };
 
-/*var submitQuery = function(queryObj) {
-  console.log('Submitting query of ' + JSON.stringify(queryObj));
-}*/
-
-
 var submitCustomQuery = function(trId, multipleTRs) {
   jQuery('#userloc').hide();
   var singleTrJSON = {
@@ -381,10 +376,8 @@ var submitCustomQuery = function(trId, multipleTRs) {
       }
   };
   var jsonToString = JSON.stringify(singleTrJSON);
-  //processPostedData(jsonToString);
   submitQuery(singleTrJSON);
 }
-
 
 /* submission for new map website */
 var submitQuery = function(obj) {
@@ -469,16 +462,7 @@ var buildTrCountQuery = function(type) {
   var obj;
 
   // first load query
-  if(type=='first'){
-
-/*    obj = {
-      constraint1: "does",
-      constraint2: "originate",
-      constraint3: "country",
-      constraint4: myCountry,
-      constraint5: "AND"
-    }
-    usrLocQuery['myCountry'] = obj;*/
+  if (type=='first') {
 
     obj = {
       constraint1: "does",
@@ -489,7 +473,7 @@ var buildTrCountQuery = function(type) {
     }
     usrLocQuery['myAsn'] = obj;
 
-    if(myCity!=""){
+    if (myCity!="") {
       obj = {
         constraint1: "does",
         constraint2: "originate",
@@ -577,7 +561,6 @@ var submitTrCount = function(obj) {
 };
 
 var resetUserLocQueryOptions = function(type) {
-  console.log("resetUserLocQueryOptions()");
   userLocQueryOptions = {
     "submitter": {
       "value": "",
@@ -604,32 +587,31 @@ var resetUserLocQueryOptions = function(type) {
   // get data for user geo location
   userLocQueryOptions.myAsn.value = myAsn;
 
-  // collect values ented by user
+  // collect values entered by user
   var myCityUsr = jQuery(".userloc-city").val();
   var myCountryUsr = jQuery(".userloc-country").val();
 
-  userLocQueryOptions.myCountry.value = myCountryUsr; // note that allowing user to change country code makes unabialable the country name
+  userLocQueryOptions.myCountry.value = myCountryUsr; // note that allowing user to change country code makes the country name unavailable
 
   // reset flag icon
-  if(myCountryUsr!= "" && myCountryUsr!=myCountry){
+  if (myCountryUsr!= "" && myCountryUsr!=myCountry) {
     jQuery('.userloc-country-flag').removeClass('flag');
     jQuery('.userloc-country-flag').removeClass(myCountry.toLowerCase());
     jQuery('.userloc-country-flag').addClass(myCountryUsr.toLowerCase());
     jQuery('.userloc-country-flag').addClass('flag');
   } else {
     jQuery('.userloc-country').val(myCountry);
-    //jQuery('.userloc-country-name').html(myCountryName);
     jQuery('.userloc-country-flag').addClass(myCountry.toLowerCase());
     jQuery('.userloc-country-flag').addClass('flag');
   }
 
-  /*Update ui fields*/
+  // update ui fields
   jQuery('.userloc-ip').text(myIp);
   jQuery('.userloc-isp').text(myIsp);
   jQuery('.userloc-asn').text(myAsn);
 
   // check if city name has been changed in ui
-  if(myCityUsr!="" && myCityUsr!=myCity){
+  if (myCityUsr!="" && myCityUsr!=myCity) {
     jQuery('.userloc-city').val(myCityUsr);
     userLocQueryOptions.myCity.value = myCityUsr;
   } else {
