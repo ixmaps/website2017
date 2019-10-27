@@ -107,7 +107,7 @@ var setUpClickHandlers = function() {
     constructLastContributed();
   });
   jQuery('#search-header .qs-via-nsa-city-btn').click(function() {
-    constructViaNSA();
+    constructViaNSACity();
   });
   jQuery('#search-header .qs-via-boomerangs-btn').click(function() {
     constructBoomerangs();

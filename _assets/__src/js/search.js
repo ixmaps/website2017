@@ -19,23 +19,29 @@ var constructLastContributed = function() {
   jQuery('#qs-search-parameters-container').text('Last contributed traceroutes');
 };
 
-var constructViaNSA = function() {
-  var submission = {};
-  var i = 1;
+var constructViaNSACity = function() {
+  // var submission = {};
+  // var i = 1;
 
-  _.each(nsaCities, function(city) {
-    var nsaObj = {
-      constraint1: "does",
-      constraint2: "contain",
-      constraint3: "city",
-      constraint4: city,
-      constraint5: "OR"
-    };
-    submission["filter-constraint-"+i] = nsaObj;
-    i++;
-  });
+  // _.each(nsaCities, function(city) {
+  //   var nsaObj = {
+  //     constraint1: "does",
+  //     constraint2: "contain",
+  //     constraint3: "city",
+  //     constraint4: city,
+  //     constraint5: "OR"
+  //   };
+  //   submission["filter-constraint-"+i] = nsaObj;
+  //   i++;
+  // });
+  var submission = {
+    "filter-constraint-1": {
+      constraint1: "quickLink",
+      constraint2: "viaNSACity"
+    }
+  };
   submitQuery(submission);
-  jQuery('#qs-search-parameters-container').text('Does Contain City San Francisco AND Does Contain City Los Angeles OR...');
+  jQuery('#qs-search-parameters-container').text('Goes via an NSA city');
 };
 
 var constructBoomerangs = function() {
