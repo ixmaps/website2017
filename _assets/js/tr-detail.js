@@ -20,8 +20,8 @@ var addFlagIpLinks = function() {
   {
     if (i>0){
       var ip = jQuery('table:eq(1) tr:eq('+i+') td:eq(1)').html();
-      var hopN = jQuery('table:eq(1) tr:eq('+i+') td:eq(0)').html();
-      jQuery("table:eq(1) tr:eq("+i+")").append('<td><a class="text-new" href="javascript:showFlagsParent('+trId+','+hopN+','+'\''+ip+'\''+',true'+')">Flag This IP</a></td>');
+      var hop = jQuery('table:eq(1) tr:eq('+i+') td:eq(0)').html();
+      jQuery("table:eq(1) tr:eq("+i+")").append('<td><a class="text-new" href="javascript:showFlagsParent('+trId+','+hop+','+'\''+ip+'\''+',true'+')">Flag This IP</a></td>');
     }
 
     if (i%2 == 0) {
@@ -40,8 +40,8 @@ var addFlagIpLinks = function() {
   allCells.css('padding','2px 5px 1px 5px');
 }
 
-var showFlagsParent = function (trId, hopN, ip, openFlagWin){
-  parent.showFlags(trId, hopN, ip, openFlagWin);
+var showFlagsParent = function (trId, hop, ip, openFlagWin){
+  parent.showFlags(trId, hop, ip, openFlagWin);
   parent.jQuery('.flagging.modal').modal('show');
 
 }

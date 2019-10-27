@@ -11,10 +11,7 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i|Work+Sans:500,700,900" rel="stylesheet">
 
 <!-- Fav and touch icons -->
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72-precomposed.png">
-<link rel="apple-touch-icon-precomposed" href="apple-touch-icon-57-precomposed.png">
+<link rel="apple-touch-icon" href="/favicon.png">
 <link rel="shortcut icon" href="/favicon.png">
 
 <!-- Scripts -->

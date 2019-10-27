@@ -1249,39 +1249,36 @@ var flagCounter = 0;
 
 // new approach get data for this ip on demand, do not rely on tr hop number
 //var showFlags = function(routerObj, openFlagWin) {
-var showFlags = function(trId, hopN, ip, openFlagWin) {
+var showFlags = function(trId, hop, ip, openFlagWin) {
   // set var of active router
   activeIpFlag = ip;
   activeTridFlag = trId;
-  activeHopNumFlag = hopN;
+  activeHopNumFlag = hop;
 
-  console.log('ip: '+ip+', trId: '+trId+', hopH: '+hopN+'');
-  //console.log(ixMapsDataJson[trId][hopN]);
-  //flagCounter++;
+  console.log('ip: '+ip+', trId: '+trId+', hopH: '+hop+'');
   console.log('Displaying Flag info for ip: '+activeIpFlag);
-  //console.log('flagCounter:', flagCounter);
-  if(!openFlagWin) {
+  if (!openFlagWin) {
     jQuery('#flagging-info-m').html('Getting Flags...');
   }
   getIpFlags(openFlagWin);
 }
 
-var trHopMouseover = function (trId,hopN,type) {
+var trHopMouseover = function (trId,hop,type) {
   var ipTxt = '';
   var elTxt = '';
   var nextTxt = '';
   if(type==0){
     elTxt="Router"
-    ipTxt = '<br/>IP: <strong>'+ixMapsDataJson[trId][hopN].ip+'</strong>';
+    ipTxt = '<br/>IP: <strong>'+ixMapsDataJson[trId][hop].ip+'</strong>';
     ipTxt += ' | <span id="flag-this-link"></span>';
   } else {
     elTxt = "Hop";
-    var hopNext = parseInt(hopN);
+    var hopNext = parseInt(hop);
     hopNext++;
     nextTxt = '-'+hopNext;
   }
 
-  var h=''+''+elTxt+': <strong>'+hopN+nextTxt+'</strong><br/>Carrier: <strong>'+ixMapsDataJson[trId][hopN].asName+'</strong>, ASN: <strong>'+ixMapsDataJson[trId][hopN].asNum+'</strong>'+ipTxt;
+  var h=''+''+elTxt+': <strong>'+hop+nextTxt+'</strong><br/>Carrier: <strong>'+ixMapsDataJson[trId][hop].asName+'</strong>, ASN: <strong>'+ixMapsDataJson[trId][hop].asNum+'</strong>'+ipTxt;
 
   h += '<div id="flagging-info-m"></div>';
   jQuery('#map-info').html(h);
@@ -1366,7 +1363,7 @@ var viewTrDetails = function(trId) {
 
     jQuery('#tr-details-modal .traceroute-container tbody').append(
       jQuery('<tr />').append(
-        jQuery('<td />').text(hopNum),
+        jQuery('<td />').text(hopValues.hop),
         jQuery(countryEl),
         jQuery('<td />')
           .css('background', getAsnBackground(hopValues.asNum))
@@ -1375,7 +1372,7 @@ var viewTrDetails = function(trId) {
     );
     jQuery('#tr-details-modal .traceroute-container-more-details tbody').append(
       jQuery('<tr />').append(
-        jQuery('<td />').text(hopValues.hopN),
+        jQuery('<td />').text(hopValues.hop),
         jQuery('<td />').text(hopValues.ip),
         jQuery('<td />').text(hopValues.hostname),
         jQuery('<td />').text(hopValues.asNum),
@@ -1385,7 +1382,6 @@ var viewTrDetails = function(trId) {
       )
     );
   });
-  // careful with hop vs hopN
 };
 
 var getCityRegionCountry = function(city, region, country) {

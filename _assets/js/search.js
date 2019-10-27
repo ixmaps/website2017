@@ -594,7 +594,7 @@ var resetUserLocQueryOptions = function(type) {
   userLocQueryOptions.myCountry.value = myCountryUsr; // note that allowing user to change country code makes the country name unavailable
 
   // reset flag icon
-  if (myCountryUsr!= "" && myCountryUsr!=myCountry) {
+  if (myCountryUsr != "" && myCountryUsr != myCountry) {
     jQuery('.userloc-country-flag').removeClass('flag');
     jQuery('.userloc-country-flag').removeClass(myCountry.toLowerCase());
     jQuery('.userloc-country-flag').addClass(myCountryUsr.toLowerCase());
