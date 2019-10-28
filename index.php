@@ -5,7 +5,7 @@
     <title>Home | IXmaps</title>
     <?php include '_includes/global-head.php'; ?>
     <script src="_includes/db-stats.json" type="text/javascript"></script>
-    <script src="_assets/js/db-stats.js" type="text/javascript"></script>
+    <script src="_assets/js/db-stats.min.js" type="text/javascript"></script>
     <script>
         jQuery(document).ready(function() {
             renderDbStats();

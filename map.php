@@ -7,20 +7,19 @@
 
     <script src="_assets/js/tablesorter.min.js" type="text/javascript"></script>
     <script src="_assets/js/prototype.min.js" type="text/javascript"></script>
-      <!-- we really need to decide on a process for where to put these -->
-    <script type="text/javascript" src="_assets/__build/bower_components/jquery-ui/ui/minified/jquery.ui.core.min.js"></script>
-    <script type="text/javascript" src="_assets/__build/bower_components/jquery-ui/ui/minified/jquery.ui.widget.min.js"></script>
-    <script type="text/javascript" src="_assets/__build/bower_components/jquery-ui/ui/minified/jquery.ui.position.min.js"></script>
-    <script type="text/javascript" src="_assets/__build/bower_components/jquery-ui/ui/minified/jquery.ui.menu.min.js"></script>
-    <script type="text/javascript" src="_assets/__build/bower_components/jquery-ui/ui/minified/jquery.ui.autocomplete.min.js"></script>
-
-    <!-- Production  -->
+    <script src="_assets/js/jquery.ui.core.min.js" type="text/javascript" ></script>
+    <script src="_assets/js/jquery.ui.widget.min.js" type="text/javascript"></script>
+    <script src="_assets/js/jquery.ui.position.min.js" type="text/javascript" ></script>
+    <script src="_assets/js/jquery.ui.menu.min.js" type="text/javascript" ></script>
+    <script src="_assets/js/jquery.ui.autocomplete.min.js" type="text/javascript" ></script>
     <script src="_assets/js/map.min.js" type="text/javascript"></script>
     <script src="_assets/js/gmaps.min.js" type="text/javascript"></script>
     <script src="_assets/js/search.min.js" type="text/javascript"></script>
     <script src="_assets/js/layers.min.js" type="text/javascript"></script>
-    <script src="_assets/js/jquery.toast.min.js" type="text/javascript"></script>
     <script src="_assets/js/data-structures.min.js" type="text/javascript"></script>
+
+    <link href="_assets/css/jquery.toast.min.css" rel="stylesheet" />
+    <link href="_assets/css/jquery.ui.autocomplete.css" rel="stylesheet" />
 
     <script>
         var initMode = 0;
@@ -52,9 +51,6 @@
             init();
         });
     </script>
-
-  <link href="_assets/css/jquery.toast.min.css" rel="stylesheet" />
-  <link href="_assets/css/jquery.ui.autocomplete.css" rel="stylesheet" />
 
 </head>
 

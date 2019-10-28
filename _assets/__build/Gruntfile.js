@@ -109,7 +109,13 @@ module.exports = function( grunt ) {
 				expand: true,
 				src: [
 					'<%= dirs.bower %>/jquery/dist/jquery.js',
-					'<%= dirs.bower %>/jquery/dist/jquery.min.js'
+					'<%= dirs.bower %>/jquery/dist/jquery.min.js',
+					'<%= dirs.bower %>/jquery-toastmessage-plugin/src/main/javascript/jquery.toastmessage.js',
+					'<%= dirs.bower %>/jquery-ui/ui/minified/jquery.ui.core.min.js',
+					'<%= dirs.bower %>/jquery-ui/ui/minified/jquery.ui.widget.min.js',
+					'<%= dirs.bower %>/jquery-ui/ui/minified/jquery.ui.position.min.js',
+					'<%= dirs.bower %>/jquery-ui/ui/minified/jquery.ui.menu.min.js',
+					'<%= dirs.bower %>/jquery-ui/ui/minified/jquery.ui.autocomplete.min.js'
 				],
 				dest: '<%= dirs.js %>',
 				flatten: true

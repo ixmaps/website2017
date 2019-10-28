@@ -5,7 +5,6 @@
     <title>Resources | IXmaps</title>
     <?php include '../_includes/global-head.php'; ?>
 
-    <link href="../_assets/css/resources.css" rel="stylesheet">
 </head>
 
 <body id="resources-page">

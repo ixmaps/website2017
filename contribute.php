@@ -3,7 +3,6 @@
 <head>
     <meta charset="utf-8">
     <title>Contribute | IXmaps</title>
-    <link href="/_assets/css/contribute.css" rel="stylesheet">
     <?php include '_includes/global-head.php'; ?>
 </head>
 

@@ -15,13 +15,14 @@
 <link rel="shortcut icon" href="/favicon.png">
 
 <!-- Scripts -->
-<script src="/_assets/js/jquery.min.js"></script>
-<!-- TODO: get this off the CDN - npm? how does grunt play here? -->
+<script src="/_assets/js/jquery.js"></script>
+<!-- TODO: get this off the CDN - npm? -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js" type="text/javascript"></script>
 <script src="/_assets/js/modernizr-custom.min.js"></script>
 <script src="/_assets/js/semantic-ui.js"></script>
-<script src="/_assets/__build/bower_components/jquery-toastmessage-plugin/src/main/javascript/jquery.toastmessage.js"></script>
-<script src="/_assets/js/main.js"></script>
+<script src="/_assets/js/jquery.toastmessage.js"></script>
+<script src="/_assets/js/jquery.toast.min.js"></script>
+<script src="/_assets/js/main.min.js"></script>
 
 <!-- Matomo -->
 <script type="text/javascript">

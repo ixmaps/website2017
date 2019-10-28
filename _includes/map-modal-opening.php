@@ -71,22 +71,6 @@
 
             </div>
 
-            <!-- <div class="field user-loc-chkbox">
-                <strong><span class="userloc-country-tot">0</span></strong>
-                <input type="checkbox" class="userloc-country-chkbox" title="Checkmark indicates this condition is included in the search">
-            </div> -->
-
-            <!-- <div class="inline fields">
-                <span class="setting-title">In &emsp;</span>
-                <div class="field">
-                    <strong><input class="userloc-text-input userloc-country ui-autocomplete-input" autocomplete="off" style="width:70px" title="If not correct, delete entry, start typing the 2 character country code, then make selection. Check box and Reload to update results" ></strong>
-                </div>
-                <div class="field">
-                    <span><i class="userloc-country-flag"></i></span>
-                    <strong> (<span class="userloc-country-name"></span>) </strong>
-                </div>
-            </div> -->
-
             <div class="field user-loc-chkbox">
                 <strong><div class="userloc-trs-tot">0</div></strong>
             </div>
