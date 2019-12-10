@@ -28,17 +28,17 @@
                 <li><a href="#tab3">Transit Carriers</a></li>
             </ul>
 
-          <section id="first-tab-group" class="tabgroup">
-              <div id="tab1" style="display: block;">
-                  <img src="/_assets/img/transparency/startable-2017-major@2x.png">
-              </div>
-              <div id="tab2" style="display: none;">
-                  <img src="/_assets/img/transparency/startable-2017-minor@2x.png">
-              </div>
-              <div id="tab3" style="display: none;">
-                  <img src="/_assets/img/transparency/startable-2017-transit@2x.png">
-              </div>
-          </section>
+            <section id="first-tab-group" class="tabgroup">
+                <div id="tab1" style="display: block;">
+                    <img src="/_assets/img/transparency/startable-2017-major@2x.png">
+                </div>
+                <div id="tab2" style="display: none;">
+                    <img src="/_assets/img/transparency/startable-2017-minor@2x.png">
+                </div>
+                <div id="tab3" style="display: none;">
+                    <img src="/_assets/img/transparency/startable-2017-transit@2x.png">
+                </div>
+            </section>
         </div>
 
     </div>
