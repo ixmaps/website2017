@@ -1,3 +1,5 @@
+// NB - this is now legacy, and will be deleted soon
+
 jQuery(document).ready(function() {
   addFlagIpLinks();
 });

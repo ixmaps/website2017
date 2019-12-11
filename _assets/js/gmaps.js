@@ -1334,6 +1334,7 @@ var viewPrivacy = function(asNum) {
 var viewTrDetails = function(trId) {
   // delete everything that is in there now
   jQuery('#tr-details-modal .traceroute-container tbody').empty();
+  jQuery('#tr-details-modal .traceroute-container-more-details tbody').empty();
 
   // add the new tr metadata
   // grabbing the 'first' hop (since each hop will contain all of the metadata)
