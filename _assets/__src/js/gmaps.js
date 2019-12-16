@@ -1339,9 +1339,10 @@ var viewTrDetails = function(trId) {
   // add the new tr metadata
   // grabbing the 'first' hop (since each hop will contain all of the metadata)
   aHop = ixMapsDataJson[trId][Object.keys(ixMapsDataJson[trId])[0]];
-  // this split is necessary, as FF is strict on Date objects
-  d = new Date(aHop["subTime"].split('.')[0]);
-  submitterDateTime = d.toLocaleDateString() + ' ' + d.toLocaleTimeString();
+  // the backend passes a strange type of date str that can't be parsed the same in all browsers, so just doing it like this instead
+  // d = new Date(aHop["subTime"].split('.')[0]);
+  // submitterDateTime = d.toLocaleDateString() + ' ' + d.toLocaleTimeString();
+  submitterDateTime = aHop["subTime"].split('.')[0];
   jQuery('#tr-details-modal .tr-metadata-container .tr-id').text(trId);
   jQuery('#tr-details-modal .tr-metadata-container .submitter').text(aHop['submitter']);
   jQuery('#tr-details-modal .tr-metadata-container .sub-time').text(submitterDateTime);
