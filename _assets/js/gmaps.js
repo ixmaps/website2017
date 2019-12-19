@@ -1339,14 +1339,20 @@ var viewTrDetails = function(trId) {
   // add the new tr metadata
   // grabbing the 'first' hop (since each hop will contain all of the metadata)
   aHop = ixMapsDataJson[trId][Object.keys(ixMapsDataJson[trId])[0]];
-  // this split is necessary, as FF is strict on Date objects
-  d = new Date(aHop["subTime"].split('.')[0]);
-  submitterDateTime = d.toLocaleDateString() + ' ' + d.toLocaleTimeString();
+  // the backend passes a strange type of date str that can't be parsed the same in all browsers, so just doing it like this instead
+  // d = new Date(aHop["subTime"].split('.')[0]);
+  // submitterDateTime = d.toLocaleDateString() + ' ' + d.toLocaleTimeString();
+  submitterDateTime = aHop["subTime"].split('.')[0];
   jQuery('#tr-details-modal .tr-metadata-container .tr-id').text(trId);
   jQuery('#tr-details-modal .tr-metadata-container .submitter').text(aHop['submitter']);
   jQuery('#tr-details-modal .tr-metadata-container .sub-time').text(submitterDateTime);
   jQuery('#tr-details-modal .tr-metadata-container .zip-code').text(aHop['zipCode']);
   jQuery('#tr-details-modal .tr-metadata-container .destination').text(aHop['destHostname']);
+  jQuery('#tr-details-modal .tr-metadata-container .dest-ip').text(" ("+aHop['destIp']);
+  jQuery('#tr-details-modal .tr-metadata-container .terminated').text(" - Route terminated)");
+  if (aHop['lastHopIp'] != aHop['destIp']) {
+    jQuery('#tr-details-modal .tr-metadata-container .terminated').text(" - Route did not terminate)");
+  }
   jQuery('#tr-details-modal').modal('show');
 
   // creating the tr table
@@ -1377,6 +1383,7 @@ var viewTrDetails = function(trId) {
         jQuery('<td />').text(hopValues.ip),
         jQuery('<td />').text(hopValues.hostname),
         jQuery('<td />').text(hopValues.asNum),
+        jQuery('<td />').text(hopValues.firstAttemptLatency),
         jQuery('<td />').text(hopValues.lat),
         jQuery('<td />').text(hopValues.long),
         jQuery('<td />').text(hopValues.glOverride)

@@ -15,6 +15,8 @@
                 on <strong><strong><span class="sub-time" /></strong></strong><br />
                 From <strong><span class="zip-code" /></strong><br />
                 To <strong><span class="destination" /></strong>
+                <strong><span class="dest-ip more-details hidden" /></strong>
+                <strong><span class="terminated more-details hidden" /></strong>
             </p>
         </div>
 
@@ -43,6 +45,7 @@
                         <th>IP</th>
                         <th>Hostname</th>
                         <th>ASnum</th>
+                        <th>Latency</th>
                         <th>Lat</th>
                         <th>Long</th>
                         <th>Geocorrection</th>
