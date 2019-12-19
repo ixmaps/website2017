@@ -1348,10 +1348,10 @@ var viewTrDetails = function(trId) {
   jQuery('#tr-details-modal .tr-metadata-container .sub-time').text(submitterDateTime);
   jQuery('#tr-details-modal .tr-metadata-container .zip-code').text(aHop['zipCode']);
   jQuery('#tr-details-modal .tr-metadata-container .destination').text(aHop['destHostname']);
-  jQuery('#tr-details-modal .tr-metadata-container .dest-ip').text(" ("+aHop['destIp']);
-  jQuery('#tr-details-modal .tr-metadata-container .terminated').text(" - Route terminated)");
+  jQuery('#tr-details-modal .tr-metadata-container .dest-ip').text(" - "+aHop['destIp']);
+  jQuery('#tr-details-modal .tr-metadata-container .terminated').text("(route terminated)");
   if (aHop['lastHopIp'] != aHop['destIp']) {
-    jQuery('#tr-details-modal .tr-metadata-container .terminated').text(" - Route did not terminate)");
+    jQuery('#tr-details-modal .tr-metadata-container .terminated').text("(route did not terminate)");
   }
   jQuery('#tr-details-modal').modal('show');
 
