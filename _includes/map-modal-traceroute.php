@@ -5,11 +5,11 @@
     </div>
 
     <div class="body">
+        <!-- <p>
+            [TR details is under active development. We welcome any <a href="https://www.github.com/ixmaps/website2017/issues" target="_blank">functionality suggestions</a>]
+        </p> -->
         <div class="tr-metadata-container">
-            <p>
-                [TR details is under active development. We welcome any <a href="https://www.github.com/ixmaps/website2017/issues" target="_blank">functionality suggestions</a>]
-            </p>
-            <p>
+            <div class="tr-metadata">
                 Traceroute # <strong><span class="tr-id" /></strong><br />
                 Contributed by <strong><span class="submitter" /></strong>
                 on <strong><strong><span class="sub-time" /></strong></strong><br />
@@ -17,10 +17,29 @@
                 To <strong><span class="destination" /></strong>
                 <strong><span class="dest-ip more-details hidden" /></strong>
                 <strong><span class="terminated more-details hidden" /></strong>
-            </p>
+            </div>
+
+            <div class="tr-metadata-more-details more-details hidden">
+                <table class="ui table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>ASNum</th>
+                            <th>ASName</th>
+                            <th>City</th>
+                            <th>Country</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- created in gmaps.js -->
+                    </tbody>
+                </table>
+            </div>
         </div>
 
+        <div style="clear: both;"></div>
         <div class="more-details-btn link">More details...</div>
+        <div style="clear: both;"></div>
 
         <div class="traceroute-container">
             <table class="ui table">

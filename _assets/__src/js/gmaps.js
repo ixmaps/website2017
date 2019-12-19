@@ -1333,26 +1333,53 @@ var viewPrivacy = function(asNum) {
 
 var viewTrDetails = function(trId) {
   // delete everything that is in there now
+  jQuery('#tr-details-modal .tr-metadata-more-details tbody').empty();
   jQuery('#tr-details-modal .traceroute-container tbody').empty();
   jQuery('#tr-details-modal .traceroute-container-more-details tbody').empty();
 
   // add the new tr metadata
   // grabbing the 'first' hop (since each hop will contain all of the metadata)
-  aHop = ixMapsDataJson[trId][Object.keys(ixMapsDataJson[trId])[0]];
+  // wow, is this object ever structured terribly...
+  firstHop = ixMapsDataJson[trId][Object.keys(ixMapsDataJson[trId])[0]];
+  lastHop = ixMapsDataJson[trId][Object.keys(ixMapsDataJson[trId])[_.size(ixMapsDataJson[trId])-1]]
   // the backend passes a strange type of date str that can't be parsed the same in all browsers, so just doing it like this instead
-  // d = new Date(aHop["subTime"].split('.')[0]);
-  // submitterDateTime = d.toLocaleDateString() + ' ' + d.toLocaleTimeString();
-  submitterDateTime = aHop["subTime"].split('.')[0];
+  submitterDateTime = firstHop["subTime"].split('.')[0];
   jQuery('#tr-details-modal .tr-metadata-container .tr-id').text(trId);
-  jQuery('#tr-details-modal .tr-metadata-container .submitter').text(aHop['submitter']);
+  jQuery('#tr-details-modal .tr-metadata-container .submitter').text(firstHop['submitter']);
   jQuery('#tr-details-modal .tr-metadata-container .sub-time').text(submitterDateTime);
-  jQuery('#tr-details-modal .tr-metadata-container .zip-code').text(aHop['zipCode']);
-  jQuery('#tr-details-modal .tr-metadata-container .destination').text(aHop['destHostname']);
-  jQuery('#tr-details-modal .tr-metadata-container .dest-ip').text(" - "+aHop['destIp']);
-  jQuery('#tr-details-modal .tr-metadata-container .terminated').text("(route terminated)");
-  if (aHop['lastHopIp'] != aHop['destIp']) {
-    jQuery('#tr-details-modal .tr-metadata-container .terminated').text("(route did not terminate)");
+  jQuery('#tr-details-modal .tr-metadata-container .zip-code').text(firstHop['zipCode']);
+  jQuery('#tr-details-modal .tr-metadata-container .destination').text(firstHop['destHostname']);
+  jQuery('#tr-details-modal .tr-metadata-container .dest-ip').text(" - "+firstHop['destIp']);
+  jQuery('#tr-details-modal .tr-metadata-container .terminated').text("(terminated)");
+  if (firstHop['lastHopIp'] != firstHop['destIp']) {
+    jQuery('#tr-details-modal .tr-metadata-container .terminated').text("(did not terminate)");
   }
+
+  // extract the 'asname' to func, include short_name
+  jQuery('#tr-details-modal .tr-metadata-more-details tbody').append(
+    jQuery('<tr />').append(
+      jQuery('<td />').text("Origin").css("font-weight", "bold"),
+      jQuery('<td />').text(firstHop['asNum']),
+      jQuery('<td />').text(firstHop['asName']),
+      jQuery('<td />').text(firstHop['mmCity']),
+      jQuery('<td />').text(firstHop['mmCountry'])
+    ),
+    jQuery('<tr />').append(
+      jQuery('<td />').text("Terminator").css("font-weight", "bold"),
+      jQuery('<td />').text(lastHop['asNum']),
+      jQuery('<td />').text(lastHop['asName']),
+      jQuery('<td />').text(lastHop['mmCity']),
+      jQuery('<td />').text(lastHop['mmCountry'])
+    ),
+    jQuery('<tr />').append(
+      jQuery('<td />').text("Destination").css("font-weight", "bold"),
+      jQuery('<td />').text("NULL"),
+      jQuery('<td />').text("NULL"),
+      jQuery('<td />').text("NULL"),
+      jQuery('<td />').text("NULL")
+    )
+  );
+
   jQuery('#tr-details-modal').modal('show');
 
   // creating the tr table

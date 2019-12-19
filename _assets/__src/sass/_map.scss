@@ -417,13 +417,32 @@ i.flag:not(.icon):before {
     margin: 20px;
     height: 500px;
   }
+  .tr-metadata {
+    float: left;
+    line-height: 1.6;
+  }
+  .tr-metadata-more-details {
+    float: right;
+    font-size: 0.8rem;
+  }
+  .tr-metadata-container {
+    th {
+      padding-top: 0.3em;
+      padding-bottom: 0.3em;
+    }
+    td {
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+    }
+  }
   .traceroute-container, .traceroute-container-more-details {
-    margin-top: 25px;
+    margin-top: 5px;
     height: 380px;
     overflow-y: scroll;
   }
   .more-details-btn {
-    float: right;
+    margin-top: 10px;
+    float: left;
   }
 }
 
