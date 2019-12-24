@@ -409,9 +409,9 @@ var submitQuery = function(obj) {
           jQuery('#tot-results-found').html(data.totTrsFound);
           jQuery('#my-ip').html(myIp);
 
-          console.log(" Total TRs: "+data.totTrs);
-          console.log(" Total Hops: "+data.totHops);
-          console.log(" Execution Time: "+data.execTime+' Sec.');
+          console.log("Total TRs: "+data.totTrs);
+          console.log("Total Hops: "+data.totHops);
+          console.log("Execution Time: "+data.execTime+' Sec.');
           jQuery('#filter-results-summary').html(data.querySummary);
 
           loadMapData();
