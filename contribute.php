@@ -31,12 +31,12 @@
 
     <p>IXmapsClient works on <strong>Windows</strong>, <strong>Mac OS X</strong>, and <strong>Linux</strong>.</p>
 
-        <h5>Windows</h5><a class="dl-btn" href="https://www.ixmaps.ca/IXmapsClient/IXmapsClient.1.0.7.win64.exe">Download</a>
+        <h5>Windows</h5><a class="dl-btn" href="https://www.ixmaps.ca/IXmapsClient/IXmapsClient.1.0.6.win64.exe">Download</a>
         <div style="clear:both"></div>
         This version of the software runs on Windows 7, Windows 8 and Windows 10.
         <ul class="nobullet">
-          <li><a href="https://www.ixmaps.ca/IXmapsClient/IXmapsClient.1.0.7.win64.exe">Download the <strong>IXmapsClient</strong> installer IXmapsClient.1.0.7.win64.exe</a></li>
-          <li>Double click on <strong>IXmapsClient.1.0.7.win64.exe</strong> and install the application in the directory <strong>C:\IXmapsClient</strong></li>
+          <li><a href="https://www.ixmaps.ca/IXmapsClient/IXmapsClient.1.0.6.win64.exe">Download the <strong>IXmapsClient</strong> installer IXmapsClient.1.0.6.win64.exe</a></li>
+          <li>Double click on <strong>IXmapsClient.1.0.6.win64.exe</strong> and install the application in the directory <strong>C:\IXmapsClient</strong></li>
           <li>Copy the <strong>IXmapsClient-Shortcut</strong> to your Desktop</li>
           <li>In order to allow the <strong>IXmapsClient</strong> to run properly, you may need to authorize <strong>Windows Firewall</strong> to allow inbound connections. For a detailed guide on how to change these settings, see section on <strong>Changing Windows Firewall Settings</strong></li>
           <li>Double click on <strong>IXmapsClient-Shortcut</strong> to launch</li>
@@ -65,11 +65,11 @@
 
         <br />
 
-        <h5>Mac OSX</h5><a class="dl-btn" href="https://www.ixmaps.ca/IXmapsClient/IXmapsClient_v.1.0.7.macos.dmg">Download</a>
+        <h5>Mac OSX</h5><a class="dl-btn" href="https://www.ixmaps.ca/IXmapsClient/IXmapsClient_v.1.0.6.macos.dmg">Download</a>
         <div style="clear:both"></div>
         <ul class="nobullet">
-          <li><a href="https://www.ixmaps.ca/IXmapsClient/IXmapsClient_v.1.0.7.macos.dmg">Download the <strong>IXmapsClient</strong> installer <strong>IXmapsClient_v.1.0.7.macos.dmg</strong></a></li>
-          <li>Double click on the <strong>IXmapsClient.1.0.7.macos.dmg</strong> to open it</li>
+          <li><a href="https://www.ixmaps.ca/IXmapsClient/IXmapsClient_v.1.0.6.macos.dmg">Download the <strong>IXmapsClient</strong> installer <strong>IXmapsClient_v.1.0.6.macos.dmg</strong></a></li>
+          <li>Double click on the <strong>IXmapsClient.1.0.6.macos.dmg</strong> to open it</li>
           <li>Drag the <strong>IXmapsClient.app</strong> application to your <strong>Applications</strong> folder</li>
           <li>Double click on <strong>IXmapsClient.app</strong> to launch</li>
         </ul>
@@ -83,11 +83,11 @@
 
         <br />
 
-        <h5>Linux</h5><a class="dl-btn" href="https://www.ixmaps.ca/IXmapsClient/IXmapsClient.1.0.7.linux.tar.gz">Download</a>
+        <h5>Linux</h5><a class="dl-btn" href="https://www.ixmaps.ca/IXmapsClient/IXmapsClient.1.0.6.linux.tar.gz">Download</a>
         <div style="clear:both"></div>
         <ul class="nobullet">
-          <li><a href="https://www.ixmaps.ca/IXmapsClient/IXmapsClient.1.0.7.linux.tar.gz">Download the <strong>IXmapsClient</strong> installer <strong>IXmapsClient.1.0.7.linux.tar.gz</strong></a></li>
-          <li>Extract the contents of the file <strong>IXmapsClient.1.0.7.linux.tar.gz</strong>, e.g. by running the following command in a terminal window: tar xzvf IXmapsClient.1.0.7.linux.tar.gz</li>
+          <li><a href="https://www.ixmaps.ca/IXmapsClient/IXmapsClient.1.0.6.linux.tar.gz">Download the <strong>IXmapsClient</strong> installer <strong>IXmapsClient.1.0.6.linux.tar.gz</strong></a></li>
+          <li>Extract the contents of the file <strong>IXmapsClient.1.0.6.linux.tar.gz</strong>, e.g. by running the following command in a terminal window: tar xzvf IXmapsClient.1.0.6.linux.tar.gz</li>
           <li>Run <strong>start.sh</strong> to launch</li>
         </ul>
         <p><strong>IXmapsClient</strong> needs to be executed in a terminal with administrator's privileges. For this reason, when executing <strong>IXmapsClient</strong>, a new terminal window will be opened asking for the administrator's password; enter your admin password to proceed. The <strong>IXmapsClient</strong> interface should then be shown in a new browser window, or use your browser to go http://localhost:2040/.</p>
