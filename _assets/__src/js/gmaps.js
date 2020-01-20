@@ -59,8 +59,6 @@ var initGMaps = function() {
   });
 };
 
-var myMarker;
-
 /* global var from old ixmaps.js */
 
 // autocomplete arrays (to be filled with ajax call to backend)
@@ -96,7 +94,6 @@ var showHotel = false;
 var showGoogle = false;
 var showUc = false;
 
-// var geoDataLayers = ["AT&T", "CH", "CIRA_IPT", "Google", "IX.ca", "NSA", "UC", "Verizon", "gDcTO", "gPubDcPeer"];
 /* added March 7, 2016, Anto */
 var showIXca = false; // 1) // IX.ca
 var showCiraIPT = false; // 1) // CIRA_IPT
@@ -106,7 +103,7 @@ var showGooglePublicPeer = false; // 3) gPubDcPeer
 var showGoogleTO = false; // 3) // gDcTO
 
 var addMarkerInOrigin = false;
-var markersInOrigin = []; // Added to fix maker in origin interpreted as a hop, issue with info window displaying wrong location data
+var routeMarkers = []; // Added to fix marker in origin interpreted as a hop, issue with info window displaying wrong location data
 var showDynamicLegend = true; // !!
 var showMapInfoGlobal = false;
 
@@ -163,12 +160,12 @@ var addMarkerInDesination = true; //
 
 var privacyData;
 
-var addCollectedCoord = function(lat1,long1){
-  var c = new google.maps.LatLng(lat1,long1);
+var addCollectedCoord = function(lat1, long1){
+  var c = new google.maps.LatLng(lat1, long1);
   coordCollected.push(c);
   renderCollectedCoords();
 
-  if (coordCollected.length==2) {
+  if (coordCollected.length == 2) {
     // using goolge maps API to calculate distance between coordinates
     var latLngA = coordCollected[0];
     var latLngB = coordCollected[1];
@@ -188,17 +185,15 @@ var addCollectedCoord = function(lat1,long1){
 
 var renderCollectedCoords = function() {
   jQuery.each(coordCollected, function(key,value) {
-    //console.log('value', value);
 
     var objCoords = new google.maps.Polyline({
-    path: coordCollected,
-    strokeOpacity: 1,
-    strokeColor: '#FF0000',
-    strokeWeight: 5.0
+      path: coordCollected,
+      strokeOpacity: 1,
+      strokeColor: '#FF0000',
+      strokeWeight: 5.0
     });
 
     coordCollectedObj.push(objCoords);
-
     objCoords.setMap(map);
   });
 
@@ -299,7 +294,7 @@ var setShowUc = function() {
   }
   console.log('setShowUc',showUc);
 };
-/////
+
 var setShowIXca = function() {
   if (showIXca) {
     showIXca=false;
@@ -312,6 +307,7 @@ var setShowIXca = function() {
   }
   console.log('setShowIXca',showIXca);
 };
+
 var setShowCiraIPT = function() {
   if (showCiraIPT) {
     showCiraIPT=false;
@@ -324,6 +320,7 @@ var setShowCiraIPT = function() {
   }
   console.log('setShowCiraIPT',showCiraIPT);
 };
+
 var setShowAtt = function() {
   if (showAtt) {
     showAtt=false;
@@ -336,6 +333,7 @@ var setShowAtt = function() {
   }
   console.log('setShowAtt',showAtt);
 };
+
 var setShowVerizon = function() {
   if (showVerizon) {
     showVerizon=false;
@@ -348,6 +346,7 @@ var setShowVerizon = function() {
   }
   console.log('setShowVerizon',showVerizon);
 };
+
 var setShowGoogleTo = function() {
   if (showGoogleTO) {
     showGoogleTO=false;
@@ -361,7 +360,6 @@ var setShowGoogleTo = function() {
   console.log('setShowGoogleTo',showGoogleTO);
 };
 
-/////
 var setDefaultMapSettings = function() {
   allowMultipleTrs=false;
   jQuery("#map-allow-multiple").removeClass("map-tool-on").addClass("map-tool-off");
@@ -457,9 +455,6 @@ var excludeE = function() {
 
 var loadMapData = function() {
   // reset user activity on data set every time a new set is loaded
-
-  // CM: this does nothing now, right? REMOVE
-  // userActivityOnTrSet = new Object();
 
   //ixMapsDataJson = jQuery.parseJSON(ixMapsData);
   // var c = 0;
@@ -646,9 +641,9 @@ var removeAllTrs = function() {
   jQuery('#map-tr-active').html('');
 
   // remove markers in origin
-  while(markersInOrigin[0])
+  while(routeMarkers[0])
   {
-    markersInOrigin.pop().setMap(null);
+    routeMarkers.pop().setMap(null);
   }
 
   while(trCollection[0])
@@ -737,9 +732,6 @@ var renderTr = function (trId) {
   var trInMap = false;
   var trInMapHtml = '';
   var trActiveHtml = '';
-  //var skipHopNum = {"coord0:0","Generic Coords:0","Reserved AS:0"};
-
-  var originCoords;
 
   // need to reset activeCarriers and other vars
   if (!allowMultipleTrs) {
@@ -749,7 +741,6 @@ var renderTr = function (trId) {
   }
 
   if (trsAddedToMap.indexOf(trId) != -1) {
-  //if (_.contains(trsAddedToMap, trId)) {
     trInMap = true;
     console.log('The TR ('+trId+') is already in the map');
   } else {
@@ -760,20 +751,15 @@ var renderTr = function (trId) {
     // get hops' coords
     jQuery.each(ixMapsDataJson[trId], function(hop, value) {
 
-      // save first hop lat and long: this is now being done in the server
-      if(trRouterCount==0){
-        originCoords = new Array(value.lat, value.long);
-        // validate here if the origin has been excluded, this will matter if subsequent routers are also excluded
-      }
       // check router exclusions
       skipHop = excludeRouter(value, trId, hop, 1);
 
-      if(!skipHop){
+      if (!skipHop) {
         //console.log(key +':'+ value.long+', '+value.lat);
         var a = new Array(trId, hop, value.lat, value.long, value.asNum, value.asName, value.ip, value.gl_override, value.mmCity, value.mmCountry, value.hostname);
         //google.maps.LatLng(value.lat, value.long);
 
-        if(value.asNum in activeCarriers){
+        if (value.asNum in activeCarriers) {
           activeCarriers[value.asNum][0]+=1;
         } else {
           // DUPLICATE: offload this to wherever else it's being done - somewhere in the model? Anto
@@ -793,7 +779,7 @@ var renderTr = function (trId) {
     //console.log('--- activeCarriers',activeCarriers);
 
     // get coordinates for tr with one-hop only
-    if(p.length==1){
+    if (p.length == 1) {
       console.log("TR with one hop Id:", p[0][0]);
       var oneHop_LatLng = new google.maps.LatLng(p[0][2],p[0][3]);
       coordinates.push(oneHop_LatLng);
@@ -801,43 +787,51 @@ var renderTr = function (trId) {
 
     // build each hop as a polyline
     jQuery.each(p, function(index, value) {
-      //console.log(index +':'+ value);
-
-      if (addMarkerInOrigin && index==0) {
-        console.log('addMarkerInOrigin');
-
-          var O_LatLng = new google.maps.LatLng(p[0][2],p[0][3]);
-          var O_m = new google.maps.Marker({
-              position: O_LatLng,
-              map: map,
-              title:'Origin: TRid: '+p[0][0]+''
-            });
-          var iconUrl = url_base + '/_assets/img/grn-blank.png';
-          O_m.setIcon(iconUrl);
-          O_m.setMap(map);
-          //trOcollection.push(O_m);
-          markersInOrigin.push(O_m); // add markers in origin to a different array
+      // create the origin marker
+      if (addMarkerInOrigin && index == 0) {
+        var O_LatLng = new google.maps.LatLng(p[0][2],p[0][3]);
+        var O_m = new google.maps.Marker({
+          position: O_LatLng,
+          map: map,
+          title:'Origin of TRid: '+p[0][0]
+        });
+        var iconUrl = url_base + '/_assets/img/icn-gm-route-start.png';
+        O_m.setIcon(iconUrl);
+        O_m.setMap(map);
+        routeMarkers.push(O_m); // tracking markers so that they can be removed later
+      }
+      // create the terminator marker
+      if (index == p.length-1) {
+        var O_LatLng = new google.maps.LatLng(p[p.length-1][2],p[p.length-1][3]);
+        var O_m = new google.maps.Marker({
+          position: O_LatLng,
+          map: map,
+          title:'Destination of TRid: '+p[0][0]
+        });
+        var iconUrl = url_base + '/_assets/img/icn-gm-route-end.png';
+        O_m.setIcon(iconUrl);
+        O_m.setMap(map);
+        routeMarkers.push(O_m);
       }
 
       if (showRouters) {
         var markColour = getAsnColour([p[index][4]]);
-        //var markColour = '#FFFFFF';
         var routerLatLong = new google.maps.LatLng(p[index][2],p[index][3])
         var routerMark = new google.maps.Marker({
-            position: routerLatLong,
-            map: map,
-              icon: {
-                path: google.maps.SymbolPath.CIRCLE,
-                fillOpacity: 0.6,
-                fillColor: markColour,
-                strokeWeight: 0,
-                scale: 10
-              },
+          position: routerLatLong,
+          map: map,
+          icon: {
+            path: google.maps.SymbolPath.CIRCLE,
+            fillOpacity: 0.6,
+            fillColor: markColour,
+            strokeWeight: 0,
+            scale: 10
+          }
         });
 
         var rIp = p[index][6];
         // add the current router ip to the collection
-        if(rIp in ipCollection ){
+        if (rIp in ipCollection ) {
           ipCollection[rIp]+=1;
         } else {
           ipCollection[rIp]=1;
@@ -1018,7 +1012,7 @@ var renderTr2 = function(trId) {
     }
   })
 
-  if (activeTrObj!=null) {
+  if (activeTrObj != null) {
     activeTrObj.setMap(null);
   }
   var maxZidx = trCollection.length + 1;
@@ -1040,7 +1034,7 @@ var renderTr2 = function(trId) {
       offset: '100%',
       repeat: '10px'}],
     zIndex: maxZidx
-    });
+  });
   google.maps.event.addListener(activeTrObj, 'click', function() {
     viewTrDetails(trId);
   });
@@ -1327,11 +1321,12 @@ var viewTrDetails = function(trId) {
   firstHop = ixMapsDataJson[trId][Object.keys(ixMapsDataJson[trId])[0]];
   lastHop = ixMapsDataJson[trId][Object.keys(ixMapsDataJson[trId])[_.size(ixMapsDataJson[trId])-1]]
   // the backend passes a strange type of date str that can't be parsed the same in all browsers, so just doing it like this instead
-  submitterDateTime = firstHop["subTime"].split('.')[0];
+  var submitterDateTime = firstHop["subTime"].split('.')[0];
+  var origin = firstHop['zipCode'] === null ? "Not specified" : firstHop['zipCode'];
   jQuery('#tr-details-modal .tr-metadata-container .tr-id').text(trId);
   jQuery('#tr-details-modal .tr-metadata-container .submitter').text(firstHop['submitter']);
   jQuery('#tr-details-modal .tr-metadata-container .sub-time').text(submitterDateTime);
-  jQuery('#tr-details-modal .tr-metadata-container .zip-code').text(firstHop['zipCode']);
+  jQuery('#tr-details-modal .tr-metadata-container .zip-code').text(origin);
   jQuery('#tr-details-modal .tr-metadata-container .destination').text(firstHop['destHostname']);
   jQuery('#tr-details-modal .tr-metadata-container .dest-ip').text(" - "+firstHop['destIp']);
   jQuery('#tr-details-modal .tr-metadata-container .terminated').text("(terminated)");

@@ -333,7 +333,7 @@ var hideLoader = function() {
 };
 
 var cancelQuery = function() {
-  if(ajaxObj && ajaxObj.readystate != 4){
+  if (ajaxObj && ajaxObj.readystate != 4) {
       ajaxObj.abort();
       console.log("Query submission has been canceled.");
   }
