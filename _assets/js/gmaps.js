@@ -401,68 +401,55 @@ var setAllowMultipleTrs = function() {
 
 var excludeA = function() {
   if (excludeCoord0) {
-    excludeCoord0=false;
+    excludeCoord0 = false;
     jQuery("#map-exclude-a").removeClass("map-tool-on").addClass("map-tool-off");
   } else {
-    excludeCoord0=true;
+    excludeCoord0 = true;
     jQuery("#map-exclude-a").removeClass("map-tool-off").addClass("map-tool-on");
   }
-  console.log('exclude coords 0',excludeCoord0);
 }
 
 var excludeB = function() {
   if (excludeCoordGen) {
-    excludeCoordGen=false;
+    excludeCoordGen = false;
     jQuery("#map-exclude-b").removeClass("map-tool-on").addClass("map-tool-off");
   } else {
-    excludeCoordGen=true;
+    excludeCoordGen = true;
     jQuery("#map-exclude-b").removeClass("map-tool-off").addClass("map-tool-on");
   }
-  console.log('exclude generic coords.',excludeCoordGen);
 };
 
 var excludeC = function() {
   if (excludeImpDist) {
-    excludeImpDist=false;
+    excludeImpDist = false;
     jQuery("#map-exclude-c").removeClass("map-tool-on").addClass("map-tool-off");
   } else {
-    excludeImpDist=true;
+    excludeImpDist = true;
     jQuery("#map-exclude-c").removeClass("map-tool-off").addClass("map-tool-on");
   }
-  console.log('exclude impossible distance.',excludeImpDist);
   alert('Note that this option is functional but it has not been fully tested.');
 };
 
 var excludeD = function() {
   if (excludeReservedAS) {
-    excludeReservedAS=false;
+    excludeReservedAS = false;
     jQuery("#map-exclude-d").removeClass("map-tool-on").addClass("map-tool-off");
   } else {
-    excludeReservedAS=true;
+    excludeReservedAS = true;
     jQuery("#map-exclude-d").removeClass("map-tool-off").addClass("map-tool-on");
   }
-  console.log('exclude Reserved AS.',excludeReservedAS);
 };
 
 var excludeE = function() {
   if (excludeUserFlagged) {
-    excludeUserFlagged=false;
+    excludeUserFlagged = false;
     jQuery("#map-exclude-e").removeClass("map-tool-on").addClass("map-tool-off");
   } else {
-    excludeUserFlagged=true;
+    excludeUserFlagged = true;
     jQuery("#map-exclude-e").removeClass("map-tool-off").addClass("map-tool-on");
   }
-  console.log('exclude User Flagged routers.',excludeUserFlagged);
 };
 
-// var sortObject = function(map) {
-//   var keys = _.sortBy(_.keys(map), function(a) { return -a; });
-//   var newmap = {};
-//   _.each(keys, function(k) {
-//     newmap[k] = map[k];
-//   });
-//   return newmap;
-// }
 
 /*
   Called from search.js on successful query return
@@ -687,55 +674,52 @@ var removeTr = function() {
 };
 
 /* Router exclusion functions */
-var excludeRouter = function(value, trId, hop, type) {
+var excludeRouter = function(value, trId, hop, renderType) {
+  var genericLatLongArr = ['60, -95', '43.6319, -79.3716', '38, -97', '37.751, -97.822', '47, 8', '35, 105'];
+
   var skipHop = false;
-  // A
+
   if (excludeCoord0) {
-    if (value.lat==0 && value.long==0) {
+    if (value.lat == 0 && value.long == 0) {
       skipHop = true;
-      if (type==1) {
-        skippedRouterNum[0]+=1;
+      if (renderType == 1) {
+        skippedRouterNum[0] += 1;
       }
-      //console.log('excluding Coords = 0. Hop:' + hop,  value);
     }
   }
   // B
   if (excludeCoordGen) {
-    if ((value.lat==60 && value.long==-95) || (value.lat==38 && value.long==-97) || (value.lat==37.751 && value.long==-97.822)) {
+    if (config.genericLatLongs.includes(value.lat+', '+value.long)) {
       skipHop = true;
-      if (type==1) {
-        skippedRouterNum[1]+=1;
+      if (renderType == 1) {
+        skippedRouterNum[1] += 1;
       }
-      //console.log('excluding Generic Coords. Hop:' + hop,  value);
     }
   }
   // C
   if (excludeImpDist) {
-      //console.log('...Calculating impossible distance');
-      if (value.impDist==1 && hop!=1) {
-        skipHop = true;
-        if (type==1) {
-          skippedRouterNum[2]+=1;
-        }
+    if (value.impDist == 1 && hop != 1) {
+      skipHop = true;
+      if (renderType == 1) {
+        skippedRouterNum[2] += 1;
       }
+    }
   }
   // D
   if (excludeReservedAS) {
-    if (value.asNum==-1 && value.glOverride==null) {
+    if (value.asNum == -1 && value.glOverride == null) {
       skipHop = true;
-      if (type==1) {
-        skippedRouterNum[3]+=1;
+      if (renderType == 1) {
+        skippedRouterNum[3] += 1;
       }
-      //console.log('excluding ReservedAS Hop:' + hop,  value);
     }
   }
   if (excludeUserFlagged) {
-    if (value.flagged==1) {
+    if (value.flagged == 1) {
       skipHop = true;
-      if (type==1) {
-        skippedRouterNum[4]+=1;
+      if (renderType == 1) {
+        skippedRouterNum[4] += 1;
       }
-      //console.log('excluding ReservedAS Hop:' + hop,  value);
     }
   }
   jQuery('#map-impossible-distance-log').html(impDistLog);
@@ -782,7 +766,7 @@ var renderTr = function (trId) {
         // validate here if the origin has been excluded, this will matter if subsequent routers are also excluded
       }
       // check router exclusions
-      skipHop = excludeRouter(value, trId, hop,1);
+      skipHop = excludeRouter(value, trId, hop, 1);
 
       if(!skipHop){
         //console.log(key +':'+ value.long+', '+value.lat);
@@ -1026,7 +1010,7 @@ var renderTr2 = function(trId) {
 
   jQuery.each(ixMapsDataJson[trId], function(key, value) {
     // check router exclusions
-    skipHop = excludeRouter(value, trId, key,0);
+    skipHop = excludeRouter(value, trId, key, 0);
 
     if (!skipHop) {
       var a = new google.maps.LatLng(value.lat, value.long);

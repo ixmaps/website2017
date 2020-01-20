@@ -27,5 +27,7 @@
         <input id="map-exclude-e" class="map-tool-on" type="button" onMouseDown="excludeE()" value="User-flagged"/>
       </div>
 
+      <div style="clear: both"></div>
+      <p>Note that you may need to resubmit your search to view results with updated settings</p>
     </div>
 </div>
