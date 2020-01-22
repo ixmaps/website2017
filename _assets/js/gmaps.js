@@ -1348,7 +1348,6 @@ var viewTrDetails = function(trId) {
     jQuery('#tr-details-modal .tr-metadata-container .terminated').text("(did not terminate)");
   }
 
-  // extract the 'asname' to func, include short_name
   jQuery('#tr-details-modal .tr-metadata-more-details tbody').append(
     jQuery('<tr />').append(
       jQuery('<td />').text("Origin").css("font-weight", "bold"),
@@ -1372,8 +1371,6 @@ var viewTrDetails = function(trId) {
       jQuery('<td />').text("NULL")
     )
   );
-
-  jQuery('#tr-details-modal').modal('show');
 
   // creating the tr table
   jQuery.each(ixMapsDataJson[trId], function(hopNum, hopValues) {
@@ -1410,6 +1407,8 @@ var viewTrDetails = function(trId) {
       )
     );
   });
+
+  jQuery('#tr-details-modal').modal('show');
 };
 
 var getCityRegionCountry = function(city, region, country) {
