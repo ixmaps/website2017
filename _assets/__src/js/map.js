@@ -27,7 +27,7 @@ var init = function() {
     jQuery('.sidebar.vertical.legend').addClass('overlay visible animating');
 
   } else if (initMode==1) { // trId is passed to map page
-    submitCustomQuery(trIdFilter);
+    submitUrlTrId(trIdFilter);
 
   } else if (initMode==2) { // search filters are passed to map page
     processPostedData(postedData);

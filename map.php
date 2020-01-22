@@ -105,7 +105,7 @@
 
     <?php include '_includes/map-modal-opening.php'; ?>
     <?php include '_includes/map-modal-carrier.php'; ?>
-    <?php include '_includes/map-modal-traceroute.php'; ?>
+    <?php include '_includes/map-modal-tr-details.php'; ?>
     <?php include '_includes/map-modal-settings.php'; ?>
     <?php include '_includes/map-modal-flagging.php'; ?>
     <?php include '_includes/map-modal-help.php'; ?>

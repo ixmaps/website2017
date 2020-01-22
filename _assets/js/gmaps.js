@@ -1303,13 +1303,27 @@ var viewPrivacy = function(asNum) {
 
   // wait util data is populated...
   // CM: eeeeeewwwwww. TODO: use a sane way to do this, eg callback or promise or whatever JS is using these days
-  setTimeout(function(){
+  setTimeout(function() {
     jQuery('.carrier.modal').modal('show');
   }, 200);
 
 };
 
 var viewTrDetails = function(trId) {
+  // grab the latencies for this route (we already have everything else)
+  jQuery.ajax(url_base + '/application/controller/tr_details_latencies.php', {
+    type: 'POST',
+    data: { trId: trId },
+    success: function(data) {
+      jQuery('#tr-details-modal .traceroute-container-more-details tbody .latencies-cell').each(function(i) {
+        jQuery(this).text(jQuery.parseJSON(data)[i]);
+      });
+    },
+    error: function(e) {
+      console.log("Error retrieving latencies", e);
+    }
+  });
+
   // delete everything that is in there now
   jQuery('#tr-details-modal .tr-metadata-more-details tbody').empty();
   jQuery('#tr-details-modal .traceroute-container tbody').empty();
@@ -1389,7 +1403,7 @@ var viewTrDetails = function(trId) {
         jQuery('<td />').text(hopValues.ip),
         jQuery('<td />').text(hopValues.hostname),
         jQuery('<td />').text(hopValues.asNum),
-        jQuery('<td />').text(hopValues.firstAttemptLatency),
+        jQuery('<td />').text(hopValues.firstAttemptLatency).addClass('latencies-cell'),
         jQuery('<td />').text(hopValues.lat),
         jQuery('<td />').text(hopValues.long),
         jQuery('<td />').text(hopValues.glOverride)

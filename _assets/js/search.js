@@ -20,20 +20,6 @@ var constructLastContributed = function() {
 };
 
 var constructViaNSACity = function() {
-  // var submission = {};
-  // var i = 1;
-
-  // _.each(nsaCities, function(city) {
-  //   var nsaObj = {
-  //     constraint1: "does",
-  //     constraint2: "contain",
-  //     constraint3: "city",
-  //     constraint4: city,
-  //     constraint5: "OR"
-  //   };
-  //   submission["filter-constraint-"+i] = nsaObj;
-  //   i++;
-  // });
   var submission = {
     "filter-constraint-1": {
       constraint1: "quickLink",
@@ -155,6 +141,18 @@ var constructFromMyCountry = function() {
   } else {
     jQuery().toastmessage('showErrorToast', 'We were unable to determine your country - please try a different query');
   }
+};
+
+var submitUrlTrId = function(trId) {
+  jQuery('#userloc').hide();
+  var submission = {
+    "filter-constraint-1": {
+      constraint1: "quickLink",
+      constraint2: "singleRoute",
+      constraint3: trId
+    }
+  };
+  submitQuery(submission);
 };
 
 var constructBS = function() {
@@ -368,22 +366,6 @@ var createASRow = function(row) {
 
   jQuery('#as-search-container').append(inputHolderEl);
 };
-
-var submitCustomQuery = function(trId, multipleTRs) {
-  jQuery('#userloc').hide();
-  var singleTrJSON = {
-      "filter-constraint-1":
-      {
-        constraint1: "does",
-        constraint2: "contain",
-        constraint3: "trId",
-        constraint4: trId,
-        constraint5: "AND"
-      }
-  };
-  var jsonToString = JSON.stringify(singleTrJSON);
-  submitQuery(singleTrJSON);
-}
 
 /* submission for new map website */
 var submitQuery = function(obj) {
