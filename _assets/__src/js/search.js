@@ -452,25 +452,34 @@ var buildTrCountQuery = function(type) {
   // first load query
   if (type=='first') {
 
-    obj = {
-      constraint1: "does",
-      constraint2: "originate",
-      constraint3: "asnum",
-      constraint4: myAsn,
-      constraint5: "AND"
-    }
-    usrLocQuery['myAsn'] = obj;
-
-    if (myCity!="") {
+    // sometimes we cannot retrieve the user's loc or asn
+    if (myAsn || myCity) {
       obj = {
         constraint1: "does",
         constraint2: "originate",
-        constraint3: "city",
-        constraint4: myCity,
+        constraint3: "asnum",
+        constraint4: myAsn,
         constraint5: "AND"
-      };
-      usrLocQuery['myCity'] = obj;
+      }
+      usrLocQuery['myAsn'] = obj;
+
+      if (myCity != "" ) {
+        obj = {
+          constraint1: "does",
+          constraint2: "originate",
+          constraint3: "city",
+          constraint4: myCity,
+          constraint5: "AND"
+        };
+        usrLocQuery['myCity'] = obj;
+      }
+
+      loadingUsrLocQuery();
+      submitTrCount(usrLocQuery);
+    } else {
+      jQuery('.opening.modal').modal('hide');
     }
+
 
   // query dynamically created based on user selections in opening modal
   } else {
@@ -480,54 +489,55 @@ var buildTrCountQuery = function(type) {
     var myCityUsr = jQuery(".userloc-city").val();
     var myCountryUsr = jQuery(".userloc-country").val();
 
-    if(jQuery(".userloc-asn-chkbox").is(":checked")){
+    if (jQuery(".userloc-asn-chkbox").is(":checked")) {
       var obj = {
-          constraint1: "does",
-          constraint2: "originate",
-          constraint3: "asnum",
-          constraint4: userLocQueryOptions.myAsn.value,
-          constraint5: "AND"
+        constraint1: "does",
+        constraint2: "originate",
+        constraint3: "asnum",
+        constraint4: userLocQueryOptions.myAsn.value,
+        constraint5: "AND"
       };
       usrLocQuery['myAsn'] = obj;
     }
 
-    if(myCountryUsr != "" && jQuery(".userloc-country-chkbox").is(":checked")){
+    if (myCountryUsr != "" && jQuery(".userloc-country-chkbox").is(":checked")) {
       var obj = {
-          constraint1: "does",
-          constraint2: "originate",
-          constraint3: "country",
-          constraint4: myCountryUsr,
-          constraint5: "AND"
+        constraint1: "does",
+        constraint2: "originate",
+        constraint3: "country",
+        constraint4: myCountryUsr,
+        constraint5: "AND"
       };
       usrLocQuery['myCountry'] = obj;
     }
 
-    if(myCityUsr!="" && jQuery(".userloc-city-chkbox").is(":checked")){
+    if (myCityUsr!="" && jQuery(".userloc-city-chkbox").is(":checked")) {
       var obj = {
-          constraint1: "does",
-          constraint2: "originate",
-          constraint3: "city",
-          constraint4: myCityUsr,
-          constraint5: "AND"
+        constraint1: "does",
+        constraint2: "originate",
+        constraint3: "city",
+        constraint4: myCityUsr,
+        constraint5: "AND"
       };
       usrLocQuery['myCity'] = obj;
     }
 
-    if(submitter!="" && jQuery(".userloc-submitter-chkbox").is(":checked")){
+    if (submitter!="" && jQuery(".userloc-submitter-chkbox").is(":checked")) {
       var obj = {
-          constraint1: "does",
-          constraint2: "contain",
-          constraint3: "submitter",
-          constraint4: submitter,
-          constraint5: "AND"
+        constraint1: "does",
+        constraint2: "contain",
+        constraint3: "submitter",
+        constraint4: submitter,
+        constraint5: "AND"
       };
       usrLocQuery['submitter'] = obj;
     }
 
+    loadingUsrLocQuery();
+    submitTrCount(usrLocQuery);
   } // end if
 
-  loadingUsrLocQuery();
-  submitTrCount(usrLocQuery);
+
 }
 
 /* count results for a submission constraint */
@@ -543,7 +553,6 @@ var submitTrCount = function(obj) {
     },
     error: function (e) {
       console.log("Error! submitTrCount");
-
     }
   });
 };
@@ -581,16 +590,19 @@ var resetUserLocQueryOptions = function(type) {
 
   userLocQueryOptions.myCountry.value = myCountryUsr; // note that allowing user to change country code makes the country name unavailable
 
-  // reset flag icon
-  if (myCountryUsr != "" && myCountryUsr != myCountry) {
-    jQuery('.userloc-country-flag').removeClass('flag');
-    jQuery('.userloc-country-flag').removeClass(myCountry.toLowerCase());
-    jQuery('.userloc-country-flag').addClass(myCountryUsr.toLowerCase());
-    jQuery('.userloc-country-flag').addClass('flag');
-  } else {
-    jQuery('.userloc-country').val(myCountry);
-    jQuery('.userloc-country-flag').addClass(myCountry.toLowerCase());
-    jQuery('.userloc-country-flag').addClass('flag');
+
+  // reset flag icon if we have something to work with
+  if (myCountry) {
+    if (myCountryUsr != "" && myCountryUsr != myCountry) {
+      jQuery('.userloc-country-flag').removeClass('flag');
+      jQuery('.userloc-country-flag').removeClass(myCountry.toLowerCase());
+      jQuery('.userloc-country-flag').addClass(myCountryUsr.toLowerCase());
+      jQuery('.userloc-country-flag').addClass('flag');
+    } else {
+      jQuery('.userloc-country').val(myCountry);
+      jQuery('.userloc-country-flag').addClass(myCountry.toLowerCase());
+      jQuery('.userloc-country-flag').addClass('flag');
+    }
   }
 
   // update ui fields

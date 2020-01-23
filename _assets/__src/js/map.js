@@ -17,12 +17,9 @@ var init = function() {
   setUpGMaps();
   setDefaultMapSettings();
 
-  getLayers(); // TODO: need to fix/agree on json structure
-  populateLayersContainer(); /* TODO: move this after loading layers data */
-
   getPrivacyReport();
 
-  if (initMode==0) {
+  if (initMode == 0) {
     jQuery('.opening.modal').modal('show'); // open user location modal
     jQuery('.sidebar.vertical.legend').addClass('overlay visible animating');
 
@@ -34,7 +31,6 @@ var init = function() {
   }
 
   createASRow("first"); // TODO: fix depending on initMode
-  //jQuery(".constraint-value.dropdown").prop("selectedIndex", 0); // set default values of first ASRow
 
   setUpClickHandlers();
   _.each(autocompletes, function(key, value) {
@@ -60,13 +56,13 @@ var getMyLocation = function() {
       console.log("getMyLocation data loaded");
       // populate js auto-complete array(s)
       var data = jQuery.parseJSON(e);
-
-      if (data.defaultValue == true) {
-        // we don't know the user's IP, so we hide the modal
-        jQuery('.opening.modal').modal('hide');
-      } else {
-        setMyLocationData(data);  
-      }
+      setMyLocationData(data);
+      // if (data.defaultValue == true) {
+      //   // we don't know the user's IP, so we hide the modal
+      //   jQuery('.opening.modal').modal('hide');
+      // } else {
+      //   setMyLocationData(data);
+      // }
     },
     error: function (e) {
       console.log("Error! getMyLocation data can't be loaded", e);
@@ -347,8 +343,7 @@ var setTableSorters = function(){
 var loadAutocompleteData = function(type) {
   var obj = {
     action: 'loadAutoCompleteData',
-    field: type,
-    keyword: ' '    // not sure why we need this, but leaving in for now
+    field: type
   };
 
   jQuery.ajax(url_base + '/application/controller/autocomplete.php', {

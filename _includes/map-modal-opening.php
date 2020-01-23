@@ -60,15 +60,12 @@
                     <strong><input title="If not correct, delete entry, start typing the nearest major city, then make selection. Check box and Reload to update results" class="userloc-text-input userloc-city ui-autocomplete-input" autocomplete="off"/></strong>
                 </div>
 
-                <!-- Temp addition -->
                 <div class="field">
-                    <strong><input class="userloc-text-input userloc-country" autocomplete="off" style="width:70px"  disabled></strong>
+                    <strong><input class="userloc-text-input userloc-country" autocomplete="off" style="width:70px" disabled></strong>
                 </div>
                 <div class="field">
                     <span><i class="userloc-country-flag"></i></span>
                 </div>
-                <!-- /Temp addition -->
-
             </div>
 
             <div class="field user-loc-chkbox">

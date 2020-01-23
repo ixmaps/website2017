@@ -14,53 +14,24 @@ var initializeMap = function() {
   var myLatLng = new google.maps.LatLng(43.30, -101.79);
 
   var mapOptions = {
-      scrollwheel: false,
-      navigationControl: true,
-      mapTypeControl: true,
-      scaleControl: true,
-      draggable: true,
-      zoom: 3,
-      center: myLatLng,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+    scrollwheel: false,
+    navigationControl: true,
+    mapTypeControl: true,
+    scaleControl: true,
+    draggable: true,
+    zoom: 3,
+    center: myLatLng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-}; // end initializeMap()
-
-var initGMaps = function() {
-  // Basic options for a simple Google Map
-  // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
-  var mapOptions = {
-    // How zoomed in you want the map to start at (always required)
-    zoom: 11,
-
-    // The latitude and longitude to center the map (always required)
-    center: new google.maps.LatLng(myLat, myLong), // my location
-
-    // How you would like to style the map.
-    // This is where you would paste any style found on Snazzy Maps.
-    // TODO: move this to some config type area?s
-    styles: [{"featureType":"all","elementType":"geometry.fill","stylers":[{"weight":"2.00"}]},{"featureType":"all","elementType":"geometry.stroke","stylers":[{"color":"#9c9c9c"}]},{"featureType":"all","elementType":"labels.text","stylers":[{"visibility":"on"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"landscape","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"landscape.man_made","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"color":"#eeeeee"}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"color":"#7b7b7b"}]},{"featureType":"road","elementType":"labels.text.stroke","stylers":[{"color":"#ffffff"}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#46bcec"},{"visibility":"on"}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#c8d7d4"}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"color":"#070707"}]},{"featureType":"water","elementType":"labels.text.stroke","stylers":[{"color":"#ffffff"}]
-    }]
-  };
-
-  // Get the HTML DOM element that will contain your map
-  // We are using a div with id="map" seen below in the <body>
-  var mapElement = document.getElementById('map');
-
-  // Create the Google Map using our element and options defined above
-  var map = new google.maps.Map(mapElement, mapOptions);
-
-  // Let's also add a marker while we're at it
-  var marker = new google.maps.Marker({
-    position: new google.maps.LatLng(myLat, myLong),
-    map: map,
-    title: 'My Location!'
-  });
+  // moved here from map.js - layers relies on the google object existing
+  getLayers();
+  populateLayersContainer();
 };
 
-/* global var from old ixmaps.js */
 
+/* global var from old ixmaps.js */
 // autocomplete arrays (to be filled with ajax call to backend)
 var countryTags = [];
 var regionTags = [];
@@ -194,213 +165,9 @@ var renderCollectedCoords = function() {
 
 };
 
-var setAllowRecenter = function() {
-  if (allowRecenter) {
-    allowRecenter=false;
-    jQuery("#map-allow-recenter").removeClass("map-tool-on").addClass("map-tool-off");
-  } else {
-    allowRecenter=true;
-    jQuery("#map-allow-recenter").removeClass("map-tool-off").addClass("map-tool-on");
-  }
-  console.log('setAllowRecenter',allowRecenter);
-};
-
-var setShowNsa = function() {
-  if (showNsa) {
-    showNsa=false;
-    removeGeoMarkers(1);
-    jQuery("#map-show-nsa").removeClass("map-tool-on").addClass("map-tool-off");
-  } else {
-    showNsa=true;
-    renderGeoMarkers(1);
-    jQuery("#map-show-nsa").removeClass("map-tool-off").addClass("map-tool-on");
-  }
-  console.log('setShowNsa',showNsa);
-};
-
-var setShowHotel = function() {
-  if (showHotel) {
-    showHotel=false;
-    removeGeoMarkers(2);
-    jQuery("#map-show-hotel").removeClass("map-tool-on").addClass("map-tool-off");
-  } else {
-    showHotel=true;
-    renderGeoMarkers(2);
-    jQuery("#map-show-hotel").removeClass("map-tool-off").addClass("map-tool-on");
-  }
-  console.log('setShowHotel',showHotel);
-};
-
-var setShowGoogle = function() {
-  if (showGoogle) {
-    showGoogle=false;
-    removeGeoMarkers(3);
-    jQuery("#map-show-google").removeClass("map-tool-on").addClass("map-tool-off");
-  } else {
-    showGoogle=true;
-    renderGeoMarkers(3);
-    jQuery("#map-show-google").removeClass("map-tool-off").addClass("map-tool-on");
-  }
-  console.log('setShowGoogle',showGoogle);
-};
-
-var setShowUc = function() {
-  if (showUc) {
-    showUc=false;
-    removeGeoMarkers(4);
-    jQuery("#map-show-uc").removeClass("map-tool-on").addClass("map-tool-off");
-  } else {
-    showUc=true;
-    renderGeoMarkers(4);
-    jQuery("#map-show-uc").removeClass("map-tool-off").addClass("map-tool-on");
-  }
-  console.log('setShowUc',showUc);
-};
-
-var setShowIXca = function() {
-  if (showIXca) {
-    showIXca=false;
-    removeGeoMarkers(5);
-    jQuery("#map-show-IXca").removeClass("map-tool-on").addClass("map-tool-off");
-  } else {
-    showIXca=true;
-    renderGeoMarkers(5);
-    jQuery("#map-show-IXca").removeClass("map-tool-off").addClass("map-tool-on");
-  }
-  console.log('setShowIXca',showIXca);
-};
-
-var setShowCiraIPT = function() {
-  if (showCiraIPT) {
-    showCiraIPT=false;
-    removeGeoMarkers(6);
-    jQuery("#map-show-CiraIPT").removeClass("map-tool-on").addClass("map-tool-off");
-  } else {
-    showCiraIPT=true;
-    renderGeoMarkers(6);
-    jQuery("#map-show-CiraIPT").removeClass("map-tool-off").addClass("map-tool-on");
-  }
-  console.log('setShowCiraIPT',showCiraIPT);
-};
-
-var setShowAtt = function() {
-  if (showAtt) {
-    showAtt=false;
-    removeGeoMarkers(7);
-    jQuery("#map-show-Att").removeClass("map-tool-on").addClass("map-tool-off");
-  } else {
-    showAtt=true;
-    renderGeoMarkers(7);
-    jQuery("#map-show-Att").removeClass("map-tool-off").addClass("map-tool-on");
-  }
-  console.log('setShowAtt',showAtt);
-};
-
-var setShowVerizon = function() {
-  if (showVerizon) {
-    showVerizon=false;
-    removeGeoMarkers(8);
-    jQuery("#map-show-Verizon").removeClass("map-tool-on").addClass("map-tool-off");
-  } else {
-    showVerizon=true;
-    renderGeoMarkers(8);
-    jQuery("#map-show-Verizon").removeClass("map-tool-off").addClass("map-tool-on");
-  }
-  console.log('setShowVerizon',showVerizon);
-};
-
-var setShowGoogleTo = function() {
-  if (showGoogleTO) {
-    showGoogleTO=false;
-    removeGeoMarkers(9);
-    jQuery("#map-show-google-to").removeClass("map-tool-on").addClass("map-tool-off");
-  } else {
-    showGoogleTO=true;
-    renderGeoMarkers(9);
-    jQuery("#map-show-google-to").removeClass("map-tool-off").addClass("map-tool-on");
-  }
-  console.log('setShowGoogleTo',showGoogleTO);
-};
-
-var setDefaultMapSettings = function() {
-  allowMultipleTrs=false;
-  jQuery("#map-allow-multiple").removeClass("map-tool-on").addClass("map-tool-off");
-
-  excludeReservedAS=false;
-  jQuery("#map-exclude-d").removeClass("map-tool-on").addClass("map-tool-off");
-};
-
-var setAllowMultipleTrs = function() {
-  if (allowMultipleTrs) {
-    allowMultipleTrs=false;
-    jQuery("#map-allow-multiple").removeClass("map-tool-on").addClass("map-tool-off");
-    //jQuery('#map-core-controls').hide();
-    jQuery('#map-action-remove-all-but-this').hide();
-  } else {
-    allowMultipleTrs=true;
-    jQuery("#map-allow-multiple").removeClass("map-tool-off").addClass("map-tool-on");
-    //jQuery('#map-core-controls').show();
-    jQuery('#map-action-remove-all-but-this').show();
-  }
-  console.log('setAllowMultipleTrs',allowMultipleTrs);
-};
-
-var excludeA = function() {
-  if (excludeCoord0) {
-    excludeCoord0 = false;
-    jQuery("#map-exclude-a").removeClass("map-tool-on").addClass("map-tool-off");
-  } else {
-    excludeCoord0 = true;
-    jQuery("#map-exclude-a").removeClass("map-tool-off").addClass("map-tool-on");
-  }
-}
-
-var excludeB = function() {
-  if (excludeCoordGen) {
-    excludeCoordGen = false;
-    jQuery("#map-exclude-b").removeClass("map-tool-on").addClass("map-tool-off");
-  } else {
-    excludeCoordGen = true;
-    jQuery("#map-exclude-b").removeClass("map-tool-off").addClass("map-tool-on");
-  }
-};
-
-var excludeC = function() {
-  if (excludeImpDist) {
-    excludeImpDist = false;
-    jQuery("#map-exclude-c").removeClass("map-tool-on").addClass("map-tool-off");
-  } else {
-    excludeImpDist = true;
-    jQuery("#map-exclude-c").removeClass("map-tool-off").addClass("map-tool-on");
-  }
-  alert('Note that this option is functional but it has not been fully tested.');
-};
-
-var excludeD = function() {
-  if (excludeReservedAS) {
-    excludeReservedAS = false;
-    jQuery("#map-exclude-d").removeClass("map-tool-on").addClass("map-tool-off");
-  } else {
-    excludeReservedAS = true;
-    jQuery("#map-exclude-d").removeClass("map-tool-off").addClass("map-tool-on");
-  }
-};
-
-var excludeE = function() {
-  if (excludeUserFlagged) {
-    excludeUserFlagged = false;
-    jQuery("#map-exclude-e").removeClass("map-tool-on").addClass("map-tool-off");
-  } else {
-    excludeUserFlagged = true;
-    jQuery("#map-exclude-e").removeClass("map-tool-off").addClass("map-tool-on");
-  }
-};
-
-
 /*
   Called from search.js on successful query return
 */
-
 var loadMapData = function() {
   // reset user activity on data set every time a new set is loaded
 
@@ -1380,8 +1147,208 @@ var toggleMap = function(){
   jQuery('#tr-list-ids').toggle();
 };
 
+var setAllowRecenter = function() {
+  if (allowRecenter) {
+    allowRecenter=false;
+    jQuery("#map-allow-recenter").removeClass("map-tool-on").addClass("map-tool-off");
+  } else {
+    allowRecenter=true;
+    jQuery("#map-allow-recenter").removeClass("map-tool-off").addClass("map-tool-on");
+  }
+  console.log('setAllowRecenter',allowRecenter);
+};
+
+var setShowNsa = function() {
+  if (showNsa) {
+    showNsa=false;
+    removeGeoMarkers(1);
+    jQuery("#map-show-nsa").removeClass("map-tool-on").addClass("map-tool-off");
+  } else {
+    showNsa=true;
+    renderGeoMarkers(1);
+    jQuery("#map-show-nsa").removeClass("map-tool-off").addClass("map-tool-on");
+  }
+  console.log('setShowNsa',showNsa);
+};
+
+var setShowHotel = function() {
+  if (showHotel) {
+    showHotel=false;
+    removeGeoMarkers(2);
+    jQuery("#map-show-hotel").removeClass("map-tool-on").addClass("map-tool-off");
+  } else {
+    showHotel=true;
+    renderGeoMarkers(2);
+    jQuery("#map-show-hotel").removeClass("map-tool-off").addClass("map-tool-on");
+  }
+  console.log('setShowHotel',showHotel);
+};
+
+var setShowGoogle = function() {
+  if (showGoogle) {
+    showGoogle=false;
+    removeGeoMarkers(3);
+    jQuery("#map-show-google").removeClass("map-tool-on").addClass("map-tool-off");
+  } else {
+    showGoogle=true;
+    renderGeoMarkers(3);
+    jQuery("#map-show-google").removeClass("map-tool-off").addClass("map-tool-on");
+  }
+  console.log('setShowGoogle',showGoogle);
+};
+
+var setShowUc = function() {
+  if (showUc) {
+    showUc=false;
+    removeGeoMarkers(4);
+    jQuery("#map-show-uc").removeClass("map-tool-on").addClass("map-tool-off");
+  } else {
+    showUc=true;
+    renderGeoMarkers(4);
+    jQuery("#map-show-uc").removeClass("map-tool-off").addClass("map-tool-on");
+  }
+  console.log('setShowUc',showUc);
+};
+
+var setShowIXca = function() {
+  if (showIXca) {
+    showIXca=false;
+    removeGeoMarkers(5);
+    jQuery("#map-show-IXca").removeClass("map-tool-on").addClass("map-tool-off");
+  } else {
+    showIXca=true;
+    renderGeoMarkers(5);
+    jQuery("#map-show-IXca").removeClass("map-tool-off").addClass("map-tool-on");
+  }
+  console.log('setShowIXca',showIXca);
+};
+
+var setShowCiraIPT = function() {
+  if (showCiraIPT) {
+    showCiraIPT=false;
+    removeGeoMarkers(6);
+    jQuery("#map-show-CiraIPT").removeClass("map-tool-on").addClass("map-tool-off");
+  } else {
+    showCiraIPT=true;
+    renderGeoMarkers(6);
+    jQuery("#map-show-CiraIPT").removeClass("map-tool-off").addClass("map-tool-on");
+  }
+  console.log('setShowCiraIPT',showCiraIPT);
+};
+
+var setShowAtt = function() {
+  if (showAtt) {
+    showAtt=false;
+    removeGeoMarkers(7);
+    jQuery("#map-show-Att").removeClass("map-tool-on").addClass("map-tool-off");
+  } else {
+    showAtt=true;
+    renderGeoMarkers(7);
+    jQuery("#map-show-Att").removeClass("map-tool-off").addClass("map-tool-on");
+  }
+  console.log('setShowAtt',showAtt);
+};
+
+var setShowVerizon = function() {
+  if (showVerizon) {
+    showVerizon=false;
+    removeGeoMarkers(8);
+    jQuery("#map-show-Verizon").removeClass("map-tool-on").addClass("map-tool-off");
+  } else {
+    showVerizon=true;
+    renderGeoMarkers(8);
+    jQuery("#map-show-Verizon").removeClass("map-tool-off").addClass("map-tool-on");
+  }
+  console.log('setShowVerizon',showVerizon);
+};
+
+var setShowGoogleTo = function() {
+  if (showGoogleTO) {
+    showGoogleTO=false;
+    removeGeoMarkers(9);
+    jQuery("#map-show-google-to").removeClass("map-tool-on").addClass("map-tool-off");
+  } else {
+    showGoogleTO=true;
+    renderGeoMarkers(9);
+    jQuery("#map-show-google-to").removeClass("map-tool-off").addClass("map-tool-on");
+  }
+  console.log('setShowGoogleTo',showGoogleTO);
+};
+
+var setDefaultMapSettings = function() {
+  allowMultipleTrs=false;
+  jQuery("#map-allow-multiple").removeClass("map-tool-on").addClass("map-tool-off");
+
+  excludeReservedAS=false;
+  jQuery("#map-exclude-d").removeClass("map-tool-on").addClass("map-tool-off");
+};
+
+var setAllowMultipleTrs = function() {
+  if (allowMultipleTrs) {
+    allowMultipleTrs=false;
+    jQuery("#map-allow-multiple").removeClass("map-tool-on").addClass("map-tool-off");
+    jQuery('#map-action-remove-all-but-this').hide();
+  } else {
+    allowMultipleTrs=true;
+    jQuery("#map-allow-multiple").removeClass("map-tool-off").addClass("map-tool-on");
+    jQuery('#map-action-remove-all-but-this').show();
+  }
+  console.log('setAllowMultipleTrs',allowMultipleTrs);
+};
+
+var excludeA = function() {
+  if (excludeCoord0) {
+    excludeCoord0 = false;
+    jQuery("#map-exclude-a").removeClass("map-tool-on").addClass("map-tool-off");
+  } else {
+    excludeCoord0 = true;
+    jQuery("#map-exclude-a").removeClass("map-tool-off").addClass("map-tool-on");
+  }
+}
+
+var excludeB = function() {
+  if (excludeCoordGen) {
+    excludeCoordGen = false;
+    jQuery("#map-exclude-b").removeClass("map-tool-on").addClass("map-tool-off");
+  } else {
+    excludeCoordGen = true;
+    jQuery("#map-exclude-b").removeClass("map-tool-off").addClass("map-tool-on");
+  }
+};
+
+var excludeC = function() {
+  if (excludeImpDist) {
+    excludeImpDist = false;
+    jQuery("#map-exclude-c").removeClass("map-tool-on").addClass("map-tool-off");
+  } else {
+    excludeImpDist = true;
+    jQuery("#map-exclude-c").removeClass("map-tool-off").addClass("map-tool-on");
+  }
+  alert('Note that this option is functional but it has not been fully tested.');
+};
+
+var excludeD = function() {
+  if (excludeReservedAS) {
+    excludeReservedAS = false;
+    jQuery("#map-exclude-d").removeClass("map-tool-on").addClass("map-tool-off");
+  } else {
+    excludeReservedAS = true;
+    jQuery("#map-exclude-d").removeClass("map-tool-off").addClass("map-tool-on");
+  }
+};
+
+var excludeE = function() {
+  if (excludeUserFlagged) {
+    excludeUserFlagged = false;
+    jQuery("#map-exclude-e").removeClass("map-tool-on").addClass("map-tool-off");
+  } else {
+    excludeUserFlagged = true;
+    jQuery("#map-exclude-e").removeClass("map-tool-off").addClass("map-tool-on");
+  }
+};
+
 var renderGeoMarkers = function(type){
-  jQuery.each(cHotelData, function(key,geoItem) {
+  jQuery.each(cHotelData, function(key, geoItem) {
     var gmObj;
     if (type==1 && geoItem.type=="NSA") {
       gmObj = createGmMarker(geoItem);
@@ -1561,11 +1528,11 @@ var getPrivacyReport = function() {
     type: 'post',
     data: obj,
     success: function (e) {
-      console.log("Ok! getPrivacyReport");
+      console.log("getPrivacyReport success");
       privacyData = jQuery.parseJSON(e);
     },
     error: function (e) {
-      console.log("Error! getPrivacyReport", e);
+      console.log("getPrivacyReport error: ", e);
     }
   });
 };
