@@ -446,6 +446,11 @@ i.flag:not(.icon):before {
   }
 }
 
+.settings.modal {
+  width: 475px;
+  margin-top: -340px !important; /* overwrite */
+  margin-left: 70px; /* overwrite */
+}
 .settings.modal .setting-title {
   color: $grey;
 }
@@ -522,7 +527,7 @@ i.flag:not(.icon):before {
   position: absolute;
   top: 0;
   left: 0;
-  width: 66%;
+  width: 65%;
   height: 100%;
   text-align: center;
 }

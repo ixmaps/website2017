@@ -79,15 +79,11 @@ var trIdTags = [];
 /*
   IXmaps google maps global vars and init scripts
 */
-
 var privacyRepUrl = url_base + '/transparency.php';
 var ixMapsDataJson = {}; // !!
 var ixMapsData = {};
 var allowMultipleTrs = false; // !!
 var allowRecenter = true;
-var showHops = true;
-var showHopsNum = false;
-var showRouters = true;
 
 var showNsa = false;
 var showHotel = false;
@@ -102,7 +98,6 @@ var showVerizon = false; // 2) // Verizon
 var showGooglePublicPeer = false; // 3) gPubDcPeer
 var showGoogleTO = false; // 3) // gDcTO
 
-var addMarkerInOrigin = false;
 var routeMarkers = []; // Added to fix marker in origin interpreted as a hop, issue with info window displaying wrong location data
 var showDynamicLegend = true; // !!
 var showMapInfoGlobal = false;
@@ -199,28 +194,6 @@ var renderCollectedCoords = function() {
 
 };
 
-var setShowHops = function() {
-  if (showHops) {
-    showHops=false;
-    jQuery("#map-show-hops").removeClass("map-tool-on").addClass("map-tool-off");
-  } else {
-    showHops=true;
-    jQuery("#map-show-hops").removeClass("map-tool-off").addClass("map-tool-on");
-  }
-  console.log('setShowHops',showHops);
-};
-
-var setShowHopsNum = function() {
-  if (showHopsNum) {
-    showHopsNum=false;
-    jQuery("#map-show-hops-num").removeClass("map-tool-on").addClass("map-tool-off");
-  } else {
-    showHopsNum=true;
-    jQuery("#map-show-hops-num").removeClass("map-tool-off").addClass("map-tool-on");
-  }
-  console.log('setShowHopsNum',showHops);
-};
-
 var setAllowRecenter = function() {
   if (allowRecenter) {
     allowRecenter=false;
@@ -230,17 +203,6 @@ var setAllowRecenter = function() {
     jQuery("#map-allow-recenter").removeClass("map-tool-off").addClass("map-tool-on");
   }
   console.log('setAllowRecenter',allowRecenter);
-};
-
-var setShowRouters = function() {
-  if (showRouters) {
-    showRouters=false;
-    jQuery("#map-show-routers").removeClass("map-tool-on").addClass("map-tool-off");
-  } else {
-    showRouters=true;
-    jQuery("#map-show-routers").removeClass("map-tool-off").addClass("map-tool-on");
-  }
-  console.log('setShowRouters',showRouters);
 };
 
 var setShowNsa = function() {
@@ -364,22 +326,8 @@ var setDefaultMapSettings = function() {
   allowMultipleTrs=false;
   jQuery("#map-allow-multiple").removeClass("map-tool-on").addClass("map-tool-off");
 
-  addMarkerInOrigin=true;
-  jQuery("#map-show-marker-origin").removeClass("map-tool-off").addClass("map-tool-on");
-
   excludeReservedAS=false;
   jQuery("#map-exclude-d").removeClass("map-tool-on").addClass("map-tool-off");
-}
-
-var setAddMarkerInOrigin = function() {
-  if (addMarkerInOrigin) {
-    addMarkerInOrigin=false;
-    jQuery("#map-show-marker-origin").removeClass("map-tool-on").addClass("map-tool-off");
-  } else {
-    addMarkerInOrigin=true;
-    jQuery("#map-show-marker-origin").removeClass("map-tool-off").addClass("map-tool-on");
-  }
-  console.log('setAddMarkerInOrigin',addMarkerInOrigin);
 };
 
 var setAllowMultipleTrs = function() {
@@ -606,21 +554,18 @@ var addAllTrs = function() {
   var lastId;
 
   jQuery.each(ixMapsDataJson, function(trId, value) {
-
-    var a = checkIfStopped();
-
     setTimeout(function() {
       if (trRenderStop) {
         return false;
       } else {
-        renderTr2(trId);
+        // renderTr2(trId);
         showThisTr(trId);
         jQuery('#tr-count').text(conn);
         conn++;
       }
     }, time);
 
-      time += trRenderSpeed;
+    time += trRenderSpeed;
   });
   // remove last
   removeTr();
@@ -788,7 +733,7 @@ var renderTr = function (trId) {
     // build each hop as a polyline
     jQuery.each(p, function(index, value) {
       // create the origin marker
-      if (addMarkerInOrigin && index == 0) {
+      if (index == 0) {
         var O_LatLng = new google.maps.LatLng(p[0][2],p[0][3]);
         var O_m = new google.maps.Marker({
           position: O_LatLng,
@@ -814,91 +759,82 @@ var renderTr = function (trId) {
         routeMarkers.push(O_m);
       }
 
-      if (showRouters) {
-        var markColour = getAsnColour([p[index][4]]);
-        var routerLatLong = new google.maps.LatLng(p[index][2],p[index][3])
-        var routerMark = new google.maps.Marker({
-          position: routerLatLong,
-          map: map,
-          icon: {
-            path: google.maps.SymbolPath.CIRCLE,
-            fillOpacity: 0.6,
-            fillColor: markColour,
-            strokeWeight: 0,
-            scale: 10
-          }
-        });
-
-        var rIp = p[index][6];
-        // add the current router ip to the collection
-        if (rIp in ipCollection ) {
-          ipCollection[rIp]+=1;
-        } else {
-          ipCollection[rIp]=1;
+      var markColour = getAsnColour([p[index][4]]);
+      var routerLatLong = new google.maps.LatLng(p[index][2],p[index][3])
+      var routerMark = new google.maps.Marker({
+        position: routerLatLong,
+        map: map,
+        icon: {
+          path: google.maps.SymbolPath.CIRCLE,
+          fillOpacity: 0.6,
+          fillColor: markColour,
+          strokeWeight: 0,
+          scale: 10
         }
+      });
 
-        google.maps.event.addListener(routerMark, 'click', function() {
-          viewTrDetails(p[index][0]);
-        });
-        google.maps.event.addListener(routerMark, 'mouseover', function() {
-          infowindowTimeout = setTimeout(function() {
-            // close all other infowindows
-            if (infowindow) {
-              infowindow.close();
-            }
-
-            var el = createMarkerText(trId, p, index);
-            infowindow = new google.maps.InfoWindow({
-              content: el
-            });
-            infowindow.open(map,routerMark);
-          }, 300);
-        });
-        // we want a slight delay on mouseover popups (300 milliseconds). This plus the above provide that...
-        google.maps.event.addListener(routerMark, 'mouseout', function() {
-          clearTimeout(infowindowTimeout);
-        })
-
-        // var a = new Array(trId, hop, value.lat, value.long, value.asNum, value.asName, value.ip);
-        routerMark.setMap(map);
-        trOcollection.push(routerMark);
+      var rIp = p[index][6];
+      // add the current router ip to the collection
+      if (rIp in ipCollection ) {
+        ipCollection[rIp]+=1;
+      } else {
+        ipCollection[rIp]=1;
       }
 
-      /*  // FIX ME;) just for consistency and accuracy in the data displayed in the map we need add here the first router
-      if(index==0){
-      }*/
-      if (showHops) {
-        if (index>0) {
-          var hopPath = [];
-          //console.log(' showing hop poly: '+p[index-1][2]+' --- '+p[index][2]);
-          var LatLng1 = new google.maps.LatLng(p[index-1][2],p[index-1][3]);
-          var LatLng2 = new google.maps.LatLng(p[index][2],p[index][3]);
-          hopPath.push(LatLng1);
-          hopPath.push(LatLng2);
-          coordinates.push(LatLng1);
-          coordinates.push(LatLng2);
+      google.maps.event.addListener(routerMark, 'click', function() {
+        viewTrDetails(p[index][0]);
+      });
+      google.maps.event.addListener(routerMark, 'mouseover', function() {
+        infowindowTimeout = setTimeout(function() {
+          // close all other infowindows
+          if (infowindow) {
+            infowindow.close();
+          }
 
-          var colour = getAsnColour([p[index-1][4]]);
-
-          hopObj = null;
-          hopObj = new google.maps.Polyline({
-            path: hopPath,
-            strokeColor: colour,
-            strokeOpacity: 0.6,
-            strokeWeight: 6.0
+          var el = createMarkerText(trId, p, index);
+          infowindow = new google.maps.InfoWindow({
+            content: el
           });
-          google.maps.event.addListener(hopObj, 'click', function() {
-            viewTrDetails(trId);
-          });
-          google.maps.event.addListener(hopObj, 'mouseover', function() {
-            trHopMouseover(p[index-1][0],p[index-1][1],1);
-          });
+          infowindow.open(map,routerMark);
+        }, 300);
+      });
+      // we want a slight delay on mouseover popups (300 milliseconds). This plus the above provide that...
+      google.maps.event.addListener(routerMark, 'mouseout', function() {
+        clearTimeout(infowindowTimeout);
+      })
 
-          hopObj.setMap(map);
-          trCollection.push(hopObj);
+      routerMark.setMap(map);
+      trOcollection.push(routerMark);
 
-        } // end if index>0
-      }
+      if (index > 0) {
+        var hopPath = [];
+        //console.log(' showing hop poly: '+p[index-1][2]+' --- '+p[index][2]);
+        var LatLng1 = new google.maps.LatLng(p[index-1][2],p[index-1][3]);
+        var LatLng2 = new google.maps.LatLng(p[index][2],p[index][3]);
+        hopPath.push(LatLng1);
+        hopPath.push(LatLng2);
+        coordinates.push(LatLng1);
+        coordinates.push(LatLng2);
+
+        var colour = getAsnColour([p[index-1][4]]);
+
+        hopObj = null;
+        hopObj = new google.maps.Polyline({
+          path: hopPath,
+          strokeColor: colour,
+          strokeOpacity: 0.6,
+          strokeWeight: 6.0
+        });
+        google.maps.event.addListener(hopObj, 'click', function() {
+          viewTrDetails(trId);
+        });
+        google.maps.event.addListener(hopObj, 'mouseover', function() {
+          trHopMouseover(p[index-1][0],p[index-1][1],1);
+        });
+
+        hopObj.setMap(map);
+        trCollection.push(hopObj);
+      } // end if index>0
 
     });
 
@@ -1112,13 +1048,13 @@ var getIpFlags = function(openFlagWin) {
       console.log("Ok! getIpFlag");
       var data = jQuery.parseJSON(e);
 
-        if(openFlagWin){
+        if (openFlagWin) {
           jQuery('#ip-flags').show();
           jQuery('#user_nick').val('');
           jQuery('#ip_new_loc').val('');
           jQuery('#user_msg').val('');
 
-          if(!data['ip_flags']){
+          if (!data['ip_flags']) {
             // jQuery('#ip-flag-info').html('');
             jQuery('#ip-flags-data-list').html('');
             jQuery('#ip-flags-data').hide();
@@ -1245,7 +1181,7 @@ var trHopMouseover = function (trId,hop,type) {
   var ipTxt = '';
   var elTxt = '';
   var nextTxt = '';
-  if(type==0){
+  if (type==0){
     elTxt="Router"
     ipTxt = '<br/>IP: <strong>'+ixMapsDataJson[trId][hop].ip+'</strong>';
     ipTxt += ' | <span id="flag-this-link"></span>';
@@ -1447,49 +1383,47 @@ var toggleMap = function(){
 var renderGeoMarkers = function(type){
   jQuery.each(cHotelData, function(key,geoItem) {
     var gmObj;
-    //console.log(geoItem);
-    if(type==1 && geoItem.type=="NSA"){
+    if (type==1 && geoItem.type=="NSA") {
       gmObj = createGmMarker(geoItem);
       gmNsa.push(gmObj);
       gmObj.setMap(map);
     }
-    if(type==2 && geoItem.type=="CH"){
+    if (type==2 && geoItem.type=="CH") {
       gmObj = createGmMarker(geoItem);
       gmHotel.push(gmObj);
       gmObj.setMap(map);
     }
-    if(type==3 && geoItem.type=="Google"){
+    if (type==3 && geoItem.type=="Google") {
       gmObj = createGmMarker(geoItem);
       gmGoogle.push(gmObj);
       gmObj.setMap(map);
     }
-    if(type==4 && geoItem.type=="UC"){
+    if (type==4 && geoItem.type=="UC") {
       gmObj = createGmMarker(geoItem);
       gmUc.push(gmObj);
       gmObj.setMap(map);
     }
-    //
-    if(type==5 && geoItem.type=="IXca"){
+    if (type==5 && geoItem.type=="IXca") {
       gmObj = createGmMarker(geoItem);
       gmIXca.push(gmObj);
       gmObj.setMap(map);
     }
-    if(type==6 && geoItem.type=="CIRA_IPT"){
+    if (type==6 && geoItem.type=="CIRA_IPT") {
       gmObj = createGmMarker(geoItem);
       gmCiraIPT.push(gmObj);
       gmObj.setMap(map);
     }
-    if(type==7 && geoItem.type=="AT&T"){
+    if (type==7 && geoItem.type=="AT&T") {
       gmObj = createGmMarker(geoItem);
       gmAtt.push(gmObj);
       gmObj.setMap(map);
     }
-    if(type==8 && geoItem.type=="Verizon"){
+    if (type==8 && geoItem.type=="Verizon") {
       gmObj = createGmMarker(geoItem);
       gmVerizon.push(gmObj);
       gmObj.setMap(map);
     }
-    if(type==9 && geoItem.type=="GoogleTo"){
+    if (type==9 && geoItem.type=="GoogleTo") {
       gmObj = createGmMarker(geoItem);
       gmGoogleTO.push(gmObj);
       gmObj.setMap(map);

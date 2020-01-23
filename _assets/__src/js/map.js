@@ -26,10 +26,10 @@ var init = function() {
     jQuery('.opening.modal').modal('show'); // open user location modal
     jQuery('.sidebar.vertical.legend').addClass('overlay visible animating');
 
-  } else if (initMode==1) { // trId is passed to map page
+  } else if (initMode == 1) { // trId is passed to map page
     submitUrlTrId(trIdFilter);
 
-  } else if (initMode==2) { // search filters are passed to map page
+  } else if (initMode == 2) { // search filters are passed to map page
     processPostedData(postedData);
   }
 
@@ -319,7 +319,7 @@ var setUpClickHandlers = function() {
     });
 };
 
-/*TODO: Render tr results table and add event listeners*/
+/* TODO: Render tr results table and add event listeners (instead of constructing the html on the backend */
 var renderTrResultTable = function(data) {
 
 };
