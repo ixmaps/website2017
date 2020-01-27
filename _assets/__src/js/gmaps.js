@@ -1018,8 +1018,12 @@ var viewTrDetails = function(trId) {
     type: 'POST',
     data: { trId: trId },
     success: function(data) {
-      jQuery('#tr-details-modal .traceroute-container-more-details tbody .latencies-cell').each(function(i) {
-        jQuery(this).text(jQuery.parseJSON(data)[i]);
+      jQuery('#tr-details-modal .traceroute-container tbody .latencies-cell').each(function(i, el) {
+        jQuery(this).text(jQuery.parseJSON(data)["minLatencies"][i]);
+      });
+
+      jQuery('#tr-details-modal .traceroute-container-more-details tbody .latencies-cell').each(function(i, el) {
+        jQuery(this).text(jQuery.parseJSON(data)["latencies"][i]);
       });
     },
     error: function(e) {
@@ -1091,6 +1095,7 @@ var viewTrDetails = function(trId) {
     jQuery('#tr-details-modal .traceroute-container tbody').append(
       jQuery('<tr />').append(
         jQuery('<td />').text(hopValues.hop),
+        jQuery('<td />').text(hopValues.firstAttemptLatency).addClass('latencies-cell'),
         jQuery(countryEl),
         jQuery('<td />')
           .css('background', getAsnBackground(hopValues.asNum))

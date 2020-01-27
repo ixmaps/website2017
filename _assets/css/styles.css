@@ -26144,6 +26144,11 @@ i.flag:not(.icon):before {
 	background-image: url("../img/flags.png");
 }
 
+#tr-details-modal {
+	width: 1100px;
+	margin-left: -550px;
+}
+
 #tr-details-modal .body {
 	margin: 20px;
 	height: 500px;

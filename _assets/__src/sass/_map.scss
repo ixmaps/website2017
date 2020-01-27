@@ -413,6 +413,9 @@ i.flag:not(.icon):before {
 
 
 #tr-details-modal {
+  width: 1100px;
+  margin-left: -550px;
+  
   .body {
     margin: 20px;
     height: 500px;

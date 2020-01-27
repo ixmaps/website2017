@@ -43,6 +43,7 @@
                 <thead>
                     <tr>
                         <th>Hop #</th>
+                        <th>Min. latency</th>
                         <th>Location</th>
                         <th>Carrier</th>
                     </tr>

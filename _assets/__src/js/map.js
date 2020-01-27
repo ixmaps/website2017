@@ -56,13 +56,13 @@ var getMyLocation = function() {
       console.log("getMyLocation data loaded");
       // populate js auto-complete array(s)
       var data = jQuery.parseJSON(e);
-      setMyLocationData(data);
-      // if (data.defaultValue == true) {
-      //   // we don't know the user's IP, so we hide the modal
-      //   jQuery('.opening.modal').modal('hide');
-      // } else {
-      //   setMyLocationData(data);
-      // }
+
+      if (data.defaultValue == true) {
+        // we don't know the user's IP, so we hide the modal
+        jQuery('.opening.modal').modal('hide');
+      } else {
+        setMyLocationData(data);
+      }
     },
     error: function (e) {
       console.log("Error! getMyLocation data can't be loaded", e);
