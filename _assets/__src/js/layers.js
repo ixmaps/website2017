@@ -5,7 +5,7 @@ var getLayers = function() {
     action: 'getLayers'
   };
 
-  jQuery.ajax(url_base + '/application/controller/layers.php', {
+  jQuery.ajax(config.url_base + '/application/controller/layers.php', {
     type: 'post',
     data: obj,
     success: function (e) {

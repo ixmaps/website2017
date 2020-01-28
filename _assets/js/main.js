@@ -1,37 +1,9 @@
 // GLOBAL VARS
-var config = null;
 var requiredConfig = {
   gmaps: {
     key: 'string'
   },
   server_name: 'string'
-};
-
-var url_base = "";
-
-// TODO: syncXMLHttpRequest issue stems from this
-var loadConfig = function(configUrl) {
-  var _this = this;
-  $.ajax(
-    {
-      url: configUrl,
-      dataType: 'json',
-      async: false,
-      cache: false,
-      success: function(data) {
-        _this.config = data;
-        console.log('Config loaded');
-
-        // forcing www with apache - this should work
-        // url_base = location.origin; // Get URI dynamically: there is a reason for this (e.g. www.ixmaps.ca vs. ixmaps.ca) DON'T use config until apache forces www.ixmaps.ca
-        url_base = config.php_backend; // Use URI from config file
-      },
-      error: function(xhr, code, error) {
-        console.error("Couldn't load `"+configUrl+"`: ", code, error, xhr);
-        alert("Couldn't load `"+configUrl+"` because:\n\n"+error+" ("+code+")");
-      }
-    }
-  );
 };
 
 var verifyConfig = function(config, required, path) {
@@ -60,7 +32,7 @@ var verifyConfig = function(config, required, path) {
 };
 
 
-(function($, window, document, undefined){
+(function($, window, document, undefined) {
 
 	$(function() {
 		// Toggle open and close nav styles on click (mobile nav)

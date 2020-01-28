@@ -49,7 +49,7 @@ var getMyLocation = function() {
     action: 'getMyLocation'
   };
 
-  jQuery.ajax(url_base + '/application/controller/mygeoip.php', {
+  jQuery.ajax(config.url_base + '/application/controller/mygeoip.php', {
     type: 'post',
     data: obj,
     success: function (e) {
@@ -346,7 +346,7 @@ var loadAutocompleteData = function(type) {
     field: type
   };
 
-  jQuery.ajax(url_base + '/application/controller/autocomplete.php', {
+  jQuery.ajax(config.url_base + '/application/controller/autocomplete.php', {
     type: 'post',
     data: obj,
     success: function (e) {

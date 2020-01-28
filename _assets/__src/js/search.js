@@ -374,7 +374,7 @@ var submitQuery = function(obj) {
   jQuery('#filter-results-content').fadeOut('fast');
   jQuery('#filter-results-empty').show();
 
-  ajaxObj = jQuery.ajax(url_base + '/application/controller/map.php', {
+  ajaxObj = jQuery.ajax(config.url_base + '/application/controller/map.php', {
     type: 'post',
     data: obj,
     success: function(e) {
@@ -537,12 +537,11 @@ var buildTrCountQuery = function(type) {
     submitTrCount(usrLocQuery);
   } // end if
 
-
 }
 
 /* count results for a submission constraint */
 var submitTrCount = function(obj) {
-  ajaxObj = jQuery.ajax(url_base + '/application/controller/map_search.php', {
+  ajaxObj = jQuery.ajax(config.url_base + '/application/controller/map_search.php', {
     type: 'post',
     data: obj,
     success: function (e) {

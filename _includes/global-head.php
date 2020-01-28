@@ -24,9 +24,10 @@
 <script src="/_assets/js/jquery.toast.min.js"></script>
 <script src="/_assets/js/main.min.js"></script>
 
+<script src="/config.json" type="text/javascript"></script>
+
 <!-- Matomo -->
 <script type="text/javascript">
-  loadConfig('/config.json')
   verifyConfig(config, requiredConfig);
 
   if (config.env == "prod") {

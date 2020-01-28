@@ -50,7 +50,7 @@ var trIdTags = [];
 /*
   IXmaps google maps global vars and init scripts
 */
-var privacyRepUrl = url_base + '/transparency.php';
+var privacyRepUrl = config.url_base + '/transparency.php';
 var ixMapsDataJson = {}; // !!
 var ixMapsData = {};
 var allowMultipleTrs = false; // !!
@@ -507,7 +507,7 @@ var renderTr = function (trId) {
           map: map,
           title:'Origin of TRid: '+p[0][0]
         });
-        var iconUrl = url_base + '/_assets/img/icn-gm-route-start.png';
+        var iconUrl = config.url_base + '/_assets/img/icn-gm-route-start.png';
         O_m.setIcon(iconUrl);
         O_m.setMap(map);
         routeMarkers.push(O_m); // tracking markers so that they can be removed later
@@ -520,7 +520,7 @@ var renderTr = function (trId) {
           map: map,
           title:'Destination of TRid: '+p[0][0]
         });
-        var iconUrl = url_base + '/_assets/img/icn-gm-route-end.png';
+        var iconUrl = config.url_base + '/_assets/img/icn-gm-route-end.png';
         O_m.setIcon(iconUrl);
         O_m.setMap(map);
         routeMarkers.push(O_m);
@@ -771,7 +771,7 @@ var saveIpFlag = function() {
   };
   //console.log(obj);
 
-  jQuery.ajax(url_base + '/application/controller/ipFlag.php', {
+  jQuery.ajax(config.url_base + '/application/controller/ipFlag.php', {
     type: 'post',
     data: obj,
     success: function (e) {
@@ -808,7 +808,7 @@ var getIpFlags = function(openFlagWin) {
     ip_addr_f:activeIpFlag
   };
 
-  jQuery.ajax(url_base + '/application/controller/ipFlag.php', {
+  jQuery.ajax(config.url_base + '/application/controller/ipFlag.php', {
     type: 'post',
     data: obj,
     success: function (e) {
@@ -1014,15 +1014,15 @@ var viewPrivacy = function(asNum) {
 
 var viewTrDetails = function(trId) {
   // grab the latencies for this route (we already have everything else)
-  jQuery.ajax(url_base + '/application/controller/tr_details_latencies.php', {
+  jQuery.ajax(config.url_base + '/application/controller/tr_details_latencies.php', {
     type: 'POST',
     data: { trId: trId },
     success: function(data) {
-      jQuery('#tr-details-modal .traceroute-container tbody .latencies-cell').each(function(i, el) {
+      jQuery('#tr-details-modal .traceroute-container tbody .latencies-cell').each(function(i) {
         jQuery(this).text(jQuery.parseJSON(data)["minLatencies"][i]);
       });
 
-      jQuery('#tr-details-modal .traceroute-container-more-details tbody .latencies-cell').each(function(i, el) {
+      jQuery('#tr-details-modal .traceroute-container-more-details tbody .latencies-cell').each(function(i) {
         jQuery(this).text(jQuery.parseJSON(data)["latencies"][i]);
       });
     },
@@ -1069,14 +1069,15 @@ var viewTrDetails = function(trId) {
       jQuery('<td />').text(lastHop['asName']),
       jQuery('<td />').text(lastHop['mmCity']),
       jQuery('<td />').text(lastHop['mmCountry'])
-    ),
-    jQuery('<tr />').append(
-      jQuery('<td />').text("Destination").css("font-weight", "bold"),
-      jQuery('<td />').text("NULL"),
-      jQuery('<td />').text("NULL"),
-      jQuery('<td />').text("NULL"),
-      jQuery('<td />').text("NULL")
     )
+    // ,
+    // jQuery('<tr />').append(
+    //   jQuery('<td />').text("Destination").css("font-weight", "bold"),
+    //   jQuery('<td />').text("NULL"),
+    //   jQuery('<td />').text("NULL"),
+    //   jQuery('<td />').text("NULL"),
+    //   jQuery('<td />').text("NULL")
+    // )
   );
 
   // creating the tr table
@@ -1468,23 +1469,23 @@ var createGmMarker = function(geoItem) {
   });
   var iconUrl = '';
   if (geoItem.type=='NSA' && geoItem.nsa=='A') {
-    iconUrl = url_base + '/_assets/img/icn-map-nsa-class-A.png';
+    iconUrl = config.url_base + '/_assets/img/icn-map-nsa-class-A.png';
   } else if (geoItem.type=='NSA' && geoItem.nsa!='A') {
-    iconUrl = url_base + '/_assets/img/icn-map-nsa-class-med.png';
+    iconUrl = config.url_base + '/_assets/img/icn-map-nsa-class-med.png';
   } else if (geoItem.type=='CH') {
-    iconUrl = url_base + '/_assets/img/icn-map-carrier.png';
+    iconUrl = config.url_base + '/_assets/img/icn-map-carrier.png';
   } else if (geoItem.type=='UC') {
-    iconUrl = url_base + '/_assets/img/icn-map-undersea.png';
+    iconUrl = config.url_base + '/_assets/img/icn-map-undersea.png';
   } else if (geoItem.type=='Google' || geoItem.type=='GoogleTo') {
-    iconUrl = url_base + '/_assets/img/icn-map-google.png';
+    iconUrl = config.url_base + '/_assets/img/icn-map-google.png';
   } else if (geoItem.type=='IXca') {
-    iconUrl = url_base + '/_assets/img/icn-map-ixp.png';
+    iconUrl = config.url_base + '/_assets/img/icn-map-ixp.png';
   } else if (geoItem.type=='CIRA_IPT') {
-    iconUrl = url_base + '/_assets/img/icn-map-ipt.png';
+    iconUrl = config.url_base + '/_assets/img/icn-map-ipt.png';
   } else if (geoItem.type=='AT&T') {
-    iconUrl = url_base + '/_assets/img/icn-map-att.png';
+    iconUrl = config.url_base + '/_assets/img/icn-map-att.png';
   } else if (geoItem.type=='Verizon') {
-    iconUrl = url_base + '/_assets/img/icn-map-verizon.png';
+    iconUrl = config.url_base + '/_assets/img/icn-map-verizon.png';
   }
   gmObj.setIcon(iconUrl);
 
@@ -1529,7 +1530,7 @@ var getPrivacyReport = function() {
     action: 'getPrivacyReport'
   };
 
-  jQuery.ajax(url_base + '/application/controller/privacyReport.php', {
+  jQuery.ajax(config.url_base + '/application/controller/privacyReport.php', {
     type: 'post',
     data: obj,
     success: function (e) {
@@ -1565,18 +1566,18 @@ var renderPrivacyScore = function(asnScore) {
   if (scoreInt>=1) {
     // add full stars
     for (var i = 0; i < scoreInt; i++) {
-      starHtml += '<img src="'+url_base+'/_assets/img/star-a-4.png" class="privacy-star-img">';
+      starHtml += '<img src="'+config.url_base+'/_assets/img/star-a-4.png" class="privacy-star-img">';
     }
   }
 
   // add stars 0
   if (scoreD==0) {
-    starHtml += '<img src="'+url_base+'/_assets/img/star-a-0.png" class="privacy-star-img">';
+    starHtml += '<img src="'+config.url_base+'/_assets/img/star-a-0.png" class="privacy-star-img">';
   }
 
   // add fraction stars
   if (scoreF>0 && scoreF<=0.5) {
-    starHtml += '<img src="'+url_base+'/_assets/img/star-a-2.png" class="privacy-star-img">';
+    starHtml += '<img src="'+config.url_base+'/_assets/img/star-a-2.png" class="privacy-star-img">';
   }
 
   //console.log('starHtml ...',starHtml);
