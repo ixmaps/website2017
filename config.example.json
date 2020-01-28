@@ -1,10 +1,10 @@
-{
+var config = {
   "gmaps": {
     "key": "fill_me_in"
   },
   "env": "prod",
   "server_name": "ixmaps",
   "project_name": "IXmaps website",
-  "php_backend": "https://www.ixmaps.ca",
+  "url_base": "https://www.ixmaps.ca",
   "genericLatLongs": "['60, -95', '43.6319, -79.3716', '38, -97', '37.751, -97.822', '47, 8', '35, 105']"
 }
