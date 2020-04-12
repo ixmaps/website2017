@@ -165,12 +165,12 @@ var setUpClickHandlers = function() {
       jQuery('.traceroute-container').addClass('hidden');
       jQuery('.traceroute-container-more-details').removeClass('hidden');
       jQuery('.more-details').removeClass('hidden');
-      jQuery('.more-details-btn').text("Less details...");  
+      jQuery('.more-details-btn').text("Less details...");
     } else {
       jQuery('.traceroute-container').removeClass('hidden');
       jQuery('.traceroute-container-more-details').addClass('hidden');
       jQuery('.more-details').addClass('hidden');
-      jQuery('.more-details-btn').text("More details...");  
+      jQuery('.more-details-btn').text("More details...");
     }
   });
 

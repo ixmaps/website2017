@@ -9,23 +9,23 @@
 var ajaxObj;
 
 var constructLastContributed = function() {
-  var submission = {
-    "filter-constraint-1": {
+  var submission = [
+    {
       constraint1: "quickLink",
       constraint2: "lastSubmission"
     }
-  };
+  ];
   submitQuery(submission);
   jQuery('#qs-search-parameters-container').text('Last contributed traceroutes');
 };
 
 var constructViaNSACity = function() {
-  var submission = {
-    "filter-constraint-1": {
+  var submission = [
+    {
       constraint1: "quickLink",
       constraint2: "viaNSACity"
     }
-  };
+  ];
   submitQuery(submission);
   jQuery('#qs-search-parameters-container').text('Goes via an NSA city');
 };
@@ -34,54 +34,54 @@ var constructBoomerangs = function() {
   // if user has been geolocated
   var submission = null;
   if (myCountry.length > 0) {
-    submission = {
-      "filter-constraint-1": {
+    submission = [
+      {
         constraint1: "does",
         constraint2: "originate",
         constraint3: "country",
         constraint4: myCountry,
         constraint5: "AND"
       },
-      "filter-constraint-2": {
+      {
         constraint1: "does",
         constraint2: "goVia",
         constraint3: "country",
         constraint4: "US",
         constraint5: "AND"
       },
-      "filter-constraint-3": {
+      {
         constraint1: "does",
         constraint2: "terminate",
         constraint3: "country",
         constraint4: myCountry,
         constraint5: "AND"
       }
-    }
+    ];
     jQuery('#qs-search-parameters-container').text('Does Originate in Country '+myCountry+' AND Does Go via Country US AND Does Terminate in Country '+myCountry);
   } else {
-    submission = {
-      "filter-constraint-1": {
+    submission = [
+      {
         constraint1: "does",
         constraint2: "originate",
         constraint3: "country",
         constraint4: "CA",
         constraint5: "AND"
       },
-      "filter-constraint-2": {
+      {
         constraint1: "does",
         constraint2: "goVia",
         constraint3: "country",
         constraint4: "US",
         constraint5: "AND"
       },
-      "filter-constraint-3": {
+      {
         constraint1: "does",
         constraint2: "terminate",
         constraint3: "country",
         constraint4: "CA",
         constraint5: "AND"
       }
-    }
+    ];
     jQuery().toastmessage('showWarningToast', 'We were unable to determine your location - submitting a Canadian boomerang query instead');
     jQuery('#qs-search-parameters-container').text('Does Originate in Country CA AND Does Go via Country US AND Does Terminate in Country CA');
   }
@@ -91,15 +91,15 @@ var constructBoomerangs = function() {
 
 var constructFromMyIsp = function() {
   if (myAsn) {
-    var submission = {
-      "filter-constraint-1": {
+    var submission = [
+      {
         constraint1: "does",
         constraint2: "originate",
         constraint3: "asnum",
         constraint4: myAsn,
         constraint5: "AND"
       }
-    }
+    ];
     submitQuery(submission);
     jQuery('#qs-search-parameters-container').text('Does Originate in AS number ' + myAsn);
   } else {
@@ -109,15 +109,15 @@ var constructFromMyIsp = function() {
 
 var constructFromMyCity = function() {
   if (myCity) {
-    var submission = {
-      "filter-constraint-1": {
+    var submission = [
+      {
         constraint1: "does",
         constraint2: "originate",
         constraint3: "city",
         constraint4: myCity,
         constraint5: "AND"
       }
-    }
+    ];
     submitQuery(submission);
     jQuery('#qs-search-parameters-container').text('Does Originate in City ' + myCity);
   } else {
@@ -127,15 +127,15 @@ var constructFromMyCity = function() {
 
 var constructFromMyCountry = function() {
   if (myCountry) {
-    var submission = {
-      "filter-constraint-1": {
+    var submission = [
+      {
         constraint1: "does",
         constraint2: "originate",
         constraint3: "country",
         constraint4: myCountry,
         constraint5: "AND"
       }
-    }
+    ];
     submitQuery(submission);
     jQuery('#qs-search-parameters-container').text('Does Originate in Country ' + myCountry);
   } else {
@@ -145,18 +145,18 @@ var constructFromMyCountry = function() {
 
 var submitUrlTrId = function(trId) {
   jQuery('#userloc').hide();
-  var submission = {
-    "filter-constraint-1": {
+  var submission = [
+    {
       constraint1: "quickLink",
       constraint2: "singleRoute",
       constraint3: trId
     }
-  };
+  ];
   submitQuery(submission);
 };
 
 var constructBS = function() {
-  var submission = {};
+  var submission = [];
   var i = 1;
 
   // IMPORTANT! We must iterate over the Via conditions first
@@ -190,7 +190,7 @@ var constructBS = function() {
             if (index+1 === nsaCities.length) {
               nsaObj.constraint5 = "AND"
             }
-            submission["filter-constraint-"+i] = nsaObj;
+            submission.push(nsaObj);
             i++;
           });
         } else {
@@ -204,7 +204,7 @@ var constructBS = function() {
           constraint4: jQuery(el).val(),
           constraint5: "AND"
         };
-        submission["filter-constraint-"+i] = origObj;
+        submission.push(origObj);
         i++;
       }
     }
@@ -213,21 +213,21 @@ var constructBS = function() {
   jQuery('#bs-originate-popup .bs-input').each(function(index, el) {
     if (jQuery(el).val() != "") {
       // adjust constraint2 for special cases e.g. submitter
-      var constraint2_val = "";
+      var constraint2Val = "";
       if(jQuery(el).data('constraint') == "submitter" ){
-        constraint2_val = "contain";
+        constraint2Val = "contain";
       } else {
-        constraint2_val = "originate";
+        constraint2Val = "originate";
       }
 
       var origObj = {
         constraint1: "does",
-        constraint2: constraint2_val,
+        constraint2: constraint2Val,
         constraint3: jQuery(el).data('constraint'),
         constraint4: jQuery(el).val(),
         constraint5: "AND"
       };
-      submission["filter-constraint-"+i] = origObj;
+      submission.push(origObj);
       i++;
     }
   });
@@ -249,7 +249,7 @@ var constructBS = function() {
         constraint4: jQuery(el).val(),
         constraint5: "AND"
       };
-      submission["filter-constraint-"+i] = origObj;
+      submission.push(origObj);
       i++;
     }
   });
@@ -262,7 +262,7 @@ var constructBS = function() {
 };
 
 var constructAS = function() {
-  var submission = {};
+  var submission = [];
   var rowNum = 0;
   var errorCount = 0;
 
@@ -285,7 +285,7 @@ var constructAS = function() {
       }
     });
     // one line of filters
-    submission["filter-constraint"+rowNum] = constraint;
+    submission.push(constraint);
   });
 
   // if there are no errors, submit
@@ -368,15 +368,15 @@ var createASRow = function(row) {
 };
 
 /* submission for new map website */
-var submitQuery = function(obj) {
-  console.log('Submitting...', obj);
+var submitQuery = function(arr) {
+  console.log('Submitting...', arr);
   showLoader();
   jQuery('#filter-results-content').fadeOut('fast');
   jQuery('#filter-results-empty').show();
 
   ajaxObj = jQuery.ajax(config.url_base + '/application/controller/map.php', {
     type: 'post',
-    data: obj,
+    data: JSON.stringify(arr),
     success: function(e) {
       console.log("Query response received: " + e);
 
@@ -439,7 +439,7 @@ var dataSearch = {};
 var usrLocQuery = {};
 
 var submitUserLocObject = function() {
-  submitQuery(usrLocQuery);
+  submitQuery(Object.values(usrLocQuery));
 }
 
 var buildTrCountQuery = function(type) {
@@ -450,7 +450,7 @@ var buildTrCountQuery = function(type) {
   var obj;
 
   // first load query
-  if (type=='first') {
+  if (type == 'first') {
 
     // sometimes we cannot retrieve the user's loc or asn
     if (myAsn || myCity) {
@@ -622,27 +622,27 @@ var resetUserLocQueryOptions = function(type) {
 
 var renderTrCountData = function(data) {
   /*Check if the element is in the submitted query */
-  if (typeof usrLocQuery.submitter != 'undefined'){
+  if (typeof usrLocQuery.submitter != 'undefined') {
     userLocQueryOptions.submitter.total = data.results.submitter.total;
-    if(data.results.submitter.total==0){
+    if (data.results.submitter.total == 0) {
       delete usrLocQuery['submitter'];
     }
   }
-  if (typeof usrLocQuery.myAsn != 'undefined'){
+  if (typeof usrLocQuery.myAsn != 'undefined') {
     userLocQueryOptions.myAsn.total = data.results.myAsn.total;
-    if(data.results.myAsn.total==0){
+    if (data.results.myAsn.total == 0) {
       delete usrLocQuery['myAsn'];
     }
   }
-  if (typeof usrLocQuery.myCity != 'undefined'){
+  if (typeof usrLocQuery.myCity != 'undefined') {
     userLocQueryOptions.myCity.total = data.results.myCity.total;
-    if(data.results.myCity.total==0){
+    if (data.results.myCity.total == 0) {
       delete usrLocQuery['myCity'];
     }
   }
-  if (typeof usrLocQuery.myCountry != 'undefined'){
+  if (typeof usrLocQuery.myCountry != 'undefined') {
     userLocQueryOptions.myCountry.total = data.results.myCountry.total;
-    if(data.results.myCountry.total==0){
+    if (data.results.myCountry.total == 0) {
       delete usrLocQuery['myCountry'];
     }
   }
@@ -650,32 +650,32 @@ var renderTrCountData = function(data) {
   jQuery(".userloc-trs-tot").html(data.total); // !!
 
   jQuery(".userloc-submitter-tot").html(userLocQueryOptions.submitter.total);
-  if(userLocQueryOptions.submitter.total != 0){
+  if (userLocQueryOptions.submitter.total != 0) {
     jQuery(".userloc-submitter-chkbox").prop('checked', true);
     userLocQueryOptions.submitter.checked = true;
   }
 
   jQuery(".userloc-asn-tot").html(userLocQueryOptions.myAsn.total);
-  if(userLocQueryOptions.myAsn.total != 0){
+  if (userLocQueryOptions.myAsn.total != 0) {
     jQuery(".userloc-asn-chkbox").prop('checked', true);
     userLocQueryOptions.myAsn.checked = true;
   }
 
   jQuery(".userloc-city-tot").html(userLocQueryOptions.myCity.total);
-  if(userLocQueryOptions.myCity.total != 0){
+  if (userLocQueryOptions.myCity.total != 0) {
     jQuery(".userloc-city-chkbox").prop('checked', true);
     userLocQueryOptions.myCity.checked = true;
   }
 
   // I think we can remove this, no?
   jQuery(".userloc-country-tot").html(userLocQueryOptions.myCountry.total);
-  if(userLocQueryOptions.myCountry.total != 0){
+  if (userLocQueryOptions.myCountry.total != 0) {
     jQuery(".userloc-country-chkbox").prop('checked', true);
     userLocQueryOptions.myCountry.checked = true;
   }
 
   /* TODO: add a link to show last contribution */
-  if(data.total != 0){
+  if (data.total != 0) {
 
     jQuery('#myloc-contribute-btn').removeClass('blue');
     jQuery('#myloc-submit-btn').addClass('blue');
@@ -688,6 +688,7 @@ var renderTrCountData = function(data) {
     });
 
   } else {
+
     jQuery('#myloc-submit-btn').unbind('click'); // disable click
     jQuery('#myloc-submit-btn').removeClass('blue');
     jQuery('#myloc-contribute-btn').addClass('blue');
