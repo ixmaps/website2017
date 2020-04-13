@@ -25777,7 +25777,7 @@ footer {
 	color: black;
 }
 
-#traceroutes-results-table {
+#traceroutes-results {
 	overflow: auto;
 	max-height: 300px;
 }
@@ -25801,16 +25801,16 @@ footer {
 	width: 500px !important;
 }
 
-#traceroutes-table, #carrier-table {
+#traceroutes-results-table, #carrier-table {
 	font-size: 14px;
 }
 
-#traceroutes-table th, #carrier-table th {
+#traceroutes-results-table th, #carrier-table th {
 	padding: 4px 8px;
 	color: #2D3A47;
 }
 
-#traceroutes-table tr, #carrier-table tr {
+#traceroutes-results-table tr, #carrier-table tr {
 	line-height: 10px;
 }
 

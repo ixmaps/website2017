@@ -113,7 +113,7 @@
   color: black;
 }
 
-#traceroutes-results-table{
+#traceroutes-results{
   overflow: auto;
   max-height: 300px;
 }
@@ -137,7 +137,7 @@
 }
 
 
-#traceroutes-table, #carrier-table {
+#traceroutes-results-table, #carrier-table {
   font-size: 14px;
   th {
     padding: 4px 8px;
@@ -415,7 +415,7 @@ i.flag:not(.icon):before {
 #tr-details-modal {
   width: 1100px;
   margin-left: -550px;
-  
+
   .body {
     margin: 20px;
     height: 500px;

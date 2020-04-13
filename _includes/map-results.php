@@ -17,7 +17,21 @@
             <button id="remove-all-trs-btn" class="ui compact transparent basic right floated yellow button">Hide All</button>
             <div class="ui compact hidden divider"></div>
         </div>
-        <div id="traceroutes-results-table" class=""></div>
+        <div id="traceroutes-results" class="">
+            <table id="traceroutes-results-table" class="ui tablesorter selectable celled compact table">
+                <thead>
+                    <tr>
+                        <th class="header">Origin</th>
+                        <th class="header">Destination</th>
+                        <th class="header headerSortUp">TR ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- filled by buildTrResultsTable in gmaps.js -->
+                </tbody>
+            </table>
+        </div>
+
 
         <div class="carriers-results">
             <div class="ui divider"></div>

@@ -380,36 +380,62 @@ var submitQuery = function(arr) {
     success: function(e) {
       console.log("Query response received: " + e);
 
-      try {
-        data = JSON.parse(e);
-        if (data.totTrs != 0 && data.result != undefined) {
-          ixMapsDataJson = jQuery.parseJSON(data.result);
-          totTrs = data.totTrs;
+      data = JSON.parse(e);
+      if (data.trsReturned != 0 && data.result != undefined) {
+        ixMapsDataJson = jQuery.parseJSON(data.result);
 
-          jQuery('#traceroutes-results-table').html(data.trsTable);
-          jQuery('#tot-results').html(data.totTrs);
-          jQuery('#tot-results-found').html(data.totTrsFound);
-          jQuery('#my-ip').html(myIp);
+        buildTrSummaryTable();
+        jQuery('#tot-results').html(data.trsReturned);
+        jQuery('#tot-results-found').html(data.trsFound);
+        jQuery('#my-ip').html(myIp);
 
-          console.log("Total TRs: "+data.totTrs);
-          console.log("Total Hops: "+data.totHops);
-          console.log("Execution Time: "+data.execTime+' Sec.');
-          jQuery('#filter-results-summary').html(data.querySummary);
+        console.log("Total TRs: "+data.trsReturned);
+        console.log("Total Hops: "+data.totHops);
+        console.log("Execution Time: "+data.execTime+' Sec.');
+        jQuery('#filter-results-summary').html(data.querySummary);
 
-          loadMapData();
-          hideLoader();
-          jQuery('#filter-results-empty').hide();
-          jQuery('.sidebar.vertical.legend').removeClass('overlay animating visible');
-          jQuery('#filter-results-content').fadeIn('fast');
+        loadMapData();
+        hideLoader();
+        jQuery('#filter-results-empty').hide();
+        jQuery('.sidebar.vertical.legend').removeClass('overlay animating visible');
+        jQuery('#filter-results-content').fadeIn('fast');
 
-        } else {
-          errText = "No routes were found with the criteria you provided. Adjust the query options to be more inclusive, then click Search";
-          showResponseErrors(errText);
-        }
-      } catch(e) {
-        errText = "Malformed JSON returned - something went wrong on the backend!";
+      } else {
+        errText = "No routes were found with the criteria you provided. Adjust the query options to be more inclusive, then click Search";
         showResponseErrors(errText);
       }
+
+      // TODO: readd
+      // try {
+      //   data = JSON.parse(e);
+      //   if (data.totTrs != 0 && data.result != undefined) {
+      //     ixMapsDataJson = jQuery.parseJSON(data.result);
+
+      //     // jQuery('#traceroutes-results').html(data.trsTable);
+      //     buildTrResultsTable();
+      //     jQuery('#tot-results').html(data.totTrs);
+      //     jQuery('#tot-results-found').html(data.totTrs);
+      //     jQuery('#my-ip').html(myIp);
+
+      //     console.log("Total TRs: "+data.totTrs);
+      //     console.log("Total Hops: "+data.totHops);
+      //     console.log("Execution Time: "+data.execTime+' Sec.');
+      //     jQuery('#filter-results-summary').html(data.querySummary);
+
+      //     loadMapData();
+      //     hideLoader();
+      //     jQuery('#filter-results-empty').hide();
+      //     jQuery('.sidebar.vertical.legend').removeClass('overlay animating visible');
+      //     jQuery('#filter-results-content').fadeIn('fast');
+
+      //   } else {
+      //     errText = "No routes were found with the criteria you provided. Adjust the query options to be more inclusive, then click Search";
+      //     showResponseErrors(errText);
+      //   }
+      // } catch(e) {
+      //   errText = "Malformed JSON returned - something went wrong on the backend!";
+      //   showResponseErrors(errText);
+      // }
 
     },
     error: function (e) {

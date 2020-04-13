@@ -51,8 +51,7 @@ var trIdTags = [];
   IXmaps google maps global vars and init scripts
 */
 var privacyRepUrl = config.url_base + '/transparency.php';
-var ixMapsDataJson = {}; // !!
-var ixMapsData = {};
+var ixmapsDataJson = {}; // !!
 var allowMultipleTrs = false; // !!
 var allowRecenter = true;
 
@@ -89,7 +88,6 @@ var trRenderStop = false;
 
 var m_lat = null;
 var m_lng = null;
-var mouse_in_polyline = true;
 var map = null;
 var activeTrId = null;
 var activeTrObj = null;
@@ -126,28 +124,28 @@ var addMarkerInDesination = true; //
 
 var privacyData;
 
-var addCollectedCoord = function(lat1, long1){
-  var c = new google.maps.LatLng(lat1, long1);
-  coordCollected.push(c);
-  renderCollectedCoords();
+// var addCollectedCoord = function(lat1, long1){
+//   var c = new google.maps.LatLng(lat1, long1);
+//   coordCollected.push(c);
+//   renderCollectedCoords();
 
-  if (coordCollected.length == 2) {
-    // using goolge maps API to calculate distance between coordinates
-    var latLngA = coordCollected[0];
-    var latLngB = coordCollected[1];
-    var gmDist = google.maps.geometry.spherical.computeDistanceBetween (latLngA, latLngB);
-    gmDist=gmDist/1000;
-    console.log('gmDist: ', gmDist);
+//   if (coordCollected.length == 2) {
+//     // using goolge maps API to calculate distance between coordinates
+//     var latLngA = coordCollected[0];
+//     var latLngB = coordCollected[1];
+//     var gmDist = google.maps.geometry.spherical.computeDistanceBetween (latLngA, latLngB);
+//     gmDist=gmDist/1000;
+//     console.log('gmDist: ', gmDist);
 
-  } else if (coordCollected.length>2) {
-    // remove origin markers, if any
-    for (m in coordCollectedObj) {
-      coordCollectedObj[m].setMap(null);
-    }
-    coordCollected.length = 0;
-    coordCollectedObj.length = 0;
-  }
-};
+//   } else if (coordCollected.length>2) {
+//     // remove origin markers, if any
+//     for (m in coordCollectedObj) {
+//       coordCollectedObj[m].setMap(null);
+//     }
+//     coordCollected.length = 0;
+//     coordCollectedObj.length = 0;
+//   }
+// };
 
 var renderCollectedCoords = function() {
   jQuery.each(coordCollected, function(key,value) {
@@ -169,28 +167,14 @@ var renderCollectedCoords = function() {
   Called from search.js on successful query return
 */
 var loadMapData = function() {
-  // reset user activity on data set every time a new set is loaded
-
-  //ixMapsDataJson = jQuery.parseJSON(ixMapsData);
-  // var c = 0;
-  // TODO: don't we have total trs in the returned JSON metadata? search.js line 405 to fix this
-  // jQuery.each(ixMapsDataJson, function(trId, value) {
-  //   c++;
-  // });
-  // totTRs = c;
-  // console.log('IXmaps geographic data downloaded! [TRs: '+totTRs+']');
-
-  // CM: what?
-  // for (first in ixMapsDataJson) break;
-
   // wait a bit before loading the first TRid and other functions
   // CM: this should be a callback or promise (from search.js, I believe)
   setTimeout(function() {
     initializeMap();
     // show the last route (ie the one with the highest trid)
-    showThisTr(_.last(_.keys(ixMapsDataJson)));
-    setTableSorters();
+    showThisTr(_.last(_.keys(ixmapsDataJson)));
     renderLayers();
+    // setTableSorters();
     console.log('IXmaps geographic data downloaded! [TRs: '+totTRs+']');
   }, 300);
 
@@ -203,18 +187,11 @@ var loadMapData = function() {
   jQuery('#help-btn').removeClass('hidden');
 };
 
-var setTableSorters = function(){
-  console.log('Sorting TR Tables');
-  //jQuery('#tr-list-table').tablesorter( {sortList: [[0,2]]} );
-  jQuery('#traceroutes-table').tablesorter( {sortList: [[2,1]]} );
-};
-
 var showTotalTrInfo = function(){
-  var t2=trCollection.length;
 
   if (showDynamicLegend) {
     var carriers = '';
-    carriers += '<table id="carrier-table" style="width: 100%;" class="tablesorter tr-list-result ui tablesorter selectable celled compact table">';
+    carriers += '<table id="carrier-table" style="width: 100%;" class="tr-list-result ui tablesorter selectable celled compact table">';
     carriers += '<thead><tr>';
     carriers += '<th title="Telecommunications service provider, i.e. a local internet service provider, or longhaul ‘backbone carrier.’ Click on highlighted carriers to see more about them.">Carrier</th>';
     // add nat
@@ -279,7 +256,7 @@ var showTotalTrInfo = function(){
     carriers+='</tbody></table>';
     jQuery('#carriers-results-table').html(carriers);
 
-    if (t2 != 0) {
+    if (trCollection.length != 0) {
       // sort the second column of the carrier summary table by desc
       jQuery("#carrier-table").tablesorter( {sortList: [[2,1]]} );
     }
@@ -288,7 +265,7 @@ var showTotalTrInfo = function(){
   jQuery('#tr-count').text(trsAddedToMap.length);
 };
 
-var showThisTr = function (trId) {
+var showThisTr = function(trId) {
   if (!allowMultipleTrs) {
     removeAllTrs();
   }
@@ -320,7 +297,7 @@ var addAllTrs = function() {
   var time = trRenderSpeed;
   var lastId;
 
-  jQuery.each(ixMapsDataJson, function(trId, value) {
+  jQuery.each(ixmapsDataJson, function(trId, value) {
     setTimeout(function() {
       if (trRenderStop) {
         return false;
@@ -344,8 +321,8 @@ var removeAllTrs = function() {
   removeTr();
   trsAddedToMap = [];
   skippedRouterNum = new Array(0,0,0,0);
-  trRouterAdded=0;
-  impDistLog='';
+  trRouterAdded = 0;
+  impDistLog = '';
   ipCollection = new Object();
   jQuery('#map-impossible-distance-log').html('');
   jQuery('#map-router-exclusion').html('');
@@ -353,18 +330,15 @@ var removeAllTrs = function() {
   jQuery('#map-tr-active').html('');
 
   // remove markers in origin
-  while(routeMarkers[0])
-  {
+  while(routeMarkers[0]) {
     routeMarkers.pop().setMap(null);
   }
 
-  while(trCollection[0])
-  {
+  while(trCollection[0]) {
     trCollection.pop().setMap(null);
   }
 
-  while(trOcollection[0])
-  {
+  while(trOcollection[0]) {
     trOcollection.pop().setMap(null);
   }
 
@@ -374,8 +348,7 @@ var removeAllTrs = function() {
 };
 
 var removeTr = function() {
-  //console.log('removing active tr');
-  if(activeTrObj!=null){
+  if (activeTrObj != null) {
     activeTrObj.setMap(null);
   }
 };
@@ -404,17 +377,17 @@ var excludeRouter = function(value, trId, hop, renderType) {
     }
   }
   // C
-  if (excludeImpDist) {
-    if (value.impDist == 1 && hop != 1) {
-      skipHop = true;
-      if (renderType == 1) {
-        skippedRouterNum[2] += 1;
-      }
-    }
-  }
+  // if (excludeImpDist) {
+  //   if (value.impDist == 1 && hop != 1) {
+  //     skipHop = true;
+  //     if (renderType == 1) {
+  //       skippedRouterNum[2] += 1;
+  //     }
+  //   }
+  // }
   // D
   if (excludeReservedAS) {
-    if (value.asNum == -1 && value.glOverride == null) {
+    if (value.asnum == -1 && value.gl_override == null) {
       skipHop = true;
       if (renderType == 1) {
         skippedRouterNum[3] += 1;
@@ -434,7 +407,7 @@ var excludeRouter = function(value, trId, hop, renderType) {
 };
 
 
-var renderTr = function (trId) {
+var renderTr = function(trId) {
   var trId = trId.toString();         // different calls to this func pass trId as string or int
   var hopObj = null;
   var p = [];
@@ -461,34 +434,30 @@ var renderTr = function (trId) {
 
   if (!trInMap) {
     // get hops' coords
-    jQuery.each(ixMapsDataJson[trId], function(hop, value) {
+    jQuery.each(ixmapsDataJson[trId].hops, function(key, value) {
 
       // check router exclusions
-      skipHop = excludeRouter(value, trId, hop, 1);
+      skipHop = excludeRouter(value, trId, value.hop, 1);
 
       if (!skipHop) {
-        //console.log(key +':'+ value.long+', '+value.lat);
-        var a = new Array(trId, hop, value.lat, value.long, value.asNum, value.asName, value.ip, value.gl_override, value.mmCity, value.mmCountry, value.hostname);
-        //google.maps.LatLng(value.lat, value.long);
+        var a = new Array(trId, value.hop, value.lat, value.long, value.asnum, value.asname, value.ip_addr, value.gl_override, value.mm_cty, value.mm_country, value.hostname);
 
-        if (value.asNum in activeCarriers) {
-          activeCarriers[value.asNum][0]+=1;
+        if (value.asnum in activeCarriers) {
+          activeCarriers[value.asnum][0] += 1;
         } else {
           // DUPLICATE: offload this to wherever else it's being done - somewhere in the model? Anto
-          var asnName = value.asName;
-          if (asnName.length > 15) {
-            asnName = asnName.slice(0,15) + '...';
-          }
-          activeCarriers[value.asNum]=Array(1,asnName,value.mm_country);
+          // var asnName = value.asName;
+          // if (asnName.length > 15) {
+          //   asnName = asnName.slice(0,15) + '...';
+          // }
+          activeCarriers[value.asnum] = Array(1, value.asname, value.mm_country);
         }
-        //console.log('---- rendering router: ',value);
         p.push(a);
         trRouterAdded++;
       }
 
       trRouterCount++;
     }); // end loop routers
-    //console.log('--- activeCarriers',activeCarriers);
 
     // get coordinates for tr with one-hop only
     if (p.length == 1) {
@@ -607,19 +576,16 @@ var renderTr = function (trId) {
 
     //setTRidActive(trId); FIX ME
 
-    if(allowRecenter)
-    {
-      if(coordinates.length!=0)
-      {
-        if (coordinates.length==1){
+    if (allowRecenter) {
+      if (coordinates.length != 0) {
+        if (coordinates.length == 1) {
           map.setCenter(coordinates[0]);
           map.setZoom(4);
         } else {
           var bounds = new google.maps.LatLngBounds();
           for (var i = 0; i < coordinates.length; i++) {
-              bounds.extend(coordinates[i]);
+            bounds.extend(coordinates[i]);
           }
-          //console.log(coordinates);
           coordinates.length = 0;
           map.fitBounds(bounds);
         }
@@ -628,7 +594,7 @@ var renderTr = function (trId) {
   } // end if tr in map
 
 
-  if(!trInMap){
+  if (!trInMap) {
     trActiveHtml += 'TR added';
   } else {
     trActiveHtml += trInMapHtml;
@@ -638,7 +604,8 @@ var renderTr = function (trId) {
 };
 
 var createMarkerText = function(trId, route, index) {
-  infowindowRoute = route;            // make sure we keep track of which route is current relevant for the infowindows
+  // make sure we keep track of which route is current relevant for the infowindows
+  infowindowRoute = route;
   var hop = route[index];
   var cScore = getPrivacyScore(hop[4]);
   var starsEl = '';
@@ -705,7 +672,7 @@ var renderTr2 = function(trId) {
   var p = [];
   var skipHop;
 
-  jQuery.each(ixMapsDataJson[trId], function(key, value) {
+  jQuery.each(ixmapsDataJson[trId].hops, function(key, value) {
     // check router exclusions
     skipHop = excludeRouter(value, trId, key, 0);
 
@@ -752,24 +719,23 @@ var saveIpFlag = function() {
   console.log("saving ip flag");
 
   // collect all error types
-  var errTypes='';
-  for(var i=1;i<7;i++){
+  var errTypes = '';
+  for(var i=1 ;i<7; i++) {
     var a = jQuery('#ip-t-'+i).is(':checked');
-    if(a){
+    if (a) {
       errTypes+=jQuery('#ip-t-'+i).val()+',';
     }
   }
 
   var obj = {
     action: 'saveIpFlag',
-    ip_addr_f:activeIpFlag,
-    user_ip:myIp,
-    user_nick:getPar('user_nick'),
-    user_reasons_types: errTypes,
-    user_msg:getPar('user_msg'),
-    ip_new_loc:getPar('ip_new_loc')
+    ip_addr_f: activeIpFlag,
+    user_ip: myIp,
+    user_nick: getPar('user_nick'),
+    user_reasons_types:  errTypes,
+    user_msg: getPar('user_msg'),
+    ip_new_loc: getPar('ip_new_loc')
   };
-  //console.log(obj);
 
   jQuery.ajax(config.url_base + '/application/controller/ipFlag.php', {
     type: 'post',
@@ -944,13 +910,13 @@ var showFlags = function(trId, hop, ip, openFlagWin) {
   getIpFlags(openFlagWin);
 }
 
-var trHopMouseover = function (trId,hop,type) {
+var trHopMouseover = function (trId, hop, type) {
   var ipTxt = '';
   var elTxt = '';
   var nextTxt = '';
-  if (type==0){
-    elTxt="Router"
-    ipTxt = '<br/>IP: <strong>'+ixMapsDataJson[trId][hop].ip+'</strong>';
+  if (type==0) {
+    elTxt = "Router"
+    ipTxt = '<br/>IP: <strong>'+ixmapsDataJson[trId].hops[hop].ip_addr+'</strong>';
     ipTxt += ' | <span id="flag-this-link"></span>';
   } else {
     elTxt = "Hop";
@@ -959,7 +925,7 @@ var trHopMouseover = function (trId,hop,type) {
     nextTxt = '-'+hopNext;
   }
 
-  var h=''+''+elTxt+': <strong>'+hop+nextTxt+'</strong><br/>Carrier: <strong>'+ixMapsDataJson[trId][hop].asName+'</strong>, ASN: <strong>'+ixMapsDataJson[trId][hop].asNum+'</strong>'+ipTxt;
+  var h=''+''+elTxt+': <strong>'+hop+nextTxt+'</strong><br/>Carrier: <strong>'+ixmapsDataJson[trId].hops[hop].asname+'</strong>, ASN: <strong>'+ixmapsDataJson[trId].hops[hop].asnum+'</strong>'+ipTxt;
 
   h += '<div id="flagging-info-m"></div>';
   jQuery('#map-info').html(h);
@@ -1012,107 +978,113 @@ var viewPrivacy = function(asNum) {
 
 };
 
-var viewTrDetails = function(trId) {
-  // grab the latencies for this route (we already have everything else)
-  jQuery.ajax(config.url_base + '/application/controller/tr_details_latencies.php', {
-    type: 'POST',
-    data: { trId: trId },
-    success: function(data) {
-      jQuery('#tr-details-modal .traceroute-container tbody .latencies-cell').each(function(i) {
-        jQuery(this).text(jQuery.parseJSON(data)["minLatencies"][i]);
-      });
+var buildTrSummaryTable = function() {
+  jQuery('#traceroutes-results-table tbody').empty();
 
-      jQuery('#tr-details-modal .traceroute-container-more-details tbody .latencies-cell').each(function(i) {
-        jQuery(this).text(jQuery.parseJSON(data)["latencies"][i]);
-      });
-    },
-    error: function(e) {
-      console.log("Error retrieving latencies", e);
+  // creating the tr results table
+  jQuery.each(ixmapsDataJson, function(trId, routeData) {
+    var metadata = routeData['metadata'];
+
+    var originEl = jQuery('<td />').text(metadata['first_hop_country'] + ' ' + metadata['first_hop_city']);
+    if (metadata['first_hop_country'] != null) {
+      originEl = jQuery(originEl).prepend(
+        jQuery('<i />').addClass('flag '+metadata['first_hop_country'].toLowerCase())
+      );
     }
+
+    var trIdEl = '<a id="tr-a-'+trId+'" class="link" href="javascript: showThisTr('+trId+');" onmouseout="removeTr()" onmouseover="renderTr2('+trId+')" onfocus="showThisTr('+trId+')">'+trId+'</a>'
+
+    jQuery('#traceroutes-results-table tbody').append(
+      jQuery('<tr />').append(
+        jQuery(originEl),
+        jQuery('<td />').text(metadata['dest_hostname']),
+        jQuery('<td />').append(trIdEl)
+      )
+    );
+
   });
 
+  // update this library - it's old and broken. Console error will be generated on clicking on the sorting arrows in the table. Only happens if we build the table like this. Can't waste any more time on this, as it's not breaking. Update library before proceeding
+  setTimeout(function(){
+     jQuery('#traceroutes-results-table').tablesorter();
+  }, 5000);
+};
+
+var viewTrDetails = function(trId) {
   // delete everything that is in there now
   jQuery('#tr-details-modal .tr-metadata-more-details tbody').empty();
   jQuery('#tr-details-modal .traceroute-container tbody').empty();
   jQuery('#tr-details-modal .traceroute-container-more-details tbody').empty();
 
   // add the new tr metadata
-  // grabbing the 'first' hop (since each hop will contain all of the metadata)
-  // wow, is this object ever structured terribly...
-  firstHop = ixMapsDataJson[trId][Object.keys(ixMapsDataJson[trId])[0]];
-  lastHop = ixMapsDataJson[trId][Object.keys(ixMapsDataJson[trId])[_.size(ixMapsDataJson[trId])-1]]
+  var metadata = ixmapsDataJson[trId].metadata;
   // the backend passes a strange type of date str that can't be parsed the same in all browsers, so just doing it like this instead
-  var submitterDateTime = firstHop["subTime"].split('.')[0];
-  var origin = firstHop['zipCode'] === null ? "Not specified" : firstHop['zipCode'];
+  var submitterDateTime = metadata["sub_time"].split('.')[0];
+  var origin = metadata['submitter_zip_code'] === null ? "Not specified" : metadata['submitter_zip_code'];
   jQuery('#tr-details-modal .tr-metadata-container .tr-id').text(trId);
-  jQuery('#tr-details-modal .tr-metadata-container .submitter').text(firstHop['submitter']);
+  jQuery('#tr-details-modal .tr-metadata-container .submitter').text(metadata['submitter']);
   jQuery('#tr-details-modal .tr-metadata-container .sub-time').text(submitterDateTime);
   jQuery('#tr-details-modal .tr-metadata-container .zip-code').text(origin);
-  jQuery('#tr-details-modal .tr-metadata-container .destination').text(firstHop['destHostname']);
-  jQuery('#tr-details-modal .tr-metadata-container .dest-ip').text(" - "+firstHop['destIp']);
-  jQuery('#tr-details-modal .tr-metadata-container .terminated').text("(terminated)");
-  if (firstHop['lastHopIp'] != firstHop['destIp']) {
-    jQuery('#tr-details-modal .tr-metadata-container .terminated').text("(did not terminate)");
+  jQuery('#tr-details-modal .tr-metadata-container .destination').text(metadata['dest_hostname']);
+  jQuery('#tr-details-modal .tr-metadata-container .dest-ip').text(" - "+metadata['dest_ip_addr']);
+  jQuery('#tr-details-modal .tr-metadata-container .terminated').text("(did not terminate)");
+  if (metadata['terminated']) {
+    jQuery('#tr-details-modal .tr-metadata-container .terminated').text("(terminated)");
   }
 
   jQuery('#tr-details-modal .tr-metadata-more-details tbody').append(
     jQuery('<tr />').append(
       jQuery('<td />').text("Origin").css("font-weight", "bold"),
-      jQuery('<td />').text(firstHop['asNum']),
-      jQuery('<td />').text(firstHop['asName']),
-      jQuery('<td />').text(firstHop['mmCity']),
-      jQuery('<td />').text(firstHop['mmCountry'])
+      jQuery('<td />').text(metadata['origin_asnum']),
+      jQuery('<td />').text(metadata['origin_asname']),
+      jQuery('<td />').text(metadata['origin_city']),
+      jQuery('<td />').text(metadata['origin_country'])
     ),
     jQuery('<tr />').append(
       jQuery('<td />').text("Terminator").css("font-weight", "bold"),
-      jQuery('<td />').text(lastHop['asNum']),
-      jQuery('<td />').text(lastHop['asName']),
-      jQuery('<td />').text(lastHop['mmCity']),
-      jQuery('<td />').text(lastHop['mmCountry'])
+      jQuery('<td />').text(metadata['last_hop_asnum']),
+      jQuery('<td />').text(metadata['last_hop_asname']),
+      jQuery('<td />').text(metadata['last_hop_city']),
+      jQuery('<td />').text(metadata['last_hop_country'])
+    ),
+    jQuery('<tr />').append(
+      jQuery('<td />').text("Destination").css("font-weight", "bold"),
+      jQuery('<td />').text(metadata['dest_asnum']),
+      jQuery('<td />').text(metadata['dest_asname']),
+      jQuery('<td />').text(metadata['dest_city']),
+      jQuery('<td />').text(metadata['dest_country'])
     )
-    // ,
-    // jQuery('<tr />').append(
-    //   jQuery('<td />').text("Destination").css("font-weight", "bold"),
-    //   jQuery('<td />').text("NULL"),
-    //   jQuery('<td />').text("NULL"),
-    //   jQuery('<td />').text("NULL"),
-    //   jQuery('<td />').text("NULL")
-    // )
   );
 
   // creating the tr table
-  jQuery.each(ixMapsDataJson[trId], function(hopNum, hopValues) {
-    var countryEl = jQuery('<td />').text(hopValues.mmCity);
-    if (hopValues.mmCountry != null) {
+  jQuery.each(ixmapsDataJson[trId].hops, function(hopNum, hop) {
+    var countryEl = jQuery('<td />').text(hop.mm_city);
+    if (hop.mm_country != null) {
       countryEl = jQuery(countryEl).prepend(
-        jQuery('<i />').addClass('flag '+hopValues.mmCountry.toLowerCase())
+        jQuery('<i />').addClass('flag '+hop.mm_country.toLowerCase())
       );
-    }
-    var asName = hopValues.asName;
-    if (hopValues.asShortName != null) {
-      asName = hopValues.asShortname;
     }
 
     jQuery('#tr-details-modal .traceroute-container tbody').append(
       jQuery('<tr />').append(
-        jQuery('<td />').text(hopValues.hop),
-        jQuery('<td />').text(hopValues.firstAttemptLatency).addClass('latencies-cell'),
+        jQuery('<td />').text(hop.hop),
+        jQuery('<td />').text(hop.min_latency).addClass('latencies-cell'),
         jQuery(countryEl),
         jQuery('<td />')
-          .css('background', getAsnBackground(hopValues.asNum))
-          .text(asName)
+          .css('background', getAsnBackground(hop.asnum))
+          .text(hop.asname)
       )
     );
     jQuery('#tr-details-modal .traceroute-container-more-details tbody').append(
       jQuery('<tr />').append(
-        jQuery('<td />').text(hopValues.hop),
-        jQuery('<td />').text(hopValues.ip),
-        jQuery('<td />').text(hopValues.hostname),
-        jQuery('<td />').text(hopValues.asNum),
-        jQuery('<td />').text(hopValues.firstAttemptLatency).addClass('latencies-cell'),
-        jQuery('<td />').text(hopValues.lat),
-        jQuery('<td />').text(hopValues.long),
-        jQuery('<td />').text(hopValues.glOverride)
+        jQuery('<td />').text(hop.hop),
+        jQuery('<td />').text(hop.ip),
+        jQuery('<td />').text(hop.hostname),
+        jQuery('<td />').text(hop.asnum),
+        jQuery('<td />').text(hop.rtt1 + '|' + hop.rtt2 + '|' + hop.rtt3 + '|' + hop.rtt4),
+        jQuery('<td />').text(hop.lat),
+        jQuery('<td />').text(hop.long),
+        jQuery('<td />').text(hop.gl_override)
       )
     );
   });
@@ -1155,22 +1127,22 @@ var toggleMap = function(){
 
 var setAllowRecenter = function() {
   if (allowRecenter) {
-    allowRecenter=false;
+    allowRecenter = false;
     jQuery("#map-allow-recenter").removeClass("map-tool-on").addClass("map-tool-off");
   } else {
-    allowRecenter=true;
+    allowRecenter = true;
     jQuery("#map-allow-recenter").removeClass("map-tool-off").addClass("map-tool-on");
   }
-  console.log('setAllowRecenter',allowRecenter);
+  console.log('setAllowRecenter', allowRecenter);
 };
 
 var setShowNsa = function() {
   if (showNsa) {
-    showNsa=false;
+    showNsa = false;
     removeGeoMarkers(1);
     jQuery("#map-show-nsa").removeClass("map-tool-on").addClass("map-tool-off");
   } else {
-    showNsa=true;
+    showNsa = true;
     renderGeoMarkers(1);
     jQuery("#map-show-nsa").removeClass("map-tool-off").addClass("map-tool-on");
   }
@@ -1179,11 +1151,11 @@ var setShowNsa = function() {
 
 var setShowHotel = function() {
   if (showHotel) {
-    showHotel=false;
+    showHotel = false;
     removeGeoMarkers(2);
     jQuery("#map-show-hotel").removeClass("map-tool-on").addClass("map-tool-off");
   } else {
-    showHotel=true;
+    showHotel = true;
     renderGeoMarkers(2);
     jQuery("#map-show-hotel").removeClass("map-tool-off").addClass("map-tool-on");
   }
@@ -1192,11 +1164,11 @@ var setShowHotel = function() {
 
 var setShowGoogle = function() {
   if (showGoogle) {
-    showGoogle=false;
+    showGoogle = false;
     removeGeoMarkers(3);
     jQuery("#map-show-google").removeClass("map-tool-on").addClass("map-tool-off");
   } else {
-    showGoogle=true;
+    showGoogle = true;
     renderGeoMarkers(3);
     jQuery("#map-show-google").removeClass("map-tool-off").addClass("map-tool-on");
   }
@@ -1205,11 +1177,11 @@ var setShowGoogle = function() {
 
 var setShowUc = function() {
   if (showUc) {
-    showUc=false;
+    showUc= false;
     removeGeoMarkers(4);
     jQuery("#map-show-uc").removeClass("map-tool-on").addClass("map-tool-off");
   } else {
-    showUc=true;
+    showUc= true;
     renderGeoMarkers(4);
     jQuery("#map-show-uc").removeClass("map-tool-off").addClass("map-tool-on");
   }
@@ -1218,11 +1190,11 @@ var setShowUc = function() {
 
 var setShowIXca = function() {
   if (showIXca) {
-    showIXca=false;
+    showIXca= false;
     removeGeoMarkers(5);
     jQuery("#map-show-IXca").removeClass("map-tool-on").addClass("map-tool-off");
   } else {
-    showIXca=true;
+    showIXca= true;
     renderGeoMarkers(5);
     jQuery("#map-show-IXca").removeClass("map-tool-off").addClass("map-tool-on");
   }
@@ -1231,11 +1203,11 @@ var setShowIXca = function() {
 
 var setShowCiraIPT = function() {
   if (showCiraIPT) {
-    showCiraIPT=false;
+    showCiraIPT= false;
     removeGeoMarkers(6);
     jQuery("#map-show-CiraIPT").removeClass("map-tool-on").addClass("map-tool-off");
   } else {
-    showCiraIPT=true;
+    showCiraIPT= true;
     renderGeoMarkers(6);
     jQuery("#map-show-CiraIPT").removeClass("map-tool-off").addClass("map-tool-on");
   }
@@ -1244,11 +1216,11 @@ var setShowCiraIPT = function() {
 
 var setShowAtt = function() {
   if (showAtt) {
-    showAtt=false;
+    showAtt= false;
     removeGeoMarkers(7);
     jQuery("#map-show-Att").removeClass("map-tool-on").addClass("map-tool-off");
   } else {
-    showAtt=true;
+    showAtt= true;
     renderGeoMarkers(7);
     jQuery("#map-show-Att").removeClass("map-tool-off").addClass("map-tool-on");
   }
@@ -1257,11 +1229,11 @@ var setShowAtt = function() {
 
 var setShowVerizon = function() {
   if (showVerizon) {
-    showVerizon=false;
+    showVerizon= false;
     removeGeoMarkers(8);
     jQuery("#map-show-Verizon").removeClass("map-tool-on").addClass("map-tool-off");
   } else {
-    showVerizon=true;
+    showVerizon= true;
     renderGeoMarkers(8);
     jQuery("#map-show-Verizon").removeClass("map-tool-off").addClass("map-tool-on");
   }
@@ -1270,11 +1242,11 @@ var setShowVerizon = function() {
 
 var setShowGoogleTo = function() {
   if (showGoogleTO) {
-    showGoogleTO=false;
+    showGoogleTO= false;
     removeGeoMarkers(9);
     jQuery("#map-show-google-to").removeClass("map-tool-on").addClass("map-tool-off");
   } else {
-    showGoogleTO=true;
+    showGoogleTO= true;
     renderGeoMarkers(9);
     jQuery("#map-show-google-to").removeClass("map-tool-off").addClass("map-tool-on");
   }
@@ -1282,20 +1254,20 @@ var setShowGoogleTo = function() {
 };
 
 var setDefaultMapSettings = function() {
-  allowMultipleTrs=false;
+  allowMultipleTrs= false;
   jQuery("#map-allow-multiple").removeClass("map-tool-on").addClass("map-tool-off");
 
-  excludeReservedAS=false;
+  excludeReservedAS= false;
   jQuery("#map-exclude-d").removeClass("map-tool-on").addClass("map-tool-off");
 };
 
 var setAllowMultipleTrs = function() {
   if (allowMultipleTrs) {
-    allowMultipleTrs=false;
+    allowMultipleTrs= false;
     jQuery("#map-allow-multiple").removeClass("map-tool-on").addClass("map-tool-off");
     jQuery('#map-action-remove-all-but-this').hide();
   } else {
-    allowMultipleTrs=true;
+    allowMultipleTrs = true;
     jQuery("#map-allow-multiple").removeClass("map-tool-off").addClass("map-tool-on");
     jQuery('#map-action-remove-all-but-this').show();
   }
@@ -1405,56 +1377,40 @@ var renderGeoMarkers = function(type){
 };
 
 var removeGeoMarkers = function(type){
-  if (type==1) {
-    while(gmNsa[0])
-    {
+  if (type == 1) {
+    while (gmNsa[0]) {
       gmNsa.pop().setMap(null);
     }
-    //gmNsa.length = 0;
-  } else if (type==2) {
-    while(gmHotel[0])
-    {
+  } else if (type == 2) {
+    while (gmHotel[0]) {
       gmHotel.pop().setMap(null);
     }
-  } else if (type==3) {
-    while(gmGoogle[0])
-    {
+  } else if (type == 3) {
+    while (gmGoogle[0]) {
       gmGoogle.pop().setMap(null);
     }
-
-  } else if (type==4) {
-    while(gmUc[0])
-    {
+  } else if (type == 4) {
+    while (gmUc[0]) {
       gmUc.pop().setMap(null);
     }
-
-  } else if (type==5) {
-    while(gmIXca[0])
-    {
+  } else if (type == 5) {
+    while (gmIXca[0]) {
       gmIXca.pop().setMap(null);
     }
-
-  } else if (type==6) {
-    while(gmCiraIPT[0])
-    {
+  } else if (type == 6) {
+    while (gmCiraIPT[0]) {
       gmCiraIPT.pop().setMap(null);
     }
-
-  } else if (type==7) {
-    while(gmAtt[0])
-    {
+  } else if (type == 7) {
+    while (gmAtt[0]) {
       gmAtt.pop().setMap(null);
     }
-
-  } else if (type==8) {
-    while(gmVerizon[0])
-    {
+  } else if (type == 8) {
+    while (gmVerizon[0]) {
       gmVerizon.pop().setMap(null);
     }
-
-  } else if (type==9) {
-    while(gmGoogleTO[0])
-    {
+  } else if (type == 9) {
+    while (gmGoogleTO[0]) {
       gmGoogleTO.pop().setMap(null);
     }
   }

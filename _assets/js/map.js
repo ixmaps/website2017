@@ -1,6 +1,6 @@
 // generic js related to map.php goes here
 
-/* Gloal Vars for my location: now populated via ajax call */
+/* Global Vars for my location: now populated via ajax call */
 /* TODO: add this to a js object: check all uses of these global vars */
 var myIp = '';
 var myCity = '';
@@ -330,14 +330,14 @@ var hideLoader = function() {
 
 var cancelQuery = function() {
   if (ajaxObj && ajaxObj.readystate != 4) {
-      ajaxObj.abort();
-      console.log("Query submission has been canceled.");
+    ajaxObj.abort();
+    console.log("Query submission has been canceled.");
   }
 };
 
 var setTableSorters = function(){
   console.log('Sorting TR Tables');
-  jQuery('#traceroutes-table').tablesorter( {sortList: [[0,2]]} );
+  jQuery('#traceroutes-results-table').tablesorter( {sortList: [[2,1]]} );
 };
 
 var loadAutocompleteData = function(type) {
