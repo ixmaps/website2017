@@ -382,7 +382,7 @@ var submitQuery = function(arr) {
 
       data = JSON.parse(e);
       if (data.trsReturned != 0 && data.result != undefined) {
-        ixMapsDataJson = jQuery.parseJSON(data.result);
+        ixmapsDataJson = jQuery.parseJSON(data.result);
 
         buildTrSummaryTable();
         jQuery('#tot-results').html(data.trsReturned);
@@ -409,7 +409,7 @@ var submitQuery = function(arr) {
       // try {
       //   data = JSON.parse(e);
       //   if (data.totTrs != 0 && data.result != undefined) {
-      //     ixMapsDataJson = jQuery.parseJSON(data.result);
+      //     ixmapsDataJson = jQuery.parseJSON(data.result);
 
       //     // jQuery('#traceroutes-results').html(data.trsTable);
       //     buildTrResultsTable();

@@ -51,8 +51,7 @@ var trIdTags = [];
   IXmaps google maps global vars and init scripts
 */
 var privacyRepUrl = config.url_base + '/transparency.php';
-var ixMapsDataJson = {}; // !!
-var ixMapsData = {};
+var ixmapsDataJson = {}; // !!
 var allowMultipleTrs = false; // !!
 var allowRecenter = true;
 
@@ -168,26 +167,12 @@ var renderCollectedCoords = function() {
   Called from search.js on successful query return
 */
 var loadMapData = function() {
-  // reset user activity on data set every time a new set is loaded
-
-  //ixMapsDataJson = jQuery.parseJSON(ixMapsData);
-  // var c = 0;
-  // TODO: don't we have total trs in the returned JSON metadata? search.js line 405 to fix this
-  // jQuery.each(ixMapsDataJson, function(trId, value) {
-  //   c++;
-  // });
-  // totTRs = c;
-  // console.log('IXmaps geographic data downloaded! [TRs: '+totTRs+']');
-
-  // CM: what?
-  // for (first in ixMapsDataJson) break;
-
   // wait a bit before loading the first TRid and other functions
   // CM: this should be a callback or promise (from search.js, I believe)
   setTimeout(function() {
     initializeMap();
     // show the last route (ie the one with the highest trid)
-    showThisTr(_.last(_.keys(ixMapsDataJson)));
+    showThisTr(_.last(_.keys(ixmapsDataJson)));
     renderLayers();
     // setTableSorters();
     console.log('IXmaps geographic data downloaded! [TRs: '+totTRs+']');
@@ -312,7 +297,7 @@ var addAllTrs = function() {
   var time = trRenderSpeed;
   var lastId;
 
-  jQuery.each(ixMapsDataJson, function(trId, value) {
+  jQuery.each(ixmapsDataJson, function(trId, value) {
     setTimeout(function() {
       if (trRenderStop) {
         return false;
@@ -449,7 +434,7 @@ var renderTr = function(trId) {
 
   if (!trInMap) {
     // get hops' coords
-    jQuery.each(ixMapsDataJson[trId].hops, function(key, value) {
+    jQuery.each(ixmapsDataJson[trId].hops, function(key, value) {
 
       // check router exclusions
       skipHop = excludeRouter(value, trId, value.hop, 1);
@@ -687,7 +672,7 @@ var renderTr2 = function(trId) {
   var p = [];
   var skipHop;
 
-  jQuery.each(ixMapsDataJson[trId].hops, function(key, value) {
+  jQuery.each(ixmapsDataJson[trId].hops, function(key, value) {
     // check router exclusions
     skipHop = excludeRouter(value, trId, key, 0);
 
@@ -931,7 +916,7 @@ var trHopMouseover = function (trId, hop, type) {
   var nextTxt = '';
   if (type==0) {
     elTxt = "Router"
-    ipTxt = '<br/>IP: <strong>'+ixMapsDataJson[trId].hops[hop].ip_addr+'</strong>';
+    ipTxt = '<br/>IP: <strong>'+ixmapsDataJson[trId].hops[hop].ip_addr+'</strong>';
     ipTxt += ' | <span id="flag-this-link"></span>';
   } else {
     elTxt = "Hop";
@@ -940,7 +925,7 @@ var trHopMouseover = function (trId, hop, type) {
     nextTxt = '-'+hopNext;
   }
 
-  var h=''+''+elTxt+': <strong>'+hop+nextTxt+'</strong><br/>Carrier: <strong>'+ixMapsDataJson[trId].hops[hop].asname+'</strong>, ASN: <strong>'+ixMapsDataJson[trId].hops[hop].asnum+'</strong>'+ipTxt;
+  var h=''+''+elTxt+': <strong>'+hop+nextTxt+'</strong><br/>Carrier: <strong>'+ixmapsDataJson[trId].hops[hop].asname+'</strong>, ASN: <strong>'+ixmapsDataJson[trId].hops[hop].asnum+'</strong>'+ipTxt;
 
   h += '<div id="flagging-info-m"></div>';
   jQuery('#map-info').html(h);
@@ -997,8 +982,7 @@ var buildTrSummaryTable = function() {
   jQuery('#traceroutes-results-table tbody').empty();
 
   // creating the tr results table
-  jQuery.each(ixMapsDataJson, function(arrayNum, routeData) {
-    var trId = routeData['traceroute_id'];
+  jQuery.each(ixmapsDataJson, function(trId, routeData) {
     var metadata = routeData['metadata'];
 
     var originEl = jQuery('<td />').text(metadata['first_hop_country'] + ' ' + metadata['first_hop_city']);
@@ -1033,7 +1017,7 @@ var viewTrDetails = function(trId) {
   jQuery('#tr-details-modal .traceroute-container-more-details tbody').empty();
 
   // add the new tr metadata
-  var metadata = ixMapsDataJson[trId].metadata;
+  var metadata = ixmapsDataJson[trId].metadata;
   // the backend passes a strange type of date str that can't be parsed the same in all browsers, so just doing it like this instead
   var submitterDateTime = metadata["sub_time"].split('.')[0];
   var origin = metadata['submitter_zip_code'] === null ? "Not specified" : metadata['submitter_zip_code'];
@@ -1073,7 +1057,7 @@ var viewTrDetails = function(trId) {
   );
 
   // creating the tr table
-  jQuery.each(ixMapsDataJson[trId].hops, function(hopNum, hop) {
+  jQuery.each(ixmapsDataJson[trId].hops, function(hopNum, hop) {
     var countryEl = jQuery('<td />').text(hop.mm_city);
     if (hop.mm_country != null) {
       countryEl = jQuery(countryEl).prepend(
