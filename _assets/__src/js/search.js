@@ -380,62 +380,35 @@ var submitQuery = function(arr) {
     success: function(e) {
       console.log("Query response received: " + e);
 
-      data = JSON.parse(e);
-      if (data.trsReturned != 0 && data.result != undefined) {
-        ixmapsDataJson = jQuery.parseJSON(data.result);
+      try {
+        data = JSON.parse(e);
+        if (data.trsReturned != 0 && data.result != undefined) {
+          ixmapsDataJson = jQuery.parseJSON(data.result);
 
-        buildTrSummaryTable();
-        jQuery('#tot-results').html(data.trsReturned);
-        jQuery('#tot-results-found').html(data.trsFound);
-        jQuery('#my-ip').html(myIp);
+          buildTrSummaryTable();
+          jQuery('#tot-results').html(data.trsReturned);
+          jQuery('#tot-results-found').html(data.trsFound);
+          jQuery('#my-ip').html(myIp);
 
-        console.log("Total TRs: "+data.trsReturned);
-        console.log("Total Hops: "+data.totHops);
-        console.log("Execution Time: "+data.execTime+' Sec.');
-        jQuery('#filter-results-summary').html(data.querySummary);
+          console.log("Total TRs: "+data.trsReturned);
+          console.log("Total Hops: "+data.totHops);
+          console.log("Execution Time: "+data.execTime+' Sec.');
+          jQuery('#filter-results-summary').html(data.querySummary);
 
-        loadMapData();
-        hideLoader();
-        jQuery('#filter-results-empty').hide();
-        jQuery('.sidebar.vertical.legend').removeClass('overlay animating visible');
-        jQuery('#filter-results-content').fadeIn('fast');
+          loadMapData();
+          hideLoader();
+          jQuery('#filter-results-empty').hide();
+          jQuery('.sidebar.vertical.legend').removeClass('overlay animating visible');
+          jQuery('#filter-results-content').fadeIn('fast');
 
-      } else {
-        errText = "No routes were found with the criteria you provided. Adjust the query options to be more inclusive, then click Search";
+        } else {
+          errText = "No routes were found with the criteria you provided. Adjust the query options to be more inclusive, then click Search";
+          showResponseErrors(errText);
+        }
+      } catch(e) {
+        errText = "Malformed JSON returned - something went wrong on the backend!";
         showResponseErrors(errText);
       }
-
-      // TODO: readd
-      // try {
-      //   data = JSON.parse(e);
-      //   if (data.totTrs != 0 && data.result != undefined) {
-      //     ixmapsDataJson = jQuery.parseJSON(data.result);
-
-      //     // jQuery('#traceroutes-results').html(data.trsTable);
-      //     buildTrResultsTable();
-      //     jQuery('#tot-results').html(data.totTrs);
-      //     jQuery('#tot-results-found').html(data.totTrs);
-      //     jQuery('#my-ip').html(myIp);
-
-      //     console.log("Total TRs: "+data.totTrs);
-      //     console.log("Total Hops: "+data.totHops);
-      //     console.log("Execution Time: "+data.execTime+' Sec.');
-      //     jQuery('#filter-results-summary').html(data.querySummary);
-
-      //     loadMapData();
-      //     hideLoader();
-      //     jQuery('#filter-results-empty').hide();
-      //     jQuery('.sidebar.vertical.legend').removeClass('overlay animating visible');
-      //     jQuery('#filter-results-content').fadeIn('fast');
-
-      //   } else {
-      //     errText = "No routes were found with the criteria you provided. Adjust the query options to be more inclusive, then click Search";
-      //     showResponseErrors(errText);
-      //   }
-      // } catch(e) {
-      //   errText = "Malformed JSON returned - something went wrong on the backend!";
-      //   showResponseErrors(errText);
-      // }
 
     },
     error: function (e) {
@@ -468,8 +441,8 @@ var submitUserLocObject = function() {
   submitQuery(Object.values(usrLocQuery));
 }
 
-var buildTrCountQuery = function(type) {
-  console.log("buildTrCountQuery", type);
+var buildInitialMapEntryQuery = function(type) {
+  console.log("buildInitialMapEntryQuery", type);
 
   resetUserLocQueryOptions(); // !!
 
@@ -501,11 +474,10 @@ var buildTrCountQuery = function(type) {
       }
 
       loadingUsrLocQuery();
-      submitTrCount(usrLocQuery);
+      submitInitialMapEntryQuery(usrLocQuery);
     } else {
       jQuery('.opening.modal').modal('hide');
     }
-
 
   // query dynamically created based on user selections in opening modal
   } else {
@@ -560,24 +532,24 @@ var buildTrCountQuery = function(type) {
     }
 
     loadingUsrLocQuery();
-    submitTrCount(usrLocQuery);
+    submitInitialMapEntryQuery(usrLocQuery);
   } // end if
 
 }
 
 /* count results for a submission constraint */
-var submitTrCount = function(obj) {
-  ajaxObj = jQuery.ajax(config.url_base + '/application/controller/map_search.php', {
+var submitInitialMapEntryQuery = function(obj) {
+  ajaxObj = jQuery.ajax(config.url_base + '/application/controller/map_entry_search.php', {
     type: 'post',
     data: obj,
     success: function (e) {
-      console.log("submitTrCount OK");
-      dataSearch = jQuery.parseJSON(e);
-      console.log(dataSearch);
-      renderTrCountData(dataSearch);
+      console.log("submitInitialMapEntryQuery OK");
+      results = jQuery.parseJSON(e);
+      console.log(results);
+      renderInitialMapEntryResults(results);
     },
     error: function (e) {
-      console.log("Error! submitTrCount");
+      console.log("Error! submitInitialMapEntryQuery");
     }
   });
 };
@@ -646,7 +618,7 @@ var resetUserLocQueryOptions = function(type) {
 
 }
 
-var renderTrCountData = function(data) {
+var renderInitialMapEntryResults = function(data) {
   /*Check if the element is in the submitted query */
   if (typeof usrLocQuery.submitter != 'undefined') {
     userLocQueryOptions.submitter.total = data.results.submitter.total;
@@ -673,7 +645,7 @@ var renderTrCountData = function(data) {
     }
   }
 
-  jQuery(".userloc-trs-tot").html(data.total); // !!
+  jQuery(".userloc-trs-tot").html(data.total);
 
   jQuery(".userloc-submitter-tot").html(userLocQueryOptions.submitter.total);
   if (userLocQueryOptions.submitter.total != 0) {

@@ -93,7 +93,7 @@ var setMyLocationData = function(data) {
   // unbind the click event to prevent users from clicking through before search is completed
   jQuery('#myloc-submit-btn').unbind('click');
   // create the initial query for opening modal
-  buildTrCountQuery('first');
+  buildInitialMapEntryQuery('first');
 }
 
 var setUpClickHandlers = function() {
@@ -141,11 +141,10 @@ var setUpClickHandlers = function() {
     jQuery('.opening.modal').modal('hide');
     window.location = "/contribute.php";
   });
-  /* for testing only */
   jQuery('#myloc-reload-btn').click(function() {
     jQuery('#myloc-reload-btn').removeClass('blue');
     jQuery('#myloc-submit-btn').unbind('click');
-    buildTrCountQuery('');
+    buildInitialMapEntryQuery('');
   });
 
 
