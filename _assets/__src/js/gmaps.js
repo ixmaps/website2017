@@ -31,22 +31,6 @@ var initializeMap = function() {
 };
 
 
-/* global var from old ixmaps.js */
-// autocomplete arrays (to be filled with ajax call to backend)
-var countryTags = [];
-var regionTags = [];
-var cityTags = [];
-var zipCodeTags = [];
-var ISPTags = [];
-var ASnumTags = [];
-var submitterTags = [];
-var zipCodeSubmitterTags = [];
-var destHostNameTags = [];
-var ipAddressTags = [];
-var hostNameTags = [];
-var trIdTags = [];
-
-
 /*
   IXmaps google maps global vars and init scripts
 */

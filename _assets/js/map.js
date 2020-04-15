@@ -352,6 +352,7 @@ var loadAutocompleteData = function(type) {
       var data = jQuery.parseJSON(e);
       // remove falsey values like null (jqueryui autocomplete chokes on them)
       autocompletes[type] = _.reject(data, _.isNull);
+      console.log(type);
       // bind the basic search
       bindAutocomplete(jQuery('.bs-input[data-constraint="'+type+'"]'), type);
       // bind the opening modal

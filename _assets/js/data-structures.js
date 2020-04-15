@@ -51,8 +51,16 @@ const constraints = [
         "display": "Submitter postcode"
       },
       {
-        "value": "ISP",
-        "display": "ISP/Carrier"
+        "value": "subTimeGreaterThan",
+        "display": "Submission date after"
+      },
+      {
+        "value": "subTimeLessThan",
+        "display": "Submission date before"
+      },
+      {
+        "value": "destHostname",
+        "display": "Destination hostname"
       },
       {
         "value": "city",
@@ -71,12 +79,8 @@ const constraints = [
         "display": "Postcode"
       },
       {
-        "value": "hostName",
+        "value": "hostname",
         "display": "Hostname"
-      },
-      {
-        "value": "destHostName",
-        "display": "Destination hostname"
       },
       {
         "value": "ipAddr",
@@ -85,6 +89,10 @@ const constraints = [
       {
         "value": "asnum",
         "display": "AS number"
+      },
+      {
+        "value": "ISP",
+        "display": "ISP/Carrier"
       },
       {
         "value": "trId",
@@ -175,12 +183,15 @@ var layers = {
 var nsaCities = ["San Francisco", "Los Angeles", "New York", "Dallas", "Washington", "Ashburn", "Seattle", "San Jose", "San Diego", "Miami", "Boston", "Phoenix", "Salt Lake City", "Nashville", "Denver", "Saint Louis", "Bridgeton", "Bluffdale", "Houston", "Chicago", "Atlanta", "Portland"];
 
 var autocompletes = {
+  "submitter": [],
+  "subTimeGreaterThan": [],
+  "subTimeLessThan": [],
+  "destHostname": [],
   "country": [],
   "region": [],
   "city": [],
   "zipCode": [],
-  "ISP": [],
-  "submitter": []
+  "ISP": []
 }
 
 var tooltips = [
