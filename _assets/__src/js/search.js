@@ -32,58 +32,21 @@ var constructViaNSACity = function() {
 
 var constructBoomerangs = function() {
   // if user has been geolocated
-  var submission = null;
+  var submission = [
+    {
+      constraint1: "quickLink",
+      constraint2: "boomerang"
+    }
+  ];
   if (myCountry.length > 0) {
-    submission = [
-      {
-        constraint1: "does",
-        constraint2: "originate",
-        constraint3: "country",
-        constraint4: myCountry,
-        constraint5: "AND"
-      },
-      {
-        constraint1: "does",
-        constraint2: "goVia",
-        constraint3: "country",
-        constraint4: "US",
-        constraint5: "AND"
-      },
-      {
-        constraint1: "does",
-        constraint2: "terminate",
-        constraint3: "country",
-        constraint4: myCountry,
-        constraint5: "AND"
-      }
-    ];
-    jQuery('#qs-search-parameters-container').text('Does Originate in Country '+myCountry+' AND Does Go via Country US AND Does Terminate in Country '+myCountry);
+    submission[0]["constraint4"] = myCountry;
+
+    jQuery('#qs-search-parameters-container').text('Does Originate in '+myCountry+' AND Does Go via Another Country AND Does Terminate in '+myCountry);
   } else {
-    submission = [
-      {
-        constraint1: "does",
-        constraint2: "originate",
-        constraint3: "country",
-        constraint4: "CA",
-        constraint5: "AND"
-      },
-      {
-        constraint1: "does",
-        constraint2: "goVia",
-        constraint3: "country",
-        constraint4: "US",
-        constraint5: "AND"
-      },
-      {
-        constraint1: "does",
-        constraint2: "terminate",
-        constraint3: "country",
-        constraint4: "CA",
-        constraint5: "AND"
-      }
-    ];
+    submission[0]["constraint4"] = 'CA';
+
     jQuery().toastmessage('showWarningToast', 'We were unable to determine your location - submitting a Canadian boomerang query instead');
-    jQuery('#qs-search-parameters-container').text('Does Originate in Country CA AND Does Go via Country US AND Does Terminate in Country CA');
+    jQuery('#qs-search-parameters-container').text('Does Originate in CA AND Does Go via Another Country AND Does Terminate in CA');
   }
 
   submitQuery(submission);
