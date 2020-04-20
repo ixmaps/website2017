@@ -52,7 +52,7 @@ const constraints = [
       },
       {
         "value": "subTimeGreaterThan",
-        "display": "Submission date after"
+        "display": "Submission date on or after"
       },
       {
         "value": "subTimeLessThan",
@@ -249,7 +249,7 @@ var tooltips = [
   },
   {
     "element": ".qs-via-boomerangs-btn",
-    "text": "Finds all routes that originate in Canada but pass through the US before returning home. For more, see Learn/Issues"
+    "text": "Finds all routes that originate in your current country but pass through a foreign country before returning home. For more, see Learn/Issues"
   },
   {
     "element": ".qs-from-my-isp-btn",

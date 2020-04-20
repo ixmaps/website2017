@@ -978,7 +978,7 @@ var buildTrSummaryTable = function() {
 
     var trIdEl = '<a id="tr-a-'+trId+'" class="link" href="javascript: showThisTr('+trId+');" onmouseout="removeTr()" onmouseover="renderTr2('+trId+')" onfocus="showThisTr('+trId+')">'+trId+'</a>'
 
-    jQuery('#traceroutes-results-table tbody').append(
+    jQuery('#traceroutes-results-table tbody').prepend(
       jQuery('<tr />').append(
         jQuery(originEl),
         jQuery('<td />').text(metadata['dest_hostname']),

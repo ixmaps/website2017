@@ -60,7 +60,7 @@ var constructFromMyIsp = function() {
         constraint2: "originate",
         constraint3: "asnum",
         constraint4: myAsn,
-        constraint5: "AND"
+        constraint5: "and"
       }
     ];
     submitQuery(submission);
@@ -78,7 +78,7 @@ var constructFromMyCity = function() {
         constraint2: "originate",
         constraint3: "city",
         constraint4: myCity,
-        constraint5: "AND"
+        constraint5: "and"
       }
     ];
     submitQuery(submission);
@@ -96,7 +96,7 @@ var constructFromMyCountry = function() {
         constraint2: "originate",
         constraint3: "country",
         constraint4: myCountry,
-        constraint5: "AND"
+        constraint5: "and"
       }
     ];
     submitQuery(submission);
@@ -139,7 +139,7 @@ var constructBS = function() {
               constraint2: "contain",
               constraint3: "city",
               constraint4: city,
-              constraint5: "OR"
+              constraint5: "or"
             };
 
             if (yesOrNo === "yes") {
@@ -151,7 +151,7 @@ var constructBS = function() {
             }
             // we need to switch the last condition to an AND if there are 'To' basic search criteria added (eg terminate Toronto)
             if (index+1 === nsaCities.length) {
-              nsaObj.constraint5 = "AND"
+              nsaObj.constraint5 = "and"
             }
             submission.push(nsaObj);
             i++;
@@ -165,7 +165,7 @@ var constructBS = function() {
           constraint2: "goVia",
           constraint3: jQuery(el).data('constraint'),
           constraint4: jQuery(el).val(),
-          constraint5: "AND"
+          constraint5: "and"
         };
         submission.push(origObj);
         i++;
@@ -188,7 +188,7 @@ var constructBS = function() {
         constraint2: constraint2Val,
         constraint3: jQuery(el).data('constraint'),
         constraint4: jQuery(el).val(),
-        constraint5: "AND"
+        constraint5: "and"
       };
       submission.push(origObj);
       i++;
@@ -210,7 +210,7 @@ var constructBS = function() {
         constraint2: constraint2,
         constraint3: jQuery(el).data('constraint'),
         constraint4: jQuery(el).val(),
-        constraint5: "AND"
+        constraint5: "and"
       };
       submission.push(origObj);
       i++;
@@ -259,7 +259,19 @@ var constructAS = function() {
   }
 };
 
-var createASRow = function(row) {
+var setAdvancedSearchFilters = function(submittedConstraints) {
+  jQuery('.advanced.input-holder').remove();
+
+  _.each(submittedConstraints, function(sc, index) {
+    if (index == 0) {
+      createASRow("first", sc);
+    } else {
+      createASRow("", sc);
+    }
+  });
+};
+
+var createASRow = function(row, submittedConstraint) {
   var inputHolderEl = jQuery('<div/>');
   inputHolderEl.addClass('advanced input-holder');
 
@@ -308,6 +320,7 @@ var createASRow = function(row) {
   controlsEl.addClass('advanced-input constraint-buttons');
   var buttonEl = jQuery('<button/>');
   buttonEl.addClass('circular ui icon button');
+  var inputEl = jQuery(inputHolderEl).find('.constraint-input').find('input');
   if (row === "first") {
     // add button
     jQuery(buttonEl).append('<i class="create-search-row-btn icon settings"><img src="_assets/img/icn-add.svg" alt="add"></i>');
@@ -321,21 +334,34 @@ var createASRow = function(row) {
       jQuery(inputHolderEl).remove();
     });
     // adding the autocomplete for Submitter
-    var inputEl = jQuery(inputHolderEl).find('.constraint-input').find('input');
     bindAutocomplete(inputEl, "submitter");
   }
+
+  // these will be created when a query is submitted (so that they can be refined later, eg coming from Basic Search)
+  if (submittedConstraint) {
+    jQuery(inputHolderEl).find('.constraint-boolean select').val(submittedConstraint.constraint1);
+    jQuery(inputHolderEl).find('.constraint-position select').val(submittedConstraint.constraint2);
+    jQuery(inputHolderEl).find('.constraint-kind select').val(submittedConstraint.constraint3);
+    jQuery(inputHolderEl).find('.constraint-input input').val(submittedConstraint.constraint4);
+    bindAutocomplete(inputEl, submittedConstraint.constraint3);
+    jQuery(inputHolderEl).find('.constraint-join select').val(submittedConstraint.constraint5);
+  }
+
   jQuery(controlsEl).append(buttonEl);
   jQuery(inputHolderEl).append(controlsEl);
 
   jQuery('#as-search-container').append(inputHolderEl);
 };
 
-/* submission for new map website */
 var submitQuery = function(arr) {
   console.log('Submitting...', arr);
   showLoader();
   jQuery('#filter-results-content').fadeOut('fast');
   jQuery('#filter-results-empty').show();
+
+  if (arr[0].constraint1 !== "quickLink") {
+    setAdvancedSearchFilters(arr);
+  };
 
   ajaxObj = jQuery.ajax(config.url_base + '/application/controller/map.php', {
     type: 'post',
@@ -346,7 +372,7 @@ var submitQuery = function(arr) {
       try {
         data = JSON.parse(e);
         if (data.trsReturned != 0 && data.result != undefined) {
-          ixmapsDataJson = jQuery.parseJSON(data.result);
+          ixmapsDataJson = JSON.parse(data.result);
 
           buildTrSummaryTable();
           jQuery('#tot-results').html(data.trsReturned);
@@ -416,26 +442,27 @@ var buildInitialMapEntryQuery = function(type) {
 
     // sometimes we cannot retrieve the user's loc or asn
     if (myAsn || myCity) {
-      obj = {
-        constraint1: "does",
-        constraint2: "originate",
-        constraint3: "asnum",
-        constraint4: myAsn,
-        constraint5: "AND"
+      if (myAsn) {
+        obj = {
+          constraint1: "does",
+          constraint2: "originate",
+          constraint3: "asnum",
+          constraint4: myAsn,
+          constraint5: "and"
+        }
+        usrLocQuery['myAsn'] = obj;
       }
-      usrLocQuery['myAsn'] = obj;
 
-      if (myCity != "" ) {
+      if (myCity) {
         obj = {
           constraint1: "does",
           constraint2: "originate",
           constraint3: "city",
           constraint4: myCity,
-          constraint5: "AND"
+          constraint5: "and"
         };
         usrLocQuery['myCity'] = obj;
       }
-
       loadingUsrLocQuery();
       submitInitialMapEntryQuery(usrLocQuery);
     } else {
@@ -456,7 +483,7 @@ var buildInitialMapEntryQuery = function(type) {
         constraint2: "originate",
         constraint3: "asnum",
         constraint4: userLocQueryOptions.myAsn.value,
-        constraint5: "AND"
+        constraint5: "and"
       };
       usrLocQuery['myAsn'] = obj;
     }
@@ -467,7 +494,7 @@ var buildInitialMapEntryQuery = function(type) {
         constraint2: "originate",
         constraint3: "country",
         constraint4: myCountryUsr,
-        constraint5: "AND"
+        constraint5: "and"
       };
       usrLocQuery['myCountry'] = obj;
     }
@@ -478,7 +505,7 @@ var buildInitialMapEntryQuery = function(type) {
         constraint2: "originate",
         constraint3: "city",
         constraint4: myCityUsr,
-        constraint5: "AND"
+        constraint5: "and"
       };
       usrLocQuery['myCity'] = obj;
     }
@@ -489,7 +516,7 @@ var buildInitialMapEntryQuery = function(type) {
         constraint2: "contain",
         constraint3: "submitter",
         constraint4: submitter,
-        constraint5: "AND"
+        constraint5: "and"
       };
       usrLocQuery['submitter'] = obj;
     }
@@ -571,7 +598,7 @@ var resetUserLocQueryOptions = function(type) {
   jQuery('.userloc-asn').text(myAsn);
 
   // check if city name has been changed in ui
-  if (myCityUsr!="" && myCityUsr!=myCity) {
+  if (myCityUsr != "" && myCityUsr != myCity) {
     jQuery('.userloc-city').val(myCityUsr);
     userLocQueryOptions.myCity.value = myCityUsr;
   } else {

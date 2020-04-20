@@ -57,12 +57,14 @@ var getMyLocation = function() {
       // populate js auto-complete array(s)
       var data = jQuery.parseJSON(e);
 
-      if (data.defaultValue == true) {
-        // we don't know the user's IP, so we hide the modal
-        jQuery('.opening.modal').modal('hide');
-      } else {
-        setMyLocationData(data);
-      }
+      setMyLocationData(data);
+
+      // if (data.defaultValue == true) {
+      //   // we don't know the user's IP, so we hide the modal
+      //   jQuery('.opening.modal').modal('hide');
+      // } else {
+      //   setMyLocationData(data);
+      // }
     },
     error: function (e) {
       console.log("Error! getMyLocation data can't be loaded", e);
@@ -352,7 +354,6 @@ var loadAutocompleteData = function(type) {
       var data = jQuery.parseJSON(e);
       // remove falsey values like null (jqueryui autocomplete chokes on them)
       autocompletes[type] = _.reject(data, _.isNull);
-      console.log(type);
       // bind the basic search
       bindAutocomplete(jQuery('.bs-input[data-constraint="'+type+'"]'), type);
       // bind the opening modal
