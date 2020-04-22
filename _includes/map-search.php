@@ -24,8 +24,7 @@
                 </div>
             </div>
 
-
-            <h3 class="ui header text-center">Select a quick search to view traceroutes in the IXmaps database.</h3>
+            <h3 class="ui header text-center">Select a quick search to view traceroutes in the IXmaps database</h3>
 
             <div class="input-holder">
                 <div class="quick-input">
@@ -64,12 +63,15 @@
                         From My Country
                     </button>
                 </div>
-                <div class="ui searchsettings items" style="margin: 0em;">
+                <div class="ui searchsettings items hidden" style="margin: 0em;">
                     <div class="item">
                         <p class="minor">
                             <strong>Search Query:</strong>
-                            <span id="qs-search-parameters-container"></span><br />
-                            <a class="as-link">[ Refine in Advanced Search ]</a>
+                            <span class="search-parameters-container"></span>
+                            <br/>
+                            <a class="bs-link hidden">[ Refine in Basic Search ]</a>
+                            or
+                            <a class="as-link hidden">[ Refine in Advanced Search ]</a>
                         </p>
                     </div>
                 </div>
@@ -83,7 +85,7 @@
                     <a class="ui primary basic blue button map-settings-button">Settings</a>
                 </div>
             </div>
-            <h3 class="ui header text-center">Enter Search Terms to Find Traceroutes in the IXmaps Database</h3>
+            <h3 class="ui header text-center">Enter search terms to find traceroutes in the IXmaps database</h3>
             <div class="basic input-holder">
                 <a class="from basic-srch-itm" data-position="bottom left">
                     <div class="input-summary">
@@ -188,8 +190,19 @@
                             <label>Country</label>
                             <input class="bs-input" data-constraint="country" type="text" placeholder="Country">
                         </div>
-                        <!-- <button class="ui primary blue right floated button">Save</button> -->
                     </div>
+                </div>
+            </div>
+            <div class="ui searchsettings items hidden" style="margin-top: 30px; margin-left: 8px;">
+                <div class="item">
+                    <p class="minor">
+                        <strong>Search Query:</strong>
+                        <span class="search-parameters-container"></span>
+                        <br/>
+                        <a class="bs-link hidden">[ Refine in Basic Search ]</a>
+                        or
+                        <a class="as-link hidden">[ Refine in Advanced Search ]</a>
+                    </p>
                 </div>
             </div>
 

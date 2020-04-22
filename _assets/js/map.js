@@ -208,10 +208,6 @@ var setUpClickHandlers = function() {
     hideLoader();
   });
 
-  jQuery('#filter-results-summary-container').click(function() {
-    jQuery('#filter-results-summary').toggle();
-  });
-
   jQuery('#tr-details-close-btn').click(function() {
     removeTr();
     jQuery('.traceroutes.modal').modal('hide');
@@ -249,6 +245,12 @@ var setUpClickHandlers = function() {
     jQuery(this).addClass('active');
     jQuery('.tab').hide();
     jQuery('#'+jQuery(this).attr('id')+'-container').show();
+  });
+  jQuery('.bs-link').on('click', function() {
+    jQuery('.active').removeClass('active');
+    jQuery('#bs-tab').addClass('active');
+    jQuery('.tab').hide();
+    jQuery('#bs-tab-container').show();
   });
   jQuery('.as-link').on('click', function() {
     jQuery('.active').removeClass('active');

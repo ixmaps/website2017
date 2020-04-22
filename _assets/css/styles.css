@@ -25749,6 +25749,11 @@ footer {
 	font-size: 14px;
 }
 
+#traceroutes-results {
+	overflow: auto;
+	max-height: 450px;
+}
+
 .traceroutes-results,
 .carriers-results {
 	position: relative;
@@ -25763,23 +25768,6 @@ footer {
 .traceroutes-results button,
 .carriers-results button {
 	float: right;
-}
-
-#filter-results-summary-container {
-	margin-left: 5px;
-	color: #10578b;
-	cursor: pointer;
-	font-size: 14px;
-}
-
-#filter-results-summary {
-	margin-left: 5px;
-	color: black;
-}
-
-#traceroutes-results {
-	overflow: auto;
-	max-height: 300px;
 }
 
 .carrier-results {
@@ -26457,12 +26445,6 @@ i.flag:not(.icon):before {
 	float: left;
 }
 
-#filter-results-summary {
-	font-size: 0.6em;
-	margin-bottom: 10px;
-	border-bottom: #c4c4c4 1px solid;
-}
-
 .pushable > .pusher {
 	overflow: visible;
 }
@@ -26490,7 +26472,7 @@ i.flag:not(.icon):before {
 
 #carriers-results-table {
 	overflow: auto;
-	max-height: 300px;
+	max-height: 150px;
 }
 
 #filter-results-empty {

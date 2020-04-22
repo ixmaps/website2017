@@ -16,7 +16,7 @@ var constructLastContributed = function() {
     }
   ];
   submitQuery(submission);
-  jQuery('#qs-search-parameters-container').text('Last contributed traceroutes');
+  jQuery('.search-parameters-container').text('Last contributed traceroutes');
 };
 
 var constructViaNSACity = function() {
@@ -27,7 +27,7 @@ var constructViaNSACity = function() {
     }
   ];
   submitQuery(submission);
-  jQuery('#qs-search-parameters-container').text('Goes via an NSA city');
+  jQuery('.search-parameters-container').text('Goes via an NSA city');
 };
 
 var constructBoomerangs = function() {
@@ -41,12 +41,12 @@ var constructBoomerangs = function() {
   if (myCountry.length > 0) {
     submission[0]["constraint4"] = myCountry;
 
-    jQuery('#qs-search-parameters-container').text('Does Originate in '+myCountry+' AND Does Go via Another Country AND Does Terminate in '+myCountry);
+    jQuery('.search-parameters-container').text('Does Originate in '+myCountry+' AND Does Go via Another Country AND Does Terminate in '+myCountry);
   } else {
     submission[0]["constraint4"] = 'CA';
 
     jQuery().toastmessage('showWarningToast', 'We were unable to determine your location - submitting a Canadian boomerang query instead');
-    jQuery('#qs-search-parameters-container').text('Does Originate in CA AND Does Go via Another Country AND Does Terminate in CA');
+    jQuery('.search-parameters-container').text('Does Originate in CA AND Does Go via Another Country AND Does Terminate in CA');
   }
 
   submitQuery(submission);
@@ -63,8 +63,8 @@ var constructFromMyIsp = function() {
         constraint5: "and"
       }
     ];
+    populateBSFieldsForSearch(submission);
     submitQuery(submission);
-    jQuery('#qs-search-parameters-container').text('Does Originate in AS number ' + myAsn);
   } else {
     jQuery().toastmessage('showErrorToast', 'We were unable to determine your ISP - please try a different query');
   }
@@ -81,8 +81,8 @@ var constructFromMyCity = function() {
         constraint5: "and"
       }
     ];
+    populateBSFieldsForSearch(submission);
     submitQuery(submission);
-    jQuery('#qs-search-parameters-container').text('Does Originate in City ' + myCity);
   } else {
     jQuery().toastmessage('showErrorToast', 'We were unable to determine your city - please try a different query');
   }
@@ -99,8 +99,8 @@ var constructFromMyCountry = function() {
         constraint5: "and"
       }
     ];
+    populateBSFieldsForSearch(submission);
     submitQuery(submission);
-    jQuery('#qs-search-parameters-container').text('Does Originate in Country ' + myCountry);
   } else {
     jQuery().toastmessage('showErrorToast', 'We were unable to determine your country - please try a different query');
   }
@@ -259,17 +259,55 @@ var constructAS = function() {
   }
 };
 
-var setAdvancedSearchFilters = function(submittedConstraints) {
-  jQuery('.advanced.input-holder').remove();
+var outputSubmissionParametersToMap = function(submittedConstraints) {
 
-  _.each(submittedConstraints, function(sc, index) {
-    if (index == 0) {
-      createASRow("first", sc);
-    } else {
-      createASRow("", sc);
-    }
-  });
+  // this one is always shown after the first submission is sent
+  jQuery('.searchsettings').removeClass('hidden');
+  // rehide for now
+  jQuery('.bs-link').addClass('hidden');
+  jQuery('.as-link').addClass('hidden');
+
+  if (submittedConstraints[0].constraint1 != "quickLink") {
+    // remove the pre-created AS row
+    jQuery('.advanced.input-holder').remove();
+    jQuery('.search-parameters-container').html('');
+    jQuery('.bs-link').removeClass('hidden');
+    jQuery('.as-link').removeClass('hidden');
+
+    var searchParamStr = '';
+
+    _.each(submittedConstraints, function(sc, index) {
+      if (index == 0) {
+        createASRow("first", sc);
+      } else {
+        createASRow("", sc);
+      }
+
+      // show user what constraints they just searched
+      searchParamStr += sc.constraint1[0].toUpperCase() + sc.constraint1.slice(1) + ' ';
+      searchParamStr += sc.constraint2 + ' ';
+      searchParamStr += sc.constraint3 + ' ';
+      searchParamStr += sc.constraint4 + ' ';
+      searchParamStr += sc.constraint5;
+      if (index+1 !== submittedConstraints.length) {
+        searchParamStr += ' || ';
+      }
+    });
+
+    var searchParamEl = jQuery('<span/>').text(searchParamStr);
+    jQuery('.search-parameters-container').append(searchParamEl);
+  }
+
 };
+
+var populateBSFieldsForSearch = function(sub) {
+  // shortcut: we only account 3 quicklinks here (from my isp, from my city, from my country)
+  if (sub[0].constraint3 == "asnum") {
+    jQuery("#bs-originate-popup input[data-constraint='ISP']").val(sub[0].constraint4);
+  } else {
+    jQuery("#bs-originate-popup input[data-constraint='"+sub[0].constraint3+"']").val(sub[0].constraint4);
+  }
+}
 
 var createASRow = function(row, submittedConstraint) {
   var inputHolderEl = jQuery('<div/>');
@@ -359,9 +397,8 @@ var submitQuery = function(arr) {
   jQuery('#filter-results-content').fadeOut('fast');
   jQuery('#filter-results-empty').show();
 
-  if (arr[0].constraint1 !== "quickLink") {
-    setAdvancedSearchFilters(arr);
-  };
+  // show text of query parameters to user
+  outputSubmissionParametersToMap(arr);
 
   ajaxObj = jQuery.ajax(config.url_base + '/application/controller/map.php', {
     type: 'post',
@@ -382,7 +419,6 @@ var submitQuery = function(arr) {
           console.log("Total TRs: "+data.trsReturned);
           console.log("Total Hops: "+data.totHops);
           console.log("Execution Time: "+data.execTime+' Sec.');
-          jQuery('#filter-results-summary').html(data.querySummary);
 
           loadMapData();
           hideLoader();
