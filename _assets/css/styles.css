@@ -26941,3 +26941,7 @@ section.faq-block {
 .toast-item p {
 	margin-right: 20px;
 }
+
+hr {
+	clear: both;
+}
