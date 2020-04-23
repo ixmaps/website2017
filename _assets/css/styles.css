@@ -26692,6 +26692,11 @@ i.flag:not(.icon):before {
 	}
 }
 
+section.faq-block {
+	padding-bottom: 48px;
+	border-top: 2px solid #eee;
+}
+
 .faq {
 	background: #ffffff;
 }
@@ -26933,15 +26938,11 @@ article:last-child {
 	margin: 0;
 }
 
-section.faq-block {
-	padding-bottom: 48px;
-	border-top: 2px solid #eee;
-}
-
 .toast-item p {
 	margin-right: 20px;
 }
 
+/* required for Firefox */
 hr {
 	clear: both;
 }

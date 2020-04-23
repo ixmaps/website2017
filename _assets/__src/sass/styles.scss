@@ -24,7 +24,7 @@ body {
 }
 
 // Set the Grid Structure of Content Articles
-article{
+article {
     @include shift(2 of $grid-columns);
     @include span-columns(8);
     padding: 24px;
@@ -43,26 +43,22 @@ article{
     }
 }
 
-.hero{
-  width: 100%;
-  height: 250px;
-  background: $grey_dark;
-    h1{
-    line-height: 250px;
-    text-align: center;
-    margin: 0;
+.hero {
+    width: 100%;
+    height: 250px;
+    background: $grey_dark;
+    h1 {
+        line-height: 250px;
+        text-align: center;
+        margin: 0;
     }
-}
-
-section.faq-block{
-    padding-bottom: 48px;
-    border-top: 2px solid #eee
 }
 
 .toast-item p {
     margin-right: 20px;
 }
 
+/* required for Firefox */
 hr {
     clear: both;
 }

@@ -183,17 +183,17 @@
                     </div>
                 </div>
             </div>
-            <div class="ui searchsettings items hidden" style="margin-top: 30px; margin-left: 8px;">
+            <div class="ui searchsettings items hidden" style="margin: 0em; margin-top: 35px;">
                 <div class="item">
                     <p class="minor">
                         <strong>Search Query:</strong>
                         <span class="search-parameters-container"></span>
                         <br/>
-                        <div class="refine-search-container hidden">
+                        <span class="refine-search-container hidden">
                             <a class="bs-link">[ Refine in Basic Search ]</a>
                             or
                             <a class="as-link">[ Refine in Advanced Search ]</a>
-                        </div>
+                        </span>
                     </p>
                 </div>
             </div>

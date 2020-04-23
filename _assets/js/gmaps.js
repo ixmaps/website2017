@@ -1012,7 +1012,7 @@ var viewTrDetails = function(trId) {
   jQuery('#tr-details-modal .tr-metadata-container .destination').text(metadata['dest_hostname']);
   jQuery('#tr-details-modal .tr-metadata-container .dest-ip').text(" - "+metadata['dest_ip_addr']);
   jQuery('#tr-details-modal .tr-metadata-container .terminated').text("(did not terminate)");
-  if (metadata['terminated']) {
+  if (metadata['terminated'] == "t") {
     jQuery('#tr-details-modal .tr-metadata-container .terminated').text("(terminated)");
   }
 
@@ -1062,7 +1062,7 @@ var viewTrDetails = function(trId) {
     jQuery('#tr-details-modal .traceroute-container-more-details tbody').append(
       jQuery('<tr />').append(
         jQuery('<td />').text(hop.hop),
-        jQuery('<td />').text(hop.ip),
+        jQuery('<td />').text(hop.ip_addr),
         jQuery('<td />').text(hop.hostname),
         jQuery('<td />').text(hop.asnum),
         jQuery('<td />').text(hop.rtt1 + '|' + hop.rtt2 + '|' + hop.rtt3 + '|' + hop.rtt4),

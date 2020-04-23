@@ -120,19 +120,19 @@
     background: #eee
   }
 }
-#glossary-holder{  position: relative;}
+#glossary-holder {  position: relative;}
 
-#glossary-list{
+#glossary-list {
   @include span-columns(12);
 }
 
-#glossary-entries{
+#glossary-entries {
   @include span-columns(8);
   @include shift(4);
 
   @include media($medium){
-      @include shift(6);
-      @include span-columns(6);
+    @include shift(6);
+    @include span-columns(6);
   }
 
   @include media($small){
@@ -143,7 +143,12 @@
 }
 
 // FAQs
-.faq{
+section.faq-block {
+  padding-bottom: 48px;
+  border-top: 2px solid #eee;
+}
+
+.faq {
   background: $white
 }
 
@@ -158,43 +163,43 @@
   @include shift(1);
 
   @include media($medium){
-      @include shift(1);
-      @include span-columns(10);
+    @include shift(1);
+    @include span-columns(10);
   }
 
   @include media($small){
-      @include shift(0);
-      @include span-columns(12);
-      padding:0;
+    @include shift(0);
+    @include span-columns(12);
+    padding: 0;
   }
 }
 
-.faq-example-image{
-    @include span-columns(3);
-    padding-bottom: 2em;
-    line-height: 1.25;
+.faq-example-image {
+  @include span-columns(3);
+  padding-bottom: 2em;
+  line-height: 1.25;
 
-    @include media($medium){
-        @include span-columns(4);
-    }
-    @include media($small){
-        @include span-columns(4);
-    }
-    @include media($mobile){
-        @include span-columns(2);
-    }
+  @include media($medium){
+    @include span-columns(4);
+  }
+  @include media($small){
+    @include span-columns(4);
+  }
+  @include media($mobile){
+    @include span-columns(2);
+  }
 }
 
-.faq-example-description{
-    @include span-columns(9);
+.faq-example-description {
+  @include span-columns(9);
 
-    @include media($medium){
-        @include span-columns(8);
-    }
-    @include media($small){
-        @include span-columns(8);
-    }
-    @include media($mobile){
-        @include span-columns(2);
-    }
+  @include media($medium){
+    @include span-columns(8);
+  }
+  @include media($small){
+    @include span-columns(8);
+  }
+  @include media($mobile){
+    @include span-columns(2);
+  }
 }

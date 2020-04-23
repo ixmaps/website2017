@@ -318,11 +318,6 @@ var setUpClickHandlers = function() {
     });
 };
 
-/* TODO: Render tr results table and add event listeners (instead of constructing the html on the backend */
-var renderTrResultTable = function(data) {
-
-};
-
 var showLoader = function() {
   jQuery('#loader').show();
 };
