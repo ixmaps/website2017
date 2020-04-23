@@ -272,7 +272,6 @@ var outputSubmissionParametersToMap = function(submittedConstraints) {
     jQuery('.search-parameters-container').html('');
     jQuery('.refine-search-container').removeClass('hidden');
 
-
     var searchParamStr = '';
 
     _.each(submittedConstraints, function(sc, index) {

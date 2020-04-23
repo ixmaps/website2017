@@ -25892,21 +25892,23 @@ footer {
 	position: relative;
 }
 
-.layers-toggle {
+.map-buttons-container {
 	position: absolute;
-	top: 8px;
-	right: 0;
+	top: 7px;
+	right: 7px;
 	z-index: 2;
 }
 
-.layers-toggle .ui.toggle.button {
+.map-buttons-container .ui.toggle.button {
 	background: #ffffff;
 	border: 1px solid #1C6FB8;
 	color: #1C6FB8;
 	border-radius: 0;
 	text-transform: uppercase;
 	letter-spacing: 1px;
-	width: 155px;
+	width: 120px;
+	height: 45px;
+	margin-bottom: 5px;
 }
 
 .ui.toggle.buttons .active.button,
@@ -26175,9 +26177,9 @@ i.flag:not(.icon):before {
 
 .settings.modal {
 	width: 475px;
-	margin-top: -340px !important;
+	margin-top: -230px !important;
 	/* overwrite */
-	margin-left: 70px;
+	margin-left: -110px;
 	/* overwrite */
 }
 

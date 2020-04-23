@@ -120,7 +120,7 @@
   color: $grey;
 }
 
-.ui.visible.right.overlay.sidebar{
+.ui.visible.right.overlay.sidebar {
   width: 500px !important;
 }
 
@@ -138,14 +138,14 @@
 
 .ui.compact.table tr.carrier td {
     padding-left: 8px;
-  &:first-child{
+  &:first-child {
     padding-left: 16px;
     margin-left: 0;
     position: relative;
   }
 }
 
-.carrier-colour{
+.carrier-colour {
   width: 8px;
   height: 100%;
   position: absolute;
@@ -160,7 +160,7 @@
 
 
 
-.table.minor td{
+.table.minor td {
   font-size: 14px;
 }
 
@@ -174,26 +174,26 @@
 }
 
 
-.legend.sidebar{
+.legend.sidebar {
   padding: 0 24px;
   h3{
     text-align: center;
     margin-bottom: 32px;
   }
-  .button{
+  .button {
     text-align: left;
     margin-bottom: 8px
   }
 }
 
 
-.legend-item{
+.legend-item {
   display: flex;
   align-items: center;
   padding: 8px 0;
 }
 
-.legend-item p{
+.legend-item p {
   padding-left: 16px;
   font-size: 16px;
   line-height: 16px;
@@ -203,37 +203,40 @@
   }
 }
 
-.legend-item img{
+.legend-item img {
   float: left;
   padding-left: 8px;
   width: auto;
   height: auto;
 }
 
-.map-canvas{
+.map-canvas {
   position: relative;
 }
-.layers-toggle{
+
+.map-buttons-container {
   position: absolute;
-  top: $baseline;
-  right: 0;
+  top: 7px;
+  right: 7px;
   z-index: 2;
 }
 
-.layers-toggle .ui.toggle.button{
+.map-buttons-container .ui.toggle.button {
   background: $white;
   border: 1px solid $ixblue;
   color: $ixblue;
   border-radius: 0;
   text-transform: uppercase;
   letter-spacing: 1px;
-  width: 155px;
+  width: 120px;
+  height: 45px;
+  margin-bottom: 5px;
 }
 
 .ui.toggle.buttons .active.button,
 .ui.buttons .button.toggle.active,
 .ui.button.toggle.active,
-.ui.button.toggle.active:hover{
+.ui.button.toggle.active:hover {
     background: #C8E3FA  !important;
     color: $ixblue !important;
   }
@@ -439,8 +442,8 @@ i.flag:not(.icon):before {
 
 .settings.modal {
   width: 475px;
-  margin-top: -340px !important; /* overwrite */
-  margin-left: 70px; /* overwrite */
+  margin-top: -230px !important; /* overwrite */
+  margin-left: -110px; /* overwrite */
 }
 .settings.modal .setting-title {
   color: $grey;

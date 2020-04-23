@@ -17,13 +17,6 @@
 
         <!-- Tab 1 Contents: Quick Search -->
         <div id="qs-tab-container" class="ui bottom attached tab segment active content" data-tab="quick">
-
-            <div class="top aligned content" style="float: right; padding-right: 0px;">
-                <div class="ui right floated">
-                    <a class="ui primary basic blue button map-settings-button">Settings</a>
-                </div>
-            </div>
-
             <h3 class="ui header text-center">Select a quick search to view traceroutes in the IXmaps database</h3>
 
             <div class="input-holder">
@@ -82,11 +75,6 @@
 
         <!-- Tab 2 Contents: Basic Search -->
         <div id="bs-tab-container" class="ui bottom attached tab segment content" data-tab="basic">
-            <div class="top aligned content" style="float: right; padding-right: 0px;">
-                <div class="ui right floated">
-                    <a class="ui primary basic blue button map-settings-button">Settings</a>
-                </div>
-            </div>
             <h3 class="ui header text-center">Enter search terms to find traceroutes in the IXmaps database</h3>
             <div class="basic input-holder">
                 <a class="from basic-srch-itm" data-position="bottom left">
@@ -214,22 +202,16 @@
 
         <!-- Tab 3 Contents: Advanced Search -->
         <div id="as-tab-container" class="ui bottom attached tab segment" data-tab="advanced">
-            <div class="top aligned content" style="float: right; padding-right: 0px;">
-                <div class="ui right floated">
-                    <a class="ui primary basic blue button map-settings-button">Settings</a>
-                </div>
-            </div>
             <h3 class="ui header">Construct a custom query to search the IXmaps database</h3>
 
             <div id="as-search-container"></div>
 
-            <div class="search-line">
-                <hr />
+            <hr />
 
+            <div>
                 <button id="as-submit-btn" class="ui primary right floated button">
                     Search
                 </button>
-
                 <button id="as-clear-btn" class="ui secondary right floated button">
                     Clear
                 </button>

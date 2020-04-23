@@ -310,7 +310,7 @@ var setUpClickHandlers = function() {
       closable : false // If this is set to true (the default value) clicking anywhere else on the page will close the overlay. Remove this line if that behaviour is desired.
     })
     .sidebar('setting', 'transition', 'overlay', 'toggle')
-    .sidebar('attach events', '.map-holder .layers-toggle .toggle.button');
+    .sidebar('attach events', '.map-holder .layers-toggle');
   jQuery('.ui.accordion')
     .accordion();
   jQuery('.toggle.button')

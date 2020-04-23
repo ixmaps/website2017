@@ -83,16 +83,17 @@
 
         <!-- GOOGLE MAPS -->
         <div class="map-canvas pusher">
-            <div class="layers-toggle">
-
+            <div class="map-buttons-container">
                 <button class="ui toggle button">
-                    <!-- TODO: I believe this style came from semantic-ui's css. What is best practice for these types of overwrites -->
-                    <i class="ui image left floated" style="margin-bottom: 0px">
-                        <img src="/_assets/img/icn-layers.svg" alt="delete" />
-                    </i>
+                    <span class="map-settings-button">SETTINGS</span>
+                </button>
+                <br />
+                <button class="layers-toggle ui toggle button">
                     <span id="num-active-layers">0 LAYERS</span>
                 </button>
+
             </div>
+
 
             <div id="map"></div>
         </div>
