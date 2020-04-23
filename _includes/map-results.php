@@ -3,10 +3,14 @@
     <div id="filter-results-content" class="hidden">
         <header class="header-results">
             <div>
-                <strong><span id="tot-results-found"></span></strong> Traceroutes Found <br />
-                <em>Displaying <span id="tr-count"></span> of a sample of <span id="tot-results"></span> search results</em>
-                <button id="add-all-trs-btn" class="ui compact transparent basic right floated yellow button">Map All</button>
-                <button id="remove-all-trs-btn" class="ui compact transparent basic right floated yellow button">Hide All</button>
+                <div>
+                    <strong><span id="tot-results-found"></span></strong> Traceroutes Found
+                    <button id="add-all-trs-btn" class="ui compact transparent basic right floated yellow button" style="width: 90; margin-right: 10px;">Map All</button>
+                </div>
+                <div>
+                    <em>Displaying <span id="tr-count"></span> of a sample of <span id="tot-results"></span> search results</em>
+                    <button id="remove-all-trs-btn" class="ui compact transparent basic right floated yellow button" style="width: 90; margin-right: 10px;">Hide All</button>
+                </div>
             </div>
         </header>
 

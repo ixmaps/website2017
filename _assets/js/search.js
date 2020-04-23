@@ -264,15 +264,14 @@ var outputSubmissionParametersToMap = function(submittedConstraints) {
   // this one is always shown after the first submission is sent
   jQuery('.searchsettings').removeClass('hidden');
   // rehide for now
-  jQuery('.bs-link').addClass('hidden');
-  jQuery('.as-link').addClass('hidden');
+  jQuery('.refine-search-container').addClass('hidden');
 
   if (submittedConstraints[0].constraint1 != "quickLink") {
     // remove the pre-created AS row
     jQuery('.advanced.input-holder').remove();
     jQuery('.search-parameters-container').html('');
-    jQuery('.bs-link').removeClass('hidden');
-    jQuery('.as-link').removeClass('hidden');
+    jQuery('.refine-search-container').removeClass('hidden');
+
 
     var searchParamStr = '';
 

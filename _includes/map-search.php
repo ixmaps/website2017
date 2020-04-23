@@ -69,9 +69,11 @@
                             <strong>Search Query:</strong>
                             <span class="search-parameters-container"></span>
                             <br/>
-                            <a class="bs-link hidden">[ Refine in Basic Search ]</a>
-                            or
-                            <a class="as-link hidden">[ Refine in Advanced Search ]</a>
+                            <span class="refine-search-container hidden">
+                                <a class="bs-link">[ Refine in Basic Search ]</a>
+                                or
+                                <a class="as-link">[ Refine in Advanced Search ]</a>
+                            </span>
                         </p>
                     </div>
                 </div>
@@ -199,9 +201,11 @@
                         <strong>Search Query:</strong>
                         <span class="search-parameters-container"></span>
                         <br/>
-                        <a class="bs-link hidden">[ Refine in Basic Search ]</a>
-                        or
-                        <a class="as-link hidden">[ Refine in Advanced Search ]</a>
+                        <div class="refine-search-container hidden">
+                            <a class="bs-link">[ Refine in Basic Search ]</a>
+                            or
+                            <a class="as-link">[ Refine in Advanced Search ]</a>
+                        </div>
                     </p>
                 </div>
             </div>
