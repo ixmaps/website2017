@@ -1019,30 +1019,30 @@ var viewTrDetails = function(trId) {
   jQuery('#tr-details-modal .tr-metadata-more-details tbody').append(
     jQuery('<tr />').append(
       jQuery('<td />').text("Origin").css("font-weight", "bold"),
-      jQuery('<td />').text(metadata['origin_asnum']),
-      jQuery('<td />').text(metadata['origin_asname']),
-      jQuery('<td />').text(metadata['origin_city']),
-      jQuery('<td />').text(metadata['origin_country'])
+      jQuery('<td />').text(metadata['origin_asnum'] ? metadata['origin_asnum'] : ""),
+      jQuery('<td />').text(metadata['origin_asname'] ? metadata['origin_asname'] : ""),
+      jQuery('<td />').text(metadata['origin_city'] ? metadata['origin_city'] : ""),
+      jQuery('<td />').text(metadata['origin_country'] ? metadata['origin_country'] : "")
     ),
     jQuery('<tr />').append(
       jQuery('<td />').text("Terminator").css("font-weight", "bold"),
-      jQuery('<td />').text(metadata['last_hop_asnum']),
-      jQuery('<td />').text(metadata['last_hop_asname']),
-      jQuery('<td />').text(metadata['last_hop_city']),
-      jQuery('<td />').text(metadata['last_hop_country'])
+      jQuery('<td />').text(metadata['last_hop_asnum'] ? metadata['last_hop_asnum'] : ""),
+      jQuery('<td />').text(metadata['last_hop_asname'] ? metadata['last_hop_asname'] : ""),
+      jQuery('<td />').text(metadata['last_hop_city'] ? metadata['last_hop_city'] : ""),
+      jQuery('<td />').text(metadata['last_hop_country'] ? metadata['last_hop_country'] : "")
     ),
     jQuery('<tr />').append(
       jQuery('<td />').text("Destination").css("font-weight", "bold"),
-      jQuery('<td />').text(metadata['dest_asnum']),
-      jQuery('<td />').text(metadata['dest_asname']),
-      jQuery('<td />').text(metadata['dest_city']),
-      jQuery('<td />').text(metadata['dest_country'])
+      jQuery('<td />').text(metadata['dest_asnum'] ? metadata['dest_asnum'] : ""),
+      jQuery('<td />').text(metadata['dest_asname'] ? metadata['dest_asname'] : ""),
+      jQuery('<td />').text(metadata['dest_city'] ? metadata['dest_city'] : ""),
+      jQuery('<td />').text(metadata['dest_country'] ? metadata['dest_country'] : "")
     )
   );
 
   // creating the tr table
   jQuery.each(ixmapsDataJson[trId].hops, function(hopNum, hop) {
-    var countryEl = jQuery('<td />').text(hop.mm_city);
+    var countryEl = jQuery('<td />').text(hop.mm_city ? hop.mm_city : "");
     if (hop.mm_country != null) {
       countryEl = jQuery(countryEl).prepend(
         jQuery('<i />').addClass('flag '+hop.mm_country.toLowerCase())
@@ -1056,7 +1056,7 @@ var viewTrDetails = function(trId) {
         jQuery(countryEl),
         jQuery('<td />')
           .css('background', getAsnBackground(hop.asnum))
-          .text(hop.asname)
+          .text(hop.asname ? hop.asname : "")
       )
     );
     jQuery('#tr-details-modal .traceroute-container-more-details tbody').append(
@@ -1065,10 +1065,10 @@ var viewTrDetails = function(trId) {
         jQuery('<td />').text(hop.ip_addr),
         jQuery('<td />').text(hop.hostname),
         jQuery('<td />').text(hop.asnum),
-        jQuery('<td />').text(hop.rtt1 + '|' + hop.rtt2 + '|' + hop.rtt3 + '|' + hop.rtt4),
+        jQuery('<td />').text(hop.rtt1 + "|" + hop.rtt2 + "|" + hop.rtt3 + "|" + hop.rtt4),
         jQuery('<td />').text(hop.lat),
         jQuery('<td />').text(hop.long),
-        jQuery('<td />').text(hop.gl_override)
+        jQuery('<td />').text(hop.gl_override ? hop.gl_override : "")
       )
     );
   });
