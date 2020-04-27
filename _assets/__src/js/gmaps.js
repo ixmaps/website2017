@@ -424,7 +424,7 @@ var renderTr = function(trId) {
       skipHop = excludeRouter(value, trId, value.hop, 1);
 
       if (!skipHop) {
-        var a = new Array(trId, value.hop, value.lat, value.long, value.asnum, value.asname, value.ip_addr, value.gl_override, value.mm_cty, value.mm_country, value.hostname);
+        var a = new Array(trId, value.hop, value.lat, value.long, value.asnum, value.asname, value.ip_addr, value.gl_override, value.mm_city, value.mm_country, value.hostname);
 
         if (value.asnum in activeCarriers) {
           activeCarriers[value.asnum][0] += 1;
