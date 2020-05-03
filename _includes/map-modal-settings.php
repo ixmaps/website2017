@@ -10,6 +10,8 @@
         <h4>Route Mapping</h4>
         <input id="map-allow-multiple" class="map-tool-off" type="button" onMouseDown="setAllowMultipleTrs()" value="Multiple TRs"/>
         <input id="map-allow-recenter" class="map-tool-on" type="button" onMouseDown="setAllowRecenter()" value="Re-center"/>
+        <input id="map-origin-marker" class="map-tool-on" type="button" onMouseDown="setOriginMarker()" value="Origin marker"/>
+        <input id="map-termination-marker" class="map-tool-on" type="button" onMouseDown="setTerminationMarker()" value="Termination marker"/>
       </div>
 
       <div class="map-actions-controls">

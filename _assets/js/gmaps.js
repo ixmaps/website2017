@@ -1,43 +1,13 @@
-// stuff related to the map goes here
-
-var setUpGMaps = function() {
-  // we have to create this script element manually if we want to keep our key hidden
-  var scriptEl = document.createElement('script');
-  scriptEl.type = 'text/javascript';
-  scriptEl.src = 'https://maps.google.com/maps/api/js?v=3&libraries=geometry&key='+config.gmaps.key+'&callback=initializeMap';
-
-  document.body.appendChild(scriptEl);
-};
-
-var initializeMap = function() {
-  // TODO - is this just a generic value? Add in the user's geolocated value once we have a clear backend API query for that?
-  var myLatLng = new google.maps.LatLng(43.30, -101.79);
-
-  var mapOptions = {
-    scrollwheel: false,
-    navigationControl: true,
-    mapTypeControl: true,
-    scaleControl: true,
-    draggable: true,
-    zoom: 3,
-    center: myLatLng,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  };
-  map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-  // moved here from map.js - layers relies on the google object existing
-  getLayers();
-  populateLayersContainer();
-};
-
-
 /*
   IXmaps google maps global vars and init scripts
 */
 var privacyRepUrl = config.url_base + '/transparency.php';
 var ixmapsDataJson = {}; // !!
+
 var allowMultipleTrs = false; // !!
 var allowRecenter = true;
+var showOriginMarker = true;
+var showTerminationMarker = true;
 
 var showNsa = false;
 var showHotel = false;
@@ -54,7 +24,6 @@ var showGoogleTO = false; // 3) // gDcTO
 
 var routeMarkers = []; // Added to fix marker in origin interpreted as a hop, issue with info window displaying wrong location data
 var showDynamicLegend = true; // !!
-var showMapInfoGlobal = false;
 
 var excludeCoord0 = true;
 var excludeCoordGen = true;
@@ -70,8 +39,6 @@ var trRouterAdded = 0;
 var trRenderSpeed = 50;
 var trRenderStop = false;
 
-var m_lat = null;
-var m_lng = null;
 var map = null;
 var activeTrId = null;
 var activeTrObj = null;
@@ -107,6 +74,37 @@ var addMarkerInLastHop = true; // Not implemented
 var addMarkerInDesination = true; //
 
 var privacyData;
+
+
+var setUpGMaps = function() {
+  // we have to create this script element manually if we want to keep our key hidden
+  var scriptEl = document.createElement('script');
+  scriptEl.type = 'text/javascript';
+  scriptEl.src = 'https://maps.google.com/maps/api/js?v=3&libraries=geometry&key='+config.gmaps.key+'&callback=initializeMap';
+
+  document.body.appendChild(scriptEl);
+};
+
+var initializeMap = function() {
+  // TODO - is this just a generic value? Add in the user's geolocated value once we have a clear backend API query for that?
+  var myLatLng = new google.maps.LatLng(43.30, -101.79);
+
+  var mapOptions = {
+    scrollwheel: false,
+    navigationControl: true,
+    mapTypeControl: true,
+    scaleControl: true,
+    draggable: true,
+    zoom: 3,
+    center: myLatLng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+  // moved here from map.js - layers relies on the google object existing
+  getLayers();
+  populateLayersContainer();
+};
 
 // var addCollectedCoord = function(lat1, long1){
 //   var c = new google.maps.LatLng(lat1, long1);
@@ -424,7 +422,7 @@ var renderTr = function(trId) {
       skipHop = excludeRouter(value, trId, value.hop, 1);
 
       if (!skipHop) {
-        var a = new Array(trId, value.hop, value.lat, value.long, value.asnum, value.asname, value.ip_addr, value.gl_override, value.mm_cty, value.mm_country, value.hostname);
+        var a = new Array(trId, value.hop, value.lat, value.long, value.asnum, value.asname, value.ip_addr, value.gl_override, value.mm_city, value.mm_country, value.hostname);
 
         if (value.asnum in activeCarriers) {
           activeCarriers[value.asnum][0] += 1;
@@ -453,7 +451,7 @@ var renderTr = function(trId) {
     // build each hop as a polyline
     jQuery.each(p, function(index, value) {
       // create the origin marker
-      if (index == 0) {
+      if (showOriginMarker && index == 0) {
         var O_LatLng = new google.maps.LatLng(p[0][2],p[0][3]);
         var O_m = new google.maps.Marker({
           position: O_LatLng,
@@ -466,7 +464,7 @@ var renderTr = function(trId) {
         routeMarkers.push(O_m); // tracking markers so that they can be removed later
       }
       // create the terminator marker
-      if (index == p.length-1) {
+      if (showTerminationMarker && index == p.length-1) {
         var O_LatLng = new google.maps.LatLng(p[p.length-1][2],p[p.length-1][3]);
         var O_m = new google.maps.Marker({
           position: O_LatLng,
@@ -946,7 +944,7 @@ var viewPrivacy = function(asNum) {
 
   privacyHtml += '<tr><td></td>';
   privacyHtml += '<td>';
-  privacyHtml += '<div id="privacy-feedback-info"><a class="link" target="_new" href="'+privacyRepUrl+'">View the full transpacency report</a></div>';
+  privacyHtml += '<div id="privacy-feedback-info"><a class="link" target="_new" href="'+privacyRepUrl+'">View the full transparency report</a></div>';
   privacyHtml += '<div id="privacy-total-label"><b>Total Score </b></div>';
   privacyHtml += '</td>';
   privacyHtml += '<td class="privacy-score-col"><span class="privacy-score-col-total">'+totScore+'</span></td>';
@@ -1109,17 +1107,6 @@ var toggleMap = function(){
   jQuery('#tr-list-ids').toggle();
 };
 
-var setAllowRecenter = function() {
-  if (allowRecenter) {
-    allowRecenter = false;
-    jQuery("#map-allow-recenter").removeClass("map-tool-on").addClass("map-tool-off");
-  } else {
-    allowRecenter = true;
-    jQuery("#map-allow-recenter").removeClass("map-tool-off").addClass("map-tool-on");
-  }
-  console.log('setAllowRecenter', allowRecenter);
-};
-
 var setShowNsa = function() {
   if (showNsa) {
     showNsa = false;
@@ -1161,11 +1148,11 @@ var setShowGoogle = function() {
 
 var setShowUc = function() {
   if (showUc) {
-    showUc= false;
+    showUc = false;
     removeGeoMarkers(4);
     jQuery("#map-show-uc").removeClass("map-tool-on").addClass("map-tool-off");
   } else {
-    showUc= true;
+    showUc = true;
     renderGeoMarkers(4);
     jQuery("#map-show-uc").removeClass("map-tool-off").addClass("map-tool-on");
   }
@@ -1174,11 +1161,11 @@ var setShowUc = function() {
 
 var setShowIXca = function() {
   if (showIXca) {
-    showIXca= false;
+    showIXca = false;
     removeGeoMarkers(5);
     jQuery("#map-show-IXca").removeClass("map-tool-on").addClass("map-tool-off");
   } else {
-    showIXca= true;
+    showIXca = true;
     renderGeoMarkers(5);
     jQuery("#map-show-IXca").removeClass("map-tool-off").addClass("map-tool-on");
   }
@@ -1187,11 +1174,11 @@ var setShowIXca = function() {
 
 var setShowCiraIPT = function() {
   if (showCiraIPT) {
-    showCiraIPT= false;
+    showCiraIPT = false;
     removeGeoMarkers(6);
     jQuery("#map-show-CiraIPT").removeClass("map-tool-on").addClass("map-tool-off");
   } else {
-    showCiraIPT= true;
+    showCiraIPT = true;
     renderGeoMarkers(6);
     jQuery("#map-show-CiraIPT").removeClass("map-tool-off").addClass("map-tool-on");
   }
@@ -1200,11 +1187,11 @@ var setShowCiraIPT = function() {
 
 var setShowAtt = function() {
   if (showAtt) {
-    showAtt= false;
+    showAtt = false;
     removeGeoMarkers(7);
     jQuery("#map-show-Att").removeClass("map-tool-on").addClass("map-tool-off");
   } else {
-    showAtt= true;
+    showAtt = true;
     renderGeoMarkers(7);
     jQuery("#map-show-Att").removeClass("map-tool-off").addClass("map-tool-on");
   }
@@ -1226,11 +1213,11 @@ var setShowVerizon = function() {
 
 var setShowGoogleTo = function() {
   if (showGoogleTO) {
-    showGoogleTO= false;
+    showGoogleTO = false;
     removeGeoMarkers(9);
     jQuery("#map-show-google-to").removeClass("map-tool-on").addClass("map-tool-off");
   } else {
-    showGoogleTO= true;
+    showGoogleTO = true;
     renderGeoMarkers(9);
     jQuery("#map-show-google-to").removeClass("map-tool-off").addClass("map-tool-on");
   }
@@ -1238,16 +1225,16 @@ var setShowGoogleTo = function() {
 };
 
 var setDefaultMapSettings = function() {
-  allowMultipleTrs= false;
+  allowMultipleTrs = false;
   jQuery("#map-allow-multiple").removeClass("map-tool-on").addClass("map-tool-off");
 
-  excludeReservedAS= false;
+  excludeReservedAS = false;
   jQuery("#map-exclude-d").removeClass("map-tool-on").addClass("map-tool-off");
 };
 
 var setAllowMultipleTrs = function() {
   if (allowMultipleTrs) {
-    allowMultipleTrs= false;
+    allowMultipleTrs = false;
     jQuery("#map-allow-multiple").removeClass("map-tool-on").addClass("map-tool-off");
     jQuery('#map-action-remove-all-but-this').hide();
   } else {
@@ -1255,7 +1242,36 @@ var setAllowMultipleTrs = function() {
     jQuery("#map-allow-multiple").removeClass("map-tool-off").addClass("map-tool-on");
     jQuery('#map-action-remove-all-but-this').show();
   }
-  console.log('setAllowMultipleTrs',allowMultipleTrs);
+};
+
+var setAllowRecenter = function() {
+  if (allowRecenter) {
+    allowRecenter = false;
+    jQuery("#map-allow-recenter").removeClass("map-tool-on").addClass("map-tool-off");
+  } else {
+    allowRecenter = true;
+    jQuery("#map-allow-recenter").removeClass("map-tool-off").addClass("map-tool-on");
+  }
+};
+
+var setOriginMarker = function() {
+  if (showOriginMarker) {
+    showOriginMarker = false;
+    jQuery("#map-origin-marker").removeClass("map-tool-on").addClass("map-tool-off");
+  } else {
+    showOriginMarker = true;
+    jQuery("#map-origin-marker").removeClass("map-tool-off").addClass("map-tool-on");
+  }
+};
+
+var setTerminationMarker = function() {
+  if (showTerminationMarker) {
+    showTerminationMarker = false;
+    jQuery("#map-termination-marker").removeClass("map-tool-on").addClass("map-tool-off");
+  } else {
+    showTerminationMarker = true;
+    jQuery("#map-termination-marker").removeClass("map-tool-off").addClass("map-tool-on");
+  }
 };
 
 var excludeA = function() {
