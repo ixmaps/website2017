@@ -74,7 +74,9 @@
           <li>Double click on <strong>IXmapsClient.app</strong> to launch</li>
         </ul>
 
-        <p>IXmapsClient for macOS is not signed with an Apple Developer ID and macOS [Gatekeeper](https://support.apple.com/HT202491) security settings will not allow it to be started. To bypass Gatekeeper one time for IXmapsClient, control-click or right-click on the <strong>IXmapsClient.app</strong> icon and choose <strong>Open</strong> from the context menu. Click the <strong>Open</strong> button to run launch the <strong>IXmapsClient.app</strong> application.</p>
+        <p>IXmapsClient for macOS is not signed with an Apple Developer ID and macOS <a href="https://support.apple.com/HT202491">Gatekeeper security settings</a> will not allow it to be started. To bypass Gatekeeper one time for IXmapsClient, control-click or right-click on the <strong>IXmapsClient.app</strong> icon and choose <strong>Open</strong> from the context menu. Click the <strong>Open</strong> button to run launch the <strong>IXmapsClient.app</strong> application.</p>
+
+        <p><b>If you have upgraded to OSX Catalina, you may experience further challenges getting the IXmapsClient to work correctly on your machine. You may need to approve multiple libraries in Settings - Security & Privacy. We are working to resolve this issue, please bare with us!</b></p>
 
         <p><strong>IXmapsClient</strong> needs to be executed in a terminal with administrator's privileges. For this reason, make sure to use an Administrator user account instead of a Standard user account when running <strong>IXmapsClient</strong>. When double clicking <strong>IXmapsClient.app</strong>, a new terminal window will be opened asking for the administrator's password; enter your admin password to proceed. The <strong>IXmapsClient</strong> interface should appear in your browser, or use your browser to go to http://localhost:2040/.</p>
 
