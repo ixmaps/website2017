@@ -77,7 +77,7 @@
 
         <ul class="nobullet">
           <li>Control-click or right-click on the <strong>IXmapsClient.app</strong> icon and choose <strong>Open</strong> from the context menu.</li>
-        <li>Click the <strong>Open</strong> button to run launch the <strong>IXmapsClient.app</strong> application.</ul>
+        <li>Click the <strong>Open</strong> button to launch the <strong>IXmapsClient.app</strong> application.</ul>
         </ul>
 
         <p>In future, you can simply</p>
