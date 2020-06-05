@@ -398,6 +398,12 @@ var submitQuery = function(arr) {
   // show text of query parameters to user
   outputSubmissionParametersToMap(arr);
 
+  // add the value from settings
+  var trCount = {
+    maxTrCount: jQuery('#search-result-count-limit').val()
+  }
+  arr.push(trCount);
+
   ajaxObj = jQuery.ajax(config.url_base + '/application/controller/map.php', {
     type: 'post',
     data: JSON.stringify(arr),

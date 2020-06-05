@@ -441,12 +441,16 @@ i.flag:not(.icon):before {
 }
 
 .settings.modal {
-  width: 475px;
-  margin-top: -230px !important; /* overwrite */
-  margin-left: -110px; /* overwrite */
+  width: 630px;
 }
 .settings.modal .setting-title {
   color: $grey;
+}
+.search-result-count-limit-label {
+  width: 150px;
+}
+#search-result-count-limit {
+  width: 120px;
 }
 
 .settings.modal .actions > .button {

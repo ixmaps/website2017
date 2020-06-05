@@ -1,6 +1,6 @@
 <div class="ui settings modal">
     <div class="header">
-        <h5 title="Click on buttons to adjust the way routes are displayed, to take effect following the next search">Map Settings</h5>
+        <h5 title="Click on buttons to adjust the way routes are displayed, to take effect following the next search">Settings</h5>
         <i><img id="settings-close-btn" class="ui image right floated" src="/_assets/img/icn-close.svg" alt=""></i>
     </div>
 
@@ -20,6 +20,12 @@
         <input id="map-exclude-b" class="map-tool-on" type="button" onMouseDown="excludeB()" value="Generic Locations"/>
         <input id="map-exclude-d" class="map-tool-on" type="button" onMouseDown="excludeD()" value="Reserved AS"/>
         <input id="map-exclude-e" class="map-tool-on" type="button" onMouseDown="excludeE()" value="User-flagged"/>
+      </div>
+
+      <div class="map-actions-controls">
+        <h4>Search</h4>
+        <div class="search-result-count-limit-label">Max traceroutes returned by search</div>
+        <input id="search-result-count-limit" type="number" value="100"/>
       </div>
 
       <div style="clear: both"></div>

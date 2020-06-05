@@ -8,7 +8,7 @@
                     <button id="add-all-trs-btn" class="ui compact transparent basic right floated yellow button" style="width: 90; margin-right: 10px;">Map All</button>
                 </div>
                 <div>
-                    <em>Displaying <span id="tr-count"></span> of a sample of <span id="tot-results"></span> search results</em>
+                    <em>Displaying <span id="tr-count"></span> of a sample of <span id="tot-results" class="link"></span> search results</em>
                     <button id="remove-all-trs-btn" class="ui compact transparent basic right floated yellow button" style="width: 90; margin-right: 10px;">Hide All</button>
                 </div>
             </div>

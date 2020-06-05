@@ -154,6 +154,9 @@ var setUpClickHandlers = function() {
   jQuery('.map-settings-button').click(function() {
     jQuery('.settings.modal').modal('show');
   });
+  jQuery('#tot-results').click(function() {
+    jQuery('.settings.modal').modal('show');
+  });
 
   /* Map help button */
   jQuery('#map-help-btn').click(function() {
