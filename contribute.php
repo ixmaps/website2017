@@ -86,7 +86,7 @@
           <li>Double click on <strong>IXmapsClient.app</strong> to launch</li>
         </ul>
 
-        <p><b>If you have upgraded to OSX Catalina, you may experience further challenges getting the IXmapsClient to work correctly on your machine. You may need to approve multiple libraries in Settings - Security & Privacy. We are working to resolve this issue, please bear with us!</b></p>
+        <p><b>If you have upgraded to OSX Catalina, you may experience further challenges getting the IXmapsClient to work correctly on your machine. It has been tested on Catalina and is confirmed to work, but you may need to approve multiple libraries in Settings - Security & Privacy. We are working to resolve this issue, please bear with us!</b></p>
 
         <p><strong>IXmapsClient</strong> needs to be executed in a terminal with administrator's privileges. For this reason, make sure to use an Administrator user account instead of a Standard user account when running <strong>IXmapsClient</strong>. When double clicking <strong>IXmapsClient.app</strong>, a new terminal window will be opened asking for the administrator's password; enter your admin password to proceed. The <strong>IXmapsClient</strong> interface should appear in your browser, or use your browser to go to http://localhost:2040/.</p>
 

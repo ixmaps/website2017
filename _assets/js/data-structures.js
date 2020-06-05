@@ -63,6 +63,10 @@ const constraints = [
         "display": "Destination hostname"
       },
       {
+        "value": "trId",
+        "display": "Traceroute id"
+      },
+      {
         "value": "city",
         "display": "City"
       },
@@ -93,10 +97,6 @@ const constraints = [
       {
         "value": "ISP",
         "display": "ISP/Carrier"
-      },
-      {
-        "value": "trId",
-        "display": "Traceroute id"
       }
     ]
   },
