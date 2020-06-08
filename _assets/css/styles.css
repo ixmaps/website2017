@@ -24258,7 +24258,6 @@ footer {
 }
 
 .results {
-	width: 500px;
 	z-index: 10;
 	overflow-y: scroll;
 	overflow-x: hidden;
@@ -24777,7 +24776,7 @@ i.flag:not(.icon):before {
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 65%;
+	width: 75%;
 	height: 100%;
 	text-align: center;
 }

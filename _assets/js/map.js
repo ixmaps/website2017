@@ -28,6 +28,7 @@ var init = function() {
 
   } else if (initMode == 2) { // search filters are passed to map page
     processPostedData(postedData);
+
   }
 
   createASRow("first"); // TODO: fix depending on initMode
@@ -151,8 +152,12 @@ var setUpClickHandlers = function() {
 
 
   /* Map Settings button */
-  jQuery('.map-settings-button').click(function() {
+  jQuery('.map-settings-button').click(function(ev) {
     jQuery('.settings.modal').modal('show');
+    // barf barf barf - fighting this awful CSS framework to the end...
+    setTimeout(function() {
+      jQuery('.map-settings-button').removeClass("active");
+    }, 100);
   });
   jQuery('#tot-results').click(function() {
     jQuery('.settings.modal').modal('show');

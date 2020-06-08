@@ -47,26 +47,26 @@
 
 
 // Layout of the Results Section
-.map-holder{
-  border-top:1px solid #ccc;
+.map-holder {
+  border-top: 1px solid #ccc;
   min-height: 70vh;
   display: flex;
   flex-direction: row-reverse;
 }
 
-.map-canvas{
+.map-canvas {
   flex: 1;
   margin: 0;
   height: 100%;
 }
 
-#map{
+#map {
   height: 100%;
   max-width: 100%;
 }
 
-.results{
-    width: 500px;
+.results {
+    // width: 500px;
     z-index: 10;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -84,8 +84,8 @@
   font-size: 24px;
   font-weight: 400;
   padding: $baseline 0;
-  & em{
-  font-size: 14px;
+  & em {
+    font-size: 14px;
   }
 }
 
@@ -131,13 +131,13 @@
     padding: 4px 8px;
     color: $grey;
   }
-  tr{
+  tr {
     line-height: 10px;
   }
 }
 
 .ui.compact.table tr.carrier td {
-    padding-left: 8px;
+  padding-left: 8px;
   &:first-child {
     padding-left: 16px;
     margin-left: 0;
@@ -154,7 +154,7 @@
   background: #eee;
 }
 
-.bell { background: maroon;}
+.bell { background: maroon; }
 .shaw { background: olive; }
 .rogers { background: teal; }
 
@@ -525,7 +525,7 @@ i.flag:not(.icon):before {
   position: absolute;
   top: 0;
   left: 0;
-  width: 65%;
+  width: 75%;
   height: 100%;
   text-align: center;
 }

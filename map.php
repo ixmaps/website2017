@@ -84,8 +84,8 @@
         <!-- GOOGLE MAPS -->
         <div class="map-canvas pusher">
             <div class="map-buttons-container">
-                <button class="ui toggle button">
-                    <span class="map-settings-button">SETTINGS</span>
+                <button class="ui toggle button map-settings-button">
+                    <span>SETTINGS</span>
                 </button>
                 <br />
                 <button class="layers-toggle ui toggle button">
