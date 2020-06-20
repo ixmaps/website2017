@@ -154,7 +154,7 @@ var setUpClickHandlers = function() {
   /* Map Settings button */
   jQuery('.map-settings-button').click(function(ev) {
     jQuery('.settings.modal').modal('show');
-    // barf barf barf - fighting this awful CSS framework to the end...
+    // barf barf barf - fighting this awful CSS framework to the end...``
     setTimeout(function() {
       jQuery('.map-settings-button').removeClass("active");
     }, 100);
