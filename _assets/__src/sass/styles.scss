@@ -62,3 +62,9 @@ article {
 hr {
     clear: both;
 }
+
+.sortable { cursor: pointer !important; }
+.ascending i,.descending i { padding-left: 4px; }
+.ascending i:before { content: '\25B2'; }
+.descending i:before { content: '\25BC'; }
+.dataTables_filter { float: right; }
