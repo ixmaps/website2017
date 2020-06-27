@@ -29,7 +29,7 @@ var populateTrsetsContainer = function(trsetsData) {
         jQuery('<td />').text(t.url),
         jQuery('<td />').text(t.category),
         jQuery('<td />').text(t.target_notes),
-        jQuery('<td />').text(t.reachable ? "True" : "False")
+        jQuery('<td />').text(t.reachable == "t" ? "Yes" : "No")
       )
     );
   });
