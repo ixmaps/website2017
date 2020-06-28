@@ -7,12 +7,13 @@ var getTrsets = function() {
 
   jQuery.ajax(config.url_base + '/application/controller/trsets.php', {
     type: 'post',
-    data: obj,
-    success: function (e) {
-      trsetsData = jQuery.parseJSON(e);
-      populateTrsetsContainer(trsetsData);
+    data: JSON.stringify(obj),
+    dataType: "json",
+    success: function(data) {
+      // trsetsData = jQuery.parseJSON(e);
+      populateTrsetsContainer(data);
     },
-    error: function (e) {
+    error: function(e) {
       console.log("Error! getTrsets", e);
     }
   });

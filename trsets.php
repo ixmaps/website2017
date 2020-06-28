@@ -27,7 +27,7 @@
     </div>
 </header>
 
-<div class="content">
+<div class="content" style="max-width: none;">
     <div id="trset-container">
           <table class="ui tablesorter selectable table">
               <thead>
