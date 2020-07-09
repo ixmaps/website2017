@@ -1023,7 +1023,7 @@ var viewTrDetails = function(trId) {
       jQuery('<td />').text(metadata['origin_country'] ? metadata['origin_country'] : "")
     ),
     jQuery('<tr />').append(
-      jQuery('<td />').text("Terminator").css("font-weight", "bold"),
+      jQuery('<td />').text("Last hop").css("font-weight", "bold"),
       jQuery('<td />').text(metadata['last_hop_asnum'] ? metadata['last_hop_asnum'] : ""),
       jQuery('<td />').text(metadata['last_hop_asname'] ? metadata['last_hop_asname'] : ""),
       jQuery('<td />').text(metadata['last_hop_city'] ? metadata['last_hop_city'] : ""),

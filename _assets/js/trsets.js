@@ -10,7 +10,6 @@ var getTrsets = function() {
     data: JSON.stringify(obj),
     dataType: "json",
     success: function(data) {
-      // trsetsData = jQuery.parseJSON(e);
       populateTrsetsContainer(data);
     },
     error: function(e) {
