@@ -19,7 +19,7 @@
 
 <article>
     <h2>Contributing to the IXmaps database anonymously</h2>
-    <p>IXmaps relies on voluntary contributions of anonymized traceroute data. We invite you to join over 600 other contributors who have helped to grow the database to well over 170,000 traceroutes. The more distinct the originating points, in terms of both city and ISP, and the more varied the destination targets, the better able we are to display interesting internet routings.</p>
+    <p>IXmaps relies on voluntary contributions of anonymized traceroute data. We invite you to join over 1000 other contributors who have helped to grow the database to well over 500,000 traceroutes. The more distinct the originating points, in terms of both city and ISP, and the more varied the destination targets, the better able we are to display interesting internet routings.</p>
 
     <p>Contributing data involves installing traceroute generating software built by the IXmaps development team. It initiates traceroute requests from your location either at batches of pre-selected target sites, or at individual hostnames (like URLs) of your choosing. You can view the traceroutes you and others have contributed via the <a href="map.php" class="link">Map page.</a></p>
 
@@ -27,82 +27,60 @@
 
     <p>You should be aware that in order to work effectively, the traceroute generation software needs access to low-level (e.g. "socket layer") functions of your computer. Read carefully the ReadMe document that comes with the download package before installing and running the software. See our Privacy page, for more on how we anonymize your IP address and protect your privacy.</p>
 
+    <h3>Deprecation warning</h3>
+    <p>On August 9th, 2020, we realized version 1.1.1 of the IXmapsClient. Version 1.0.6 is deprecated and will cease to work with our system within the month</p>
+
     <h3>Installing and running the IXmaps Client</h3>
 
     <p>IXmapsClient works on <strong>Windows</strong>, <strong>Mac OS X</strong>, and <strong>Linux</strong>.</p>
 
-        <h5>Windows</h5><a class="dl-btn" href="https://www.ixmaps.ca/IXmapsClient/IXmapsClient.1.0.6.win64.exe">Download</a>
+        <h5>Windows</h5><a class="dl-btn" href="https://www.ixmaps.ca/IXmapsClient/IXmapsClient.1.1.1.win64.exe">Download</a>
         <div style="clear:both"></div>
-        This version of the software runs on Windows 7, Windows 8 and Windows 10.
+        This version of the software runs on Windows 10.
         <ul class="nobullet">
-          <li><a href="https://www.ixmaps.ca/IXmapsClient/IXmapsClient.1.0.6.win64.exe">Download the <strong>IXmapsClient</strong> installer IXmapsClient.1.0.6.win64.exe</a></li>
-          <li>Double click on <strong>IXmapsClient.1.0.6.win64.exe</strong> and install the application in the directory <strong>C:\IXmapsClient</strong></li>
+          <li><a href="https://www.ixmaps.ca/IXmapsClient/IXmapsClient.1.1.1.win64.exe">Download the <strong>IXmapsClient</strong> installer IXmapsClient.1.1.1.win64.exe</a></li>
+          <li>Double click on <strong>IXmapsClient.1.1.1.win64.exe</strong> and install the application in the directory <strong>C:\IXmapsClient</strong></li>
           <li>Copy the <strong>IXmapsClient-Shortcut</strong> to your Desktop</li>
-          <li>In order to allow the <strong>IXmapsClient</strong> to run properly, you may need to authorize <strong>Windows Firewall</strong> to allow inbound connections. For a detailed guide on how to change these settings, see section on <strong>Changing Windows Firewall Settings</strong></li>
+          <li>In order to allow the <strong>IXmapsClient</strong> to run properly, you may need to authorize <strong>Windows Firewall</strong> to allow inbound connections. For a detailed guide on how to change these settings, see the included README file</li>
           <li>Double click on <strong>IXmapsClient-Shortcut</strong> to launch</li>
         </ul>
-        <strong>IXmapsClient</strong> needs to be executed in a terminal with administrator's privileges. For this reason, when double clicking <strong>IXmapsClient-Shortcut</strong>, a new terminal window will be opened asking permission to run the application as an administrator; enter your admin password to proceed. The <strong>IXmapsClient</strong> interface should appear in your browser, or use your browser to go http://localhost:2040/.</p>
-
-        <strong>Changing Windows Firewall Settings</strong>
-        <p>In order to allow the <strong>IXmapsClient</strong> to collect traceroute data, Windows users may have to change the configuration of the <strong>Windows Firewall</strong>, which by default prevents the PC from receiving inbound connections. To change these default settings follow these steps:</p>
-        <ul class="nobullet">
-          <li>In <strong>Control Panel</strong>, open the <strong>Windows Firewall</strong> application and click on Advance Settings</li>
-          <li>Click on <strong>Windows Firewall Properties</strong></li>
-          <li>Click on the tab <strong>Private Profile</strong> and in the section <strong>Inbound Connections</strong>, select the option <strong>Allow</strong> from the dropdown menu</li>
-          <li>Click on the tab <strong>Public Profile</strong> and in the section <strong>Inbound Connections</strong>, select the option <strong>Allow</strong> from the dropdown menu</li>
-          <li>Finally, click the button <strong>Apply</strong> and close the <strong>Windows Firewall</strong></li>
-          <!-- TODO: update this link -->
-          <li>More detailed instructions are <a href="https://docs.microsoft.com/en-us/intune/deploy-use/help-protect-windows-pcs-using-windows-firewall-policies-in-microsoft-intune" target="_blank">available here</a></li>
-          <li>Note: We advise that you reset your default firewall settings once you have completed traceroute collection.</li>
-        </ul>
+        <strong>IXmapsClient</strong> needs to be executed in a terminal with administrator's privileges. For this reason, when double clicking <strong>IXmapsClient-Shortcut</strong>, a new terminal window will be opened asking permission to run the application as an administrator; you may need to enter your admin password to proceed. The <strong>IXmapsClient</strong> interface should appear in your browser, or use your browser to go http://localhost:2040/.</p>
 
         <strong>Removing IXmapsClient</strong>
         <ul class="nobullet">
-          <li>Delete the <strong>C:\IXmapsClient</strong> directory</li>
-          <li>Delete the <strong>IXmapsClient-Shortcut</strong> from your <strong>Desktop</strong></li>
-          <li>This will completely remove the <strong>IXmapsClient</strong> from your computer.</li>
+          <li>Run <strong>C:\IXmapsClient\unins000.exe</strong> to completely remove <strong>IXmapsClient</strong> from your machine</li>
         </ul>
 
         <br />
 
-        <h5>Mac OSX</h5><a class="dl-btn" href="https://www.ixmaps.ca/IXmapsClient/IXmapsClient_v.1.0.6.macos.dmg">Download</a>
+        <h5>Mac OSX</h5><a class="dl-btn" href="https://www.ixmaps.ca/IXmapsClient/IXmapsClient.1.1.1.macos.dmg">Download</a>
         <div style="clear:both"></div>
         <ul class="nobullet">
-          <li><a href="https://www.ixmaps.ca/IXmapsClient/IXmapsClient_v.1.0.6.macos.dmg">Download the <strong>IXmapsClient</strong> installer <strong>IXmapsClient_v.1.0.6.macos.dmg</strong></a></li>
-          <li>Double click on the <strong>IXmapsClient.1.0.6.macos.dmg</strong> to open it</li>
+          <li><a href="https://www.ixmaps.ca/IXmapsClient/IXmapsClient.1.1.1.macos.dmg">Download the <strong>IXmapsClient</strong> installer <strong>IXmapsClient.1.1.1.macos.dmg</strong></a></li>
+          <li>Double click on the <strong>IXmapsClient.1.1.1.macos.dmg</strong> to open it</li>
           <li>Drag the <strong>IXmapsClient.app</strong> application to your <strong>Applications</strong> folder</li>
-        </ul>
-
-        <p>IXmapsClient for macOS is not signed with an Apple Developer ID and macOS <a href="https://support.apple.com/HT202491">Gatekeeper security settings</a> will not allow it to be started. To bypass Gatekeeper one time for IXmapsClient
-
-        <ul class="nobullet">
-          <li>Control-click or right-click on the <strong>IXmapsClient.app</strong> icon and choose <strong>Open</strong> from the context menu.</li>
-        <li>Click the <strong>Open</strong> button to launch the <strong>IXmapsClient.app</strong> application.</ul>
-        </ul>
-
-        <p>In future, you can simply</p>
-
-        <ul class="nobullet">
           <li>Double click on <strong>IXmapsClient.app</strong> to launch</li>
         </ul>
 
-        <p><b>If you have upgraded to OSX Catalina, you may experience further challenges getting the IXmapsClient to work correctly on your machine. It has been tested on Catalina and is confirmed to work, but you may need to approve multiple libraries in Settings - Security & Privacy. We are working to resolve this issue, please bear with us!</b></p>
+        <p>IXmapsClient for macOS is not signed with an Apple Developer ID and macOS <a href="https://support.apple.com/HT202491">Gatekeeper security settings</a> will not allow it to be started. To bypass Gatekeeper one time for IXmapsClient, control-click or right-click on the <strong>IXmapsClient.app</strong> icon and choose <strong>Open</strong> from the context menu.</p>
 
-        <p><strong>IXmapsClient</strong> needs to be executed in a terminal with administrator's privileges. For this reason, make sure to use an Administrator user account instead of a Standard user account when running <strong>IXmapsClient</strong>. When double clicking <strong>IXmapsClient.app</strong>, a new terminal window will be opened asking for the administrator's password; enter your admin password to proceed. The <strong>IXmapsClient</strong> interface should appear in your browser, or use your browser to go to http://localhost:2040/.</p>
+        <p><strong>If you have upgraded to OSX Catalina, you may experience further challenges getting the IXmapsClient to work correctly on your machine. It has been tested on Catalina and is confirmed to work, but you may need to approve multiple libraries in Settings - Security & Privacy. We are working to resolve this issue, please bear with us!</strong></p>
+
+        <p><strong>IXmapsClient</strong> needs to be executed in a terminal with administrator's privileges. For this reason, make sure to use an Administrator user account instead of a Standard user account when running <strong>IXmapsClient</strong>. When double clicking <strong>IXmapsClient.app</strong>, a new terminal window will be opened asking for the administrator's password; you may need to enter your admin password to proceed. The <strong>IXmapsClient</strong> interface should appear in your browser, or use your browser to go to http://localhost:2040/.</p>
 
         <strong>Removing IXmapsClient</strong>
         <p>Move the <strong>IXmapsClient.app</strong> application from your <strong>Applications</strong> folder to the Trash. Emptying the trash will completely remove the IXmaps Client from your computer</p>
 
         <br />
 
-        <h5>Linux</h5><a class="dl-btn" href="https://www.ixmaps.ca/IXmapsClient/IXmapsClient.1.0.6.linux.tar.gz">Download</a>
+        <h5>Linux</h5><a class="dl-btn" href="https://www.ixmaps.ca/IXmapsClient/IXmapsClient.1.1.1.linux.tar.gz">Download</a>
         <div style="clear:both"></div>
         <ul class="nobullet">
-          <li><a href="https://www.ixmaps.ca/IXmapsClient/IXmapsClient.1.0.6.linux.tar.gz">Download the <strong>IXmapsClient</strong> installer <strong>IXmapsClient.1.0.6.linux.tar.gz</strong></a></li>
-          <li>Extract the contents of the file <strong>IXmapsClient.1.0.6.linux.tar.gz</strong>, e.g. by running the following command in a terminal window: tar xzvf IXmapsClient.1.0.6.linux.tar.gz</li>
-          <li>Run <strong>start.sh</strong> to launch</li>
+          <li><a href="https://www.ixmaps.ca/IXmapsClient/IXmapsClient.1.1.1.linux.tar.gz">Download the <strong>IXmapsClient</strong> installer <strong>IXmapsClient.1.1.1.linux.tar.gz</strong></a></li>
+          <li>Extract the contents of the file <strong>IXmapsClient.1.0.6.linux.tar.gz</strong>, e.g. with the Linux Archive Manager or by running the following command in a terminal window: <strong>tar xzvf IXmapsClient.1.1.1.linux.tar.gz</strong></li>
+          <li>Run <strong>./start.sh</strong> in the terminal to launch the application</li>
         </ul>
-        <p><strong>IXmapsClient</strong> needs to be executed in a terminal with administrator's privileges. For this reason, when executing <strong>IXmapsClient</strong>, a new terminal window will be opened asking for the administrator's password; enter your admin password to proceed. The <strong>IXmapsClient</strong> interface should then be shown in a new browser window, or use your browser to go http://localhost:2040/.</p>
+        <p><strong>IXmapsClient</strong> needs to be executed in a terminal with administrator's privileges. For this reason, when executing <strong>IXmapsClient</strong>, a new terminal window will be opened asking for the administrator's password; you may be required to enter your admin password to proceed. The <strong>IXmapsClient</strong> interface should then be shown in a new browser window, or use your browser to go http://localhost:2040/.</p>
 
         <strong>Removing IXmapsClient</strong>
         <p>Delete the <strong>IXmapsClient</strong> folder. In a Linux terminal window, navigate to the directory where <strong>IXmapsClient</strong> resides, then you run the following command:
