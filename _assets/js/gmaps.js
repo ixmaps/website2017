@@ -719,7 +719,7 @@ var saveIpFlag = function() {
     ip_new_loc: getPar('ip_new_loc')
   };
 
-  jQuery.ajax(config.url_base + '/application/controller/ipFlag.php', {
+  jQuery.ajax(config.url_base + '/application/controller/ip_flag.php', {
     type: 'post',
     data: obj,
     success: function (e) {
@@ -756,7 +756,7 @@ var getIpFlags = function(openFlagWin) {
     ip_addr_f:activeIpFlag
   };
 
-  jQuery.ajax(config.url_base + '/application/controller/ipFlag.php', {
+  jQuery.ajax(config.url_base + '/application/controller/ip_flag.php', {
     type: 'post',
     data: obj,
     success: function (e) {
@@ -1023,7 +1023,7 @@ var viewTrDetails = function(trId) {
       jQuery('<td />').text(metadata['origin_country'] ? metadata['origin_country'] : "")
     ),
     jQuery('<tr />').append(
-      jQuery('<td />').text("Terminator").css("font-weight", "bold"),
+      jQuery('<td />').text("Last hop").css("font-weight", "bold"),
       jQuery('<td />').text(metadata['last_hop_asnum'] ? metadata['last_hop_asnum'] : ""),
       jQuery('<td />').text(metadata['last_hop_asname'] ? metadata['last_hop_asname'] : ""),
       jQuery('<td />').text(metadata['last_hop_city'] ? metadata['last_hop_city'] : ""),
@@ -1486,7 +1486,7 @@ var getPrivacyReport = function() {
     action: 'getPrivacyReport'
   };
 
-  jQuery.ajax(config.url_base + '/application/controller/privacyReport.php', {
+  jQuery.ajax(config.url_base + '/application/controller/privacy_report.php', {
     type: 'post',
     data: obj,
     success: function (e) {

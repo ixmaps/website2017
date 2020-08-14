@@ -719,7 +719,7 @@ var saveIpFlag = function() {
     ip_new_loc: getPar('ip_new_loc')
   };
 
-  jQuery.ajax(config.url_base + '/application/controller/ipFlag.php', {
+  jQuery.ajax(config.url_base + '/application/controller/ip_flag.php', {
     type: 'post',
     data: obj,
     success: function (e) {
@@ -756,7 +756,7 @@ var getIpFlags = function(openFlagWin) {
     ip_addr_f:activeIpFlag
   };
 
-  jQuery.ajax(config.url_base + '/application/controller/ipFlag.php', {
+  jQuery.ajax(config.url_base + '/application/controller/ip_flag.php', {
     type: 'post',
     data: obj,
     success: function (e) {
@@ -1486,7 +1486,7 @@ var getPrivacyReport = function() {
     action: 'getPrivacyReport'
   };
 
-  jQuery.ajax(config.url_base + '/application/controller/privacyReport.php', {
+  jQuery.ajax(config.url_base + '/application/controller/privacy_report.php', {
     type: 'post',
     data: obj,
     success: function (e) {
