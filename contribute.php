@@ -27,8 +27,8 @@
 
     <p>You should be aware that in order to work effectively, the traceroute generation software needs access to low-level (e.g. "socket layer") functions of your computer. Read carefully the ReadMe document that comes with the download package before installing and running the software. See our Privacy page, for more on how we anonymize your IP address and protect your privacy.</p>
 
-    <h3>Deprecation warning</h3>
-    <p>On August 9th, 2020, we released version 1.1.1 of the IXmapsClient. Version 1.0.6 is deprecated and will cease to work with our system within the month.</p>
+    <h3>Update</h3>
+    <p>As of August 30th, 2020, IXmapsClient version 1.0.6 will no longer function correctly. Please download IXmapsClient 1.1.1 to continue to contribute to this project.</p>
 
     <h3>Installing and running the IXmaps Client</h3>
 
