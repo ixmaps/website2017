@@ -199,7 +199,7 @@ var constructBS = function() {
     if (jQuery(el).val() != "") {
 
       var constraint2 = "";
-      if(jQuery(el).data('constraint') == "destHostName" ){
+      if(jQuery(el).data('constraint') == "destHostname" ){
         constraint2 = "contain";
       } else {
         constraint2 = "terminate";

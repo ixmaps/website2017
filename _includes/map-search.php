@@ -79,7 +79,7 @@
             <div class="basic input-holder">
                 <a class="from basic-srch-itm" data-position="bottom left">
                     <div class="input-summary">
-                        <div class="label">From</div>
+                        <div class="label">FROM</div>
                         <div>
                             –––
                             <i class="ui image right floated">
@@ -166,7 +166,7 @@
                     <div class="ui inverted form">
                         <div class="inline field">
                             <label>Website</label>
-                            <input class="bs-input" data-constraint="destHostName" type="text" placeholder="Website">
+                            <input class="bs-input" data-constraint="destHostname" type="text" placeholder="Website">
                         </div>
                         <div class="inline field">
                             <label>ISP</label>

@@ -68,7 +68,7 @@ var getMyLocation = function() {
       // }
     },
     error: function (e) {
-      console.log("Error! getMyLocation data can't be loaded", e);
+      console.log("Error! getMyLocation data can't be loaded", e["responseText"]);
     }
   });
 
