@@ -308,6 +308,13 @@ var populateBSFieldsForSearch = function(sub) {
 }
 
 var createASRow = function(row, submittedConstraint) {
+  jQuery('#as-search-container').unbind('keypress');
+  jQuery('#as-search-container').on('keypress', 'input', function(args) {
+    if (args.keyCode == 13) {
+      jQuery('#as-submit-btn').click();
+    }
+  });
+
   var inputHolderEl = jQuery('<div/>');
   inputHolderEl.addClass('advanced input-holder');
 
