@@ -451,7 +451,7 @@ var submitQuery = function(arr) {
       errText = "Search timed out. Try a simpler query";
       showResponseErrors(errText);
     },
-    timeout: 60000
+    timeout: 120000
   });
 };
 
