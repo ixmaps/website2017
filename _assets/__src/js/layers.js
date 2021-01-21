@@ -34,7 +34,7 @@ var populateLayersContainer = function() {
 };
 
 var setDefaultLayers = function() {
-  layers['nsa'].active = true;
+  // layers['nsa'].active = true;
 };
 
 var renderLayers = function() {
