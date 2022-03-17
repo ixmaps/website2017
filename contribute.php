@@ -18,9 +18,6 @@
 <div class="content">
 
 <article>
-    <h2>Current status</h2>
-    <p>Mar 17th, 2022: we are experiencing technical issues with the IXmapsClient. Users will not be able to contribute traceroutes with it until further notice. We encourage you to check out previously submitted traceroutes on the <a href="map.php" class="link">Map page.</a></p>
-
     <h2>Contributing to the IXmaps database anonymously</h2>
     <p>IXmaps relies on voluntary contributions of anonymized traceroute data. We invite you to join over 1000 other contributors who have helped to grow the database to well over 500,000 traceroutes. The more distinct the originating points, in terms of both city and ISP, and the more varied the destination targets, the better able we are to display interesting internet routings.</p>
 
