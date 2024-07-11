@@ -267,7 +267,7 @@ var setUpClickHandlers = function() {
     jQuery('#as-tab-container').show();
   });
 
-  jQuery('table').tablesorter({});
+  // jQuery('table').tablesorter();
   jQuery('.ui.rating').rating('disable');
 
   jQuery('#settings-modal').click(function(){
@@ -339,11 +339,6 @@ var cancelQuery = function() {
     ajaxObj.abort();
     console.log("Query submission has been canceled.");
   }
-};
-
-var setTableSorters = function(){
-  console.log('Sorting TR Tables');
-  jQuery('#traceroutes-results-table').tablesorter( {sortList: [[2,1]]} );
 };
 
 var loadAutocompleteData = function(type) {

@@ -102,32 +102,12 @@ var initializeMap = function() {
   map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
   // moved here from map.js - layers relies on the google object existing
-  getLayers();
-  populateLayersContainer();
+  // if condition to prevent duplicating values on each search (while still keeping the selected layer(s))
+  if ($('#layers-container a').length == 0) {
+    getLayers();
+    populateLayersContainer();
+  }
 };
-
-// var addCollectedCoord = function(lat1, long1){
-//   var c = new google.maps.LatLng(lat1, long1);
-//   coordCollected.push(c);
-//   renderCollectedCoords();
-
-//   if (coordCollected.length == 2) {
-//     // using goolge maps API to calculate distance between coordinates
-//     var latLngA = coordCollected[0];
-//     var latLngB = coordCollected[1];
-//     var gmDist = google.maps.geometry.spherical.computeDistanceBetween (latLngA, latLngB);
-//     gmDist=gmDist/1000;
-//     console.log('gmDist: ', gmDist);
-
-//   } else if (coordCollected.length>2) {
-//     // remove origin markers, if any
-//     for (m in coordCollectedObj) {
-//       coordCollectedObj[m].setMap(null);
-//     }
-//     coordCollected.length = 0;
-//     coordCollectedObj.length = 0;
-//   }
-// };
 
 var renderCollectedCoords = function() {
   jQuery.each(coordCollected, function(key,value) {
@@ -156,7 +136,6 @@ var loadMapData = function() {
     // show the last route (ie the one with the highest trid)
     showThisTr(_.last(_.keys(ixmapsDataJson)));
     renderLayers();
-    // setTableSorters();
     console.log('IXmaps geographic data downloaded! [TRs: '+totTRs+']');
   }, 300);
 
@@ -986,10 +965,7 @@ var buildTrSummaryTable = function() {
 
   });
 
-  // update this library - it's old and broken. Console error will be generated on clicking on the sorting arrows in the table. Only happens if we build the table like this. Can't waste any more time on this, as it's not breaking. Update library before proceeding
-  setTimeout(function(){
-     jQuery('#traceroutes-results-table').tablesorter();
-  }, 5000);
+  jQuery('#traceroutes-results-table').tablesorter();
 };
 
 var viewTrDetails = function(trId) {

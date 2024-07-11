@@ -54,7 +54,8 @@ Website pages are in `/`. Global header, nav, and footer as well as page-specifi
 `_assets/__build` and `_assets/__src` directories work in tandem to generate the content for the front-end asset directories. Assets ideally **should not** be added to the core `_assets` subdirectories, but instead should be added to `_assets/__src` in order to be included in the build process resulting in optimized and/or combined files for better deployment.
 
 In most cases, whatever is included in the subdirectories of `_assets/__src` will be replicated in the core `_assets` subdirectories (i.e., subdirectories will be retained and created in the destination). Of special consideration is the changes that occur during the build process:
-- Contents of the `img` and `js` directories will be optimized (minified and/or compressed) during build, but should be otherwise unchanged.
+
+- Contents of the `img` and `js` directories will be optimized (minified and/or compressed) during build, but should be otherwise unchanged
 - Styles that end up in the `scss` directory are written in Sass and located in `__src/sass`, and compiled to CSS during build. The grunt build process also includes some elements of cross-browser compatibility by running the Autoprefixer task against the generated stylesheets. This uses the list of browsers from the `_assets/__build/browserlist` file to determine what additional styles can be automatically added to increase browser version compatibility. For more information on the list of browsers, please see [https://github.com/ai/browserslist](https://github.com/ai/browserslist)
 
 Directories that begin with two underscores (e.g., `__src`) are for development and **do not need to be deployed to the live site**.
@@ -99,7 +100,8 @@ You'll need to use the example config to avoid errors:
 ```
 $ sudo cp config.example.json config.json
 ```
-(note that you'll need to modify the config.json to include eg the Google Maps API key
+
+(note that you'll need to modify the config.json to include eg the Google Maps API key)
 
 The **first time** you should install all the packages used:
 
@@ -126,6 +128,7 @@ $ grunt phpwatch
 Note: running `grunt --help` will give a list of these tasks, but will also include the subtasks that make them up, the use of which may have unexpected results and is not recommended unless you really know what you're doing.
 
 An example development workflow:
+
 1. run `grunt build` in the `__build` directory
 1. make changes in the `__src` folder in your preferred text editor
 1. run `grunt phpwatch` to can see a live preview
@@ -136,10 +139,9 @@ Please commit to `master` only (prod should be locked). Master will act as the s
 
 Issues lifecycle is fairly hands off - start your own issues, close your own issues, complete and close other's issues (with encouragement to reopen) are all acceptable practices. If resolving another user's more complex issue, preferred practice is to @mention the issuer to request closure if uncertain
 
-
 ## License
-Copyright (C) 2022 IXmaps.
+
+Copyright (C) 2024 IXmaps.
 This website and the repository [github.com/ixmaps/website2017](https://github.com/ixmaps/webite2017) are licensed under a GNU AGPL v3.0 license. This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
 
 These files are distributed in the hope that they will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details [gnu.org/licenses](https://gnu.org/licenses/agpl.html).
-

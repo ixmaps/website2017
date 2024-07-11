@@ -6,7 +6,6 @@
     <?php include '_includes/global-head.php'; ?>
 
     <script src="_assets/js/tablesorter.min.js" type="text/javascript"></script>
-    <script src="_assets/js/prototype.min.js" type="text/javascript"></script>
     <script src="_assets/js/jquery.ui.core.min.js" type="text/javascript" ></script>
     <script src="_assets/js/jquery.ui.widget.min.js" type="text/javascript"></script>
     <script src="_assets/js/jquery.ui.position.min.js" type="text/javascript" ></script>
