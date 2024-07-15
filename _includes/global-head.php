@@ -27,7 +27,7 @@
 <script src="/config.json" type="text/javascript"></script>
 
 <!-- Matomo -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   verifyConfig(config, requiredConfig);
 
   if (config.env == "prod") {
@@ -44,5 +44,5 @@
     })();
   }
 </script>
-<noscript><p><img src="//dev.ixmaps.ca/piwik/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+<noscript><p><img src="//dev.ixmaps.ca/piwik/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript> -->
 <!-- End Matomo Code -->
