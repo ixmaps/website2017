@@ -18,6 +18,10 @@
 <div class="content">
 
 <article>
+    <h4 style="background-color: lightyellow; padding: 15px;">Our IXmapsClient contribution tool is experiencing some issues at the moment. You may not be able to successfully submit new routes until these issues are resolved. Thank you for your understanding.
+    <br/><br/>  
+    In the meantime, you might want to check out the <a href="https://d3i5ru2umva58b.cloudfront.net/" class"link" target="blank">Canadian Traceroute Database (CTRD)</a> being developed by <a href="https://www.cira.ca/" class="link" target="blank">CIRA</a> based on IXmaps.</h4>
+
     <h2>Contributing to the IXmaps database anonymously</h2>
     <p>IXmaps relies on voluntary contributions of anonymized traceroute data. We invite you to join over 1000 other contributors who have helped to grow the database to well over 500,000 traceroutes. The more distinct the originating points, in terms of both city and ISP, and the more varied the destination targets, the better able we are to display interesting internet routings.</p>
 
